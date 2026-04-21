@@ -1,0 +1,1632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS — Productivity Suite</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-navy:#0A0F1C;--lx-white:#FFF;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-bdr2:rgba(13,13,13,.12);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;--r-xs:6px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-md:0 6px 24px rgba(0,0,0,.08);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-ghost{font-family:'Bebas Neue',serif;font-size:110px;line-height:.85;color:rgba(0,0,0,.025);user-select:none;pointer-events:none;position:absolute;right:-4px;bottom:-16px}.lx-ghost.inv{color:rgba(255,255,255,.04)}
+.lx-cxl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lx-cmd{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.lx-csm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-b{font-size:13px;line-height:1.55}.lx-bsm{font-size:11px;line-height:1.5}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:200}
+.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}.lx-tlogo span{color:var(--lx-pink)}
+.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
+.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}.lx-tbadge.pink{background:var(--lx-pink);color:#fff}.lx-tbadge.cyan{background:var(--lx-cyan);color:var(--lx-black)}.lx-tbadge.or{background:var(--lx-orange);color:#fff}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan));margin:0 10px;border-radius:0 0 4px 4px}
+.lx-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(54px,auto);gap:10px;padding:12px 10px}
+.lx-s4{grid-column:span 4}.lx-s6{grid-column:span 6}.lx-s8{grid-column:span 8}.lx-s12{grid-column:span 12}
+.lx-card{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:20px;position:relative;overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.lx-card:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.lx-card.tl{border-radius:var(--r-xl) var(--r-md) var(--r-md) var(--r-md)}.lx-card.tr{border-radius:var(--r-md) var(--r-xl) var(--r-md) var(--r-md)}.lx-card.pbot{border-radius:var(--r-md) var(--r-md) var(--r-xl) var(--r-xl)}
+.lx-card.dark{background:var(--lx-black);color:var(--lx-offwhite);border-color:rgba(255,255,255,.06)}.lx-card.yellow{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}
+.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.1)}
+.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}.lx-chip.scy{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}.lx-chip.sbk{background:var(--lx-black);color:var(--lx-offwhite);border-color:transparent}
+.lx-sh{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:2px solid var(--lx-tx)}.lx-sh.pk{border-bottom-color:var(--lx-pink);color:var(--lx-pink)}.lx-sh.cy{border-bottom-color:var(--lx-cyan);color:var(--lx-cyan)}.lx-sh.yw{border-bottom-color:var(--lx-yellow);color:#7a9900}.lx-sh.or{border-bottom-color:var(--lx-orange);color:var(--lx-orange)}.lx-sh.bl{border-bottom-color:var(--lx-blue);color:var(--lx-blue)}.lx-sh.pu{border-bottom-color:var(--lx-purple);color:var(--lx-purple)}
+.lx-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;background:var(--lx-card);border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--lx-bdr)}
+.lx-tbl th{padding:7px 10px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);background:var(--lx-cream);border-bottom:1px solid var(--lx-bdr)}
+.lx-tbl td{padding:7px 10px;border-bottom:1px solid rgba(0,0,0,.03);vertical-align:top}.lx-tbl tr:last-child td{border-bottom:none}.lx-tbl tr:hover td{background:rgba(255,45,125,.015)}.lx-tb{font-weight:700}
+.lx-al{border-radius:var(--r-sm);padding:14px 16px;border-left:4px solid;display:flex;gap:12px;align-items:flex-start}.lx-al.inf{background:rgba(0,212,255,.06);border-left-color:var(--lx-cyan)}.lx-al.wrn{background:rgba(255,102,0,.07);border-left-color:var(--lx-orange)}.lx-al.dng{background:rgba(255,45,125,.07);border-left-color:var(--lx-pink)}
+.lx-at{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}.lx-ab{font-size:11px;color:var(--lx-txm);line-height:1.55}
+.lx-div{height:1px;background:var(--lx-bdr);margin:16px 0}
+.lx-ir{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:12px;flex-wrap:wrap;gap:4px}.lx-ir:last-child{border-bottom:none}.lx-ik{color:var(--lx-txm);font-size:11px}.lx-iv{font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-pink);line-height:1}.lx-iv.n{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--lx-tx)}
+.lx-tabs{background:var(--lx-black);border:2px solid var(--lx-black);border-radius:var(--r-md);padding:6px;display:flex;gap:4px;flex-wrap:wrap}
+.lx-tab{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:10px 18px;border:2px solid transparent;background:transparent;border-radius:var(--r-sm);cursor:pointer;white-space:nowrap;transition:all .2s var(--ease);display:flex;align-items:center;gap:7px;color:rgba(255,255,255,.5)}
+.lx-tab:hover{background:rgba(255,255,255,.1);transform:translateY(-1px);color:var(--lx-offwhite)}.lx-tab.active,.lx-tab:hover{transform:translateY(-1px)}
+.lx-tab[data-tab="kanban"]{border-color:var(--lx-pink);color:var(--lx-pink);font-size:15px;padding:10px 22px}.lx-tab[data-tab="kanban"].active{background:var(--lx-pink);color:#fff}
+.lx-tab[data-tab="sched"]{border-color:var(--lx-cyan);color:var(--lx-cyan)}.lx-tab[data-tab="sched"].active{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-tab[data-tab="ai"]{border-color:var(--lx-purple);color:var(--lx-purple)}.lx-tab[data-tab="ai"].active{background:var(--lx-purple);color:#fff}
+.lx-tab[data-tab="participant"]{border-color:var(--lx-orange);color:var(--lx-orange)}.lx-tab[data-tab="participant"].active{background:var(--lx-orange);color:#fff}
+.lx-tab[data-tab="dash"]{border-color:var(--lx-yellow);color:var(--lx-yellow)}.lx-tab[data-tab="dash"].active{background:var(--lx-yellow);color:var(--lx-black)}
+.lx-tab.in-spot{display:none!important}
+.lx-tc{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;background:rgba(255,255,255,.12);color:inherit;padding:2px 7px;border-radius:var(--r-p)}
+.tab-spot{padding:0 0 8px;min-height:52px}
+.spot-btn{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:.06em;padding:14px 28px;border:none;border-radius:var(--r-sm);cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;box-shadow:0 6px 24px rgba(0,0,0,.4);transition:all .3s var(--ease);animation:spotIn .4s var(--spring) both}
+@keyframes spotIn{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:none}}
+.spot-btn.exiting{animation:spotOut .3s var(--ease) both}
+@keyframes spotOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(10px) scale(.85)}}
+.spot-btn[data-tab="kanban"]{background:var(--lx-pink);color:#fff}
+.spot-btn[data-tab="sched"]{background:var(--lx-cyan);color:var(--lx-black)}
+.spot-btn[data-tab="ai"]{background:var(--lx-purple);color:#fff}
+.spot-btn[data-tab="participant"]{background:var(--lx-orange);color:#fff}
+.spot-btn[data-tab="dash"]{background:var(--lx-yellow);color:var(--lx-black)}
+.tab-flyer{position:fixed;z-index:9999;pointer-events:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.06em;border-radius:var(--r-sm);display:flex;align-items:center;white-space:nowrap}
+.lx-tab.bounce{animation:tabBounce .5s var(--spring)}
+@keyframes tabBounce{0%,100%{transform:scale(1)}25%{transform:scale(.92) translateY(3px)}50%{transform:scale(1.06) translateY(-2px)}75%{transform:scale(.97)}}
+.lx-tab.wave{animation:tabWave .45s var(--spring)}
+@keyframes tabWave{0%,100%{transform:translateY(0)}30%{transform:translateY(4px)}60%{transform:translateY(-3px)}}
+.lx-tpanels{margin-top:10px;background:var(--lx-offwhite);border-radius:var(--r-sm);padding:20px}
+.lx-tpanel{display:none;animation:lxFI .2s var(--ease)}.lx-tpanel.active{display:block}
+@keyframes lxFI{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.sb{margin-bottom:20px}.sb p{font-size:12px;line-height:1.6;color:var(--lx-txm);margin-bottom:8px}
+.fx{display:flex}.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}
+.mb2{margin-bottom:8px}.mb3{margin-bottom:12px}.mb4{margin-bottom:16px}.mt4{margin-top:16px}
+.cpk{color:var(--lx-pink)}.ccy{color:var(--lx-cyan)}.cor{color:var(--lx-orange)}.cpu{color:var(--lx-purple)}.cbl{color:var(--lx-blue)}.cm{color:var(--lx-txm)}.cl{color:var(--lx-txl)}
+.lx-btn{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:10px 20px;border-radius:var(--r-sm);border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:all .22s var(--spring);white-space:nowrap}
+.lx-btn:hover{transform:translateY(-2px)}.lx-btn:active{transform:scale(.97)!important}
+.lx-btn.pk{background:var(--lx-pink);color:#fff}.lx-btn.cy{background:var(--lx-cyan);color:var(--lx-black)}.lx-btn.or{background:var(--lx-orange);color:#fff}.lx-btn.pu{background:var(--lx-purple);color:#fff}.lx-btn.bk{background:var(--lx-black);color:var(--lx-offwhite)}.lx-btn.ghost{background:transparent;border:2px solid var(--lx-bdr2);color:var(--lx-tx)}
+.lx-btn.sm{padding:7px 14px;font-size:11px}
+.ck{margin-bottom:7px;display:flex;gap:12px;padding:10px 12px;border-radius:var(--r-sm);border:1px solid var(--lx-bdr);background:var(--lx-card);cursor:pointer;transition:all .18s var(--ease);align-items:flex-start;user-select:none}.ck:hover{background:var(--lx-cream)}.ck.done .ck-text{opacity:.4;text-decoration:line-through}.ck-text{flex:1;font-size:12px}
+.ck-box{width:20px;height:20px;border:2.5px solid var(--lx-bdr2);border-radius:5px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s var(--ease);background:var(--lx-card)}.ck.done .ck-box{background:var(--lx-pink);border-color:var(--lx-pink)}
+.ck-box svg{width:12px;height:12px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:opacity .15s}.ck.done .ck-box svg{opacity:1}
+.urg-c{border-left:4px solid var(--lx-pink)}.urg-h{border-left:4px solid var(--lx-orange)}.urg-m{border-left:4px solid var(--lx-cyan)}.urg-s{border-left:4px solid var(--lx-blue)}
+
+/* ── KANBAN ── */
+.kb-board{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;min-height:400px}
+.kb-col{background:rgba(13,13,13,.04);border-radius:var(--r-md);padding:12px;display:flex;flex-direction:column;gap:8px;min-height:340px;transition:background .2s}
+.kb-col.drag-over{background:rgba(255,45,125,.06);outline:2px dashed rgba(255,45,125,.4)}
+.kb-col-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;padding-bottom:8px;border-bottom:2px solid var(--lx-bdr)}
+.kb-col-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em}
+.kb-col-count{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;padding:2px 7px;border-radius:var(--r-p);background:var(--lx-bdr);color:var(--lx-txm)}
+.kb-task{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-sm);padding:11px 12px;cursor:grab;transition:transform .2s var(--spring),box-shadow .2s,opacity .2s;position:relative;overflow:hidden;animation:taskIn .3s var(--spring) both}
+@keyframes taskIn{from{opacity:0;transform:translateY(10px) scale(.96)}to{opacity:1;transform:none}}
+.kb-task:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}.kb-task:active{cursor:grabbing;opacity:.85;transform:scale(.97)}
+.kb-task.dragging{opacity:.4;transform:scale(.96)}
+.kb-task-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:5px;line-height:1.2}
+.kb-task-meta{font-size:10px;color:var(--lx-txm);margin-bottom:7px;line-height:1.4}
+.kb-task-foot{display:flex;justify-content:space-between;align-items:center;margin-top:6px}
+.kb-pri{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:2px 7px;border-radius:var(--r-p)}
+.kb-pri.c{background:rgba(255,45,125,.12);color:var(--lx-pink)}.kb-pri.h{background:rgba(255,102,0,.1);color:var(--lx-orange)}.kb-pri.m{background:rgba(0,212,255,.08);color:var(--lx-cyan)}.kb-pri.l{background:rgba(41,121,255,.08);color:var(--lx-blue)}
+.kb-due{font-family:'JetBrains Mono',monospace;font-size:7.5px;color:var(--lx-txl)}
+.kb-due.late{color:var(--lx-pink);font-weight:700}
+.kb-task-bar{height:3px;background:var(--lx-bdr);border-radius:2px;margin-top:7px;overflow:hidden}
+.kb-task-prog{height:100%;border-radius:2px;transition:width .6s var(--spring)}
+.kb-add-btn{border:1.5px dashed var(--lx-bdr2);border-radius:var(--r-sm);padding:8px;text-align:center;cursor:pointer;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.08em;text-transform:uppercase;color:var(--lx-txl);transition:all .18s;margin-top:auto}.kb-add-btn:hover{border-color:var(--lx-pink);color:var(--lx-pink);background:rgba(255,45,125,.04)}
+
+/* ── SCHEDULER ── */
+.sched-wrap{overflow-x:auto}
+.sched-grid{display:grid;grid-template-columns:60px repeat(7,1fr);gap:1px;background:var(--lx-bdr);border-radius:var(--r-sm);overflow:hidden;min-width:700px}
+.sched-head{background:var(--lx-black);color:var(--lx-offwhite);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:8px 10px;text-align:center}
+.sched-head.today{background:var(--lx-pink)}.sched-head.time{background:var(--lx-black)}
+.sched-cell{background:var(--lx-card);padding:4px 6px;min-height:52px;position:relative;vertical-align:top}
+.sched-cell.time-cell{background:var(--lx-cream);display:flex;align-items:flex-start;justify-content:flex-end;padding:4px 6px;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-txl);white-space:nowrap}
+.sched-event{border-radius:5px;padding:4px 7px;margin-bottom:3px;font-size:9px;font-weight:700;font-family:'Barlow Condensed',sans-serif;letter-spacing:.04em;text-transform:uppercase;cursor:pointer;transition:transform .18s var(--spring),box-shadow .18s;animation:evIn .3s var(--spring) both;position:relative;overflow:hidden}
+@keyframes evIn{from{opacity:0;transform:scaleY(.7)}to{opacity:1;transform:none}}
+.sched-event:hover{transform:translateX(2px) scale(1.02);box-shadow:0 3px 12px rgba(0,0,0,.12)}
+.sched-event::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px}
+.ev-ndis{background:rgba(255,45,125,.1);color:var(--lx-pink)}.ev-ndis::before{background:var(--lx-pink)}
+.ev-school{background:rgba(0,212,255,.08);color:var(--lx-cyan)}.ev-school::before{background:var(--lx-cyan)}
+.ev-medical{background:rgba(255,102,0,.08);color:var(--lx-orange)}.ev-medical::before{background:var(--lx-orange)}
+.ev-personal{background:rgba(177,78,255,.08);color:var(--lx-purple)}.ev-personal::before{background:var(--lx-purple)}
+.ev-block{background:rgba(13,13,13,.06);color:var(--lx-txm)}.ev-block::before{background:var(--lx-txm)}
+.now-line{position:absolute;left:0;right:0;height:2px;background:var(--lx-pink);z-index:10;pointer-events:none}
+.now-line::before{content:'';position:absolute;left:-1px;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--lx-pink)}
+.sched-legend{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.leg-item{display:flex;align-items:center;gap:5px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.07em;text-transform:uppercase;color:var(--lx-txm)}
+.leg-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+
+/* ── AI BRAIN ── */
+.ai-wrap{display:flex;flex-direction:column;height:520px;background:var(--lx-card);border-radius:var(--r-md);border:1px solid var(--lx-bdr);overflow:hidden}
+.ai-head{background:var(--lx-black);padding:14px 18px;display:flex;align-items:center;gap:12px;flex-shrink:0}
+.ai-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--lx-pink),var(--lx-purple));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:16px;color:#fff;flex-shrink:0}
+.ai-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--lx-offwhite)}
+.ai-status{font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(245,240,232,.4)}
+.ai-online{display:inline-block;width:7px;height:7px;border-radius:50%;background:#22c55e;margin-right:5px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(.85)}}
+.ai-messages{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:var(--lx-cream)}
+.ai-msg{display:flex;gap:10px;animation:msgIn .3s var(--spring) both}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ai-msg.user{flex-direction:row-reverse}
+.ai-bubble{max-width:78%;padding:10px 14px;border-radius:var(--r-md);font-size:12px;line-height:1.55;position:relative}
+.ai-msg.ai .ai-bubble{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:4px var(--r-md) var(--r-md) var(--r-md);box-shadow:var(--sh-sm)}
+.ai-msg.user .ai-bubble{background:var(--lx-pink);color:#fff;border-radius:var(--r-md) 4px var(--r-md) var(--r-md)}
+.ai-msg-avatar{width:28px;height:28px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;margin-top:2px}
+.ai-msg.ai .ai-msg-avatar{background:linear-gradient(135deg,var(--lx-pink),var(--lx-purple));color:#fff}
+.ai-msg.user .ai-msg-avatar{background:var(--lx-black);color:var(--lx-yellow);font-family:'Bebas Neue',serif;font-size:12px}
+.ai-time{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);margin-top:3px;text-align:right}
+.ai-msg.user .ai-time{text-align:left}
+.ai-typing{display:flex;align-items:center;gap:4px;padding:10px 14px;background:var(--lx-card);border-radius:4px var(--r-md) var(--r-md) var(--r-md);width:fit-content;border:1px solid var(--lx-bdr)}
+.ai-dot{width:6px;height:6px;border-radius:50%;background:var(--lx-txl);animation:bounce 1.2s infinite}
+.ai-dot:nth-child(2){animation-delay:.2s}.ai-dot:nth-child(3){animation-delay:.4s}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+.ai-conf{display:flex;align-items:center;gap:8px;padding:6px 14px;background:rgba(177,78,255,.06);border-top:1px solid rgba(177,78,255,.15);font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-purple);letter-spacing:.08em;flex-shrink:0}
+.ai-conf-bar{flex:1;height:3px;background:rgba(177,78,255,.15);border-radius:2px;overflow:hidden}
+.ai-conf-fill{height:100%;background:var(--lx-purple);border-radius:2px;transition:width .6s var(--spring)}
+.ai-inp{border-top:1px solid var(--lx-bdr);padding:12px;display:flex;gap:8px;background:var(--lx-card);flex-shrink:0}
+.ai-text{flex:1;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);padding:9px 12px;font-family:'Barlow',sans-serif;font-size:12px;outline:none;transition:border-color .18s;background:var(--lx-bg)}
+.ai-text:focus{border-color:var(--lx-purple);box-shadow:0 0 0 3px rgba(177,78,255,.1)}
+.ai-send{width:38px;height:38px;border-radius:var(--r-sm);border:none;background:var(--lx-purple);color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px;transition:all .2s var(--spring);flex-shrink:0}.ai-send:hover{transform:scale(1.1) translateY(-1px);box-shadow:0 4px 14px rgba(177,78,255,.4)}
+.ai-source{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:3px 8px;border-radius:var(--r-p);background:rgba(177,78,255,.1);color:var(--lx-purple);border:1px solid rgba(177,78,255,.2);margin:4px 3px 0;cursor:pointer;transition:all .15s var(--spring)}.ai-source:hover{transform:scale(1.05)}
+
+/* ── PARTICIPANT VIEW ── */
+.pt-hero{background:var(--lx-black);border-radius:var(--r-md);padding:20px;position:relative;overflow:hidden;margin-bottom:12px}
+.pt-avatar{width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--lx-pink) 0%,var(--lx-purple) 100%);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;color:#fff;flex-shrink:0}
+.pt-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:22px;text-transform:uppercase;letter-spacing:.06em;color:var(--lx-offwhite);line-height:1.1}
+.pt-ndis{font-family:'JetBrains Mono',monospace;font-size:9px;color:rgba(245,240,232,.4);letter-spacing:.12em}
+.pt-pill{background:rgba(255,255,255,.07);border-radius:var(--r-sm);padding:10px 14px;display:flex;flex-direction:column;gap:2px}
+.pt-pill-val{font-family:'Bebas Neue',serif;font-size:20px;line-height:1;color:var(--lx-yellow)}
+.pt-pill-lbl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.4)}
+.pt-prog-wrap{margin:8px 0}
+.pt-prog-label{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(245,240,232,.5);margin-bottom:4px}
+.pt-prog-track{height:6px;background:rgba(255,255,255,.08);border-radius:3px;overflow:hidden}
+.pt-prog-fill{height:100%;border-radius:3px;transition:width .9s var(--spring)}
+.pt-section{background:var(--lx-card);border-radius:var(--r-sm);padding:14px;border:1px solid var(--lx-bdr);margin-bottom:10px}
+.pt-section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:10px;color:var(--lx-txm)}
+.goal-item{display:flex;align-items:flex-start;gap:8px;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.04)}.goal-item:last-child{border-bottom:none}
+.goal-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0;margin-top:3px}
+.goal-text{font-size:11px;line-height:1.45;flex:1}
+.goal-badge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;padding:2px 7px;border-radius:var(--r-p);white-space:nowrap}
+
+/* ── MINI DASH ── */
+.mini-kpi{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-sm);padding:12px;text-align:center;transition:transform .2s var(--spring)}.mini-kpi:hover{transform:translateY(-2px)}
+.mini-val{font-family:'Bebas Neue',serif;font-size:30px;line-height:1}
+.mini-lbl{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lx-txl);margin-top:1px}
+.hbar-row{display:grid;grid-template-columns:90px 1fr 45px;align-items:center;gap:8px;margin-bottom:7px}
+.hbar-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.06em;text-transform:uppercase;color:var(--lx-txm);text-align:right}
+.hbar-track{height:9px;background:rgba(13,13,13,.06);border-radius:99px;overflow:hidden}
+.hbar-fill{height:100%;border-radius:99px;transform-origin:left;transform:scaleX(0);transition:transform .9s var(--spring)}
+.hbar-wrap.anim .hbar-fill{transform:scaleX(1)}
+.hbar-num{font-family:'Bebas Neue',serif;font-size:13px}
+
+/* ═══ RESPONSIVE DESIGN SYSTEM ═══ */
+/* Base: rem-based sizing for zoom compliance */
+html{font-size:clamp(13px,1.8vw,16px)}
+/* Fluid max-widths for fixed-width containers */
+[style*="max-width:1280px"],[style*="max-width:900px"],[style*="max-width:700px"],[style*="max-width:600px"],[style*="max-width:580px"]{max-width:100%!important}
+/* Touch targets: minimum 44px for interactive elements */
+button,input,select,textarea,[role="button"],[tabindex]{min-height:44px;min-width:44px}
+input[type="checkbox"],input[type="radio"]{min-height:20px;min-width:20px}
+/* Prevent horizontal overflow */
+img,svg,canvas,video{max-width:100%;height:auto}
+pre,code{overflow-x:auto;max-width:100%}
+
+/* ─── Tablet landscape (≤1024px) ─── */
+@media(max-width:1024px){
+.lx-bento{grid-template-columns:repeat(8,1fr);gap:10px}
+.lx-s9,.lx-s10,.lx-s11,.lx-s12{grid-column:span 8}
+.lx-s7,.lx-s8{grid-column:span 8}
+.lx-s5,.lx-s6{grid-column:span 4}
+}
+
+/* ─── Tablet portrait (≤900px) ─── */
+@media(max-width:900px){
+.kb-board{grid-template-columns:1fr 1fr}
+.lx-bento{grid-template-columns:repeat(6,1fr)}
+.lx-s4,.lx-s6,.lx-s8,.lx-s12{grid-column:span 6}
+.lx-s2,.lx-s3{grid-column:span 3}
+.lx-topbar{padding:7px 12px;margin:0 6px}
+.lx-stripe{margin:0 6px}
+.lx-tmeta{display:none}
+[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(3,1fr)!important}
+}
+@media(max-width:768px){
+.lx-card{padding:16px}
+.lx-stat{font-size:42px}
+.lx-ghost{font-size:80px}
+.lx-cxl{font-size:22px}
+.lx-clg{font-size:17px}
+.sched-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
+.sched-grid{min-width:600px}
+[style*="grid-template-columns:2fr 1fr"]{grid-template-columns:1fr!important}
+[style*="grid-template-columns:repeat(4"]{grid-template-columns:repeat(2,1fr)!important}
+[style*="grid-template-columns:repeat(5"]{grid-template-columns:repeat(2,1fr)!important}
+}
+@media(max-width:600px){
+html{font-size:clamp(12px,3vw,15px)}
+.kb-board{grid-template-columns:1fr}
+.lx-bento{grid-template-columns:1fr;padding:8px;gap:8px}
+[class*="lx-s"]{grid-column:span 1}
+.lx-topbar{margin:0 6px;padding:7px 10px;border-radius:0 0 var(--r-sm) var(--r-sm)}
+.lx-stripe{margin:0 6px}
+.lx-card{padding:14px;border-radius:var(--r-sm)}
+.lx-card.tl,.lx-card.tr,.lx-card.bl,.lx-card.br,.lx-card.ptop,.lx-card.pbot{border-radius:var(--r-sm)}
+.lx-stat{font-size:36px}
+.lx-ghost{font-size:60px}
+.lx-cxl{font-size:20px}
+.lx-clg{font-size:15px}
+.lx-cmd{font-size:13px}
+.lx-tbl th,.lx-tbl td{padding:5px 7px;font-size:10px}
+.sched-grid{min-width:500px}
+[style*="grid-template-columns:1fr 1fr"]{grid-template-columns:1fr!important}
+[style*="grid-template-columns:repeat(3"],[style*="grid-template-columns:repeat(4"],[style*="grid-template-columns:repeat(5"]{grid-template-columns:1fr!important}
+[style*="grid-template-columns:90px 1fr 45px"]{grid-template-columns:1fr!important}
+.lx-card>div,.lx-card>table{max-width:100%;overflow-x:auto}
+.kb-task{padding:10px}
+}
+@media(max-width:380px){
+.lx-bento{padding:6px;gap:6px}
+.lx-card{padding:12px}
+.lx-stat{font-size:28px}
+.lx-tbadge{font-size:6px;padding:2px 6px}
+.lx-cmd{font-size:12px}
+.lx-csm{font-size:11px}
+.sched-grid{min-width:400px}
+}
+@media(pointer:coarse){
+.lx-chip{min-height:32px;padding:6px 12px}
+.lx-btn{min-height:44px}
+.lx-input,.lx-select,.lx-textarea{min-height:44px;font-size:16px}
+.lx-tbl td,.lx-tbl th{padding:10px 12px}
+.kb-task{cursor:pointer;-webkit-tap-highlight-color:transparent}
+.sched-cell{min-height:44px}
+}
+@media(min-resolution:1.5dppx){
+.lx-chip{font-size:max(7px,.5rem)}
+.lx-eye{font-size:max(8px,.5rem)}
+.lx-bsm{font-size:max(11px,.7rem)}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+@media print{
+.lx-topbar,.lx-stripe{display:none}
+body{background:#fff;color:#000}
+.lx-card{break-inside:avoid;box-shadow:none;border:1px solid #ccc}
+.lx-bento{display:block}
+.lx-bento>*{margin-bottom:12px}
+.lx-card.dark{background:#222;color:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sched-wrap{overflow:visible}
+.sched-grid{min-width:0}
+}
+
+/* ─── Landscape orientation on short screens ─── */
+@media(max-height:500px) and (orientation:landscape){
+.lx-topbar{padding:4px 12px;position:relative}
+.lx-card{padding:12px}
+.lx-bento{gap:6px;padding:6px}
+}
+
+/* ─── High contrast ─── */
+@media(prefers-contrast:more){
+.lx-card{border-width:2px;border-color:rgba(0,0,0,.2)}
+.lx-chip{border-width:2px}
+.lx-tbl td{border-bottom-width:2px}
+.lx-eye,.lx-bsm,.lx-txl,[style*="opacity"]{opacity:1!important}
+.kb-task{border-width:2px}
+}
+
+/* ─── Dark mode preference ─── */
+@media(prefers-color-scheme:dark){
+:root{--lx-bg:#1a1a1a;--lx-card:#222;--lx-cream:#1e1e1e;--lx-bdr:rgba(255,255,255,.08);--lx-bdr2:rgba(255,255,255,.12);--lx-tx:#F5F0E8;--lx-txm:#aaa;--lx-txl:#777}
+.lx-card:not(.dark):not(.pink):not(.yellow){background:var(--lx-card);color:var(--lx-tx);border-color:var(--lx-bdr)}
+.lx-tbl{background:var(--lx-card);border-color:var(--lx-bdr)}
+.lx-tbl th{background:rgba(255,255,255,.04)}
+.kb-col{background:rgba(255,255,255,.03)}
+.kb-task{background:var(--lx-card);border-color:var(--lx-bdr)}
+}
+
+/* ─── Zoom-safe: prevent overflow at 200% ─── */
+@media(min-resolution:2dppx){
+.lx-bento{gap:max(6px,0.5vw);padding:max(6px,0.5vw)}
+}
+
+/* ═══ S11 MODAL/DRAWER ADDITIONS ═══ */
+
+/* RTE toolbar */
+.rte-wrap{border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);overflow:hidden;background:var(--lx-card)}
+.rte-bar{display:flex;flex-wrap:wrap;gap:0;padding:6px 8px;border-bottom:1px solid var(--lx-bdr);background:var(--lx-cream)}
+.rte-b{width:30px;height:30px;border:none;background:transparent;cursor:pointer;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--lx-tx);transition:all .15s var(--ease)}
+.rte-b:hover{background:rgba(255,45,125,.1);color:var(--lx-pink)}
+.rte-b.active{background:var(--lx-pink);color:#fff}
+.rte-b.sep{width:1px;background:var(--lx-bdr);margin:4px 3px;cursor:default;pointer-events:none}
+.rte-area{min-height:180px;padding:12px;outline:none;font-size:13px;line-height:1.65;color:var(--lx-tx)}
+.rte-area:empty::before{content:attr(data-ph);color:var(--lx-txl);pointer-events:none}
+
+/* Interaction type icons */
+.int-row{display:flex;gap:6px;margin-bottom:14px}
+.int-ico{width:40px;height:40px;border-radius:var(--r-sm);border:1.5px solid var(--lx-bdr2);background:var(--lx-card);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s var(--spring);position:relative}
+.int-ico:hover{border-color:var(--lx-pink);background:rgba(255,45,125,.04)}
+.int-ico.sel{border-color:var(--lx-pink);background:rgba(255,45,125,.1);color:var(--lx-pink);box-shadow:0 0 0 3px rgba(255,45,125,.15)}
+.int-ico svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.int-ico .int-label{position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);font-family:'JetBrains Mono',monospace;font-size:5.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;opacity:.5}
+.int-ico.sel .int-label{opacity:1;color:var(--lx-pink)}
+
+/* Task Detail Drawer - full screen right drawer */
+.td-backdrop{position:fixed;inset:0;background:rgba(10,15,28,.6);backdrop-filter:blur(4px);z-index:8000;opacity:0;pointer-events:none;transition:opacity .25s var(--ease)}
+.td-backdrop.open{opacity:1;pointer-events:all}
+.td-drawer{position:fixed;top:0;right:0;bottom:0;width:min(960px,100vw);z-index:8001;background:var(--lx-cream);box-shadow:-8px 0 60px rgba(0,0,0,.2);transform:translateX(110%);transition:transform .4s var(--spring);display:flex;flex-direction:column;overflow:hidden}
+.td-backdrop.open .td-drawer{transform:translateX(0)}
+
+/* TD top bar */
+.td-topbar{display:flex;justify-content:flex-end;align-items:center;gap:10px;padding:10px 16px;background:var(--lx-card);border-bottom:1px solid var(--lx-bdr);flex-shrink:0}
+.td-actions-btn{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:var(--r-sm);border:1.5px solid var(--lx-bdr2);background:var(--lx-card);cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .18s var(--ease)}
+.td-actions-btn:hover{border-color:var(--lx-tx)}
+.td-close{width:30px;height:30px;border-radius:50%;border:none;background:rgba(13,13,13,.06);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;transition:all .2s var(--spring)}
+.td-close:hover{background:var(--lx-pink);color:#fff;transform:rotate(90deg) scale(1.1)}
+
+/* Actions dropdown */
+.td-actions-wrap{position:relative}
+.td-actions-menu{position:absolute;top:100%;right:0;margin-top:4px;background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-sm);box-shadow:var(--sh-hv);min-width:200px;z-index:100;opacity:0;pointer-events:none;transform:translateY(-6px);transition:all .2s var(--ease)}
+.td-actions-menu.show{opacity:1;pointer-events:all;transform:translateY(0)}
+.td-actions-menu a{display:flex;align-items:center;gap:10px;padding:9px 14px;font-size:12px;color:var(--lx-tx);text-decoration:none;transition:background .12s}
+.td-actions-menu a:hover{background:rgba(255,45,125,.04)}
+.td-actions-menu a svg{width:16px;height:16px;stroke:var(--lx-txm);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.td-actions-menu .del{color:var(--lx-pink)}
+.td-actions-menu .del svg{stroke:var(--lx-pink)}
+
+/* TD two-column */
+.td-body{display:flex;flex:1;overflow:hidden}
+.td-main{flex:1;overflow-y:auto;padding:0}
+.td-side{width:280px;flex-shrink:0;background:var(--lx-cream);border-left:1px solid var(--lx-bdr);overflow-y:auto;padding:16px}
+@media(max-width:700px){.td-body{flex-direction:column}.td-side{width:100%;border-left:none;border-top:1px solid var(--lx-bdr)}}
+
+/* TD field groups in sidebar */
+.td-fgroup{border:1px solid var(--lx-bdr);border-radius:var(--r-sm);padding:12px;margin-bottom:12px;background:var(--lx-card);position:relative}
+.td-fgroup-label{position:absolute;top:-7px;left:10px;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-txl);background:var(--lx-card);padding:0 4px}
+.td-fselect{width:100%;padding:8px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);color:var(--lx-tx);appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6' fill='%23999'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;cursor:pointer;outline:none}
+.td-fselect:focus{border-color:var(--lx-pink);box-shadow:0 0 0 3px rgba(255,45,125,.08)}
+.td-link{display:inline-flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:var(--r-sm);border:1.5px solid var(--lx-bdr2);background:var(--lx-card);cursor:pointer;font-size:14px;color:var(--lx-txm);transition:all .15s}
+.td-link:hover{border-color:var(--lx-pink);color:var(--lx-pink)}
+.td-dateinput{width:100%;padding:8px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);color:var(--lx-tx);outline:none}
+.td-dateinput:focus{border-color:var(--lx-pink);box-shadow:0 0 0 3px rgba(255,45,125,.08)}
+
+/* TD checkboxes inline */
+.td-chk{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;padding:4px 0;font-size:12px;font-weight:500}
+.td-chk-box{width:18px;height:18px;border:2px solid var(--lx-bdr2);border-radius:4px;display:flex;align-items:center;justify-content:center;transition:all .18s var(--spring);flex-shrink:0;background:var(--lx-card)}
+.td-chk.on .td-chk-box{background:var(--lx-blue);border-color:var(--lx-blue)}
+.td-chk.on .td-chk-box::after{content:'✓';font-size:11px;color:#fff;line-height:1}
+
+/* Duration buttons */
+.dur-row{display:flex;align-items:center;gap:6px}
+.dur-input{width:50px;padding:6px 8px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;text-align:center;outline:none;background:var(--lx-card)}
+.dur-input:focus{border-color:var(--lx-pink)}
+.dur-unit{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-txm);letter-spacing:.06em}
+.dur-btn{padding:5px 12px;border-radius:var(--r-sm);border:none;background:var(--lx-navy);color:var(--lx-offwhite);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;cursor:pointer;transition:all .15s var(--ease)}
+.dur-btn:hover{background:var(--lx-pink);transform:translateY(-1px)}
+
+/* Funding utilisation bar */
+.fu-bar{height:10px;border-radius:var(--r-p);background:rgba(0,0,0,.06);overflow:hidden;margin:6px 0 4px}
+.fu-fill{height:100%;border-radius:var(--r-p);transition:width .6s var(--spring)}
+.fu-fill.red{background:#dc2626}.fu-fill.or{background:var(--lx-orange)}.fu-fill.pk{background:var(--lx-pink)}.fu-fill.cy{background:var(--lx-cyan)}
+.fu-meta{display:flex;justify-content:space-between;font-family:'JetBrains Mono',monospace;font-size:8px;font-style:italic;color:var(--lx-txm)}
+
+/* TD content sections */
+.td-section{border:1px solid var(--lx-bdr);border-radius:var(--r-sm);margin:12px 16px;padding:16px;background:var(--lx-card)}
+.td-section-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.td-title-input{width:100%;padding:10px 14px;border:1px solid var(--lx-bdr);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:15px;font-weight:600;background:var(--lx-card);color:var(--lx-tx);outline:none;margin:12px 16px;box-sizing:calc(100% - 32px)}
+.td-title-input:focus{border-color:var(--lx-pink)}
+
+/* Bottom tabs */
+.td-tabs{display:flex;border-bottom:1px solid var(--lx-bdr);padding:0 16px;background:var(--lx-card);margin:0;flex-shrink:0}
+.td-tab{padding:10px 16px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:600;cursor:pointer;border-bottom:2px solid transparent;color:var(--lx-txm);transition:all .15s}
+.td-tab:hover{color:var(--lx-tx)}
+.td-tab.act{color:var(--lx-tx);border-bottom-color:var(--lx-pink)}
+.td-tab-panel{display:none;padding:16px;overflow-y:auto;flex:1}
+.td-tab-panel.act{display:block}
+
+/* Tab content helpers */
+.td-search{padding:8px 12px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;width:220px;outline:none;background:var(--lx-card)}
+.td-search:focus{border-color:var(--lx-pink)}
+.td-empty{text-align:center;padding:24px;color:var(--lx-txm);font-style:italic;font-size:12px}
+.td-pagination{display:flex;align-items:center;justify-content:center;gap:10px;padding:12px 0;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-txm)}
+.td-pagination select{padding:3px 6px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:10px;background:var(--lx-card)}
+.td-pagination button{width:24px;height:24px;border-radius:4px;border:1px solid var(--lx-bdr2);background:var(--lx-card);cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center;color:var(--lx-txm)}
+.td-pagination button:hover{border-color:var(--lx-tx)}
+
+/* Project modal stepper */
+.pm-step-row{display:flex;justify-content:center;gap:6px;padding:16px 20px;border-bottom:1px solid var(--lx-bdr);align-items:center}
+.pm-step{display:flex;align-items:center;gap:6px}
+.pm-step-dot{width:28px;height:28px;border-radius:50%;border:2px solid var(--lx-bdr2);display:flex;align-items:center;justify-content:center;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;color:var(--lx-txl);transition:all .25s var(--spring)}
+.pm-step.act .pm-step-dot{border-color:var(--lx-pink);background:var(--lx-pink);color:#fff;box-shadow:0 0 0 4px rgba(255,45,125,.15)}
+.pm-step.done .pm-step-dot{border-color:var(--lx-pink);background:var(--lx-pink);color:#fff}
+.pm-step.done .pm-step-dot::after{content:'✓'}
+.pm-step-label{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--lx-txl)}
+.pm-step.act .pm-step-label{color:var(--lx-pink)}
+.pm-step.done .pm-step-label{color:var(--lx-pink)}
+.pm-step-line{width:24px;height:2px;background:var(--lx-bdr2);border-radius:1px}
+.pm-step.done+.pm-step-line,.pm-step.act+.pm-step-line{background:var(--lx-pink)}
+
+/* Subtask rows */
+.pm-subtask{display:flex;gap:6px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--lx-bdr)}
+.pm-subtask:last-child{border-bottom:none}
+.pm-sub-name{flex:1}
+.pm-sub-date,.pm-sub-charge{width:130px}
+.pm-sub-del{width:28px;height:28px;border-radius:50%;border:none;background:rgba(255,45,125,.06);color:var(--lx-pink);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;transition:all .15s}
+.pm-sub-del:hover{background:var(--lx-pink);color:#fff}
+
+</style>
+
+</head>
+<body>
+
+<div class="lx-topbar">
+  <div class="fx g3" style="align-items:center"><span class="lx-tlogo">LIMIT<span>LESS</span></span><span class="lx-tmeta">Productivity Suite</span></div>
+  <div class="fx g2" style="align-items:center;flex-wrap:wrap"><span class="lx-tbadge cyan">v3.0</span><span class="lx-tbadge pink">Kanban · AI Brain · Scheduler</span><span class="lx-tbadge">2026</span></div>
+</div>
+<div class="lx-stripe"></div>
+
+<div style="max-width:1280px;margin:0 auto;padding-bottom:80px">
+
+<!-- HERO -->
+<div class="lx-bento">
+  <div class="lx-card dark lx-s8 tl" style="padding:28px">
+    <div class="lx-eye mb3">LIMITLESS Support Co. — Component Library Extension 03</div>
+    <div class="lx-cxl" style="font-size:32px;margin-bottom:8px">Productivity<br>Suite</div>
+    <p class="lx-b" style="color:rgba(245,240,232,.7);max-width:580px;margin-top:10px">Practice management tools built for NDIS support coordinators — a fully interactive Kanban board with drag-and-drop, weekly scheduler with colour-coded events, an AI Brain chat interface, and a dense participant profile view. All in one component library.</p>
+    <div class="fx g2 mt4" style="flex-wrap:wrap">
+      <span class="lx-chip spk">Kanban + Drag-Drop</span>
+      <span class="lx-chip syw">Weekly Scheduler</span>
+      <span class="lx-chip scy">AI Brain Interface</span>
+      <span class="lx-chip sbk">Participant View</span>
+    </div>
+    <div class="lx-ghost inv">⚡</div>
+  </div>
+  <div class="lx-card yellow lx-s4 tr" style="padding:24px">
+    <div class="lx-eye mb2" style="color:rgba(13,13,13,.4)">Week of 7 Apr 2026</div>
+    <div class="lx-cmd mb3">Tasks Due This Week</div>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="background:rgba(13,13,13,.07);border-radius:var(--r-sm);padding:8px 10px;font-size:11px"><strong>Mon</strong> — Iona: IDS schedule review</div>
+      <div style="background:rgba(255,45,125,.12);border-radius:var(--r-sm);padding:8px 10px;font-size:11px;border-left:3px solid var(--lx-pink)"><strong>Tue</strong> — Commission response deadline</div>
+      <div style="background:rgba(13,13,13,.07);border-radius:var(--r-sm);padding:8px 10px;font-size:11px"><strong>Wed</strong> — Kane: Rosehill SSG meeting</div>
+      <div style="background:rgba(13,13,13,.07);border-radius:var(--r-sm);padding:8px 10px;font-size:11px"><strong>Fri</strong> — Ryder: Plan review submission</div>
+    </div>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="lx-bento" style="padding-top:0">
+  <div class="lx-card lx-s12" style="padding:10px;background:var(--lx-black);border-color:rgba(255,255,255,.06)">
+    <div class="tab-spot" id="tabSpot">
+      <button class="spot-btn" id="spotBtn" data-tab="kanban">◉ KANBAN BOARD</button>
+    </div>
+    <div class="lx-tabs" id="mainTabs">
+      <button class="lx-tab" data-tab="kanban">◉ Kanban Board</button>
+      <button class="lx-tab" data-tab="sched">Weekly Scheduler <span class="lx-tc">14</span></button>
+      <button class="lx-tab" data-tab="ai">AI Brain <span class="lx-tc">ARIA</span></button>
+      <button class="lx-tab" data-tab="participant">Participant View <span class="lx-tc">Iona</span></button>
+      <button class="lx-tab" data-tab="dash">Analytics Dash <span class="lx-tc">5</span></button>
+    </div>
+
+    <div class="lx-tpanels" id="mainPanels">
+
+<!-- ===== KANBAN ===== -->
+<div class="lx-tpanel active" data-panel="kanban">
+<div class="sb"><div class="lx-sh pk" style="display:flex;justify-content:space-between;align-items:center">LIMITLESS Practice — Kanban Task Board<div style="display:flex;gap:8px"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding:6px 14px;border-radius:6px;background:var(--lx-pink);color:white;cursor:pointer;border-bottom:none" onclick="openProjModal()">+ Project</div></div></div>
+<p>Drag tasks between columns. Click cards to expand details. Priority labels, due dates, and completion progress bars on every card. Add new tasks using the + button in each column.</p></div>
+
+<div class="kb-board" id="kanban-board">
+
+  <div class="kb-col" data-col="todo" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="drop(event,this)">
+    <div class="kb-col-head"><span class="kb-col-title" style="color:var(--lx-txm)">To Do</span><span class="kb-col-count" id="cnt-todo">5</span></div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t1">
+      <div class="kb-task-title">Submit Iona Plan Review</div>
+      <div class="kb-task-meta">NDIS plan expires 14 Jan — submit myplace portal request. Notify providers.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:0%;background:var(--lx-pink)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri c">Critical</span><span class="kb-due late">Due: 8 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t2">
+      <div class="kb-task-title">Leonard Peris — Service Agreement Renewal</div>
+      <div class="kb-task-meta">Current agreement expires 30 Apr 2026. Initiate with provider and participant.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:0%;background:var(--lx-blue)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri l">Low</span><span class="kb-due">Due: 28 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t3">
+      <div class="kb-task-title">Ryder Marshall — OT Assessment Booking</div>
+      <div class="kb-task-meta">Capacity building — Yooralla OT assessment required for AT recommendation.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:0%;background:var(--lx-orange)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri h">High</span><span class="kb-due">Due: 15 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t4">
+      <div class="kb-task-title">Budget Review — All Participants</div>
+      <div class="kb-task-meta">Monthly budget utilisation check across all 8 participants. Flag any variance over 10%.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:0%;background:var(--lx-cyan)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri m">Medium</span><span class="kb-due">Due: 12 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t5">
+      <div class="kb-task-title">Commission Response Draft — Matter 4-46323936875</div>
+      <div class="kb-task-meta">Conflict of interest complaint. 28-day window. Legal review in progress.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:30%;background:var(--lx-pink)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri c">Critical</span><span class="kb-due late">Due: 9 Apr</span></div>
+    </div>
+
+    <div class="kb-add-btn" onclick="addTask('todo')">+ Add Task</div>
+  </div>
+
+  <div class="kb-col" data-col="active" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="drop(event,this)">
+    <div class="kb-col-head"><span class="kb-col-title" style="color:var(--lx-cyan)">In Progress</span><span class="kb-col-count" id="cnt-active">3</span></div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t6">
+      <div class="kb-task-title">Kane Cameron — PYMHWS Referral Coordination</div>
+      <div class="kb-task-meta">Parkville Youth Mental Health. Accepted. Coordinate commencement (~2 weeks).</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:65%;background:var(--lx-cyan)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri h">High</span><span class="kb-due">Due: 10 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t7">
+      <div class="kb-task-title">Jema Cameron — Shadow Shift Schedule</div>
+      <div class="kb-task-meta">IDS secondary support worker schedule for Kane's in-home care. Finalise by end of week.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:50%;background:var(--lx-orange)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri h">High</span><span class="kb-due">Due: 11 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t8">
+      <div class="kb-task-title">Iona Alexander — Weekend Hours Review</div>
+      <div class="kb-task-meta">Weekend IDS hours underutilised. Review with Iona, adjust service booking pattern.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:40%;background:var(--lx-pink)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri m">Medium</span><span class="kb-due">Due: 14 Apr</span></div>
+    </div>
+
+    <div class="kb-add-btn" onclick="addTask('active')">+ Add Task</div>
+  </div>
+
+  <div class="kb-col" data-col="review" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="drop(event,this)">
+    <div class="kb-col-head"><span class="kb-col-title" style="color:var(--lx-orange)">Review</span><span class="kb-col-count" id="cnt-review">2</span></div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t9">
+      <div class="kb-task-title">Ryder Marshall — End of Plan Progress Report</div>
+      <div class="kb-task-meta">Draft complete. Awaiting participant sign-off and WHODAS score verification.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:85%;background:var(--lx-purple)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri h">High</span><span class="kb-due">Due: 9 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t10">
+      <div class="kb-task-title">NDIS Compliance Declaration — Andersen &amp; Co</div>
+      <div class="kb-task-meta">Conflict of interest declaration filed. Awaiting Commission acknowledgement email.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:90%;background:var(--lx-cyan)"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri c">Critical</span><span class="kb-due late">Due: 8 Apr</span></div>
+    </div>
+
+    <div class="kb-add-btn" onclick="addTask('review')">+ Add Task</div>
+  </div>
+
+  <div class="kb-col" data-col="done" ondragover="event.preventDefault();this.classList.add('drag-over')" ondragleave="this.classList.remove('drag-over')" ondrop="drop(event,this)">
+    <div class="kb-col-head"><span class="kb-col-title" style="color:#22c55e">Done</span><span class="kb-col-count" id="cnt-done">4</span></div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t11" style="opacity:.7">
+      <div class="kb-task-title" style="text-decoration:line-through">Iona — PYMHWS Mental Health Referral</div>
+      <div class="kb-task-meta">Accepted by Parkville. Commencement scheduled.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:100%;background:#22c55e"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri m" style="background:rgba(34,197,94,.1);color:#16a34a">Done</span><span class="kb-due">2 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t12" style="opacity:.7">
+      <div class="kb-task-title" style="text-decoration:line-through">Kane — Rosehill Briefing Widget Delivered</div>
+      <div class="kb-task-meta">Educational funding pathways widget delivered to Nadia Rossos and school principal.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:100%;background:#22c55e"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri m" style="background:rgba(34,197,94,.1);color:#16a34a">Done</span><span class="kb-due">2 Apr</span></div>
+    </div>
+
+    <div class="kb-task" draggable="true" ondragstart="drag(event)" data-id="t13" style="opacity:.7">
+      <div class="kb-task-title" style="text-decoration:line-through">Iona — Shoulder Surgery Pre-Auth Documentation</div>
+      <div class="kb-task-meta">NDIS pre-authorisation docs lodged for post-surgical support package.</div>
+      <div class="kb-task-bar"><div class="kb-task-prog" style="width:100%;background:#22c55e"></div></div>
+      <div class="kb-task-foot"><span class="kb-pri m" style="background:rgba(34,197,94,.1);color:#16a34a">Done</span><span class="kb-due">1 Apr</span></div>
+    </div>
+
+    <div class="kb-add-btn" onclick="addTask('done')">+ Add Task</div>
+  </div>
+
+</div>
+</div>
+
+<!-- ===== SCHEDULER ===== -->
+<div class="lx-tpanel" data-panel="sched">
+<div class="sb"><div class="lx-sh cy">Weekly Scheduler — Week of 7 April 2026</div>
+<p>Colour-coded events by type — NDIS coordination, school liaison, medical appointments, personal time, and unavailable blocks. Click any event to see details. The pink line marks the current time of day.</p></div>
+
+<div class="sched-wrap">
+<div class="sched-grid" id="sched-grid">
+  <!-- Injected by JS -->
+</div>
+</div>
+
+<div class="sched-legend mt4">
+  <span class="leg-item"><span class="leg-dot" style="background:var(--lx-pink)"></span>NDIS Coordination</span>
+  <span class="leg-item"><span class="leg-dot" style="background:var(--lx-cyan)"></span>School / Education</span>
+  <span class="leg-item"><span class="leg-dot" style="background:var(--lx-orange)"></span>Medical / Allied Health</span>
+  <span class="leg-item"><span class="leg-dot" style="background:var(--lx-purple)"></span>Personal / Admin</span>
+  <span class="leg-item"><span class="leg-dot" style="background:var(--lx-txm)"></span>Blocked / Unavailable</span>
+</div>
+
+<div class="lx-div"></div>
+<div class="lx-sh mb3">Upcoming This Week</div>
+<table class="lx-tbl">
+  <thead><tr><th>Day</th><th>Time</th><th>Event</th><th>Participant / Contact</th><th>Type</th></tr></thead>
+  <tbody>
+    <tr><td class="lx-tb">Mon 7 Apr</td><td>9:00 AM</td><td>IDS Schedule Review Call</td><td>Iona Alexander</td><td><span class="lx-chip pk">NDIS</span></td></tr>
+    <tr><td class="lx-tb">Mon 7 Apr</td><td>2:00 PM</td><td>Commission Response Draft</td><td>Internal — Legal</td><td><span class="lx-chip pk">NDIS</span></td></tr>
+    <tr><td class="lx-tb">Tue 8 Apr</td><td>10:00 AM</td><td>Rosehill SSG Meeting</td><td>Kane Cameron</td><td><span class="lx-chip cy">School</span></td></tr>
+    <tr><td class="lx-tb">Wed 9 Apr</td><td>11:00 AM</td><td>Yooralla OT Assessment</td><td>Ryder Marshall</td><td><span class="lx-chip or">Medical</span></td></tr>
+    <tr><td class="lx-tb">Thu 10 Apr</td><td>3:00 PM</td><td>PYMHWS Liaison Call</td><td>Kane Cameron</td><td><span class="lx-chip pk">NDIS</span></td></tr>
+    <tr><td class="lx-tb">Fri 11 Apr</td><td>10:00 AM</td><td>Plan Review Submission</td><td>Ryder Marshall</td><td><span class="lx-chip pk">NDIS</span></td></tr>
+  </tbody>
+</table>
+</div>
+
+<!-- ===== AI BRAIN ===== -->
+<div class="lx-tpanel" data-panel="ai">
+<div class="sb"><div class="lx-sh pu">ARIA — AI Brain Interface</div>
+<p>LIMITLESS AI assistant — trained on NDIS Act 2013, Section 34 criteria, practice standards, and the full caseload data. Ask ARIA anything about participants, budgets, compliance, or NDIS policy. Live API integration via Anthropic claude-sonnet-4-20250514.</p></div>
+
+<div style="display:grid;grid-template-columns:2fr 1fr;gap:16px;align-items:start">
+  <div class="ai-wrap">
+    <div class="ai-head">
+      <div class="ai-avatar">A</div>
+      <div><div class="ai-name">ARIA — AI Practice Assistant</div><div class="ai-status"><span class="ai-online"></span>Online · LIMITLESS Support Co.</div></div>
+    </div>
+    <div class="ai-messages" id="ai-messages">
+      <div class="ai-msg ai">
+        <div class="ai-msg-avatar">A</div>
+        <div><div class="ai-bubble">Hello Ile — I'm ARIA, your LIMITLESS practice intelligence assistant. I have full context on your current caseload, NDIS budgets, compliance obligations, and the Section 34 framework. What would you like to work through today?</div><div class="ai-time">ARIA · 9:02 AM</div></div>
+      </div>
+      <div class="ai-msg user">
+        <div><div class="ai-bubble">What are the most urgent tasks on my caseload right now?</div><div class="ai-time">Ile · 9:03 AM</div></div>
+        <div class="ai-msg-avatar">I</div>
+      </div>
+      <div class="ai-msg ai">
+        <div class="ai-msg-avatar">A</div>
+        <div><div class="ai-bubble">Based on current caseload data, your three most urgent priorities are:<br><br><strong>1. Iona Alexander — Plan Expiry (8 Apr)</strong>: Plan expires in 14 days. Plan review request must be submitted to NDIA immediately via myplace portal.<br><br><strong>2. Commission Matter 4-46323936875 (9 Apr)</strong>: 28-day response window for the Andersen &amp; Co conflict of interest complaint. Draft should be finalised and submitted today.<br><br><strong>3. Kane Cameron — PYMHWS Coordination</strong>: Parkville commencement is still 2 weeks away. Ensure interim psychology access through GP is confirmed and bridge support is in place.<br><br>Would you like me to draft the plan review submission or the Commission response?</div><div class="ai-time">ARIA · 9:03 AM</div></div>
+      </div>
+    </div>
+    <div class="ai-conf"><span>Confidence</span><div class="ai-conf-bar"><div class="ai-conf-fill" style="width:88%"></div></div><span>88%</span></div>
+    <div class="ai-inp">
+      <input class="ai-text" id="ai-input" placeholder="Ask ARIA about participants, budgets, compliance, or NDIS policy..." onkeydown="if(event.key==='Enter')sendMsg()">
+      <button class="ai-send" onclick="sendMsg()">↑</button>
+    </div>
+  </div>
+  <div>
+    <div class="lx-sh pu mb3">Quick Prompts</div>
+    <div style="display:flex;flex-direction:column;gap:6px;margin-bottom:16px">
+      <button class="lx-btn ghost sm" style="justify-content:flex-start;text-align:left" onclick="setPrompt('Draft a Section 34 justification for Iona Alexander\'s core supports')">📝 Draft Section 34 justification</button>
+      <button class="lx-btn ghost sm" style="justify-content:flex-start" onclick="setPrompt('What is the budget utilisation status for all participants?')">💰 Budget utilisation summary</button>
+      <button class="lx-btn ghost sm" style="justify-content:flex-start" onclick="setPrompt('Summarise Kane Cameron\'s current situation and risks')">⚠ Kane Cameron risk summary</button>
+      <button class="lx-btn ghost sm" style="justify-content:flex-start" onclick="setPrompt('What are Iona Alexander\'s current plan goals?')">🎯 Iona Alexander goals</button>
+      <button class="lx-btn ghost sm" style="justify-content:flex-start" onclick="setPrompt('Help me write a case note for today\'s interaction with Jema Cameron')">📋 Case note — Jema Cameron</button>
+    </div>
+    <div class="lx-sh mb3">Source Context</div>
+    <div style="display:flex;flex-wrap:wrap;gap:4px">
+      <span class="ai-source">NDIS Act 2013</span>
+      <span class="ai-source">Section 34</span>
+      <span class="ai-source">Caseload Data</span>
+      <span class="ai-source">Budget Tracker</span>
+      <span class="ai-source">Commission Matter</span>
+      <span class="ai-source">Rosehill Widget</span>
+    </div>
+    <div class="lx-div"></div>
+    <div class="lx-al inf"><div><div class="lx-at">Live API</div><div class="lx-ab">ARIA connects to claude-sonnet-4-20250514 via the Anthropic API. All queries include caseload context and the full LIMITLESS system prompt for maximum accuracy.</div></div></div>
+  </div>
+</div>
+</div>
+
+<!-- ===== PARTICIPANT VIEW ===== -->
+<div class="lx-tpanel" data-panel="participant">
+<div class="sb"><div class="lx-sh or">Participant Profile — Iona Alexander</div>
+<p>Full participant summary view with plan budget analytics, active goal tracking, provider network, and risk flags. The dense information architecture is designed for at-a-glance review during coordination calls.</p></div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+  <div>
+    <div class="pt-hero">
+      <div style="display:flex;gap:14px;align-items:flex-start;margin-bottom:16px">
+        <div class="pt-avatar">IA</div>
+        <div>
+          <div class="pt-name">Iona Alexander</div>
+          <div class="pt-ndis">NDIS #430 822 041 · DOB: 14 Mar 1988</div>
+          <div style="display:flex;gap:6px;margin-top:6px;flex-wrap:wrap"><span class="lx-chip pk">Physical Impairment</span><span class="lx-chip cy">Acquired Brain Injury</span></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:16px">
+        <div class="pt-pill"><div class="pt-pill-val">$168K</div><div class="pt-pill-lbl">Total Budget</div></div>
+        <div class="pt-pill"><div class="pt-pill-val">74%</div><div class="pt-pill-lbl">Utilised</div></div>
+        <div class="pt-pill"><div class="pt-pill-val">14d</div><div class="pt-pill-lbl">Plan Expiry</div></div>
+        <div class="pt-pill"><div class="pt-pill-val">8/10</div><div class="pt-pill-lbl">Goals Score</div></div>
+      </div>
+      <div class="pt-prog-wrap"><div class="pt-prog-label"><span>Core Supports</span><span>79% of $78K</span></div><div class="pt-prog-track"><div class="pt-prog-fill" style="width:79%;background:var(--lx-pink)"></div></div></div>
+      <div class="pt-prog-wrap"><div class="pt-prog-label"><span>Capacity Building</span><span>67% of $42K</span></div><div class="pt-prog-track"><div class="pt-prog-fill" style="width:67%;background:var(--lx-cyan)"></div></div></div>
+      <div class="pt-prog-wrap"><div class="pt-prog-label"><span>Capital Supports</span><span>64% of $28K</span></div><div class="pt-prog-track"><div class="pt-prog-fill" style="width:64%;background:var(--lx-yellow)"></div></div></div>
+      <div class="lx-ghost inv">IA</div>
+    </div>
+
+    <div class="pt-section">
+      <div class="pt-section-title">Active Goals — Plan Period 2025–26</div>
+      <div class="goal-item"><div class="goal-dot" style="background:var(--lx-pink)"></div><div class="goal-text">Increase independence in daily living activities including meal preparation, personal care, and household management</div><span class="goal-badge" style="background:rgba(34,197,94,.1);color:#16a34a">Achieved</span></div>
+      <div class="goal-item"><div class="goal-dot" style="background:var(--lx-cyan)"></div><div class="goal-text">Improve social participation through community activities twice weekly with Scope support worker</div><span class="goal-badge" style="background:rgba(34,197,94,.1);color:#16a34a">In Progress</span></div>
+      <div class="goal-item"><div class="goal-dot" style="background:var(--lx-orange)"></div><div class="goal-text">Access and complete right shoulder surgery and manage rehabilitation supports post-procedure</div><span class="goal-badge" style="background:rgba(255,102,0,.1);color:var(--lx-orange)">Blocked</span></div>
+      <div class="goal-item"><div class="goal-dot" style="background:var(--lx-purple)"></div><div class="goal-text">Develop driving skills and independence through Specialist Driving OT and lessons program</div><span class="goal-badge" style="background:rgba(0,212,255,.1);color:var(--lx-cyan)">Not Started</span></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="pt-section mb3">
+      <div class="pt-section-title">Contact Information</div>
+      <div class="lx-ir"><span class="lx-ik">Address</span><span class="lx-iv n">Bundoora, VIC 3083</span></div>
+      <div class="lx-ir"><span class="lx-ik">Phone</span><span class="lx-iv n">0412 XXX XXX</span></div>
+      <div class="lx-ir"><span class="lx-ik">Plan Management</span><span class="lx-chip cy">Plan Managed</span></div>
+      <div class="lx-ir"><span class="lx-ik">Support Coordinator</span><span class="lx-iv n">Ile Karamacoski</span></div>
+      <div class="lx-ir"><span class="lx-ik">Next Review</span><span class="lx-iv cpk">14 Jan 2026</span></div>
+    </div>
+
+    <div class="pt-section mb3">
+      <div class="pt-section-title">Current Provider Network</div>
+      <div class="lx-ir"><span class="lx-ik">IDS — Daily Living</span><span class="lx-chip cy">Active · 28h/wk</span></div>
+      <div class="lx-ir"><span class="lx-ik">PYMHWS — Mental Health</span><span class="lx-chip yw">Commencing</span></div>
+      <div class="lx-ir"><span class="lx-ik">Scope — Community</span><span class="lx-chip cy">Active · 10h/wk</span></div>
+      <div class="lx-ir"><span class="lx-ik">Yooralla — Allied Health</span><span class="lx-chip cy">Active · 6h/wk</span></div>
+      <div class="lx-ir"><span class="lx-ik">Plan Manager — Lighthouse</span><span class="lx-chip cy">Active</span></div>
+    </div>
+
+    <div class="pt-section">
+      <div class="pt-section-title">Risk &amp; Compliance Flags</div>
+      <div class="lx-al dng mb2"><div><div class="lx-at">Plan Expiry — 14 Days</div><div class="lx-ab">Plan review not yet submitted. Submit via myplace immediately to avoid support gap.</div></div></div>
+      <div class="lx-al wrn mb2"><div><div class="lx-at">Core Supports Overrun Risk</div><div class="lx-ab">At 79% with 3 months remaining. Review IDS hours with participant.</div></div></div>
+      <div class="lx-al inf"><div><div class="lx-at">Surgery Pending — NDIS Interface</div><div class="lx-ab">Post-surgical supports must be pre-authorised. Pre-auth lodged 1 Apr 2026.</div></div></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- ===== ANALYTICS DASH ===== -->
+<div class="lx-tpanel" data-panel="dash">
+<div class="sb"><div class="lx-sh yw">Practice Analytics Dashboard — Snapshot</div>
+<p>Mini-dashboard combining key practice metrics — caseload KPIs, provider performance horizontal bars, and utilisation summary. All animated on load.</p></div>
+
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:16px">
+  <div class="mini-kpi"><div class="mini-val cpk" id="dc1">0</div><div class="mini-lbl">Participants</div></div>
+  <div class="mini-kpi"><div class="mini-val ccy" id="dc2">0</div><div class="mini-lbl">Active Supports</div></div>
+  <div class="mini-kpi"><div class="mini-val" style="color:#7a9900" id="dc3">0</div><div class="mini-lbl">% Goals Met</div></div>
+  <div class="mini-kpi"><div class="mini-val cor" id="dc4">0</div><div class="mini-lbl">Reviews Due</div></div>
+  <div class="mini-kpi"><div class="mini-val cpu" id="dc5">0</div><div class="mini-lbl">Risk Flags</div></div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px">
+  <div>
+    <div class="lx-sh yw mb3">Provider Satisfaction (%)</div>
+    <div class="hbar-wrap" id="dash-hbar">
+      <div class="hbar-row"><span class="hbar-label">IDS</span><div class="hbar-track"><div class="hbar-fill" style="width:92%;background:var(--lx-pink)"></div></div><span class="hbar-num cpk">92</span></div>
+      <div class="hbar-row"><span class="hbar-label">Scope</span><div class="hbar-track"><div class="hbar-fill" style="width:88%;background:var(--lx-cyan)"></div></div><span class="hbar-num ccy">88</span></div>
+      <div class="hbar-row"><span class="hbar-label">PYMHWS</span><div class="hbar-track"><div class="hbar-fill" style="width:78%;background:var(--lx-orange)"></div></div><span class="hbar-num cor">78</span></div>
+      <div class="hbar-row"><span class="hbar-label">Yooralla</span><div class="hbar-track"><div class="hbar-fill" style="width:82%;background:var(--lx-purple)"></div></div><span class="hbar-num cpu">82</span></div>
+      <div class="hbar-row"><span class="hbar-label">Lighthouse</span><div class="hbar-track"><div class="hbar-fill" style="width:95%;background:var(--lx-blue)"></div></div><span class="hbar-num cbl">95</span></div>
+    </div>
+  </div>
+  <div>
+    <div class="lx-sh mb3">Budget Utilisation by Category</div>
+    <div class="lx-ir"><span class="lx-ik">Core Supports</span><div style="flex:1;margin:0 10px;height:6px;background:var(--lx-bdr);border-radius:3px;overflow:hidden"><div style="width:79%;height:100%;background:var(--lx-pink);border-radius:3px"></div></div><span class="lx-iv cpk">79%</span></div>
+    <div class="lx-ir"><span class="lx-ik">Capacity Building</span><div style="flex:1;margin:0 10px;height:6px;background:var(--lx-bdr);border-radius:3px;overflow:hidden"><div style="width:67%;height:100%;background:var(--lx-cyan);border-radius:3px"></div></div><span class="lx-iv ccy">67%</span></div>
+    <div class="lx-ir"><span class="lx-ik">Capital Supports</span><div style="flex:1;margin:0 10px;height:6px;background:var(--lx-bdr);border-radius:3px;overflow:hidden"><div style="width:64%;height:100%;background:var(--lx-yellow);border-radius:3px"></div></div><span class="lx-iv" style="color:#7a9900">64%</span></div>
+    <div class="lx-ir"><span class="lx-ik">Support Coord.</span><div style="flex:1;margin:0 10px;height:6px;background:var(--lx-bdr);border-radius:3px;overflow:hidden"><div style="width:74%;height:100%;background:var(--lx-orange);border-radius:3px"></div></div><span class="lx-iv cor">74%</span></div>
+    <div class="lx-div"></div>
+    <div class="lx-ir"><span class="lx-ik" style="font-weight:700">Total FY 25/26</span><span class="lx-iv cpk">$168K</span></div>
+    <div class="lx-ir"><span class="lx-ik">Amount Spent YTD</span><span class="lx-iv n">$124K</span></div>
+    <div class="lx-ir"><span class="lx-ik">Remaining</span><span class="lx-iv n">$44K</span></div>
+  </div>
+</div>
+
+<div class="lx-al inf"><div><div class="lx-at">Data Currency</div><div class="lx-ab">All figures reflect LIMITLESS caseload aggregate as at 3 April 2026. Budget data sourced from plan management portal (Lighthouse). Provider satisfaction from Q1 FY 25/26 participant feedback surveys.</div></div></div>
+</div>
+
+    </div><!-- /lx-tpanels -->
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="lx-bento" style="padding-top:0">
+  <div class="lx-card dark lx-s12 pbot" style="padding:28px">
+    <div class="lx-ghost inv" style="font-size:200px;opacity:.02">L</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px">
+      <div><div class="lx-csm cpk" style="margin-bottom:4px">Prepared by</div><div class="lx-bsm" style="color:rgba(245,240,232,.6)"><strong style="color:var(--lx-offwhite)">Ile Karamacoski</strong><br>Director &amp; Senior NDIS SC<br>LIMITLESS Support Co.</div></div>
+      <div><div class="lx-csm cpk" style="margin-bottom:4px">Suite</div><div class="lx-bsm" style="color:rgba(245,240,232,.6)">Extension 03 of 03<br>Productivity Suite<br>Version 3.0 — April 2026</div></div>
+      <div><div class="lx-csm cpk" style="margin-bottom:4px">Components</div><div class="lx-bsm" style="color:rgba(245,240,232,.6)">Kanban · Scheduler<br>AI Brain · Participant View<br>Analytics Dashboard</div></div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<!-- ══ TASK CREATION MODAL ══ -->
+<style>
+.m-fi{width:100%;height:34px;border:1px solid var(--lx-bdr);border-radius:6px;padding:0 10px;font-family:'Barlow',sans-serif;font-size:11px;background:var(--lx-cream);display:flex;align-items:center;color:var(--lx-tx);outline:none;-webkit-appearance:none;box-sizing:border-box}
+.m-fi:focus{border-color:var(--lx-pink);box-shadow:0 0 0 3px rgba(255,45,125,.1)}
+.m-fi::placeholder{color:var(--lx-txl)}
+select.m-fi{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%23999' stroke-width='1.2' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;cursor:pointer}
+.m-ta{width:100%;min-height:70px;border:1px solid var(--lx-bdr);border-radius:0 0 6px 6px;padding:8px 10px;font-family:'Barlow',sans-serif;font-size:11px;background:var(--lx-cream);color:var(--lx-txm);line-height:1.5;resize:vertical;outline:none;border-top:none;-webkit-appearance:none;box-sizing:border-box}
+.m-ta:focus{border-color:var(--lx-pink);box-shadow:0 0 0 3px rgba(255,45,125,.1)}
+</style>
+
+
+<!-- ═══ TASK CREATION MODAL ═══ -->
+<div id="task-modal-bg" style="display:none;position:fixed;inset:0;background:rgba(10,15,28,.65);backdrop-filter:blur(4px);z-index:9000;justify-content:center;align-items:center;padding:16px" onclick="if(event.target===this)closeTaskModal()">
+<div style="background:var(--lx-card);border-radius:var(--r-lg);box-shadow:0 32px 80px rgba(0,0,0,.3);max-width:540px;width:100%;max-height:90vh;display:flex;flex-direction:column;overflow:hidden">
+<div style="height:5px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--lx-bdr)">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;text-transform:uppercase;letter-spacing:.05em">New Task</div>
+<button onclick="closeTaskModal()" style="width:30px;height:30px;border-radius:50%;border:none;background:rgba(0,0,0,.06);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all .2s" onmouseover="this.style.background='var(--lx-pink)';this.style.color='#fff'" onmouseout="this.style.background='rgba(0,0,0,.06)';this.style.color=''">✕</button>
+</div>
+<div style="overflow-y:auto;padding:18px;flex:1">
+<!-- Interaction Type -->
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:6px">INTERACTION TYPE</div>
+<div class="int-row">
+<div class="int-ico sel" onclick="toggleInt(this)" data-type="phone" title="Phone Call">
+<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+<span class="int-label">Phone</span>
+</div>
+<div class="int-ico" onclick="toggleInt(this)" data-type="sms" title="SMS / Text">
+<svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+<span class="int-label">SMS</span>
+</div>
+<div class="int-ico" onclick="toggleInt(this)" data-type="email" title="Email">
+<svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>
+<span class="int-label">Mail</span>
+</div>
+<div class="int-ico" onclick="toggleInt(this)" data-type="video" title="Video Call">
+<svg viewBox="0 0 24 24"><rect x="2" y="6" width="13" height="12" rx="2"/><path d="M15 10l5-3v10l-5-3"/></svg>
+<span class="int-label">Video</span>
+</div>
+<div class="int-ico" onclick="toggleInt(this)" data-type="f2f" title="Face to Face">
+<svg viewBox="0 0 24 24"><path d="M11.5 2C6.81 2 3 5.81 3 10.5c0 2.32.94 4.43 2.45 5.96L2 22l5.69-3.39C8.97 19.52 10.2 20 11.5 20c4.69 0 8.5-3.81 8.5-8.5S16.19 3 11.5 3"/><circle cx="8.5" cy="10.5" r="1"/><circle cx="14.5" cy="10.5" r="1"/></svg>
+<span class="int-label">F2F</span>
+</div>
+</div>
+
+<!-- Task Name -->
+<div style="margin-bottom:14px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">TASK NAME <span style="color:var(--lx-pink)">*</span></div>
+<input id="tm-name" type="text" placeholder="Enter task name" style="width:100%;padding:9px 12px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:13px;background:var(--lx-card);outline:none" onfocus="this.style.borderColor='var(--lx-pink)';this.style.boxShadow='0 0 0 3px rgba(255,45,125,.08)'" onblur="this.style.borderColor='';this.style.boxShadow=''">
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+<!-- Participant -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">PARTICIPANT</div>
+<select id="tm-participant" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 10px center;padding-right:28px">
+<option value="">Select...</option><option>Kane Cameron</option><option>Jema Cameron</option><option>Leonard Peris</option>
+</select>
+</div>
+<!-- Date -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">DATE</div>
+<input id="tm-date" type="date" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none">
+</div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+<!-- Priority -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">PRIORITY</div>
+<select id="tm-priority" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 10px center;padding-right:28px">
+<option value="m">Medium</option><option value="c">Critical</option><option value="h">High</option><option value="l">Low</option>
+</select>
+</div>
+<!-- Column -->
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">COLUMN</div>
+<select id="tm-col" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 10px center;padding-right:28px">
+<option value="todo">To Do</option><option value="active">Active</option><option value="review">Review</option><option value="done">Done</option>
+</select>
+</div>
+</div>
+
+<!-- RTE Notes -->
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">NOTES</div>
+<div class="rte-wrap">
+<div class="rte-bar">
+<button class="rte-b" onclick="rteCmd('bold')" title="Bold"><b>B</b></button>
+<button class="rte-b" onclick="rteCmd('italic')" title="Italic"><i>I</i></button>
+<button class="rte-b" onclick="rteCmd('underline')" title="Underline"><u>U</u></button>
+<button class="rte-b" onclick="rteCmd('strikethrough')" title="Strikethrough"><s>S</s></button>
+<button class="rte-b" onclick="rteHighlight()" title="Highlight">✦</button>
+<div class="rte-b sep"></div>
+<button class="rte-b" onclick="rteCmd('insertUnorderedList')" title="Bullet List">☰</button>
+<button class="rte-b" onclick="rteCmd('insertOrderedList')" title="Numbered List">≡</button>
+<div class="rte-b sep"></div>
+<button class="rte-b" onclick="rteHeading('H1')" title="Heading 1" style="font-size:11px;font-weight:900">H1</button>
+<button class="rte-b" onclick="rteHeading('H2')" title="Heading 2" style="font-size:10px;font-weight:900">H2</button>
+<button class="rte-b" onclick="rteHeading('H3')" title="Heading 3" style="font-size:9px;font-weight:900">H3</button>
+<div class="rte-b sep"></div>
+<button class="rte-b" onclick="rteLink()" title="Insert Link">🔗</button>
+<button class="rte-b" onclick="rteTable()" title="Insert Table">▦</button>
+<button class="rte-b" onclick="rteChecklist()" title="Checklist">☑</button>
+<button class="rte-b" onclick="rteTemplate()" title="Template">📋</button>
+</div>
+<div id="tm-notes" class="rte-area" contenteditable="true" data-ph="Type notes here..."></div>
+</div>
+</div>
+
+<div style="padding:12px 18px;border-top:1px solid var(--lx-bdr);display:flex;justify-content:flex-end;gap:8px;flex-wrap:wrap">
+<input type="hidden" id="tm-int-type" value="phone">
+<button onclick="closeTaskModal()" class="lx-btn ghost sm">Cancel</button>
+<button onclick="submitTask(false)" class="lx-btn bk sm">Create</button>
+<button onclick="submitTask(true)" class="lx-btn pk sm">Create & Open</button>
+</div>
+</div>
+</div>
+
+
+<!-- ═══ TASK DETAIL DRAWER ═══ -->
+<div id="td-backdrop" class="td-backdrop" onclick="if(event.target===this)closeTdDrawer()">
+<div class="td-drawer" onclick="event.stopPropagation()">
+<!-- Top bar -->
+<div class="td-topbar">
+<div class="td-actions-wrap">
+<button class="td-actions-btn" onclick="toggleActionsMenu()">⋮ Actions</button>
+<div id="td-actions-dd" class="td-actions-menu">
+<a href="#" onclick="return false"><svg viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v-2"/><circle cx="8.5" cy="7" r="4"/><path d="M20 8v6m3-3h-6"/></svg>Reassign Task</a>
+<a href="#" onclick="return false"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Create Calendar Event</a>
+<a href="#" onclick="return false"><svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4m4-5l5 5 5-5m-5 5V3"/></svg>Download Summary</a>
+<a href="#" onclick="return false" style="opacity:.5"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 7L2 7"/></svg>Email Summary</a>
+<a href="#" onclick="return false"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Email History</a>
+<a href="#" onclick="return false"><svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>Clone Task</a>
+<a href="#" class="del" onclick="return false"><svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>Delete Task</a>
+<a href="#" onclick="return false"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Audit Trail</a>
+</div>
+</div>
+<button class="td-close" onclick="closeTdDrawer()">✕</button>
+</div>
+
+<div class="td-body">
+<!-- Left main content -->
+<div class="td-main">
+<!-- Title -->
+<input id="td-title" class="td-title-input" type="text" placeholder="Task title" style="width:calc(100% - 32px)">
+
+<!-- Add a Note section -->
+<div class="td-section">
+<div class="td-section-title">Add a Note</div>
+<button onclick="addCheckIn()" style="font-family:'Barlow',sans-serif;font-size:12px;padding:6px 14px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);background:var(--lx-card);cursor:pointer;margin-bottom:10px;display:flex;align-items:center;gap:5px;transition:all .15s" onmouseover="this.style.borderColor='var(--lx-pink)'" onmouseout="this.style.borderColor=''">+ Add Check-In</button>
+<div class="rte-wrap">
+<div class="rte-bar">
+<button class="rte-b" onclick="rteCmd('bold',this)" title="Bold"><b>B</b></button>
+<button class="rte-b" onclick="rteCmd('italic',this)" title="Italic"><i>I</i></button>
+<button class="rte-b" onclick="rteCmd('underline',this)" title="Underline"><u>U</u></button>
+<button class="rte-b" onclick="rteCmd('strikethrough',this)" title="Strikethrough"><s>S</s></button>
+<button class="rte-b" onclick="rteHighlight(this)" title="Highlight">✦</button>
+<div class="rte-b sep"></div>
+<button class="rte-b" onclick="rteCmd('insertUnorderedList',this)" title="Bullet List">☰</button>
+<button class="rte-b" onclick="rteCmd('insertOrderedList',this)" title="Numbered List">≡</button>
+<div class="rte-b sep"></div>
+<button class="rte-b" onclick="rteHeading('H1',this)" style="font-size:11px;font-weight:900">H1</button>
+<button class="rte-b" onclick="rteHeading('H2',this)" style="font-size:10px;font-weight:900">H2</button>
+<button class="rte-b" onclick="rteHeading('H3',this)" style="font-size:9px;font-weight:900">H3</button>
+<div class="rte-b sep"></div>
+<button class="rte-b" onclick="rteLink(this)" title="Link">🔗</button>
+<button class="rte-b" onclick="rteTable(this)" title="Table">▦</button>
+<button class="rte-b" onclick="rteChecklist(this)" title="Checklist">☑</button>
+<button class="rte-b" onclick="rteTemplate(this)" title="Template">📋</button>
+</div>
+<div id="td-rte" class="rte-area" contenteditable="true" data-ph="Type notes here..."></div>
+</div>
+<div style="margin-top:10px;display:flex;gap:8px">
+<button style="font-family:'Barlow',sans-serif;font-size:11px;padding:6px 14px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);background:var(--lx-card);cursor:pointer;display:flex;align-items:center;gap:4px" onclick="alert('Upload dialog would open')">⬆ Upload Documents</button>
+</div>
+<div style="text-align:right;margin-top:10px">
+<button style="font-family:'Barlow',sans-serif;font-size:11px;padding:6px 14px;color:var(--lx-txm);border:none;background:none;cursor:pointer">Cancel</button>
+</div>
+</div>
+
+<!-- Tab area -->
+<div class="td-tabs" id="td-tab-row">
+<div class="td-tab act" onclick="switchTdTab('notes',this)">Notes</div>
+<div class="td-tab" onclick="switchTdTab('finance',this)">Finance</div>
+<div class="td-tab" onclick="switchTdTab('docs',this)">Documents</div>
+<div class="td-tab" onclick="switchTdTab('goals',this)">Goals</div>
+</div>
+
+<!-- Tab panels -->
+<div id="td-panel-notes" class="td-tab-panel act">
+<div style="margin-bottom:10px"><input class="td-search" type="text" placeholder="Search"></div>
+<table class="lx-tbl" style="font-size:11px"><tr><th>DATE</th><th>CONTENT</th></tr><tr><td colspan="2" class="td-empty"><em>No items.</em></td></tr></table>
+<div class="td-pagination"><span>Items</span><select><option>25</option><option>50</option></select><span id="td-notes-count">1-25 of 0</span><button>‹</button><button>›</button></div>
+</div>
+
+<div id="td-panel-finance" class="td-tab-panel">
+<div style="display:flex;gap:8px;margin-bottom:12px;align-items:center">
+<select class="td-fselect" style="max-width:240px"><option value="">Charge Item</option><option>Direct Service - Coordination Level 2: Coordination of Supports</option><option>Provider Travel</option><option>Report Writing</option></select>
+<button class="lx-btn ghost sm" style="font-size:10px">Cancel</button>
+</div>
+<table class="lx-tbl"><tr><th>NAME</th><th>QUANTITY</th><th>TOTAL COST</th><th>CLAIM TYPE</th><th></th></tr>
+<tr>
+<td style="font-size:10px">Direct Service - Coordination Level 2: Coordination of Supports <span class="lx-chip pk" style="font-size:5px;padding:1px 5px;margin-left:3px">P</span></td>
+<td><div style="display:flex;align-items:center;gap:3px"><input type="number" value="0" style="width:40px;padding:4px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:11px;text-align:center"><span style="font-size:9px;color:var(--lx-txm)">hours</span></div></td>
+<td style="font-family:'JetBrains Mono',monospace;font-size:10px">-</td>
+<td style="font-size:10px">Direct Service</td>
+<td style="text-align:center;cursor:pointer;color:var(--lx-txm)">⋮</td>
+</tr>
+</table>
+</div>
+
+<div id="td-panel-docs" class="td-tab-panel">
+<div style="display:flex;gap:8px;margin-bottom:12px;align-items:center;flex-wrap:wrap">
+<input class="td-search" type="text" placeholder="Search">
+<button style="width:32px;height:32px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);background:var(--lx-card);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:13px">🔍</button>
+<button class="lx-btn ghost sm" style="font-size:10px;margin-left:auto" onclick="alert('Upload dialog')">⬆ Upload Documents</button>
+</div>
+<table class="lx-tbl"><tr><th>NAME</th></tr><tr><td class="td-empty"><em>No items.</em></td></tr></table>
+<div class="td-pagination"><span>Items</span><select><option>25</option></select><span>1-25 of 0</span><button>‹</button><button>›</button></div>
+</div>
+
+<div id="td-panel-goals" class="td-tab-panel">
+<div style="display:flex;justify-content:flex-end;margin-bottom:10px">
+<button class="lx-btn ghost sm" style="font-size:10px">Add Goal</button>
+</div>
+<table class="lx-tbl"><tr><th>NAME</th><th>GOAL TYPE</th><th>STATUS</th></tr><tr><td colspan="3" class="td-empty"><em>No items.</em></td></tr></table>
+</div>
+</div>
+
+<!-- Right sidebar -->
+<div class="td-side">
+<div class="td-fgroup">
+<div class="td-fgroup-label">Participant</div>
+<div style="display:flex;gap:6px;align-items:center;margin-top:6px">
+<select id="td-participant" class="td-fselect" style="flex:1"><option value="">Select...</option><option selected>Jema Cameron</option><option>Kane Cameron</option><option>Leonard Peris</option></select>
+<button class="td-link" title="View participant">›</button>
+</div>
+</div>
+
+<div class="td-fgroup">
+<div class="td-fgroup-label">Date</div>
+<input id="td-date" type="date" class="td-dateinput" style="margin-top:6px">
+</div>
+
+<div style="display:flex;flex-direction:column;gap:6px;margin-bottom:14px">
+<div class="td-chk on" onclick="this.classList.toggle('on')"><div class="td-chk-box"></div>Billable</div>
+<div class="td-chk" onclick="this.classList.toggle('on')"><div class="td-chk-box"></div>Completed</div>
+</div>
+
+<div class="td-fgroup">
+<div class="td-fgroup-label">Primary Charge</div>
+<div style="margin-top:6px">
+<select class="td-fselect" style="margin-bottom:8px"><option>Charge Item</option><option>Direct Service - Coordination …</option><option>Provider Travel</option></select>
+<div class="td-fgroup" style="padding:8px;margin-bottom:0">
+<div class="td-fgroup-label" style="font-size:7px">Duration</div>
+<div class="dur-row" style="margin-top:4px">
+<input id="td-dur" class="dur-input" type="number" value="0" min="0">
+<span class="dur-unit">minutes</span>
+<button class="dur-btn" onclick="addDur(6)">+6</button>
+<button class="dur-btn" onclick="addDur(12)">+12</button>
+</div>
+</div>
+</div>
+</div>
+
+<div class="td-fgroup">
+<div class="td-fgroup-label">Funding Utilisation</div>
+<div style="margin-top:8px">
+<div style="font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;margin-bottom:2px">Coordination of Supports</div>
+<div class="fu-bar"><div class="fu-fill red" style="width:100%"></div></div>
+<div class="fu-meta"><span>100% used</span><span>0m remaining</span></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<!-- ═══ PROJECT CREATION MODAL ═══ -->
+<div id="proj-modal-bg" style="display:none;position:fixed;inset:0;background:rgba(10,15,28,.65);backdrop-filter:blur(4px);z-index:9000;justify-content:center;align-items:center;padding:16px" onclick="if(event.target===this)closeProjModal()">
+<div style="background:var(--lx-card);border-radius:var(--r-lg);box-shadow:0 32px 80px rgba(0,0,0,.3);max-width:600px;width:100%;max-height:90vh;display:flex;flex-direction:column;overflow:hidden">
+<div style="height:5px;border-radius:var(--r-lg) var(--r-lg) 0 0;background:linear-gradient(90deg,var(--lx-cyan),var(--lx-blue),var(--lx-purple))"></div>
+<div style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid var(--lx-bdr)">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:18px;text-transform:uppercase;letter-spacing:.05em">New Project</div>
+<button onclick="closeProjModal()" style="width:30px;height:30px;border-radius:50%;border:none;background:rgba(0,0,0,.06);cursor:pointer;font-size:15px;display:flex;align-items:center;justify-content:center;transition:all .2s" onmouseover="this.style.background='var(--lx-pink)';this.style.color='#fff'" onmouseout="this.style.background='rgba(0,0,0,.06)';this.style.color=''">✕</button>
+</div>
+
+<!-- Stepper -->
+<div class="pm-step-row" id="pm-stepper">
+<div class="pm-step act" data-step="1"><div class="pm-step-dot">1</div><div class="pm-step-label">Details</div></div>
+<div class="pm-step-line"></div>
+<div class="pm-step" data-step="2"><div class="pm-step-dot">2</div><div class="pm-step-label">Subtasks</div></div>
+<div class="pm-step-line"></div>
+<div class="pm-step" data-step="3"><div class="pm-step-dot">3</div><div class="pm-step-label">Review</div></div>
+</div>
+
+<div style="overflow-y:auto;flex:1" id="pm-panels">
+<!-- Step 1: Details -->
+<div class="pm-panel" data-panel="1" style="padding:18px">
+<div style="margin-bottom:14px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">PROJECT NAME <span style="color:var(--lx-pink)">*</span></div>
+<input id="pm-name" type="text" placeholder="Enter project name" style="width:100%;padding:9px 12px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:13px;background:var(--lx-card);outline:none" onfocus="this.style.borderColor='var(--lx-pink)'" onblur="this.style.borderColor=''">
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">PARTICIPANT</div>
+<select id="pm-participant" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 10px center;padding-right:28px"><option>Kane Cameron</option><option>Jema Cameron</option><option>Leonard Peris</option></select>
+</div>
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">DUE DATE</div>
+<input id="pm-due" type="date" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none">
+</div>
+</div>
+<div style="margin-bottom:14px">
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">DESCRIPTION</div>
+<textarea id="pm-desc" placeholder="Project description" rows="3" style="width:100%;padding:9px 12px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none;resize:vertical"></textarea>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">STATUS</div>
+<select id="pm-status" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 10px center;padding-right:28px"><option>Planning</option><option>Active</option><option>On Hold</option></select>
+</div>
+<div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:4px">PRIORITY</div>
+<select id="pm-pri" style="width:100%;padding:9px 10px;border:1.5px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:'Barlow',sans-serif;font-size:12px;background:var(--lx-card);outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 10px center;padding-right:28px"><option value="h">High</option><option value="m" selected>Medium</option><option value="l">Low</option></select>
+</div>
+</div>
+</div>
+
+<!-- Step 2: Subtasks -->
+<div class="pm-panel" data-panel="2" style="display:none;padding:18px">
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.04em">Subtasks</div>
+<button onclick="addPmSubtask()" class="lx-btn pk sm" style="font-size:10px">+ Add Subtask</button>
+</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lx-txl);display:grid;grid-template-columns:1fr 130px 130px 28px;gap:6px;padding:0 0 6px;border-bottom:1px solid var(--lx-bdr)">
+<span>SUBTASK NAME</span><span>DUE DATE</span><span>CHARGE ITEM</span><span></span>
+</div>
+<div id="pm-subtasks-list">
+<div class="pm-subtask">
+<input class="pm-sub-name" type="text" value="Initial assessment" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:11px;outline:none;width:100%">
+<input class="pm-sub-date" type="date" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:11px;outline:none">
+<select class="pm-sub-charge" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:10px;outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 6px center;padding-right:20px"><option>SC Level 2</option><option>Provider Travel</option><option>Report Writing</option></select>
+<button class="pm-sub-del" onclick="this.closest('.pm-subtask').remove()">✕</button>
+</div>
+<div class="pm-subtask">
+<input class="pm-sub-name" type="text" value="Provider research" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:11px;outline:none;width:100%">
+<input class="pm-sub-date" type="date" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:11px;outline:none">
+<select class="pm-sub-charge" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:10px;outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 6px center;padding-right:20px"><option>SC Level 2</option><option>Provider Travel</option><option>Report Writing</option></select>
+<button class="pm-sub-del" onclick="this.closest('.pm-subtask').remove()">✕</button>
+</div>
+</div>
+</div>
+
+<!-- Step 3: Review -->
+<div class="pm-panel" data-panel="3" style="display:none;padding:18px">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:12px">Review & Submit</div>
+<div id="pm-review-content" style="background:var(--lx-cream);border-radius:var(--r-sm);padding:14px;font-size:12px;line-height:1.6">
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px">PROJECT SUMMARY</div>
+<div id="pm-review-detail">Click "Next" to see your project summary here.</div>
+</div>
+</div>
+</div>
+
+<!-- Footer with navigation -->
+<div style="padding:12px 18px;border-top:1px solid var(--lx-bdr);display:flex;justify-content:space-between;gap:8px">
+<button id="pm-back-btn" onclick="pmStep(-1)" class="lx-btn ghost sm" style="display:none">← Back</button>
+<div style="flex:1"></div>
+<button onclick="closeProjModal()" class="lx-btn ghost sm">Cancel</button>
+<button id="pm-next-btn" onclick="pmStep(1)" class="lx-btn pk sm">Next →</button>
+<button id="pm-submit-btn" onclick="submitProject()" class="lx-btn pk sm" style="display:none">Add Project</button>
+</div>
+</div>
+</div>
+
+
+<script>
+
+// ── SPOTLIGHT TAB SYSTEM ──────────────────────────────────────────────
+(function(){
+  const spotBtn=document.getElementById('spotBtn');
+  const grid=document.getElementById('mainTabs');
+  const panels=document.getElementById('mainPanels');
+  let cur='kanban',anim=false;
+  const C={kanban:['var(--lx-pink)','#fff'],sched:['var(--lx-cyan)','#0D0D0D'],ai:['var(--lx-purple)','#fff'],participant:['var(--lx-orange)','#fff'],dash:['var(--lx-yellow)','#0D0D0D']};
+  function sync(id){grid.querySelectorAll('.lx-tab').forEach(b=>b.classList.toggle('in-spot',b.dataset.tab===id));}
+  function show(id){panels.querySelectorAll('.lx-tpanel').forEach(p=>p.classList.toggle('active',p.dataset.panel===id));}
+  function wave(ex){
+    const tabs=[...grid.querySelectorAll('.lx-tab:not(.in-spot)')];
+    tabs.forEach((t,i)=>{
+      if(t.dataset.tab===ex)return;
+      t.classList.remove('wave','bounce');void t.offsetWidth;
+      setTimeout(()=>{t.classList.add(i%2===0?'wave':'bounce');t.addEventListener('animationend',()=>t.classList.remove('wave','bounce'),{once:true});},i*40);
+    });
+  }
+  function go(nid,el){
+    if(anim||nid===cur)return;anim=true;
+    const sr=spotBtn.getBoundingClientRect(),cr=el.getBoundingClientRect();
+    const fu=document.createElement('div');fu.className='tab-flyer';
+    fu.textContent=el.textContent;
+    fu.style.cssText=`left:${cr.left}px;top:${cr.top}px;width:${cr.width}px;height:${cr.height}px;font-size:13px;padding:10px 18px;background:${C[nid][0]};color:${C[nid][1]};transition:all .45s cubic-bezier(.34,1.56,.64,1);`;
+    document.body.appendChild(fu);
+    const ob=grid.querySelector(`.lx-tab[data-tab="${cur}"]`);
+    const or2=ob?ob.getBoundingClientRect():sr;
+    const fd=document.createElement('div');fd.className='tab-flyer';
+    fd.textContent=spotBtn.textContent;
+    fd.style.cssText=`left:${sr.left}px;top:${sr.top}px;width:${sr.width}px;height:${sr.height}px;font-size:17px;padding:14px 28px;background:${C[cur][0]};color:${C[cur][1]};transition:all .4s cubic-bezier(.4,0,.2,1);`;
+    document.body.appendChild(fd);
+    requestAnimationFrame(()=>{
+      fu.style.left=sr.left+'px';fu.style.top=sr.top+'px';fu.style.width=sr.width+'px';fu.style.height=sr.height+'px';fu.style.fontSize='17px';fu.style.padding='14px 28px';
+      fd.style.left=or2.left+'px';fd.style.top=or2.top+'px';fd.style.width=or2.width+'px';fd.style.height=or2.height+'px';fd.style.fontSize='13px';fd.style.padding='10px 18px';
+    });
+    spotBtn.classList.add('exiting');wave(nid);
+    setTimeout(()=>{
+      spotBtn.textContent=el.textContent;spotBtn.dataset.tab=nid;
+      spotBtn.classList.remove('exiting');spotBtn.style.animation='none';void spotBtn.offsetWidth;spotBtn.style.animation='';
+      sync(nid);show(nid);cur=nid;fu.remove();fd.remove();anim=false;
+      if(nid==='dash')initDash();
+    },440);
+  }
+  grid.addEventListener('click',e=>{const b=e.target.closest('.lx-tab');if(b)go(b.dataset.tab,b);});
+  sync('kanban');show('kanban');
+})();
+
+// ── KANBAN DRAG-DROP ─────────────────────────────────────────────────
+let dragId=null;
+function drag(e){
+  dragId=e.currentTarget.dataset.id;
+  e.currentTarget.classList.add('dragging');
+  e.dataTransfer.effectAllowed='move';
+  e.dataTransfer.setData('text/plain',dragId);
+}
+function drop(e,col){
+  e.preventDefault();col.classList.remove('drag-over');
+  if(!dragId)return;
+  const task=document.querySelector(`.kb-task[data-id="${dragId}"]`);
+  if(!task)return;
+  task.classList.remove('dragging');
+  const addBtn=col.querySelector('.kb-add-btn');
+  col.insertBefore(task,addBtn);
+  dragId=null;
+  updateCounts();
+}
+document.addEventListener('dragend',()=>{
+  dragId=null;
+  document.querySelectorAll('.kb-task.dragging').forEach(t=>t.classList.remove('dragging'));
+  document.querySelectorAll('.kb-col.drag-over').forEach(c=>c.classList.remove('drag-over'));
+});
+function updateCounts(){
+  ['todo','active','review','done'].forEach(col=>{
+    const c=document.querySelector(`.kb-col[data-col="${col}"]`);
+    const cnt=c?c.querySelectorAll('.kb-task').length:0;
+    const el=document.getElementById('cnt-'+col);
+    if(el)el.textContent=cnt;
+  });
+}
+
+// ── TASK MODAL ──────────────────────────────────────────────────────
+
+// ═══ INTERACTION TYPE TOGGLE ═══
+function toggleInt(el){
+  el.closest('.int-row').querySelectorAll('.int-ico').forEach(i=>i.classList.remove('sel'));
+  el.classList.add('sel');
+  const h=document.getElementById('tm-int-type');
+  if(h)h.value=el.dataset.type||'';
+}
+
+// ═══ RICH TEXT EDITOR ═══
+function rteCmd(cmd,btnEl){
+  document.execCommand(cmd,false,null);
+  // Find the closest rte-area to focus it
+  if(btnEl){
+    const wrap=btnEl.closest('.rte-wrap');
+    if(wrap){const area=wrap.querySelector('.rte-area');if(area)area.focus();}
+  }else{
+    const area=document.getElementById('tm-notes');
+    if(area)area.focus();
+  }
+}
+function rteHighlight(btnEl){
+  document.execCommand('hiliteColor',false,'#CCFF0066');
+  if(btnEl){const w=btnEl.closest('.rte-wrap');if(w){const a=w.querySelector('.rte-area');if(a)a.focus();}}
+}
+function rteHeading(tag,btnEl){
+  document.execCommand('formatBlock',false,tag);
+  if(btnEl){const w=btnEl.closest('.rte-wrap');if(w){const a=w.querySelector('.rte-area');if(a)a.focus();}}
+}
+function rteLink(btnEl){
+  const url=prompt('Enter URL:','https://');
+  if(url)document.execCommand('createLink',false,url);
+}
+function rteTable(btnEl){
+  const rows=prompt('Rows:','3');
+  const cols=prompt('Columns:','3');
+  if(!rows||!cols)return;
+  let html='<table style="width:100%;border-collapse:collapse;margin:8px 0;font-size:11px"><tbody>';
+  for(let r=0;r<parseInt(rows);r++){
+    html+='<tr>';
+    for(let c=0;c<parseInt(cols);c++){
+      const tag=r===0?'th':'td';
+      const style=r===0?'style="padding:4px 8px;border:1px solid #ddd;background:#f5f0e8;font-weight:700;font-size:9px;text-transform:uppercase"':'style="padding:4px 8px;border:1px solid #ddd"';
+      html+=`<${tag} ${style}>${r===0?'Header':'Cell'}</${tag}>`;
+    }
+    html+='</tr>';
+  }
+  html+='</tbody></table>';
+  document.execCommand('insertHTML',false,html);
+}
+function rteChecklist(btnEl){
+  const html='<div style="display:flex;align-items:center;gap:6px;margin:3px 0"><input type="checkbox" style="width:14px;height:14px;accent-color:#FF2D7D"><span>Checklist item</span></div>';
+  document.execCommand('insertHTML',false,html);
+}
+function rteTemplate(btnEl){
+  const tpl=prompt('Choose template:\n1 = SC Note\n2 = Follow-Up\n3 = Blank','1');
+  const templates={
+    '1':'<h3>Support Coordination Note</h3><p><strong>Date:</strong> '+new Date().toLocaleDateString()+'</p><p><strong>Interaction:</strong> </p><p><strong>Summary:</strong> </p><p><strong>Actions:</strong></p><ul><li></li></ul>',
+    '2':'<h3>Follow-Up</h3><p><strong>Re:</strong> </p><p><strong>Status:</strong> </p><p><strong>Next Steps:</strong></p><ul><li></li></ul>',
+    '3':''
+  };
+  if(templates[tpl]!==undefined)document.execCommand('insertHTML',false,templates[tpl]);
+}
+
+function addCheckIn(){
+  const now=new Date().toLocaleString();
+  const html=`<div style="border-left:3px solid var(--lx-cyan);padding:6px 10px;margin:8px 0;background:rgba(0,212,255,.04);border-radius:0 6px 6px 0;font-size:11px"><strong>Check-In — ${now}</strong><br><span style="color:#555">Notes added during check-in.</span></div>`;
+  const rte=document.getElementById('td-rte');
+  if(rte){rte.focus();document.execCommand('insertHTML',false,html);}
+}
+
+// ═══ TASK MODAL ═══
+let pendingCol='todo';
+function addTask(col){openTaskModal(col);}
+function openTaskModal(col){
+  pendingCol=col||'todo';
+  document.getElementById('tm-col').value=pendingCol;
+  document.getElementById('tm-name').value='';
+  const rte=document.getElementById('tm-notes');
+  if(rte)rte.innerHTML='';
+  // Set today's date
+  const d=document.getElementById('tm-date');
+  if(d)d.value=new Date().toISOString().slice(0,10);
+  const bg=document.getElementById('task-modal-bg');
+  bg.style.display='flex';
+}
+function closeTaskModal(){document.getElementById('task-modal-bg').style.display='none';}
+
+let taskCounter=20;
+function submitTask(openDrawer){
+  const name=document.getElementById('tm-name').value.trim()||'New Task';
+  const participant=document.getElementById('tm-participant').value;
+  const pri=document.getElementById('tm-priority').value;
+  const col=document.getElementById('tm-col').value||pendingCol;
+  const notes=document.getElementById('tm-notes')?.innerHTML||'';
+  const intType=document.getElementById('tm-int-type')?.value||'phone';
+  const date=document.getElementById('tm-date')?.value||'';
+
+  const c=document.querySelector(`.kb-col[data-col="${col}"]`);if(!c)return;
+  const t=document.createElement('div');t.className='kb-task';t.draggable=true;
+  t.dataset.id='t'+taskCounter++;
+  t.dataset.notes=notes;
+  t.dataset.intType=intType;
+  t.dataset.date=date;
+  t.dataset.participant=participant;
+  const meta=participant?participant+' · Added just now':'Added just now';
+  const priLabels={c:'Critical',h:'High',m:'Medium',l:'Low'};
+  t.innerHTML=`<div class="kb-task-title">${name}</div><div class="kb-task-meta">${meta}</div><div class="kb-task-foot"><span class="kb-pri ${pri}">${priLabels[pri]||'Medium'}</span><span class="kb-due">${date||'No date'}</span></div>`;
+  t.ondragstart=function(e){drag(e)};
+  t.ondragend=()=>t.classList.remove('dragging');
+  t.onclick=()=>openDetail(t);
+
+  const addBtn=c.querySelector('.kb-add-btn');
+  if(addBtn)c.insertBefore(t,addBtn);else c.appendChild(t);
+  updateCounts();
+  closeTaskModal();
+
+  if(openDrawer)openTdDrawer(name,participant,date,notes,intType,pri);
+}
+
+// ═══ TASK DETAIL DRAWER ═══
+function openTdDrawer(title,participant,date,notes,intType,pri){
+  document.getElementById('td-title').value=title||'';
+  const ps=document.getElementById('td-participant');
+  if(ps){for(let o of ps.options){if(o.text===participant)o.selected=true;}}
+  const dd=document.getElementById('td-date');
+  if(dd)dd.value=date||new Date().toISOString().slice(0,10);
+  const rte=document.getElementById('td-rte');
+  if(rte)rte.innerHTML=notes||'';
+  // Reset tabs
+  switchTdTab('notes',document.querySelector('.td-tab'));
+  // Show
+  const bg=document.getElementById('td-backdrop');
+  bg.classList.add('open');
+}
+function closeTdDrawer(){
+  document.getElementById('td-backdrop').classList.remove('open');
+  // Close actions menu if open
+  const dd=document.getElementById('td-actions-dd');
+  if(dd)dd.classList.remove('show');
+}
+function toggleActionsMenu(){
+  const dd=document.getElementById('td-actions-dd');
+  dd.classList.toggle('show');
+}
+// Close actions on outside click
+document.addEventListener('click',function(e){
+  const dd=document.getElementById('td-actions-dd');
+  if(dd&&dd.classList.contains('show')&&!e.target.closest('.td-actions-wrap')){
+    dd.classList.remove('show');
+  }
+});
+
+function switchTdTab(tab,el){
+  document.querySelectorAll('.td-tab').forEach(t=>t.classList.remove('act'));
+  document.querySelectorAll('.td-tab-panel').forEach(p=>p.classList.remove('act'));
+  if(el)el.classList.add('act');
+  const panel=document.getElementById('td-panel-'+tab);
+  if(panel)panel.classList.add('act');
+}
+
+function addDur(mins){
+  const inp=document.getElementById('td-dur');
+  if(inp)inp.value=parseInt(inp.value||0)+mins;
+}
+
+// ═══ OPEN DETAIL FROM KANBAN CLICK ═══
+function openDetail(taskEl){
+  const title=taskEl.querySelector('.kb-task-title');
+  const meta=taskEl.querySelector('.kb-task-meta');
+  openTdDrawer(
+    title?title.textContent:'',
+    taskEl.dataset.participant||'',
+    taskEl.dataset.date||'',
+    taskEl.dataset.notes||'',
+    taskEl.dataset.intType||'phone',
+    ''
+  );
+}
+function closeDetail(){closeTdDrawer();}
+
+// ═══ PROJECT MODAL ═══
+let pmCurrentStep=1;
+function openProjModal(){
+  pmCurrentStep=1;
+  updatePmStepper();
+  document.getElementById('pm-name').value='';
+  document.getElementById('pm-desc').value='';
+  document.getElementById('proj-modal-bg').style.display='flex';
+}
+function closeProjModal(){document.getElementById('proj-modal-bg').style.display='none';}
+
+function pmStep(dir){
+  const prev=pmCurrentStep;
+  pmCurrentStep=Math.max(1,Math.min(3,pmCurrentStep+dir));
+  if(pmCurrentStep===3)buildPmReview();
+  updatePmStepper();
+}
+function updatePmStepper(){
+  // Update step indicators
+  document.querySelectorAll('#pm-stepper .pm-step').forEach(s=>{
+    const n=parseInt(s.dataset.step);
+    s.classList.remove('act','done');
+    if(n<pmCurrentStep)s.classList.add('done');
+    if(n===pmCurrentStep)s.classList.add('act');
+  });
+  // Show correct panel
+  document.querySelectorAll('.pm-panel').forEach(p=>{
+    p.style.display=parseInt(p.dataset.panel)===pmCurrentStep?'':'none';
+  });
+  // Button visibility
+  document.getElementById('pm-back-btn').style.display=pmCurrentStep>1?'':'none';
+  document.getElementById('pm-next-btn').style.display=pmCurrentStep<3?'':'none';
+  document.getElementById('pm-submit-btn').style.display=pmCurrentStep===3?'':'none';
+}
+function buildPmReview(){
+  const name=document.getElementById('pm-name').value||'Untitled';
+  const part=document.getElementById('pm-participant').value;
+  const due=document.getElementById('pm-due').value||'Not set';
+  const desc=document.getElementById('pm-desc').value||'None';
+  const subs=document.querySelectorAll('#pm-subtasks-list .pm-subtask');
+  let subHtml='';
+  subs.forEach((s,i)=>{
+    const n=s.querySelector('.pm-sub-name')?.value||'Subtask '+(i+1);
+    const d=s.querySelector('.pm-sub-date')?.value||'No date';
+    const c=s.querySelector('.pm-sub-charge')?.value||'-';
+    subHtml+=`<div style="display:flex;justify-content:space-between;padding:4px 0;border-bottom:1px solid rgba(0,0,0,.04);font-size:11px"><span style="font-weight:600">${n}</span><span style="color:var(--lx-txm)">${d} · ${c}</span></div>`;
+  });
+  document.getElementById('pm-review-detail').innerHTML=`
+    <div style="margin-bottom:10px"><strong>Name:</strong> ${name}</div>
+    <div style="margin-bottom:10px"><strong>Participant:</strong> ${part}</div>
+    <div style="margin-bottom:10px"><strong>Due:</strong> ${due}</div>
+    <div style="margin-bottom:10px"><strong>Description:</strong> ${desc}</div>
+    <div style="font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-pink);margin:12px 0 6px">SUBTASKS (${subs.length})</div>
+    ${subHtml||'<em style="color:var(--lx-txm)">No subtasks added.</em>'}
+  `;
+}
+function addPmSubtask(){
+  const list=document.getElementById('pm-subtasks-list');
+  const row=document.createElement('div');
+  row.className='pm-subtask';
+  row.innerHTML=`
+    <input class="pm-sub-name" type="text" placeholder="Subtask name" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:11px;outline:none;width:100%">
+    <input class="pm-sub-date" type="date" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:11px;outline:none">
+    <select class="pm-sub-charge" style="padding:6px 8px;border:1px solid var(--lx-bdr2);border-radius:4px;font-size:10px;outline:none;appearance:none;background-image:url('data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%2710%27 height=%276%27%3E%3Cpath d=%27M0 0l5 6 5-6%27 fill=%27%23999%27/%3E%3C/svg%3E');background-repeat:no-repeat;background-position:right 6px center;padding-right:20px"><option>SC Level 2</option><option>Provider Travel</option><option>Report Writing</option></select>
+    <button class="pm-sub-del" onclick="this.closest('.pm-subtask').remove()">✕</button>
+  `;
+  list.appendChild(row);
+}
+function submitProject(){
+  const name=document.getElementById('pm-name').value.trim()||'New Project';
+  const part=document.getElementById('pm-participant').value;
+  const due=document.getElementById('pm-due').value||'';
+  const subs=document.querySelectorAll('#pm-subtasks-list .pm-subtask');
+  // Add project card to the first kanban column (todo)
+  const col=document.querySelector('.kb-col[data-col="todo"]');
+  if(col){
+    const t=document.createElement('div');t.className='kb-task';t.draggable=true;
+    t.dataset.id='p'+Date.now();
+    const subCount=subs.length;
+    t.innerHTML=`<div class="kb-task-title">${name}</div><div class="kb-task-meta">${part} · ${subCount} subtask${subCount!==1?'s':''}</div><div class="kb-task-foot"><span class="kb-pri m">Project</span><span class="kb-due">${due||'No date'}</span></div><div class="kb-task-bar" style="margin-top:6px"><div class="kb-task-prog" style="width:0%"></div></div>`;
+    t.ondragstart=function(e){drag(e)};
+    t.ondragend=()=>t.classList.remove('dragging');
+    t.onclick=()=>openDetail(t);
+    const addBtn=col.querySelector('.kb-add-btn');
+    if(addBtn)col.insertBefore(t,addBtn);else col.appendChild(t);
+    updateCounts();
+  }
+  closeProjModal();
+  // Show toast-like confirmation
+  const toast=document.createElement('div');
+  toast.style.cssText='position:fixed;bottom:20px;right:20px;background:var(--lx-black);color:var(--lx-offwhite);padding:12px 20px;border-radius:var(--r-sm);font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;z-index:10000;box-shadow:0 8px 32px rgba(0,0,0,.3);display:flex;align-items:center;gap:8px;animation:flyUp .4s var(--spring)';
+  toast.innerHTML=`<span style="color:var(--lx-pink)">✓</span> Project "${name}" created`;
+  document.body.appendChild(toast);
+  setTimeout(()=>toast.remove(),3000);
+}
+
+
+async function callAI(msg){
+  try{
+    const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:800,system:SYSTEM,messages:[{role:'user',content:msg}]})});
+    const d=await r.json();
+    return d.content?.[0]?.text||'Unable to get response from ARIA.';
+  }catch(e){return'ARIA is currently offline. Please check your connection and try again.';}
+}
+function setPrompt(txt){document.getElementById('ai-input').value=txt;document.getElementById('ai-input').focus();}
+async function sendMsg(){
+  const inp=document.getElementById('ai-input');
+  const msg=inp.value.trim();if(!msg)return;
+  inp.value='';
+  const msgs=document.getElementById('ai-messages');
+  // User bubble
+  const ub=document.createElement('div');ub.className='ai-msg user';
+  ub.innerHTML=`<div><div class="ai-bubble">${msg.replace(/</g,'&lt;')}</div><div class="ai-time">Ile · just now</div></div><div class="ai-msg-avatar">I</div>`;
+  msgs.appendChild(ub);msgs.scrollTop=msgs.scrollHeight;
+  // Typing indicator
+  const ti=document.createElement('div');ti.className='ai-msg ai';
+  ti.innerHTML=`<div class="ai-msg-avatar">A</div><div class="ai-typing"><div class="ai-dot"></div><div class="ai-dot"></div><div class="ai-dot"></div></div>`;
+  msgs.appendChild(ti);msgs.scrollTop=msgs.scrollHeight;
+  const resp=await callAI(msg);
+  ti.remove();
+  const ab=document.createElement('div');ab.className='ai-msg ai';
+  const formatted=resp.replace(/\n\n/g,'<br><br>').replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>');
+  ab.innerHTML=`<div class="ai-msg-avatar">A</div><div><div class="ai-bubble">${formatted}</div><div class="ai-time">ARIA · just now</div></div>`;
+  msgs.appendChild(ab);msgs.scrollTop=msgs.scrollHeight;
+  // Update confidence meter randomly within 82–96
+  const conf=Math.floor(82+Math.random()*14);
+  document.querySelector('.ai-conf-fill').style.width=conf+'%';
+  document.querySelector('.ai-conf span:last-child').textContent=conf+'%';
+}
+
+// ── COUNTER ───────────────────────────────────────────────────────────
+function countUp(id,v,p,s,dur=900){
+  const el=document.getElementById(id);if(!el)return;
+  const start=performance.now();
+  const ease=t=>1-Math.pow(1-t,3);
+  function tick(now){const prog=Math.min((now-start)/dur,1);el.textContent=p+Math.round(ease(prog)*v)+s;if(prog<1)requestAnimationFrame(tick);}
+  requestAnimationFrame(tick);
+}
+function initDash(){
+  setTimeout(()=>{countUp('dc1',8,'','');countUp('dc2',12,'','');countUp('dc3',68,'','%');countUp('dc4',3,'','');countUp('dc5',5,'','');},200);
+  setTimeout(()=>{document.getElementById('dash-hbar').classList.add('anim');},300);
+}
+// Trigger on initial panel load if dash is first
+window.addEventListener('load',()=>{
+  // animate participant view prog bars
+  setTimeout(()=>{document.querySelectorAll('.pt-prog-fill').forEach(el=>{const w=el.style.width;el.style.width='0%';setTimeout(()=>el.style.width=w,300);});},400);
+});
+
+
+// ═══ INIT: CLICK HANDLERS ON EXISTING TASKS ═══
+document.querySelectorAll('.kb-task').forEach(t=>{
+  t.style.cursor='pointer';
+  t.addEventListener('click',function(e){
+    if(!t.classList.contains('dragging'))openDetail(t);
+  });
+});
+</script>
+</body>
+</html>

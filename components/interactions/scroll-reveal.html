@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Scroll Reveal</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+<!-- Component: Scroll Reveal | Category: Interactions -->
+
+<div class="demo-section">
+  <div class="demo-label">SCROLL REVEAL (.lx-rev) — SCROLL DOWN TO SEE ANIMATION</div>
+  <div style="height:300px;overflow-y:auto;border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:20px">
+    <div style="height:200px;display:flex;align-items:center;justify-content:center" class="lx-bsm cm">↓ Scroll down ↓</div>
+    <div class="lx-rev" style="margin-bottom:16px"><div class="lx-card pink"><div class="lx-cmd">Revealed Card 1</div></div></div>
+    <div class="lx-rev" style="margin-bottom:16px"><div class="lx-card dark"><div class="lx-cmd" style="color:var(--lx-offwhite)">Revealed Card 2</div></div></div>
+    <div class="lx-rev"><div class="lx-card yellow"><div class="lx-cmd">Revealed Card 3</div></div></div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+</body>
+</html>

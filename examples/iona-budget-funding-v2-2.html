@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iona Alexander — Budget & Funding — LIMITLESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-navy:#0A0F1C;--lx-white:#FFF;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-bdr2:rgba(13,13,13,.12);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;--r-xs:6px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-md:0 6px 24px rgba(0,0,0,.08);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-stat{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:.01em;transition:transform .45s var(--spring)}
+.lx-card:hover .lx-stat{transform:scale(1.06)}
+.lx-dsm{font-family:'Bebas Neue',serif;font-size:24px;line-height:1}
+.lx-ghost{font-family:'Bebas Neue',serif;font-size:110px;line-height:.85;color:rgba(0,0,0,.025);user-select:none;pointer-events:none;position:absolute;right:-4px;bottom:-16px}
+.lx-ghost.inv{color:rgba(255,255,255,.04)}
+.lx-cxl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lx-clg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+.lx-cmd{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.lx-csm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-msm{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.lx-mmd{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em}
+.lx-bsm{font-size:11px;line-height:1.5}
+.lx-bxs{font-size:10px;line-height:1.4}
+.lx-sv{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lx-txm);margin-top:4px}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:6px}
+.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}
+.lx-tlogo span{color:var(--lx-pink)}
+.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
+.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}
+.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-tbadge.cyan{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(54px,auto);gap:10px;padding:12px 10px}
+.lx-s3{grid-column:span 3}.lx-s4{grid-column:span 4}.lx-s5{grid-column:span 5}.lx-s6{grid-column:span 6}.lx-s7{grid-column:span 7}.lx-s8{grid-column:span 8}.lx-s12{grid-column:span 12}
+.lx-card{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:20px;position:relative;overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease);cursor:default}
+.lx-card:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.lx-card.tl{border-radius:var(--r-xl) var(--r-md) var(--r-md) var(--r-md)}
+.lx-card.tr{border-radius:var(--r-md) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.ptop{border-radius:var(--r-xl) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.dark{background:var(--lx-black);color:var(--lx-offwhite);border-color:rgba(255,255,255,.06)}
+.lx-card.cream{background:var(--lx-cream);border-color:var(--lx-bdr)}
+.lx-card.pink{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-card.yellow{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-acc{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:20px}
+.lx-acc.cyn{border-left-color:var(--lx-cyan)}.lx-acc.org{border-left-color:var(--lx-orange)}.lx-acc.yel{border-left-color:var(--lx-yellow)}
+.lx-sh{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:2px solid var(--lx-tx)}
+.lx-sh.pk{border-bottom-color:var(--lx-pink);color:var(--lx-pink)}
+.lx-sh.yw{border-bottom-color:var(--lx-yellow)}.lx-sh.or{border-bottom-color:var(--lx-orange);color:var(--lx-orange)}.lx-sh.cy{border-bottom-color:var(--lx-cyan);color:var(--lx-cyan)}
+.lx-ir{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:12px;flex-wrap:wrap;gap:4px}
+.lx-ir:last-child{border-bottom:none}
+.lx-ik{color:var(--lx-txm);font-size:11px}
+.lx-iv{font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-pink);line-height:1}
+.lx-iv.n{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--lx-tx)}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}
+.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}
+.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}
+.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}
+.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}
+.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-chip.sbk{background:var(--lx-black);color:var(--lx-offwhite);border-color:transparent}
+.lx-al{border-radius:var(--r-sm);padding:16px 18px;border-left:5px solid;display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+.lx-al.inf{background:rgba(0,212,255,.12);border-left-color:var(--lx-cyan)}
+.lx-al.wrn{background:rgba(255,102,0,.12);border-left-color:var(--lx-orange)}
+.lx-at{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.lx-ab{font-size:11px;color:var(--lx-txm);line-height:1.55}
+.lx-dw{position:relative;width:96px;height:96px;margin:0 auto}
+.lx-dw svg{transform:rotate(-90deg);display:block}
+.lx-dtrk{fill:none;stroke:rgba(255,255,255,.06);stroke-width:10}
+.lx-dfl{fill:none;stroke-width:10;stroke-linecap:round;stroke-dasharray:0 270;transition:stroke-dasharray 1s var(--spring)}
+.lx-dlbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;line-height:1;color:var(--lx-offwhite)}
+.lx-dsl{font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(245,240,232,.5);letter-spacing:.1em}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.lx-rev.vis{opacity:1;transform:translateY(0)}
+.fx{display:flex}.fxb{display:flex;align-items:center;justify-content:space-between}.fxc{display:flex;align-items:center;justify-content:center}
+.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}
+.mb2{margin-bottom:8px}.mb3{margin-bottom:12px}.mb4{margin-bottom:16px}.mt2{margin-top:8px}.mt4{margin-top:16px}
+.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}.cor{color:var(--lx-orange)}.cm{color:var(--lx-txm)}.cl{color:var(--lx-txl)}.bld{font-weight:700}
+/* Budget envelope bars */
+.be-row{margin-bottom:16px}
+.be-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.be-cat{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.05em}
+.be-amt{font-family:'Bebas Neue',serif;font-size:20px}
+.be-bar{height:14px;background:rgba(0,0,0,.03);border-radius:3px;overflow:hidden;display:flex}
+.be-meta{display:flex;justify-content:space-between;margin-top:3px}
+.be-label{font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.1em;text-transform:uppercase}
+/* Implementation progress table */
+.ip-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:10px}
+.ip-tbl th{padding:6px 10px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-pink);border-bottom:1px solid rgba(0,0,0,.06);text-align:left}
+.ip-tbl th.r{text-align:right}
+.ip-tbl td{padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.04);font-size:10px}
+.ip-tbl td.r{text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px}
+.ip-tbl td.b{font-weight:700}
+.ip-tbl tr.tot td{border-top:2px solid rgba(0,0,0,.06);font-weight:700;font-size:10px}
+.ip-bar{width:70px;height:6px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin-left:auto}
+.ip-fill{height:100%;border-radius:999px;transition:width 1s var(--spring)}
+/* SVG chart helpers */
+.ax-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(255,255,255,.6);letter-spacing:.06em}
+.ax-line{stroke:rgba(255,255,255,.06);stroke-width:1}
+.grid-line{stroke:rgba(255,255,255,.04);stroke-width:1}
+.dk-label{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:rgba(255,255,255,.3);letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:900px){.lx-bento{grid-template-columns:repeat(6,1fr)}.lx-s3,.lx-s4,.lx-s5,.lx-s6,.lx-s7,.lx-s8,.lx-s12{grid-column:span 6}}
+@media(max-width:600px){.lx-bento{grid-template-columns:1fr;gap:8px;padding:8px}[class*="lx-s"]{grid-column:span 1}.lx-topbar{margin:0 4px;flex-wrap:wrap;gap:6px}.lx-stat{font-size:36px}.lx-ghost{font-size:60px}}
+
+/* ═══ PRINT — PRESERVE ALL VISUALS (from core-css.md) ═══ */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+  body{background:var(--lx-bg)!important;font-size:11pt}
+  .lx-topbar{position:relative!important;margin:0 10px;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .lx-stripe{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .lx-bento{display:block}
+  .lx-bento>*{margin-bottom:10px}
+  .lx-card{break-inside:avoid;page-break-inside:avoid;box-shadow:none!important;transform:none!important;transition:none!important}
+  .lx-card:hover{transform:none!important;box-shadow:none!important}
+  .lx-card.dark{background:var(--lx-black)!important;color:var(--lx-offwhite)!important}
+  .lx-card.pink{background:var(--lx-pink)!important;color:#fff!important}
+  .lx-card.yellow{background:var(--lx-yellow)!important;color:var(--lx-black)!important}
+  .lx-card.cream{background:var(--lx-cream)!important}
+  .lx-ghost{display:none!important}
+  .lx-rev{opacity:1!important;transform:none!important;transition:none!important}
+  .lx-pf,.lx-dfl,.ip-fill{transition:none!important}
+  .day-block,.day-block.split,.extra-block,.lx-chip,.lx-tbadge,.lx-acc,.lx-al{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .week-grid,.lx-tbl,.fl,.ip-tbl{break-inside:avoid;page-break-inside:avoid}
+  .be-bar,.be-bar>div,.lx-pt,.lx-pf{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  svg,circle,line,polyline,rect,text{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  a{text-decoration:none;color:inherit}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="lx-topbar">
+  <div class="fx g3" style="align-items:center">
+    <span class="lx-tlogo">LIMIT<span>LESS</span></span>
+    <span class="lx-tmeta">Support Coordination</span>
+  </div>
+  <div class="fx g2" style="align-items:center;flex-wrap:wrap">
+    <span class="lx-tbadge">BUDGET & FUNDING</span>
+    <span class="lx-tbadge pink">IONA ALEXANDER</span>
+  </div>
+</div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+
+<!-- Suite Title -->
+<div style="text-align:center;padding:32px 20px 8px">
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">LIMITLESS SUPPORT CO. &middot; NDIS PLAN</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;letter-spacing:.02em;color:var(--lx-black)">IONA'S BUDGET<br>&amp; FUNDING</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">4 APRIL 2025 &mdash; 3 APRIL 2027</div>
+  <div class="lx-bsm cm" style="max-width:560px;margin:12px auto 0">Auto Plan Renewal &mdash; 24-month extended plan. Assistance with Daily Life and Social &amp; Community Participation are flexible and combined.</div>
+</div>
+
+<div class="lx-bento">
+
+  <!-- PLAN STATUS BANNER -->
+  <div class="lx-s12 lx-card yellow lx-rev" style="padding:12px 20px">
+    <div class="fxb" style="flex-wrap:wrap;gap:8px">
+      <div class="fx g3" style="align-items:center">
+        <div class="lx-cmd">Auto Plan Renewal</div>
+        <div class="lx-chip sbk">11 MONTHS 25 DAYS LEFT</div>
+      </div>
+      <div class="lx-mmd" style="font-weight:700">$274,363.03 TOTAL FUNDED</div>
+    </div>
+  </div>
+
+  <!-- ═══ BUDGET ENVELOPE — THREE-STATE BARS ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh pk">NDIS Budget Envelope</div></div>
+  <div class="lx-s12 lx-card lx-rev">
+    <div class="lx-eye mb3" style="color:var(--lx-pink)">PLAN: 01 APR 2025 &ndash; 03 APR 2027</div>
+
+    <!-- Core Supports -->
+    <div class="be-row">
+      <div class="be-head"><span class="be-cat">Core Supports</span><span class="be-amt cpk">$231,054</span></div>
+      <div class="be-bar">
+        <div style="width:47%;background:var(--lx-pink)" title="Spent $107,580"></div>
+        <div style="width:0%;background:var(--lx-orange)" title="Committed $0"></div>
+      </div>
+      <div class="be-meta">
+        <span class="be-label" style="color:var(--lx-pink)">&#9632; SPENT $107,580 &middot; 47%</span>
+        <span class="be-label" style="color:rgba(13,13,13,.4)">&#9633; AVAILABLE $123,474 &middot; 53%</span>
+      </div>
+    </div>
+
+    <!-- Capacity Building -->
+    <div class="be-row">
+      <div class="be-head"><span class="be-cat">Capacity Building</span><span class="be-amt cor">$39,740</span></div>
+      <div class="be-bar">
+        <div style="width:45%;background:var(--lx-cyan)" title="Spent ~$18,050"></div>
+        <div style="width:0%;background:var(--lx-orange)" title="Committed"></div>
+      </div>
+      <div class="be-meta">
+        <span class="be-label" style="color:var(--lx-cyan)">&#9632; SPENT ~$18,050 &middot; 45%</span>
+        <span class="be-label" style="color:rgba(13,13,13,.4)">&#9633; AVAILABLE ~$21,690 &middot; 55%</span>
+      </div>
+    </div>
+
+    <!-- Recurring -->
+    <div class="be-row" style="margin-bottom:0">
+      <div class="be-head"><span class="be-cat">Recurring</span><span class="be-amt ccy">$3,569</span></div>
+      <div class="be-bar">
+        <div style="width:50%;background:var(--lx-yellow)" title="Spent $1,785"></div>
+      </div>
+      <div class="be-meta">
+        <span class="be-label" style="color:#7a9900">&#9632; SPENT $1,785 &middot; 50%</span>
+        <span class="be-label" style="color:rgba(13,13,13,.4)">&#9633; AVAILABLE $1,784 &middot; 50%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ DONUTS ON DARK ═══ -->
+  <div class="lx-s12 lx-card cream lx-rev" style="padding:28px">
+    <div class="fx" style="justify-content:space-around;flex-wrap:wrap;gap:24px">
+      <div style="text-align:center">
+        <div style="position:relative;width:96px;height:96px;margin:0 auto">
+          <svg viewBox="0 0 100 100" width="96" height="96" style="transform:rotate(-90deg)"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="10"/><circle class="lx-dfl" cx="50" cy="50" r="44" fill="none" stroke="var(--lx-pink)" stroke-width="10" stroke-linecap="round" data-pct="53"/></svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-tx)">53%<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);letter-spacing:.1em">REMAINING</div></div>
+        </div>
+        <div class="lx-csm mt2 cpk">CORE</div>
+      </div>
+      <div style="text-align:center">
+        <div style="position:relative;width:96px;height:96px;margin:0 auto">
+          <svg viewBox="0 0 100 100" width="96" height="96" style="transform:rotate(-90deg)"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="10"/><circle class="lx-dfl" cx="50" cy="50" r="44" fill="none" stroke="var(--lx-cyan)" stroke-width="10" stroke-linecap="round" data-pct="55"/></svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-tx)">55%<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);letter-spacing:.1em">REMAINING</div></div>
+        </div>
+        <div class="lx-csm mt2 ccy">CB</div>
+      </div>
+      <div style="text-align:center">
+        <div style="position:relative;width:96px;height:96px;margin:0 auto">
+          <svg viewBox="0 0 100 100" width="96" height="96" style="transform:rotate(-90deg)"><circle cx="50" cy="50" r="44" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="10"/><circle class="lx-dfl" cx="50" cy="50" r="44" fill="none" stroke="var(--lx-yellow)" stroke-width="10" stroke-linecap="round" data-pct="50"/></svg>
+          <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-tx)">50%<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);letter-spacing:.1em">REMAINING</div></div>
+        </div>
+        <div class="lx-csm mt2" style="color:#7a9900">RECURRING</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ SPEND PACING CHART (SVG) ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh pk">Budget Expenditure &mdash; Projected &middot; Actual &middot; Trajectory</div></div>
+  <div class="lx-s12 lx-card lx-rev" style="padding:16px">
+    <div class="lx-eye mb2" style="color:var(--lx-pink)">CORE SUPPORTS &mdash; $231,054 PLAN BUDGET</div>
+    <svg width="100%" height="200" viewBox="0 0 400 200" preserveAspectRatio="xMidYMid meet">
+      <!-- Grid -->
+      <line x1="45" y1="175" x2="380" y2="175" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+      <line x1="45" y1="20" x2="45" y2="175" stroke="rgba(0,0,0,.08)" stroke-width="1"/>
+      <line x1="45" y1="60" x2="380" y2="60" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+      <line x1="45" y1="100" x2="380" y2="100" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+      <line x1="45" y1="140" x2="380" y2="140" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+      <!-- Y axis -->
+      <text x="38" y="178" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)" text-anchor="end">$0</text>
+      <text x="38" y="140" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)" text-anchor="end">$58K</text>
+      <text x="38" y="100" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)" text-anchor="end">$115K</text>
+      <text x="38" y="60" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)" text-anchor="end">$173K</text>
+      <text x="38" y="25" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)" text-anchor="end">$231K</text>
+      <!-- X axis -->
+      <text x="60" y="190" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)">APR 25</text>
+      <text x="120" y="190" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)">AUG</text>
+      <text x="180" y="190" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)">DEC</text>
+      <text x="240" y="190" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)">APR 26</text>
+      <text x="300" y="190" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)">AUG</text>
+      <text x="355" y="190" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)">APR 27</text>
+      <!-- Budget ceiling -->
+      <line x1="45" y1="24" x2="380" y2="24" stroke="var(--lx-orange)" stroke-width="1" stroke-dasharray="8 4" opacity=".5"/>
+      <text x="47" y="19" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-orange)">PLAN BUDGET $231,054</text>
+      <!-- Ideal pace (dashed grey) -->
+      <line x1="45" y1="175" x2="380" y2="24" stroke="rgba(0,0,0,.1)" stroke-width="1.5" stroke-dasharray="4"/>
+      <!-- Actual spend (solid pink) -->
+      <polyline points="45,175 75,165 105,152 135,138 165,122 195,108 215,98" fill="none" stroke="var(--lx-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="215" cy="98" r="5" fill="var(--lx-pink)" stroke="#fff" stroke-width="2"/>
+      <text x="222" y="94" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:var(--lx-pink)">ACTUAL $107,580</text>
+      <!-- Trajectory (dashed pink) -->
+      <polyline points="215,98 255,78 295,58 335,38 375,18" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-dasharray="5 3" opacity=".5"/>
+      <circle cx="375" cy="18" r="3" fill="var(--lx-pink)" opacity=".5"/>
+      <text x="340" y="13" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-pink);opacity:.7">TRAJ $235K</text>
+      <!-- Today marker -->
+      <line x1="215" y1="18" x2="215" y2="175" stroke="var(--lx-cyan)" stroke-width="1.5" stroke-dasharray="3"/>
+      <text x="218" y="172" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-cyan)">TODAY</text>
+      <!-- Slight overspend zone -->
+      <rect x="215" y="18" width="165" height="8" fill="rgba(255,45,125,.06)" rx="2"/>
+    </svg>
+    <div class="fx g4" style="margin-top:8px;flex-wrap:wrap">
+      <div class="fx g2" style="align-items:center"><div style="width:16px;height:2px;background:rgba(0,0,0,.1)"></div><span class="lx-bxs cm">Ideal pace</span></div>
+      <div class="fx g2" style="align-items:center"><div style="width:16px;height:2.5px;background:var(--lx-pink)"></div><span class="lx-bxs cm">Actual spend</span></div>
+      <div class="fx g2" style="align-items:center"><div style="width:16px;height:2px;background:var(--lx-pink);opacity:.5"></div><span class="lx-bxs cm">Projected trajectory</span></div>
+      <div class="fx g2" style="align-items:center"><div style="width:8px;height:8px;border-radius:2px;background:var(--lx-cyan)"></div><span class="lx-bxs cm">Today</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ IMPLEMENTATION PROGRESS TABLE ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh pk">Core Budget Implementations</div></div>
+  <div class="lx-s12 lx-card lx-rev">
+    <table class="ip-tbl">
+      <tr><th>Description</th><th class="r">Amount</th><th class="r">Spent</th><th class="r">Remaining</th><th class="r" style="width:80px">Progress</th></tr>
+      <tr>
+        <td class="b">Assistance with Daily Life &mdash; ADL</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px">$158,274.76</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">$71,371.65</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;opacity:.5">$86,903.11</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0;background:var(--lx-pink)" data-w="45"></div></div></td>
+      </tr>
+      <tr>
+        <td class="b">Social &amp; Community Participation &mdash; SCP</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px">$72,779.22</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-orange)">$36,208.78</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;opacity:.5">$36,570.44</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0;background:var(--lx-orange)" data-w="50"></div></div></td>
+      </tr>
+      <tr>
+        <td class="b">Consumables</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px">$0.00</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;opacity:.3">$0.00</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;opacity:.3">$0.00</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0" data-w="0"></div></div></td>
+      </tr>
+      <tr class="tot">
+        <td class="b">Core Total</td>
+        <td class="r b" style="font-family:'JetBrains Mono',monospace;font-size:10px">$231,053.98</td>
+        <td class="r b" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lx-pink)">$107,580.43</td>
+        <td class="r b" style="font-family:'JetBrains Mono',monospace;font-size:10px">$123,473.55</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0;background:var(--lx-pink)" data-w="47"></div></div></td>
+      </tr>
+    </table>
+    <div class="lx-al inf mt4" style="margin-bottom:0">
+      <div><div class="lx-at">Flexible &amp; Combined</div><div class="lx-ab">ADL and SCP are flexible categories. Iona can use funding across both. The split shown above reflects plan-manager tracking, not a hard cap.</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ STATED SUPPORTS IMPLEMENTATION ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh or">Stated Supports Implementation</div></div>
+  <div class="lx-s12 lx-card lx-rev">
+    <table class="ip-tbl">
+      <tr><th>Description</th><th class="r">Management</th><th class="r">Amount</th><th class="r">Available</th><th class="r" style="width:80px">Progress</th></tr>
+      <tr>
+        <td class="b">Support Coordination &amp; Psychosocial Recovery</td>
+        <td class="r" style="font-size:8px"><span class="lx-chip pk" style="font-size:5px">PLAN MANAGED</span></td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px">$12,016.30</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">$6,007.90</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0;background:var(--lx-pink)" data-w="50"></div></div></td>
+      </tr>
+      <tr>
+        <td class="b">Improved Daily Living Skills</td>
+        <td class="r"><span class="lx-chip pk" style="font-size:5px">PLAN MANAGED</span></td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px">$24,752.51</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-orange)">$14,217.10</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0;background:var(--lx-orange)" data-w="43"></div></div></td>
+      </tr>
+      <tr>
+        <td class="b">Choice and Control</td>
+        <td class="r"><span class="lx-chip pk" style="font-size:5px">PLAN MANAGED</span></td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px">$2,971.39</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-yellow);-webkit-text-stroke:.5px rgba(0,0,0,.15)">$1,485.55</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0;background:var(--lx-yellow)" data-w="50"></div></div></td>
+      </tr>
+      <tr>
+        <td class="b">Recurring Transport</td>
+        <td class="r"><span class="lx-chip cy" style="font-size:5px">SELF MANAGED</span></td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px">$3,568.85</td>
+        <td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-cyan)">$1,784.10</td>
+        <td class="r"><div class="ip-bar"><div class="ip-fill" style="width:0;background:var(--lx-cyan)" data-w="50"></div></div></td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- ═══ PERIODIC PAYMENTS ═══ -->
+  <div class="lx-s6 lx-card cream lx-rev">
+    <div class="lx-cmd mb3">Periodic Payments</div>
+    <div class="lx-bsm cm mb3">NDIS pays Iona directly. No claims needed.</div>
+    <div class="lx-ir"><span class="lx-ik">Category</span><span class="lx-iv n">Recurring Transport</span></div>
+    <div class="lx-ir"><span class="lx-ik">Next payment</span><span class="lx-iv n">18/04/2026</span></div>
+    <div class="lx-ir"><span class="lx-ik">Amount</span><span class="lx-iv">$68.60</span></div>
+    <div class="lx-ir"><span class="lx-ik">Frequency</span><span class="lx-chip pk">FORTNIGHTLY</span></div>
+  </div>
+
+  <!-- TOTAL SUMMARY -->
+  <div class="lx-s6 lx-card pink lx-rev">
+    <div style="font-family:'Bebas Neue',serif;font-size:24px;margin-bottom:10px">Total Funded</div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Core</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$231,053.98</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Capacity Building</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$39,740.20</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Recurring</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$3,568.85</span></div>
+    <div class="lx-ir" style="padding-top:8px;border-bottom:none"><span style="font-weight:900">Total</span><span style="font-family:'Bebas Neue',serif;font-size:26px">$274,363.03</span></div>
+    <div class="lx-ghost inv" style="font-size:70px;right:8px;bottom:4px">&infin;</div>
+  </div>
+
+  <!-- AVAILABLE FUNDING -->
+  <div class="lx-s6 lx-card yellow lx-rev">
+    <div style="font-family:'Bebas Neue',serif;font-size:24px;margin-bottom:10px">Available Funding</div>
+    <div class="lx-ir" style="border-bottom-color:rgba(0,0,0,.08)"><span>Core remaining</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$123,473.55</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(0,0,0,.08)"><span>Support Coordination</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$6,007.90</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(0,0,0,.08)"><span>Improved Daily Living</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$14,217.10</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(0,0,0,.08)"><span>Choice and Control</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$1,485.55</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(0,0,0,.08)"><span>Recurring Transport</span><span class="bld" style="font-family:'JetBrains Mono',monospace;font-size:12px">$1,784.10</span></div>
+    <div class="lx-ir" style="padding-top:8px;border-bottom:none"><span style="font-weight:900">Total Available</span><span style="font-family:'Bebas Neue',serif;font-size:26px">$146,968.20</span></div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="padding:4px 10px 20px">
+  <div style="background:var(--lx-black);border-radius:var(--r-lg);padding:20px;position:relative;overflow:hidden;border-top:3px solid var(--lx-pink)">
+    <div class="fxb" style="flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-family:'Bebas Neue',serif;font-size:28px;color:#F5F0E8">LIMIT<span style="color:var(--lx-pink)">LESS</span><span style="color:var(--lx-pink)">.</span></div>
+        <div class="lx-bxs" style="color:rgba(245,240,232,.4)">Ile Karamacoski &middot; 0421 742 108 &middot; ile.kar@limitlesssupportco.com.au</div>
+      </div>
+      <div class="lx-chip sbk" style="font-size:7px">CONFIDENTIAL</div>
+    </div>
+    <div style="position:absolute;bottom:-35px;right:-10px;font-family:'Bebas Neue',serif;font-size:180px;color:rgba(255,255,255,.015);line-height:1;pointer-events:none;user-select:none">L</div>
+  </div>
+</div>
+<script>
+function checkReveal(e){var r=e.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)e.classList.add('vis')}
+var revEls=Array.from(document.querySelectorAll('.lx-rev'));
+setTimeout(function(){revEls.forEach(checkReveal)},100);
+window.addEventListener('scroll',function(){revEls.forEach(function(e){if(!e.classList.contains('vis'))checkReveal(e)})},{passive:true});
+setTimeout(function(){document.querySelectorAll('.lx-dfl[data-pct]').forEach(function(e){var p=parseFloat(e.dataset.pct)/100;e.style.strokeDasharray=(p*270)+' 270'})},150);
+setTimeout(function(){document.querySelectorAll('.lx-pf[data-w],.ip-fill[data-w]').forEach(function(e){e.style.width='0';setTimeout(function(){e.style.width=e.dataset.w+'%'},80)})},200);
+window.addEventListener("beforeprint",function(){
+  document.querySelectorAll(".lx-rev").forEach(function(e){e.classList.add("vis")});
+  document.querySelectorAll(".lx-pf[data-w]").forEach(function(e){e.style.transition="none";e.style.width=e.dataset.w+"%"});
+  document.querySelectorAll(".ip-fill[data-w]").forEach(function(e){e.style.transition="none";e.style.width=e.dataset.w+"%"});
+  document.querySelectorAll(".lx-dfl[data-pct]").forEach(function(e){e.style.transition="none";var p=parseFloat(e.dataset.pct)/100;e.style.strokeDasharray=(p*270)+" 270"});
+});
+</script>
+</body>
+</html>

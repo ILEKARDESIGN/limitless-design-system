@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Iona's Support Schedule — LIMITLESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-navy:#0A0F1C;--lx-white:#FFF;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-bdr2:rgba(13,13,13,.12);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;--r-xs:6px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-md:0 6px 24px rgba(0,0,0,.08);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-stat{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:.01em;transition:transform .45s var(--spring)}
+.lx-card:hover .lx-stat{transform:scale(1.06)}
+.lx-dsm{font-family:'Bebas Neue',serif;font-size:24px;line-height:1}
+.lx-ghost{font-family:'Bebas Neue',serif;font-size:110px;line-height:.85;color:rgba(0,0,0,.025);user-select:none;pointer-events:none;position:absolute;right:-4px;bottom:-16px}
+.lx-ghost.inv{color:rgba(255,255,255,.04)}
+.lx-cxl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lx-clg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+.lx-cmd{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.lx-csm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-mmd{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em}
+.lx-msm{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.lx-bsm{font-size:11px;line-height:1.5}
+.lx-bxs{font-size:10px;line-height:1.4}
+.lx-sv{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lx-txm);margin-top:4px}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100;flex-wrap:wrap;gap:6px}
+.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}
+.lx-tlogo span{color:var(--lx-pink)}
+.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
+.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}
+.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(54px,auto);gap:10px;padding:12px 10px}
+.lx-s3{grid-column:span 3}.lx-s4{grid-column:span 4}.lx-s6{grid-column:span 6}.lx-s12{grid-column:span 12}
+.lx-card{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:20px;position:relative;overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease);cursor:default}
+.lx-card:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.lx-card.tl{border-radius:var(--r-xl) var(--r-md) var(--r-md) var(--r-md)}
+.lx-card.tr{border-radius:var(--r-md) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.bl{border-radius:var(--r-md) var(--r-md) var(--r-md) var(--r-xl)}
+.lx-card.br{border-radius:var(--r-md) var(--r-md) var(--r-xl) var(--r-md)}
+.lx-card.ptop{border-radius:var(--r-xl) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.dark{background:var(--lx-black);color:var(--lx-offwhite);border-color:rgba(255,255,255,.06)}
+.lx-card.cream{background:var(--lx-cream);border-color:var(--lx-bdr)}
+.lx-card.pink{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-card.yellow{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-acc{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:20px}
+.lx-acc.cyn{border-left-color:var(--lx-cyan)}
+.lx-acc.org{border-left-color:var(--lx-orange)}
+.lx-acc.yel{border-left-color:var(--lx-yellow)}
+.lx-sh{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:2px solid var(--lx-tx)}
+.lx-sh.pk{border-bottom-color:var(--lx-pink);color:var(--lx-pink)}
+.lx-sh.yw{border-bottom-color:var(--lx-yellow)}
+.lx-sh.or{border-bottom-color:var(--lx-orange);color:var(--lx-orange)}
+.lx-sh.cy{border-bottom-color:var(--lx-cyan);color:var(--lx-cyan)}
+.lx-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;background:var(--lx-card);border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--lx-bdr)}
+.lx-tbl th{padding:7px 10px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);background:var(--lx-cream);border-bottom:1px solid var(--lx-bdr);white-space:nowrap}
+.lx-tbl td{padding:7px 10px;border-bottom:1px solid rgba(0,0,0,.03);vertical-align:top}
+.lx-tbl tr:last-child td{border-bottom:none}
+.lx-tbl tr:hover td{background:rgba(255,45,125,.015)}
+.lx-tb{font-weight:700}
+.lx-tm{font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right;letter-spacing:.03em}
+.lx-tpk{color:var(--lx-pink);font-weight:700;text-align:right}
+.lx-ttot td{border-top:2px solid var(--lx-tx);font-weight:700;background:var(--lx-cream)}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}
+.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}
+.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-chip.sbk{background:var(--lx-black);color:var(--lx-offwhite);border-color:transparent}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-ir{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:12px;flex-wrap:wrap;gap:4px}
+.lx-ir:last-child{border-bottom:none}
+.lx-ik{color:var(--lx-txm);font-size:11px}
+.lx-iv{font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-pink);line-height:1}
+.lx-iv.n{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--lx-tx)}
+.lx-dbox{background:var(--lx-black);color:var(--lx-offwhite);border-radius:var(--r-md);padding:20px}
+.lx-dbox .lx-dtitle{font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-yellow);margin-bottom:12px}
+.lx-dbox .lx-ik{color:rgba(245,240,232,.5)}
+.lx-dbox .lx-ir{border-bottom-color:rgba(255,255,255,.07)}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.lx-rev.vis{opacity:1;transform:translateY(0)}
+.fx{display:flex}.fxb{display:flex;align-items:center;justify-content:space-between}
+.g2{gap:8px}.g3{gap:12px}
+.mb2{margin-bottom:8px}.mb3{margin-bottom:12px}
+.mt2{margin-top:8px}
+.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}.cor{color:var(--lx-orange)}.cbl{color:var(--lx-blue)}.cm{color:var(--lx-txm)}.cl{color:var(--lx-txl)}.bld{font-weight:700}
+.cat-dot{width:10px;height:10px;border-radius:3px;display:inline-block;margin-right:6px;vertical-align:middle;flex-shrink:0}
+.week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-bottom:10px}
+.day-col{display:flex;flex-direction:column;gap:4px}
+.day-head{text-align:center;font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-txm);padding:4px 0;font-weight:700}
+.day-block{border-radius:var(--r-xs);padding:10px 4px;text-align:center;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;transition:transform .25s var(--spring)}
+.day-block:hover{transform:scale(1.06)}
+.day-block .db-hrs{font-family:'Bebas Neue',serif;font-size:22px;line-height:1;color:#fff}
+.day-block .db-type{font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.65);font-family:'JetBrains Mono',monospace;margin-top:3px}
+.day-block.off{background:rgba(0,0,0,.04)}
+.day-block.off .db-hrs{color:var(--lx-txl);font-size:13px}
+.day-block.off .db-type{color:var(--lx-txl)}
+.extras-row{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:14px}
+.extra-block{border-radius:var(--r-xs);padding:10px 14px;display:flex;align-items:center;justify-content:space-between;transition:transform .25s var(--spring)}
+.extra-block:hover{transform:scale(1.03)}
+.extra-block .eb-label{font-size:11px;font-weight:700;color:#fff}
+.extra-block .eb-hrs{font-family:'Bebas Neue',serif;font-size:20px;color:#fff}
+/* Diagonal split tile */
+.day-block.split{background:linear-gradient(135deg,var(--lx-pink) 50%,var(--lx-yellow) 50%)}
+.day-block.split .db-hrs{color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+.day-block.split .db-type{color:rgba(255,255,255,.8)}
+.trip-hl{background:rgba(255,45,125,.05);border:1px solid rgba(255,45,125,.12);border-radius:var(--r-sm);padding:12px 16px;margin-top:10px}
+@media(max-width:900px){.lx-bento{grid-template-columns:repeat(6,1fr)}.lx-s3,.lx-s4,.lx-s6,.lx-s12{grid-column:span 6}}
+@media(max-width:600px){.lx-bento{grid-template-columns:1fr;gap:8px;padding:8px}[class*="lx-s"]{grid-column:span 1}.lx-topbar{margin:0 4px;flex-wrap:wrap;gap:6px}.lx-stat{font-size:36px}.lx-ghost{font-size:60px}.week-grid{gap:3px}.day-block .db-hrs{font-size:16px}.day-block{min-height:44px;padding:6px 2px}.extras-row{grid-template-columns:1fr}}
+
+/* ═══ PRINT — PRESERVE ALL VISUALS (from core-css.md) ═══ */
+@media print{
+  *{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;color-adjust:exact!important}
+  body{background:var(--lx-bg)!important;font-size:11pt}
+  .lx-topbar{position:relative!important;margin:0 10px;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .lx-stripe{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .lx-bento{display:block}
+  .lx-bento>*{margin-bottom:10px}
+  .lx-card{break-inside:avoid;page-break-inside:avoid;box-shadow:none!important;transform:none!important;transition:none!important}
+  .lx-card:hover{transform:none!important;box-shadow:none!important}
+  .lx-card.dark{background:var(--lx-black)!important;color:var(--lx-offwhite)!important}
+  .lx-card.pink{background:var(--lx-pink)!important;color:#fff!important}
+  .lx-card.yellow{background:var(--lx-yellow)!important;color:var(--lx-black)!important}
+  .lx-card.cream{background:var(--lx-cream)!important}
+  .lx-ghost{display:none!important}
+  .lx-rev{opacity:1!important;transform:none!important;transition:none!important}
+  .lx-pf,.lx-dfl,.ip-fill{transition:none!important}
+  .day-block,.day-block.split,.extra-block,.lx-chip,.lx-tbadge,.lx-acc,.lx-al{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  .week-grid,.lx-tbl,.fl,.ip-tbl{break-inside:avoid;page-break-inside:avoid}
+  .be-bar,.be-bar>div,.lx-pt,.lx-pf{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  svg,circle,line,polyline,rect,text{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  a{text-decoration:none;color:inherit}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="lx-topbar">
+  <div class="fx g3" style="align-items:center">
+    <span class="lx-tlogo">LIMIT<span>LESS</span></span>
+    <span class="lx-tmeta">Support Coordination</span>
+  </div>
+  <div class="fx g2" style="align-items:center;flex-wrap:wrap">
+    <span class="lx-tbadge">SUPPORT SCHEDULE</span>
+    <span class="lx-tbadge pink">IONA ALEXANDER</span>
+  </div>
+</div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+
+<!-- Suite Title -->
+<div style="text-align:center;padding:32px 20px 8px">
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">LIMITLESS SUPPORT CO. &middot; WEEKLY PLAN</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;letter-spacing:.02em;color:var(--lx-black)">IONA'S SUPPORT<br>SCHEDULE</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">2026 &mdash; 2027</div>
+  <div class="lx-bsm cm" style="max-width:560px;margin:12px auto 0">Your weekly plan at a glance. 4 hours 30 minutes weekdays, with Thursday extended to 5 hours 30 minutes (includes meal prep). 3 hours Saturdays, plus cleaning and a monthly day trip.</div>
+</div>
+
+<div class="lx-bento">
+
+  <!-- KPIs -->
+  <div class="lx-s4 lx-card tl lx-rev">
+    <div class="lx-eye mb2">Your annual budget</div>
+    <div class="lx-stat cpk">$123,474</div>
+    <div class="lx-sv">Total for the year</div>
+    <div class="lx-ghost" style="color:rgba(255,45,125,.03)">$</div>
+  </div>
+  <div class="lx-s4 lx-card lx-rev">
+    <div class="lx-eye mb2">Support costs</div>
+    <div class="lx-stat cyw" style="color:var(--lx-yellow);-webkit-text-stroke:1px rgba(0,0,0,.15)">$115,432</div>
+    <div class="lx-sv">All your supports</div>
+    <div class="lx-ghost">&hearts;</div>
+  </div>
+  <div class="lx-s4 lx-card tr lx-rev">
+    <div class="lx-eye mb2">Travel and KM</div>
+    <div class="lx-stat cor">$8,041</div>
+    <div class="lx-sv">Worker travel, parking, tolls</div>
+    <div class="lx-ghost">KM</div>
+  </div>
+
+  <div class="lx-s6 lx-card cream lx-rev">
+    <div class="lx-eye mb2">Monthly travel</div>
+    <div class="lx-dsm">$670</div>
+    <div class="lx-bxs cm mt2">Per month for travel costs</div>
+  </div>
+  <div class="lx-s6 lx-card cream lx-rev">
+    <div class="lx-eye mb2">Weekly travel</div>
+    <div class="lx-dsm">$155</div>
+    <div class="lx-bxs cm mt2">Per week for travel costs</div>
+  </div>
+
+  <div class="lx-s12 lx-acc yel lx-rev" style="display:flex;align-items:center;gap:14px">
+    <div style="width:44px;height:44px;border-radius:50%;background:rgba(204,255,0,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M10 2L12.5 7.5L18 8.5L14 12.5L15 18L10 15.5L5 18L6 12.5L2 8.5L7.5 7.5L10 2Z" fill="#0D0D0D"/></svg>
+    </div>
+    <div class="lx-bsm cm" style="line-height:1.7"><strong style="color:var(--lx-tx)">4 hours 30 minutes Mon&ndash;Wed &amp; Fri, 5 hours 30 minutes Thursday (includes meal prep).</strong> Whether it's a normal week or a day trip week, your weekday hours are the same. Thursday is slightly longer because meal prep is built in. Simple to roster and easy to remember.</div>
+  </div>
+
+  <!-- ═══ COLOUR GUIDE ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh yw">Colour Guide</div></div>
+  <div class="lx-s12 lx-card lx-rev" style="padding:14px 18px">
+    <div class="fx" style="flex-wrap:wrap;gap:12px">
+      <div class="fx g2" style="align-items:center"><div class="cat-dot" style="background:var(--lx-pink)"></div><span class="lx-bsm">Weekday support</span></div>
+      <div class="fx g2" style="align-items:center"><div class="cat-dot" style="background:var(--lx-orange)"></div><span class="lx-bsm">Saturday support</span></div>
+      <div class="fx g2" style="align-items:center"><div class="cat-dot" style="background:linear-gradient(135deg,var(--lx-pink) 50%,var(--lx-yellow) 50%)"></div><span class="lx-bsm">Thursday (support + meal prep)</span></div>
+      <div class="fx g2" style="align-items:center"><div class="cat-dot" style="background:var(--lx-cyan)"></div><span class="lx-bsm">Cleaning</span></div>
+      <div class="fx g2" style="align-items:center"><div class="cat-dot" style="background:var(--lx-pink)"></div><span class="lx-bsm">Day trip</span></div>
+      <div class="fx g2" style="align-items:center"><div class="cat-dot" style="background:var(--lx-orange)"></div><span class="lx-bsm">Travel / KM</span></div>
+      <div class="fx g2" style="align-items:center"><div class="cat-dot" style="background:rgba(0,0,0,.12)"></div><span class="lx-bsm">No support</span></div>
+    </div>
+  </div>
+
+  <!-- ═══ STANDARD WEEK ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh pk"><span class="lx-chip syw" style="font-size:8px;margin-right:8px;vertical-align:middle">EVERY WEEK</span> Your Standard Week</div></div>
+  <div class="lx-s12 lx-acc lx-rev">
+    <div class="lx-bsm cm" style="line-height:1.7">This is your regular week. <strong style="color:var(--lx-tx)">Monday to Wednesday and Friday are 4 hours 30 minutes. Thursday is 5 hours 30 minutes because meal prep is built in.</strong> Saturday is 2 hours. Sunday and public holidays are off. Cleaning happens every week on top of your support hours.</div>
+  </div>
+  <div class="lx-s12 lx-card bl lx-rev">
+    <div class="week-grid">
+      <div class="day-col"><div class="day-head">Mon</div><div class="day-block" style="background:var(--lx-pink)"><div class="db-hrs">4h 30m</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Tue</div><div class="day-block" style="background:var(--lx-pink)"><div class="db-hrs">4h 30m</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Wed</div><div class="day-block" style="background:var(--lx-pink)"><div class="db-hrs">4h 30m</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Thu</div><div class="day-block split"><div class="db-hrs">5h 30m</div><div class="db-type">Support + Meal</div></div></div>
+      <div class="day-col"><div class="day-head">Fri</div><div class="day-block" style="background:var(--lx-pink)"><div class="db-hrs">4h 30m</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Sat</div><div class="day-block" style="background:var(--lx-orange)"><div class="db-hrs">3h</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Sun</div><div class="day-block off"><div class="db-hrs">Off</div><div class="db-type">No support</div></div></div>
+    </div>
+    <div class="extras-row">
+      <div class="extra-block" style="background:var(--lx-cyan)"><span class="eb-label">Cleaning</span><span class="eb-hrs">2h</span></div>
+    </div>
+    <table class="lx-tbl">
+      <thead><tr><th>Support</th><th style="text-align:right">Hours</th><th style="text-align:right">Rate</th><th style="text-align:right">Cost</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Monday</td><td class="lx-tm">4.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$316.04</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Tuesday</td><td class="lx-tm">4.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$316.04</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Wednesday</td><td class="lx-tm">4.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$316.04</td></tr>
+        <tr><td><span class="cat-dot" style="background:linear-gradient(135deg,var(--lx-pink) 50%,var(--lx-yellow) 50%)"></span>Thursday (incl. meal prep)</td><td class="lx-tm">5.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$386.27</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Friday</td><td class="lx-tm">4.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$316.04</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-orange)"></span>Saturday</td><td class="lx-tm">3.00</td><td class="lx-tm">$98.83</td><td class="lx-tm">$296.49</td></tr>
+        <tr><td><span class="cat-dot" style="background:rgba(0,0,0,.12)"></span>Sunday</td><td class="lx-tm cl">&mdash;</td><td class="lx-tm cl">&mdash;</td><td class="lx-tm cl">$0.00</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-cyan)"></span>Cleaning</td><td class="lx-tm">2.00</td><td class="lx-tm">$58.03</td><td class="lx-tm">$116.06</td></tr>
+        <tr class="lx-ttot"><td class="lx-tb">Standard week total</td><td class="lx-tm lx-tb">28.50</td><td></td><td class="lx-tpk lx-tb">$2,062.96</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ DAY TRIP WEEK ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh pk"><span class="lx-chip spk" style="font-size:8px;margin-right:8px;vertical-align:middle">ONCE A MONTH</span> Day Trip Week</div></div>
+  <div class="lx-s12 lx-acc lx-rev">
+    <div class="lx-bsm cm" style="line-height:1.7">
+      <strong style="color:var(--lx-tx)">Once a month</strong>, one of your weekdays becomes a longer day trip. The day trip day goes up to <strong style="color:var(--lx-tx)">10 hours</strong>. All other weekdays stay the same &mdash; <strong style="color:var(--lx-tx)">Thursday remains at 5h 30m</strong>, the rest at 4h 30m.
+    </div>
+    <div class="trip-hl">
+      <div class="fx g2" style="align-items:center;margin-bottom:5px"><span class="cat-dot" style="background:var(--lx-pink)"></span><strong class="cpk">Day trip day (1 weekday)</strong> &mdash; <strong>10 hours</strong></div>
+      <div class="fx g2" style="align-items:center"><span class="cat-dot" style="background:var(--lx-pink)"></span><strong>Other 3 weekdays</strong> &mdash; <strong>4h 30m each</strong> (no change)</div>
+      <div class="fx g2" style="align-items:center;margin-top:4px"><span class="cat-dot" style="background:linear-gradient(135deg,var(--lx-pink) 50%,var(--lx-yellow) 50%)"></span><strong>Thursday</strong> &mdash; <strong>5h 30m</strong> (includes meal prep, no change)</div>
+    </div>
+  </div>
+  <div class="lx-s12 lx-card br lx-rev">
+    <div class="week-grid">
+      <div class="day-col"><div class="day-head">Mon</div><div class="day-block" style="background:var(--lx-pink);box-shadow:0 4px 16px rgba(255,45,125,.3)"><div class="db-hrs">10h</div><div class="db-type">Day trip</div></div></div>
+      <div class="day-col"><div class="day-head">Tue</div><div class="day-block" style="background:var(--lx-pink)"><div class="db-hrs">4h 30m</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Wed</div><div class="day-block" style="background:var(--lx-pink)"><div class="db-hrs">4h 30m</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Thu</div><div class="day-block split"><div class="db-hrs">5h 30m</div><div class="db-type">Support + Meal</div></div></div>
+      <div class="day-col"><div class="day-head">Fri</div><div class="day-block" style="background:var(--lx-pink)"><div class="db-hrs">4h 30m</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Sat</div><div class="day-block" style="background:var(--lx-orange)"><div class="db-hrs">3h</div><div class="db-type">Support</div></div></div>
+      <div class="day-col"><div class="day-head">Sun</div><div class="day-block off"><div class="db-hrs">Off</div><div class="db-type">No support</div></div></div>
+    </div>
+    <div class="extras-row">
+      <div class="extra-block" style="background:var(--lx-cyan)"><span class="eb-label">Cleaning</span><span class="eb-hrs">2h</span></div>
+    </div>
+    <table class="lx-tbl">
+      <thead><tr><th>Support</th><th style="text-align:right">Hours</th><th style="text-align:right">Rate</th><th style="text-align:right">Cost</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Day trip day</td><td class="lx-tm">10.00</td><td class="lx-tm">$70.23</td><td class="lx-tpk">$702.30</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Tuesday</td><td class="lx-tm">4.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$316.04</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Wednesday</td><td class="lx-tm">4.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$316.04</td></tr>
+        <tr><td><span class="cat-dot" style="background:linear-gradient(135deg,var(--lx-pink) 50%,var(--lx-yellow) 50%)"></span>Thursday (incl. meal prep)</td><td class="lx-tm">5.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$386.27</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Friday</td><td class="lx-tm">4.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$316.04</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-orange)"></span>Saturday</td><td class="lx-tm">3.00</td><td class="lx-tm">$98.83</td><td class="lx-tm">$296.49</td></tr>
+        <tr><td><span class="cat-dot" style="background:rgba(0,0,0,.12)"></span>Sunday</td><td class="lx-tm cl">&mdash;</td><td class="lx-tm cl">&mdash;</td><td class="lx-tm cl">$0.00</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-cyan)"></span>Cleaning</td><td class="lx-tm">2.00</td><td class="lx-tm">$58.03</td><td class="lx-tm">$116.06</td></tr>
+        <tr class="lx-ttot"><td class="lx-tb">Day trip week total</td><td class="lx-tm lx-tb">34.00</td><td></td><td class="lx-tpk lx-tb">$2,449.22</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ TRAVEL ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh or">Travel, KM and Non-Labour Costs</div></div>
+  <div class="lx-s12 lx-dbox lx-rev">
+    <div class="lx-dtitle" style="color:var(--lx-orange)">What's Set Aside for Travel</div>
+    <div class="lx-ir"><span class="lx-ik">Annual travel budget</span><span class="lx-iv" style="color:var(--lx-orange)">$8,041</span></div>
+    <div class="lx-ir"><span class="lx-ik">Per month</span><span class="lx-iv" style="color:var(--lx-orange)">$670</span></div>
+    <div class="lx-ir"><span class="lx-ik">Per week</span><span class="lx-iv" style="color:var(--lx-orange)">$155</span></div>
+    <div style="font-size:11px;color:rgba(245,240,232,.45);margin-top:14px;line-height:1.7">This covers your support worker's travel to and from your home, kilometres driven, parking fees, and tolls. It's built into your budget so there are no surprises &mdash; your support hours stay exactly the same.</div>
+  </div>
+  <div class="lx-s12 lx-acc org lx-rev">
+    <div class="lx-cmd mb3">What does this cover?</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+      <div style="background:rgba(255,102,0,.05);border:1px solid rgba(255,102,0,.12);border-radius:var(--r-sm);padding:12px 14px"><div class="lx-eye cor mb2">Worker travel</div><div class="lx-bsm cm">Travel time to and from your home</div></div>
+      <div style="background:rgba(255,102,0,.05);border:1px solid rgba(255,102,0,.12);border-radius:var(--r-sm);padding:12px 14px"><div class="lx-eye cor mb2">Kilometres</div><div class="lx-bsm cm">KM reimbursement for your worker</div></div>
+      <div style="background:rgba(255,102,0,.05);border:1px solid rgba(255,102,0,.12);border-radius:var(--r-sm);padding:12px 14px"><div class="lx-eye cor mb2">Parking</div><div class="lx-bsm cm">Parking fees when visiting you</div></div>
+      <div style="background:rgba(255,102,0,.05);border:1px solid rgba(255,102,0,.12);border-radius:var(--r-sm);padding:12px 14px"><div class="lx-eye cor mb2">Tolls</div><div class="lx-bsm cm">Road tolls to get to your supports</div></div>
+    </div>
+  </div>
+
+  <!-- ═══ ANNUAL ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh pk">Annual Breakdown</div></div>
+  <div class="lx-s12 lx-card lx-rev">
+    <table class="lx-tbl">
+      <thead><tr><th>Support Type</th><th style="text-align:right">Annual Hours</th><th style="text-align:right">Rate</th><th style="text-align:right">Annual Cost</th></tr></thead>
+      <tbody>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Standard weekdays (40 wks)</td><td class="lx-tm">850.50</td><td class="lx-tm">$70.23</td><td class="lx-tm">$59,730.62</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Day trip wk weekdays (12 wks)</td><td class="lx-tm">216.00</td><td class="lx-tm">$70.23</td><td class="lx-tm">$15,169.68</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Monthly day trips</td><td class="lx-tm">120.00</td><td class="lx-tm">$70.23</td><td class="lx-tm">$8,427.60</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-orange)"></span>Saturday supports</td><td class="lx-tm">156.00</td><td class="lx-tm">$98.83</td><td class="lx-tm">$15,417.48</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-cyan)"></span>House cleaning</td><td class="lx-tm">104.00</td><td class="lx-tm">$58.03</td><td class="lx-tm">$6,035.12</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-yellow);border:1px solid rgba(0,0,0,.1)"></span>Meal prep (in Thursday)</td><td class="lx-tm">52.00</td><td class="lx-tm">$70.23</td><td class="lx-tm">$3,651.96</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-pink)"></span>Retreat set-aside</td><td class="lx-tm cl">&mdash;</td><td class="lx-tm cl">Fixed</td><td class="lx-tm">$7,000.00</td></tr>
+        <tr><td><span class="cat-dot" style="background:var(--lx-orange)"></span>Travel, KM, parking, tolls</td><td class="lx-tm cl">&mdash;</td><td class="lx-tm cl">Various</td><td class="lx-tm cor">$8,041.09</td></tr>
+        <tr class="lx-ttot"><td class="lx-tb">Total (matches your budget)</td><td></td><td></td><td class="lx-tpk lx-tb">$123,473.55</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══ SUMMARY ═══ -->
+  <div class="lx-s12 lx-rev"><div class="lx-sh yw">Your Support at a Glance</div></div>
+  <div class="lx-s12 lx-card pink lx-rev" style="border-radius:var(--r-xl) var(--r-xl) var(--r-md) var(--r-md)">
+    <div style="font-family:'Bebas Neue',serif;font-size:28px;margin-bottom:14px">Everything in One Place</div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Weekdays (Mon&ndash;Fri)</span><span class="bld">4 hours 30 minutes each day, every day</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Saturday</span><span class="bld">3 hours every week</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Sunday</span><span class="bld">No support</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Cleaning</span><span class="bld">2 hours every week</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Meal prep</span><span class="bld">1 hour built into Thursday</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Day trip</span><span class="bld">10 hours, once a month (1 weekday)</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Retreats</span><span class="bld">$7,000 set aside for the year</span></div>
+    <div class="lx-ir" style="border-bottom-color:rgba(255,255,255,.15)"><span>Worker travel and costs</span><span class="bld">~$155 per week covered</span></div>
+    <div class="lx-ir"><span>Public holidays</span><span class="bld">No support</span></div>
+    <div class="lx-ghost inv" style="font-size:90px;right:12px;bottom:8px">&infin;</div>
+  </div>
+
+  <div class="lx-s12 lx-acc yel lx-rev" style="display:flex;align-items:center;gap:14px">
+    <div style="width:44px;height:44px;border-radius:50%;background:rgba(204,255,0,.15);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+      <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="7" stroke="#0D0D0D" stroke-width="1.5"/><path d="M10 6V10L13 13" stroke="#0D0D0D" stroke-width="1.5" stroke-linecap="round"/></svg>
+    </div>
+    <div class="lx-bsm cm" style="line-height:1.7"><strong style="color:var(--lx-tx)">The simple version:</strong> You get 4h 30m Mon&ndash;Wed &amp; Fri, 5h 30m Thursday (includes meal prep), 3 hours on Saturdays, cleaning every week, one day trip a month, and your worker's travel costs are covered. Your full budget is accounted for with nothing left unplanned.</div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div style="padding:4px 10px 20px">
+  <div style="background:var(--lx-black);border-radius:var(--r-lg);padding:20px;position:relative;overflow:hidden;border-top:3px solid var(--lx-pink)">
+    <div class="fxb" style="flex-wrap:wrap;gap:12px">
+      <div>
+        <div style="font-family:'Bebas Neue',serif;font-size:28px;color:#F5F0E8">LIMIT<span style="color:var(--lx-pink)">LESS</span><span style="color:var(--lx-pink)">.</span></div>
+        <div class="lx-bxs" style="color:rgba(245,240,232,.4)">Ile Karamacoski &middot; 0421 742 108 &middot; ile.kar@limitlesssupportco.com.au</div>
+      </div>
+      <div class="lx-chip sbk" style="font-size:7px">CONFIDENTIAL</div>
+    </div>
+    <div style="position:absolute;bottom:-35px;right:-10px;font-family:'Bebas Neue',serif;font-size:180px;color:rgba(255,255,255,.015);line-height:1;pointer-events:none;user-select:none">L</div>
+  </div>
+</div>
+<script>
+function checkReveal(e){var r=e.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)e.classList.add('vis')}
+var revEls=Array.from(document.querySelectorAll('.lx-rev'));
+setTimeout(function(){revEls.forEach(checkReveal)},100);
+window.addEventListener('scroll',function(){revEls.forEach(function(e){if(!e.classList.contains('vis'))checkReveal(e)})},{passive:true});
+setTimeout(function(){document.querySelectorAll('.lx-dfl[data-pct]').forEach(function(e){var p=parseFloat(e.dataset.pct)/100;e.style.strokeDasharray=(p*270)+' 270'})},150);
+setTimeout(function(){document.querySelectorAll('.lx-pf[data-w],.ip-fill[data-w]').forEach(function(e){e.style.width='0';setTimeout(function(){e.style.width=e.dataset.w+'%'},80)})},200);
+window.addEventListener("beforeprint",function(){
+  document.querySelectorAll(".lx-rev").forEach(function(e){e.classList.add("vis")});
+  document.querySelectorAll(".lx-pf[data-w]").forEach(function(e){e.style.transition="none";e.style.width=e.dataset.w+"%"});
+  document.querySelectorAll(".ip-fill[data-w]").forEach(function(e){e.style.transition="none";e.style.width=e.dataset.w+"%"});
+  document.querySelectorAll(".lx-dfl[data-pct]").forEach(function(e){e.style.transition="none";var p=parseFloat(e.dataset.pct)/100;e.style.strokeDasharray=(p*270)+" 270"});
+});
+</script>
+</body>
+</html>

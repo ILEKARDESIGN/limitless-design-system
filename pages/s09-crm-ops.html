@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Suite 9 · CRM Operations & Application Patterns — LIMITLESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#888;--r-sm:10px;--r-md:16px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.top{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}.tl{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}.tl span{color:var(--lx-pink)}.tm{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.55}.tb{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:2px 8px;border-radius:var(--r-p)}.tb.y{background:var(--lx-yellow);color:var(--lx-black)}.tb.p{background:var(--lx-pink);color:#fff}
+.stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}.chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}.chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}.chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}.chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}.chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}.chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}.chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}.chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}.chip.scy{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.fx{display:flex}.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.cm{color:var(--lx-txm)}
+/* ═══ CONTRAST-SAFE dark surface text ═══ */
+.dl{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-pink)}
+.dt{color:var(--lx-tx)}
+.dt7{color:var(--lx-tx);opacity:.65}
+.dt5{color:var(--lx-tx);opacity:.5}
+.dm{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.45;letter-spacing:.08em}
+.dv{font-family:'Bebas Neue',serif;color:var(--lx-tx)}
+.gh{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}.gh::before{content:attr(data-m);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;user-select:none;pointer-events:none}.gn{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}.gt{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;margin-bottom:8px}.gd{font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}
+.pe{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.pe:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}.pv{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md) var(--r-md) 0 0;padding:16px;min-height:160px;display:flex;align-items:flex-start;justify-content:center;position:relative;overflow-x:auto}.pb{padding:16px}.pn{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;color:var(--lx-tx)}.pm{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:8px}.pd{font-size:11px;color:var(--lx-txm);line-height:1.55;margin-bottom:8px}.pu{display:flex;flex-wrap:wrap;gap:4px}
+.gb{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.vg{display:grid;grid-template-columns:1fr;gap:16px}
+.sc{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}.sl{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}.st{font-size:10px;color:#F5F0E8;opacity:.75;line-height:1.5}
+.sub{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:12px 16px;margin-bottom:10px}.sub-t{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--lx-pink);margin-bottom:7px;padding-bottom:7px;border-bottom:2px solid var(--lx-pink)}.sub-l{font-size:11px;color:var(--lx-txm);line-height:1.7}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.rv.vis{opacity:1;transform:translateY(0)}
+/* Table on dark */
+.dtbl{width:100%;border-collapse:separate;border-spacing:0;font-size:10px;color:var(--lx-tx)}
+.dtbl th{padding:6px 8px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-pink);border-bottom:1px solid rgba(0,0,0,.08);text-align:left;white-space:nowrap}
+.dtbl th.r{text-align:right}
+.dtbl td{padding:7px 8px;border-bottom:1px solid rgba(0,0,0,.04);vertical-align:middle}
+.dtbl td.r{text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px}
+.dtbl td.b{font-weight:700}
+.dtbl tr:hover td{background:rgba(255,45,125,.02)}
+/* Tag chips for dark surface */
+.dtag{font-family:'JetBrains Mono',monospace;font-size:6px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:var(--r-p);white-space:nowrap;display:inline-block}
+/* Modal */
+.modal-bg{background:rgba(245,240,232,.85);border-radius:var(--r-md);padding:4px}
+.modal{background:var(--lx-card);border-radius:var(--r-md);box-shadow:0 24px 64px rgba(0,0,0,.15);overflow:hidden;max-width:100%}
+.modal-hdr{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--lx-bdr)}
+.modal-body{padding:16px}
+.field-label{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:3px}
+.field-input{width:100%;height:30px;border:1px solid var(--lx-bdr);border-radius:6px;padding:0 10px;font-family:'Barlow',sans-serif;font-size:11px;background:var(--lx-cream);margin-bottom:10px;display:flex;align-items:center;color:var(--lx-tx)}
+.field-select{display:flex;align-items:center;justify-content:space-between}
+.field-textarea{width:100%;min-height:60px;border:1px solid var(--lx-bdr);border-radius:6px;padding:8px 10px;font-family:'Barlow',sans-serif;font-size:10px;background:var(--lx-cream);margin-bottom:10px;color:var(--lx-txm);line-height:1.5}
+@media(max-width:600px){.gt{font-size:32px!important}}
+</style>
+</head>
+<body>
+<div class="top"><div class="fx g3" style="align-items:center"><span class="tl">LIMIT<span>LESS</span></span><span class="tm">2026 Pattern Library</span></div><div class="fx g2" style="align-items:center"><span class="tb y">Suite 9</span><span class="tb p">CRM Operations</span></div></div>
+<div class="stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+<div style="text-align:center;padding:32px 20px 8px"><div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px">ASTALTY-INFORMED · PRODUCTION CRM PATTERNS</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;color:var(--lx-black)">SUITE NINE</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">CRM OPERATIONS · GROUPS 40—43</div><div style="font-size:12px;color:var(--lx-txm);max-width:620px;margin:12px auto 0;line-height:1.5">Every pattern visible in production NDIS CRMs that wasn't yet in the library — caseload tables with engagement indicators, funded supports editors, implementation tracking, billable hours composites, task creation modals, and full application navigation.</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 40 — CASELOAD & ENGAGEMENT TRACKING
+     ═══════════════════════════════════════════════════════════ -->
+<div class="gh rv" data-m="CASELOAD">
+<div class="gn">Group 40 · Suite 9</div>
+<div class="gt">Caseload & Engagement<br>Tracking</div>
+<div class="gd">Participant tables with check-in status, engagement freshness indicators, tag management, and filtered caseload views.</div>
+</div>
+<div class="gb rv">
+<div class="sub"><div class="sub-t">Caseload & Engagement Patterns</div><div class="sub-l">Caseload table with check-in recency · tag/badge management strip · check-in freshness indicator · participant search with filters · engagement heatmap by participant · last-contact elapsed counter · overdue check-in alert row · caseload sort/filter toolbar</div></div>
+<div class="vg">
+
+<!-- Caseload Table with Check-In -->
+<div class="pe">
+<div class="pv" style="min-height:auto;padding:12px">
+<div style="width:100%">
+<div class="fx" style="justify-content:space-between;margin-bottom:10px"><div class="dl">CASELOAD — ALL PARTICIPANTS</div><div class="dm">8 PARTICIPANTS · 3 OVERDUE CHECK-INS</div></div>
+<table class="dtbl">
+<tr><th>PARTICIPANT</th><th>NDIS #</th><th>COORDINATOR</th><th>COMPLEXITY</th><th>LAST CHECK-IN</th><th class="r">PLAN STATUS</th></tr>
+<tr>
+<td class="b dt">Kane Cameron</td><td class="dm" style="opacity:1">430925333</td><td class="dt7" style="font-size:10px">Ile Karamacoski</td>
+<td><span class="dtag" style="background:var(--lx-pink);color:white">COMPLEX</span></td>
+<td><div class="fx g2" style="align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--lx-pink);flex-shrink:0"></div><span class="dt" style="font-size:10px">2 days ago</span></div></td>
+<td class="r"><span class="dtag" style="background:rgba(0,212,255,.15);color:var(--lx-cyan);border:1px solid rgba(0,212,255,.2)">ACTIVE</span></td>
+</tr>
+<tr>
+<td class="b dt">Jema Cameron</td><td class="dm" style="opacity:1">430930931</td><td class="dt7" style="font-size:10px">Ile Karamacoski</td>
+<td><span class="dtag" style="background:var(--lx-orange);color:white">MODERATE</span></td>
+<td><div class="fx g2" style="align-items:center"><div style="width:8px;height:8px;border-radius:50%;background:var(--lx-cyan);flex-shrink:0"></div><span class="dt" style="font-size:10px">5 days ago</span></div></td>
+<td class="r"><span class="dtag" style="background:rgba(0,212,255,.15);color:var(--lx-cyan);border:1px solid rgba(0,212,255,.2)">ACTIVE</span></td>
+</tr>
+<tr style="background:rgba(255,45,125,.03)">
+<td class="b dt">Leonard Peris</td><td class="dm" style="opacity:1">431002847</td><td class="dt7" style="font-size:10px">Ile Karamacoski</td>
+<td><span class="dtag" style="background:var(--lx-pink);color:white">COMPLEX</span></td>
+<td><div class="fx g2" style="align-items:center"><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:8px solid var(--lx-orange);flex-shrink:0"></div><span style="font-size:10px;color:var(--lx-orange);font-weight:700">38 days ago</span></div></td>
+<td class="r"><span class="dtag" style="background:rgba(255,102,0,.15);color:var(--lx-orange);border:1px solid rgba(255,102,0,.2)">REVIEW DUE</span></td>
+</tr>
+<tr style="background:rgba(255,45,125,.03)">
+<td class="b dt">Sarah Mitchell</td><td class="dm" style="opacity:1">431145920</td><td class="dt7" style="font-size:10px">Ile Karamacoski</td>
+<td><span class="dtag" style="background:rgba(0,0,0,.04);color:var(--lx-tx);border:1px solid rgba(0,0,0,.08)">STANDARD</span></td>
+<td><div class="fx g2" style="align-items:center"><div style="width:0;height:0;border-left:5px solid transparent;border-right:5px solid transparent;border-bottom:8px solid var(--lx-pink);flex-shrink:0"></div><span style="font-size:10px;color:var(--lx-pink);font-weight:700">128 days ago</span></div></td>
+<td class="r"><span class="dtag" style="background:rgba(255,45,125,.15);color:var(--lx-pink);border:1px solid rgba(255,45,125,.2)">OVERDUE</span></td>
+</tr>
+</table>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Caseload Table with Check-In Recency</div>
+<div class="pm">Best for → Full caseload overview · Engagement monitoring · Overdue detection</div>
+<div class="pd">The master caseload view. Each row shows participant name (bold white), NDIS number (monospace), assigned coordinator, complexity tag (pink/orange/standard), last check-in with freshness indicator, and plan status badge. The check-in column is the critical differentiator from a generic table: green circle = recent (under 7 days), orange triangle = due (8–30 days), pink triangle = overdue (30+ days). Overdue rows get a subtle pink background tint. Sortable by any column, filterable by coordinator, complexity, and check-in status.</div>
+<div class="sc"><div class="sl">Check-In Freshness System</div><div class="st">● Cyan dot = contacted within 7 days (healthy) · ▲ Orange triangle = 8–30 days (attention needed) · ▲ Pink triangle = 30+ days (overdue, row tinted) · Elapsed time in matching accent colour · Bold weight on overdue values · Row background tint at 3% for flagged items</div></div>
+<div class="pu" style="margin-top:8px"><span class="chip pk">Caseload Management</span><span class="chip cy">Team Overview</span><span class="chip or">Compliance Monitoring</span></div>
+</div></div>
+
+<!-- Tag/Badge Management Strip -->
+<div class="pe">
+<div class="pv" style="min-height:100px;align-items:center">
+<div style="width:100%">
+<div class="dl" style="margin-bottom:10px;font-size:7px">PARTICIPANT TAGS — KANE CAMERON</div>
+<div class="fx" style="gap:6px;flex-wrap:wrap;align-items:center">
+<span class="dtag" style="background:#c0392b;color:white;padding:4px 10px;font-size:7px">ABI</span>
+<span class="dtag" style="background:var(--lx-blue);color:white;padding:4px 10px;font-size:7px">COMMUNICATION</span>
+<span class="dtag" style="background:var(--lx-black);color:var(--lx-tx);padding:4px 10px;font-size:7px;border:1px solid rgba(0,0,0,.08)">COMPLEX</span>
+<span class="dtag" style="background:var(--lx-pink);color:white;padding:4px 10px;font-size:7px">HIGH NEEDS</span>
+<span class="dtag" style="background:var(--lx-cyan);color:var(--lx-black);padding:4px 10px;font-size:7px">MOBILITY</span>
+<span class="dtag" style="background:#2c3e50;color:white;padding:4px 10px;font-size:7px">WHEELCHAIR</span>
+<div style="width:24px;height:24px;border-radius:50%;border:1.5px dashed rgba(0,0,0,.12);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;color:var(--lx-tx);opacity:.4">+</div>
+</div>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Tag / Badge Management Strip</div>
+<div class="pm">Best for → Disability type encoding · Complexity flags · Quick-scan participant attributes</div>
+<div class="pd">Coloured tag pills displayed across the top of a participant profile, encoding disability type, complexity tier, and support needs at a glance. Each tag uses a semantically meaningful colour (red = ABI/medical, blue = communication, pink = high needs, cyan = mobility, dark = complexity). The "+" button opens a tag selector for adding new tags. Tags are removable on click. This is a data presentation pattern — it replaces paragraphs of disability description with scannable visual indicators.</div>
+<div class="pu"><span class="chip pk">Participant Profile</span><span class="chip cy">Quick Assessment</span><span class="chip yw">Filtering</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 41 — NDIS PLAN & FUNDING MANAGEMENT
+     ═══════════════════════════════════════════════════════════ -->
+<div class="gh rv" data-m="FUNDING">
+<div class="gn">Group 41 · Suite 9</div>
+<div class="gt">NDIS Plan & Funding<br>Management</div>
+<div class="gd">Funded supports editors, implementation progress tables, services assignment, goals display, plan history, and utilisation tracking.</div>
+</div>
+<div class="gb rv">
+<div class="sub"><div class="sub-t">Plan & Funding Patterns</div><div class="sub-l">Funded supports line-item editor · implementation progress table with inline bars · services table with provider assignment · goals display with full statement text · plan history / version list · utilisation tracker · NDIS plan summary header · category budget sub-totals · management type indicator · plan document attachment list</div></div>
+<div class="vg">
+
+<!-- Implementation Progress Table -->
+<div class="pe">
+<div class="pv" style="min-height:auto;padding:12px">
+<div style="width:100%">
+<div class="fx" style="justify-content:space-between;margin-bottom:8px"><div class="dl" style="font-size:7px">CORE BUDGET IMPLEMENTATIONS</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-tx);opacity:.5;cursor:pointer;padding:4px 10px;border:1px solid rgba(0,0,0,.06);border-radius:6px">+ ADD IMPLEMENTATION</div></div>
+<table class="dtbl">
+<tr><th>DESCRIPTION</th><th class="r">AMOUNT</th><th class="r">IMPLEMENTED</th><th class="r">REMAINING</th><th class="r" style="width:80px">PROGRESS</th></tr>
+<tr><td class="dt" style="font-size:10px">Assistance with Daily Life — ADL</td><td class="r dt" style="font-family:'JetBrains Mono',monospace;font-size:9px">$48,200.00</td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">$32,450.00</td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx);opacity:.6">$15,750.00</td><td class="r"><div style="width:70px;height:6px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin-left:auto"><div style="width:67%;height:100%;background:var(--lx-pink);border-radius:999px"></div></div></td></tr>
+<tr><td class="dt" style="font-size:10px">Community Participation — SCP</td><td class="r dt" style="font-family:'JetBrains Mono',monospace;font-size:9px">$22,400.00</td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-cyan)">$18,920.00</td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx);opacity:.6">$3,480.00</td><td class="r"><div style="width:70px;height:6px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin-left:auto"><div style="width:84%;height:100%;background:var(--lx-cyan);border-radius:999px"></div></div></td></tr>
+<tr><td class="dt" style="font-size:10px">Transport</td><td class="r dt" style="font-family:'JetBrains Mono',monospace;font-size:9px">$5,200.00</td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-yellow);-webkit-text-stroke:.5px var(--lx-black);paint-order:stroke fill">$5,200.00</td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx);opacity:.6">$0.00</td><td class="r"><div style="width:70px;height:6px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin-left:auto"><div style="width:100%;height:100%;background:var(--lx-yellow);border-radius:999px"></div></div></td></tr>
+<tr style="border-top:2px solid rgba(0,0,0,.06)"><td class="b dt" style="font-size:10px">CORE TOTAL</td><td class="r b dt" style="font-family:'JetBrains Mono',monospace;font-size:10px">$75,800.00</td><td class="r b" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lx-pink)">$56,570.00</td><td class="r b" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lx-tx)">$19,230.00</td><td class="r"><div style="width:70px;height:6px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;margin-left:auto"><div style="width:75%;height:100%;background:var(--lx-pink);border-radius:999px"></div></div></td></tr>
+</table>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Implementation Progress Table</div>
+<div class="pm">Best for → Line-item budget tracking · Claiming progress · Financial accountability</div>
+<div class="pd">Per-line-item implementation tracking showing what's been claimed against what was funded. Each row has: description, total amount, implemented (claimed) amount in accent colour, remaining in dimmed text, and an inline progress bar. Total row with bold weight and top border. This is the most critical financial view in any NDIS CRM — it shows exactly where money has gone at the support-item level. Progress bars use category-specific colours: pink = ADL, cyan = SCP, yellow = fully utilised. The "Add Implementation" button at top-right enables booking new service agreements against budget lines.</div>
+<div class="pu"><span class="chip pk">NDIS Plan View</span><span class="chip cy">Budget Management</span><span class="chip yw">Claim Tracking</span></div>
+</div></div>
+
+<!-- Services Table -->
+<div class="pe">
+<div class="pv" style="min-height:auto;padding:12px">
+<div style="width:100%">
+<div class="fx" style="justify-content:space-between;margin-bottom:8px"><div class="dl" style="font-size:7px">SERVICES</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-tx);opacity:.5;cursor:pointer;padding:4px 10px;border:1px solid rgba(0,0,0,.06);border-radius:6px">+ ADD SERVICE</div></div>
+<table class="dtbl">
+<tr><th>NAME</th><th>SERVICE COORDINATOR</th><th>MANAGEMENT TYPE</th><th class="r">AMOUNT</th></tr>
+<tr><td class="b dt" style="font-size:10px">Coordination of Supports</td><td class="dt7" style="font-size:10px">Ile Karamacoski</td><td><span class="dtag" style="background:rgba(41,121,255,.15);color:var(--lx-blue);border:1px solid rgba(41,121,255,.2);font-size:6px">PLAN MANAGED</span></td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lx-tx)">$7,005.84</td></tr>
+<tr><td class="b dt" style="font-size:10px">Coordination of Supports DA</td><td class="dt7" style="font-size:10px">Ile Karamacoski</td><td><span class="dtag" style="background:rgba(41,121,255,.15);color:var(--lx-blue);border:1px solid rgba(41,121,255,.2);font-size:6px">PLAN MANAGED</span></td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lx-tx)">$25,000.00</td></tr>
+<tr><td class="b dt" style="font-size:10px">Coordination of Supports SCCP</td><td class="dt7" style="font-size:10px">Ile Karamacoski</td><td><span class="dtag" style="background:rgba(41,121,255,.15);color:var(--lx-blue);border:1px solid rgba(41,121,255,.2);font-size:6px">PLAN MANAGED</span></td><td class="r" style="font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--lx-tx)">$15,000.00</td></tr>
+</table>
+<div style="margin-top:6px;font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.5">DEFAULT: Coordination Level 2 – Coordination of Supports ✏️</div>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Services Table with Provider Assignment</div>
+<div class="pm">Best for → Live service assignment · Provider mapping · Management type tracking</div>
+<div class="pd">Shows who's delivering what services under which management type. Each row: service name (bold), assigned coordinator, management type badge (Plan Managed / NDIA Managed / Self Managed in blue chips), and dollar amount. Default service indicator at bottom with edit pencil. Also covers funded supports line-item editor, goals display with full statement text, plan history/version list, and utilisation tracker.</div>
+<div class="pu"><span class="chip pk">NDIS Plan View</span><span class="chip cy">Provider Directory</span><span class="chip bl">SA Management</span></div>
+</div></div>
+
+<!-- Goals Display + Plan History -->
+<div class="pe">
+<div class="pv" style="min-height:auto;padding:12px">
+<div style="width:100%">
+<div class="fx" style="justify-content:space-between;margin-bottom:8px"><div class="dl" style="font-size:7px">GOALS</div><div class="fx g2"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-tx);opacity:.5;padding:3px 8px;border:1px solid rgba(0,0,0,.06);border-radius:4px;cursor:pointer">UPDATE PLAN GOALS</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-tx);opacity:.5;padding:3px 8px;border:1px solid rgba(0,0,0,.06);border-radius:4px;cursor:pointer">MANAGE</div></div></div>
+<div style="border-left:3px solid var(--lx-pink);padding:8px 12px;background:rgba(255,45,125,.03);border-radius:0 6px 6px 0;margin-bottom:6px"><div style="font-size:10px;color:var(--lx-tx);line-height:1.5">I would like to be supported in managing my anxiety symptoms and addressing the main barriers to increase my access to the community and participation in social activities.</div></div>
+<div style="border-left:3px solid var(--lx-cyan);padding:8px 12px;background:rgba(0,212,255,.03);border-radius:0 6px 6px 0;margin-bottom:6px"><div style="font-size:10px;color:var(--lx-tx);line-height:1.5">I would like to increase my capacity to manage my activities of daily living and personal care so I can continue caring for my son.</div></div>
+<div style="border-left:3px solid var(--lx-yellow);padding:8px 12px;background:rgba(204,255,0,.02);border-radius:0 6px 6px 0"><div style="font-size:10px;color:var(--lx-tx);line-height:1.5">I would like to find suitable accommodation that meets my needs so I can continue living with my son Kane.</div></div>
+<!-- Plan History -->
+<div style="margin-top:14px;border-top:1px solid rgba(0,0,0,.04);padding-top:10px">
+<div class="dl" style="font-size:7px;margin-bottom:6px">ALL PLANS</div>
+<div class="fx" style="justify-content:space-between;padding:6px 0;border-bottom:1px solid rgba(0,0,0,.04);align-items:center">
+<div><div class="dt" style="font-size:10px;font-weight:600">11/04/2024 – 11/04/2025</div><div class="fx g2" style="margin-top:2px"><span class="dtag" style="background:var(--lx-pink);color:white;font-size:5px">CURRENT PLAN</span><span class="dtag" style="background:rgba(0,0,0,.04);color:var(--lx-tx);font-size:5px;border:1px solid rgba(0,0,0,.06)">VIEWING</span></div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx)">$534,269.15</div>
+</div>
+<div class="fx" style="justify-content:space-between;padding:6px 0;align-items:center">
+<div><div class="dt5" style="font-size:10px">20/04/2023 – 10/04/2024</div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx);opacity:.5">$512,142.80</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Goals Display + Plan History List</div>
+<div class="pm">Best for → Goal statement review · Plan reassessment prep · Historical plan tracking</div>
+<div class="pd">Full participant goal statements as readable paragraphs with coloured left-border accents (one colour per goal for visual distinction). Not abbreviated — the full NDIS plan goal text. Below, a plan history section showing all previous and current plans with date ranges, status badges (Current Plan / Viewing), and total funded support amounts. Clicking a historical plan loads that plan's data for comparison.</div>
+<div class="pu"><span class="chip pk">Plan Reviews</span><span class="chip cy">Reassessments</span><span class="chip yw">NDIA Reporting</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 42 — BILLING, TIME & REVENUE
+     ═══════════════════════════════════════════════════════════ -->
+<div class="gh rv" data-m="BILLING">
+<div class="gn">Group 42 · Suite 9</div>
+<div class="gt">Billing, Time<br>& Revenue</div>
+<div class="gd">Billable hours tracking, revenue dashboard composition, invoicing status, and time-based financial analytics.</div>
+</div>
+<div class="gb rv">
+<div class="sub"><div class="sub-t">Billing & Revenue Patterns</div><div class="sub-l">Billable hours composite widget · revenue dashboard layout · invoice status tracker · daily time log · weekly hours summary donut · revenue area chart with invoiced/uninvoiced · revenue breakdown grouped bar · this-week vs last-week KPI pair · charge item selector · billable vs non-billable toggle</div></div>
+<div class="vg">
+
+<!-- Billable Hours Composite -->
+<div class="pe">
+<div class="pv" style="min-height:auto;padding:12px">
+<div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<!-- Donut side -->
+<div style="text-align:center">
+<div class="dl" style="font-size:7px;margin-bottom:8px;text-align:left">WEEKLY HOURS</div>
+<div style="position:relative;width:90px;height:90px;margin:0 auto">
+<svg width="90" height="90" viewBox="0 0 100 100" style="transform:rotate(-90deg)"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="12"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--lx-pink)" stroke-width="12" stroke-linecap="round" stroke-dasharray="163 251"/><circle cx="50" cy="50" r="40" fill="none" stroke="var(--lx-cyan)" stroke-width="12" stroke-dasharray="40 251" stroke-dashoffset="-165" stroke-linecap="round"/></svg>
+<div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center"><div style="font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-tx)">26.5</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5">OF 40H</div></div>
+</div>
+<div class="fx g3" style="justify-content:center;margin-top:8px"><div class="fx g2" style="align-items:center"><div style="width:8px;height:8px;border-radius:2px;background:var(--lx-pink)"></div><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.7">BILLABLE 22H</span></div><div class="fx g2" style="align-items:center"><div style="width:8px;height:8px;border-radius:2px;background:var(--lx-cyan)"></div><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.7">NON-BILL 4.5H</span></div></div>
+</div>
+<!-- Daily breakdown -->
+<div>
+<div class="dl" style="font-size:7px;margin-bottom:8px">DAILY LOG</div>
+<div class="fx" style="justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(0,0,0,.04)"><span class="dt7" style="font-size:9px">Mon</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">5.0h</span></div>
+<div class="fx" style="justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(0,0,0,.04)"><span class="dt7" style="font-size:9px">Tue</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">4.5h</span></div>
+<div class="fx" style="justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(0,0,0,.04)"><span class="dt7" style="font-size:9px">Wed</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">6.0h</span></div>
+<div class="fx" style="justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(0,0,0,.04)"><span class="dt7" style="font-size:9px">Thu</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">5.5h</span></div>
+<div class="fx" style="justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(0,0,0,.04)"><span class="dt7" style="font-size:9px">Fri</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">5.5h</span></div>
+<div class="fx" style="justify-content:space-between;padding:3px 0;border-bottom:1px solid rgba(0,0,0,.04)"><span class="dt7" style="font-size:9px">Sat</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx);opacity:.3">—</span></div>
+<div class="fx" style="justify-content:space-between;padding:3px 0"><span class="dt7" style="font-size:9px">Sun</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx);opacity:.3">—</span></div>
+</div>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Billable Hours Composite Widget</div>
+<div class="pm">Best for → SC time tracking · Billable vs non-billable · Weekly capacity</div>
+<div class="pd">Donut chart showing billable (pink) vs non-billable (cyan) hours against a weekly target, paired with a daily breakdown table showing per-day hours. The donut centre shows total hours / target. Legend below the donut. The daily log uses pink for work days and dimmed dash for rest days. This composite answers three questions at once: "How many hours this week?", "How much is billable?", and "Which days were heaviest?" Also covers revenue area chart with invoiced/uninvoiced, revenue breakdown grouped bar, this-week vs last-week KPI pair, charge item selector, and billable toggle.</div>
+<div class="pu"><span class="chip pk">SC Time Tracking</span><span class="chip cy">Billing Dashboard</span><span class="chip yw">Capacity Planning</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 43 — APPLICATION CHROME & MODALS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="gh rv" data-m="APP">
+<div class="gn">Group 43 · Suite 9</div>
+<div class="gt">Application Chrome<br>& Modals</div>
+<div class="gd">Navigation sidebar, task creation modals, document management, and application-level layout patterns.</div>
+</div>
+<div class="gb rv">
+<div class="sub"><div class="sub-t">Application Patterns</div><div class="sub-l">Application navigation sidebar · task/note creation modal · document management list · template selector · eSignature status tracker · participant search overlay · global action bar · notification bell dropdown · user/team switcher · settings panel layout · export configuration dialog · help/support panel</div></div>
+<div class="vg">
+
+<!-- Task Creation Modal -->
+<div class="pe">
+<div class="pv" style="min-height:auto;padding:12px;background:var(--lx-cream)">
+<div class="modal-bg" style="width:100%">
+<div class="modal">
+<!-- Header -->
+<div class="modal-hdr">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.04em;color:var(--lx-tx)">Create Task</div>
+<div class="fx g3" style="align-items:center">
+<div class="fx g2" style="align-items:center"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="2" width="14" height="13" rx="2" stroke="var(--lx-txm)" stroke-width="1.2"/><line x1="4" y1="1" x2="4" y2="4" stroke="var(--lx-txm)" stroke-width="1.2" stroke-linecap="round"/><line x1="12" y1="1" x2="12" y2="4" stroke="var(--lx-txm)" stroke-width="1.2" stroke-linecap="round"/><line x1="1" y1="6" x2="15" y2="6" stroke="var(--lx-txm)" stroke-width="1"/></svg><span style="font-family:'Barlow',sans-serif;font-size:11px;color:var(--lx-txm)">Today</span><span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-txl)">| 07/04/2026</span></div>
+</div>
+</div>
+<!-- Body -->
+<div class="modal-body">
+<!-- Name -->
+<div style="margin-bottom:10px"><div class="field-input" style="font-size:11px;color:var(--lx-txl)">Name</div></div>
+<!-- Participant -->
+<div style="margin-bottom:10px"><div class="field-input field-select"><span style="font-size:11px;color:var(--lx-txl)">Participant</span><span style="font-size:10px;color:var(--lx-txl)">▾</span></div></div>
+<!-- Team Member -->
+<div style="margin-bottom:10px"><div class="field-input field-select"><span style="font-size:11px;color:var(--lx-txl)">Team Member</span><span style="font-size:10px;color:var(--lx-txl)">▾</span></div></div>
+<!-- Charge Item + Duration -->
+<div style="display:grid;grid-template-columns:1.4fr 1fr;gap:10px;margin-bottom:10px">
+<div><div class="field-input field-select"><span style="font-size:10px;color:var(--lx-txl)">Charge item</span><span style="font-size:10px;color:var(--lx-txl)">▾</span></div></div>
+<div style="position:relative"><div class="field-input" style="display:flex;justify-content:flex-end;align-items:center;gap:4px"><span style="font-size:11px;color:var(--lx-tx)">0</span><span style="font-size:10px;color:var(--lx-txl)">minutes</span></div><div style="position:absolute;top:-6px;left:10px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.1em;text-transform:uppercase;color:var(--lx-txm);background:var(--lx-card);padding:0 3px">DURATION</div></div>
+</div>
+<!-- Rich Text Toolbar -->
+<div style="display:flex;gap:1px;padding:6px 8px;background:var(--lx-cream);border:1px solid var(--lx-bdr);border-bottom:none;border-radius:6px 6px 0 0;flex-wrap:wrap;align-items:center">
+<div style="padding:3px 6px;font-size:11px;font-weight:700;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Bold"><strong>B</strong></div>
+<div style="padding:3px 6px;font-size:11px;font-style:italic;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Italic"><em>I</em></div>
+<div style="padding:3px 6px;font-size:11px;text-decoration:underline;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Underline">U</div>
+<div style="padding:3px 6px;font-size:11px;text-decoration:line-through;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Strikethrough">S</div>
+<div style="padding:3px 6px;cursor:pointer;border-radius:3px" title="Highlight"><svg width="12" height="12" viewBox="0 0 12 12"><rect x="1" y="1" width="10" height="10" rx="2" fill="rgba(204,255,0,.3)" stroke="var(--lx-txl)" stroke-width=".5"/></svg></div>
+<div style="width:1px;height:16px;background:var(--lx-bdr);margin:0 4px"></div>
+<div style="padding:3px 6px;font-size:10px;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Bullet list">☰</div>
+<div style="padding:3px 6px;font-size:10px;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Numbered list">≡</div>
+<div style="width:1px;height:16px;background:var(--lx-bdr);margin:0 4px"></div>
+<div style="padding:3px 5px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:9px;color:var(--lx-txm);cursor:pointer;border-radius:3px">H1</div>
+<div style="padding:3px 5px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:9px;color:var(--lx-txm);cursor:pointer;border-radius:3px">H2</div>
+<div style="padding:3px 5px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:9px;color:var(--lx-txm);cursor:pointer;border-radius:3px">H3</div>
+<div style="width:1px;height:16px;background:var(--lx-bdr);margin:0 4px"></div>
+<div style="padding:3px 6px;font-size:10px;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Link">🔗</div>
+<div style="padding:3px 6px;font-size:10px;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Table">▦</div>
+<div style="padding:3px 6px;font-size:10px;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Indent">⇥</div>
+<div style="padding:3px 6px;font-size:10px;color:var(--lx-txm);cursor:pointer;border-radius:3px" title="Clear format">T̸</div>
+</div>
+<!-- Text Area -->
+<div class="field-textarea" style="border-radius:0 0 6px 6px;border-top:none;min-height:70px;font-size:10px;color:var(--lx-txl)"></div>
+<!-- Bottom Action Row -->
+<div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;padding-top:12px;border-top:1px solid var(--lx-bdr)">
+<!-- Communication type icons -->
+<div class="fx g2">
+<div style="width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--lx-txl)" title="Phone"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M3 2h3l1.5 3.5-2 1.5a9 9 0 004.5 4.5l1.5-2L15 11v3a1 1 0 01-1 1C7 15 1 9 1 3a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2"/></svg></div>
+<div style="width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--lx-txl)" title="SMS"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M2 3h12a1 1 0 011 1v7a1 1 0 01-1 1H5l-3 3V4a1 1 0 011-1z" stroke="currentColor" stroke-width="1.2"/></svg></div>
+<div style="width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--lx-txl)" title="Email"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="3" width="14" height="10" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M1 4l7 5 7-5" stroke="currentColor" stroke-width="1.2"/></svg></div>
+<div style="width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--lx-txl)" title="Online"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="currentColor" stroke-width="1.2"/><path d="M2 8h12M8 2c-2 2-2 10 0 12M8 2c2 2 2 10 0 12" stroke="currentColor" stroke-width="1"/></svg></div>
+<div style="width:26px;height:26px;border-radius:6px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--lx-txl)" title="Video"><svg width="14" height="14" viewBox="0 0 16 16" fill="none"><rect x="1" y="4" width="9" height="8" rx="1.5" stroke="currentColor" stroke-width="1.2"/><path d="M10 7l4-2v6l-4-2z" stroke="currentColor" stroke-width="1.2"/></svg></div>
+</div>
+<!-- Billable + Completed -->
+<div class="fx g3" style="align-items:center">
+<div style="display:flex;align-items:center;gap:4px"><input type="checkbox" checked style="accent-color:var(--lx-cyan);width:14px;height:14px"><span style="font-family:'Barlow',sans-serif;font-size:10px;color:var(--lx-txm)">Billable</span></div>
+<div style="display:flex;align-items:center;gap:4px"><input type="checkbox" style="accent-color:var(--lx-cyan);width:14px;height:14px"><span style="font-family:'Barlow',sans-serif;font-size:10px;color:var(--lx-txm)">Completed</span></div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div style="display:flex;justify-content:flex-end;align-items:center;gap:12px;padding:12px 16px;background:var(--lx-black);border-radius:0 0 var(--r-md) var(--r-md)">
+<div style="font-family:'Barlow',sans-serif;font-size:11px;color:#F5F0E8;opacity:.6;cursor:pointer">Cancel</div>
+<div class="fx" style="gap:0">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.04em;padding:8px 16px;border-radius:6px 0 0 6px;background:var(--lx-pink);color:white;cursor:pointer">Create and open</div>
+<div style="padding:8px 10px;border-radius:0 6px 6px 0;background:var(--lx-pink);color:white;cursor:pointer;border-left:1px solid rgba(255,255,255,.2);display:flex;align-items:center"><svg width="10" height="6" viewBox="0 0 10 6" fill="none"><path d="M1 1l4 4 4-4" stroke="white" stroke-width="1.5" stroke-linecap="round"/></svg></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Task / Note Creation Modal</div>
+<div class="pm">Best for → Case note entry · Task creation · Billable interaction logging</div>
+<div class="pd">Astalty-matched task creation modal. Header with "Create Task" title and today's date. Full-width Name field, Participant dropdown, Team Member dropdown, Charge item + Duration side-by-side. Full rich text toolbar: Bold, Italic, Underline, Strikethrough, Highlight, Bullet List, Numbered List, H1, H2, H3, Link, Table, Indent, Clear Formatting. Large text area for notes. Bottom row: 5 communication type icons (Phone, SMS, Email, Online, Video) on left, Billable + Completed checkboxes on right. Dark footer bar with Cancel text and pink "Create and open" split button with dropdown chevron. Every field mirrors Astalty's production Create Task modal.</div>
+<div class="sc"><div class="sl">Modal Design Specifications</div><div class="st">Light background modal (white card on cream overlay) for readability · Barlow Condensed 900 14px header · JetBrains Mono 7px field labels · Cream input backgrounds with 1px border · Rich text toolbar with separator dividers · Bottom bar: icon actions left, toggles centre, primary/secondary buttons right · Pink accent on Save, outline on Cancel · Checkbox accent-color: pink for billable, cyan for completed</div></div>
+<div class="pu"><span class="chip pk">Case Notes</span><span class="chip cy">Task Entry</span><span class="chip yw">Time Logging</span><span class="chip or">Meeting Records</span></div>
+</div></div>
+
+<!-- App Navigation Sidebar -->
+<div class="pe">
+<div class="pv" style="min-height:auto;padding:0">
+<div style="display:flex;width:100%">
+<!-- Sidebar -->
+<div style="width:180px;background:rgba(0,0,0,.03);border-right:1px solid rgba(0,0,0,.04);padding:12px 0;flex-shrink:0">
+<div style="padding:0 12px 10px;border-bottom:1px solid rgba(0,0,0,.04)"><span class="tl" style="font-size:14px">LIMIT<span>LESS</span></span></div>
+<!-- Nav items -->
+<div style="padding:8px 0">
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px;font-size:10px;color:var(--lx-pink);font-weight:700;background:rgba(255,45,125,.08);border-left:3px solid var(--lx-pink);cursor:pointer">📊 Dashboard</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">📋 Tasks</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">👥 Participants</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">✍️ eSignatures</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">📄 Reports</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">📁 Directory</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">📚 Resources</div>
+</div>
+<div style="border-top:1px solid rgba(0,0,0,.04);padding:8px 0">
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">💰 Finance</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">🔔 Notifications <span style="font-family:'JetBrains Mono',monospace;font-size:6px;background:var(--lx-pink);color:white;padding:1px 5px;border-radius:999px;margin-left:auto">3</span></div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.7;cursor:pointer">📤 Exports</div>
+</div>
+<div style="border-top:1px solid rgba(0,0,0,.04);padding:8px 0">
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.5;cursor:pointer">👤 Users</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.5;cursor:pointer">⚙️ Settings</div>
+<div style="display:flex;align-items:center;gap:8px;padding:7px 12px 7px 15px;font-size:10px;color:var(--lx-tx);opacity:.5;cursor:pointer">💳 Billing</div>
+</div>
+<!-- User -->
+<div style="border-top:1px solid rgba(0,0,0,.04);padding:10px 12px;display:flex;align-items:center;gap:8px">
+<div style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,var(--lx-pink),var(--lx-orange));display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:11px;color:white;flex-shrink:0">IK</div>
+<div><div style="font-size:9px;color:var(--lx-tx);font-weight:600">Ile Karamacoski</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.4">LIMITLESS SUPPORT CO.</div></div>
+</div>
+</div>
+<!-- Main area preview -->
+<div style="flex:1;padding:16px">
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--lx-tx);margin-bottom:8px">DASHBOARD</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:6px">
+<div style="background:rgba(0,0,0,.03);border-radius:6px;padding:8px"><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;margin-bottom:2px">ACTIVE PARTICIPANTS</div><div style="font-family:'Bebas Neue',serif;font-size:24px;color:var(--lx-tx)">24</div></div>
+<div style="background:rgba(0,0,0,.03);border-radius:6px;padding:8px"><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;margin-bottom:2px">OPEN TASKS</div><div style="font-family:'Bebas Neue',serif;font-size:24px;color:var(--lx-pink)">12</div></div>
+<div style="background:rgba(0,0,0,.03);border-radius:6px;padding:8px"><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;margin-bottom:2px">THIS WEEK REVENUE</div><div style="font-family:'Bebas Neue',serif;font-size:24px;color:var(--lx-yellow);-webkit-text-stroke:1px var(--lx-black);paint-order:stroke fill">$2.8K</div></div>
+<div style="background:rgba(0,0,0,.03);border-radius:6px;padding:8px"><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;margin-bottom:2px">OVERDUE CHECK-INS</div><div style="font-family:'Bebas Neue',serif;font-size:24px;color:var(--lx-orange)">3</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pb">
+<div class="pn">Application Navigation Sidebar + Dashboard Shell</div>
+<div class="pm">Best for → Full CRM layout · Application architecture · Navigation structure</div>
+<div class="pd">The complete application chrome pattern showing the sidebar navigation with icon + label items, section groupings (core features / finance / settings), active state with pink left-border accent and tinted background, notification badge counts, and user identity at the bottom with gradient avatar. The main content area shows the dashboard shell with KPI stat cards in a 2×2 grid. This is the layout container that every other pattern in this library lives inside. Pink active state, three navigation sections with dividers, badge counters on Notifications, user avatar with org name.</div>
+<div class="pu"><span class="chip pk">App Layout</span><span class="chip cy">Navigation</span><span class="chip yw">Dashboard Shell</span><span class="chip pu">User Identity</span></div>
+</div></div>
+</div></div>
+
+
+<!-- FINAL FOOTER -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:40px 28px;position:relative;overflow:hidden">
+<div style="font-family:'Bebas Neue',serif;font-size:120px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-24px;user-select:none;pointer-events:none">∞</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:8px">ENTIRE LIBRARY COMPLETE · 9 SUITES · 43 GROUPS · ZERO GAPS</div>
+<div style="font-family:'Bebas Neue',serif;font-size:clamp(28px,5vw,48px);color:var(--lx-offwhite);line-height:.95;margin-bottom:16px">2026 UI VISUAL DATA<br>PATTERN LIBRARY</div>
+<div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:16px">
+<span class="chip spk">S1 ✓</span><span class="chip spk">S2 ✓</span><span class="chip spk">S3 ✓</span><span class="chip spk">S4 ✓</span><span class="chip scy">S5 ✓</span><span class="chip syw">S6 ✓</span><span class="chip spk">S7 ✓</span><span class="chip syw">S8 ✓</span><span class="chip scy">S9 ✓</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:10px;margin-bottom:16px">
+<div style="border-left:3px solid var(--lx-pink);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-pink)">43</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">GROUPS</div></div>
+<div style="border-left:3px solid var(--lx-cyan);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-cyan)">340+</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">PATTERNS</div></div>
+<div style="border-left:3px solid var(--lx-yellow);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-yellow)">9</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">SUITES</div></div>
+<div style="border-left:3px solid var(--lx-orange);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-orange)">0</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">GAPS</div></div>
+</div>
+<div style="font-size:11px;color:rgba(245,240,232,.4);line-height:1.5;max-width:520px">From universal chart taxonomy through CRM-specific composites, NDIS operational charts, task/schedule/project boards, UI state patterns, process workflows, and now production CRM operations informed by real-world NDIS platform analysis. Every pattern rendered as a live visual with correct contrast — white on dark, dark on light, neon accents at full saturation. No grey text on black backgrounds. The complete 2026 UI visual data vocabulary for LIMITLESS Support Co.</div>
+<div class="stripe" style="margin:20px -28px -40px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">LIMITLESS SUPPORT CO. · 2026 PATTERN LIBRARY · 9 SUITES · 43 GROUPS · 340+ PATTERNS · COMPLETE · ABN 76 985 845 524</div>
+<script>const io=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('vis'),io.unobserve(e.target))})},{threshold:.08});document.querySelectorAll('.rv').forEach(el=>io.observe(el));</script>
+</body>
+</html>

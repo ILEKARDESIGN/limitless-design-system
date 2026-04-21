@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 UI Visual Data Pattern Library — Suite 2 · Groups 07–12 — LIMITLESS Support Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-navy:#0A0F1C;--lx-white:#FFF;
+  --lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;
+  --lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-bdr2:rgba(13,13,13,.12);
+  --lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;
+  --r-xs:6px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-p:999px;
+  --sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-md:0 6px 24px rgba(0,0,0,.08);--sh-hv:0 16px 48px rgba(0,0,0,.13);
+  --ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-xl{font-family:'Bebas Neue',serif;font-size:80px;line-height:.9;letter-spacing:.01em}
+.lx-stat{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:.01em}
+.lx-dsm{font-family:'Bebas Neue',serif;font-size:24px;line-height:1}
+.lx-ghost{font-family:'Bebas Neue',serif;font-size:110px;line-height:.85;color:rgba(0,0,0,.025);user-select:none;pointer-events:none;position:absolute;right:-4px;bottom:-16px}
+.lx-cxl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lx-clg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+.lx-cmd{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.lx-csm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.lx-mlg{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.04em}
+.lx-mmd{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em}
+.lx-msm{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-blg{font-size:15px;line-height:1.6}
+.lx-b{font-size:13px;line-height:1.55}
+.lx-bsm{font-size:11px;line-height:1.5}
+.lx-bxs{font-size:10px;line-height:1.4}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}
+.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}
+.lx-tlogo span{color:var(--lx-pink)}
+.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
+.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}
+.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-tbadge.cyan{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}
+.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}
+.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}
+.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}
+.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}
+.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}
+.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}
+.lx-chip.dk{border-color:rgba(13,13,13,.2);color:var(--lx-tx);background:rgba(13,13,13,.05)}
+.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-chip.sbk{background:var(--lx-black);color:var(--lx-offwhite);border-color:transparent}
+.fx{display:flex}.fxc{display:flex;align-items:center;justify-content:center}.fxb{display:flex;align-items:center;justify-content:space-between}
+.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.g6{gap:24px}
+.mb2{margin-bottom:8px}.mb3{margin-bottom:12px}.mb4{margin-bottom:16px}
+.mt2{margin-top:8px}.mt4{margin-top:16px}
+.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}
+.cor{color:var(--lx-orange)}.cpu{color:var(--lx-purple)}.cbl{color:var(--lx-blue)}
+.cm{color:var(--lx-txm)}.cl{color:var(--lx-txl)}.bld{font-weight:700}
+@media(max-width:900px){.pl-viz-grid{grid-template-columns:1fr!important}}
+@media(max-width:600px){body{font-size:12px}.pl-group-title{font-size:32px!important}}
+
+/* Pattern Library Extensions — LCC Light Treatment */
+.pl-group-header{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}
+.pl-group-header::before{content:attr(data-mirror);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;letter-spacing:.02em;user-select:none;pointer-events:none}
+.pl-group-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}
+.pl-group-title{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:var(--lx-offwhite);letter-spacing:.02em;margin-bottom:8px}
+.pl-group-desc{font-family:'Barlow',sans-serif;font-size:12px;color:var(--lx-offwhite);opacity:.6;max-width:600px;line-height:1.5}
+.pl-infinity{position:absolute;right:28px;top:50%;transform:translateY(-50%);opacity:.06}
+.pl-entry{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:0;overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.pl-entry:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.pl-entry-viz{background:var(--lx-cream);border:1px solid var(--lx-bdr);padding:20px;min-height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:var(--r-md) var(--r-md) 0 0}
+.pl-entry-viz::after{content:'∞';font-family:'Bebas Neue',serif;font-size:60px;color:rgba(0,0,0,.04);position:absolute;right:8px;bottom:-10px}
+.pl-entry-body{padding:16px}
+.pl-entry-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;color:var(--lx-tx)}
+.pl-entry-meta{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:8px}
+.pl-entry-desc{font-size:11px;color:var(--lx-txm);line-height:1.5;margin-bottom:8px}
+.pl-use-cases{display:flex;flex-wrap:wrap;gap:4px}
+.pl-subcat{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:12px 16px;margin-bottom:10px}
+.pl-subcat-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--lx-pink);margin-bottom:7px;padding-bottom:7px;border-bottom:2px solid var(--lx-pink)}
+.pl-subcat-list{font-size:11px;color:var(--lx-txm);line-height:1.7}
+.pl-viz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;padding:0 0 10px}
+.pl-group-body{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.pl-style-card{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}
+.pl-style-label{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}
+.pl-style-text{font-size:10px;color:var(--lx-offwhite);opacity:.75;line-height:1.5}
+.mini-bar{fill:var(--lx-pink);rx:2}.mini-bar.y{fill:var(--lx-yellow)}.mini-bar.c{fill:var(--lx-cyan)}.mini-bar.o{fill:var(--lx-orange)}.mini-bar.p{fill:var(--lx-purple)}.mini-bar.b{fill:var(--lx-blue)}
+.mini-line{fill:none;stroke:var(--lx-pink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mini-line.y{stroke:var(--lx-yellow)}.mini-line.c{stroke:var(--lx-cyan)}
+.mini-axis{stroke:rgba(0,0,0,.12);stroke-width:1}
+.mini-grid{stroke:rgba(0,0,0,.06);stroke-width:.5}
+.mini-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.lx-rev.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:540px){
+  [style*="grid-column"]{grid-column:1/-1!important}
+  .pl-viz-grid{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="lx-topbar">
+  <div class="fx g3" style="align-items:center">
+    <span class="lx-tlogo">LIMIT<span>LESS</span></span>
+    <span class="lx-tmeta">2026 UI Visual Data Pattern Library</span>
+  </div>
+  <div class="fx g2" style="align-items:center">
+    <span class="lx-tbadge">Suite 2</span>
+    <span class="lx-tbadge pink">Groups 07–12</span>
+    <span class="lx-tmeta">24 Groups · 4 Suites</span>
+  </div>
+</div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+
+<!-- Suite Title -->
+<div style="text-align:center;padding:32px 20px 8px">
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">LIMITLESS SUPPORT CO. · PATTERN LIBRARY</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;letter-spacing:.02em;color:var(--lx-black)">SUITE TWO</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">GROUPS 07 — 12</div>
+  <div class="lx-bsm cm" style="max-width:560px;margin:12px auto 0">Structural, spatial, and relational data presentations — from statistical intervals through flows, hierarchies, networks, geography, and matrix grids.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 07 — INTERVAL, UNCERTAINTY & STATISTICAL
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="INTERVAL">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 07 · Suite 2</div>
+  <div class="pl-group-title">Interval, Uncertainty<br>& Statistical</div>
+  <div class="pl-group-desc">When precision, confidence, tolerance, or risk bands matter — encoding uncertainty directly into the visualization.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Interval & Statistical Types</div>
+    <div class="pl-subcat-list">Error bar chart · error band chart · confidence interval chart · prediction interval chart · candlestick chart · OHLC chart · range bar chart · floating range bar · high-low chart · min-max band · fan chart · control chart · funnel plot · forest plot · coefficient plot · caterpillar plot · meta-analysis interval plot · survival curve · Kaplan–Meier curve</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Error Bar / Confidence Interval -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 240 130">
+          <line x1="30" y1="125" x2="230" y2="125" class="mini-axis"/>
+          <line x1="30" y1="5" x2="30" y2="125" class="mini-axis"/>
+          <!-- Confidence band -->
+          <polygon points="50,75 90,60 130,50 170,42 210,30 210,55 170,65 130,72 90,80 50,90" fill="rgba(255,45,125,.1)"/>
+          <!-- Centre line -->
+          <polyline points="50,82 90,70 130,60 170,52 210,42" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Error bars at each point -->
+          <line x1="50" y1="70" x2="50" y2="95" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="45" y1="70" x2="55" y2="70" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="45" y1="95" x2="55" y2="95" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <circle cx="50" cy="82" r="3" fill="var(--lx-pink)"/>
+          <line x1="90" y1="58" x2="90" y2="82" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="85" y1="58" x2="95" y2="58" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="85" y1="82" x2="95" y2="82" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <circle cx="90" cy="70" r="3" fill="var(--lx-pink)"/>
+          <line x1="130" y1="48" x2="130" y2="72" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="125" y1="48" x2="135" y2="48" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="125" y1="72" x2="135" y2="72" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <circle cx="130" cy="60" r="3" fill="var(--lx-pink)"/>
+          <line x1="170" y1="40" x2="170" y2="65" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="165" y1="40" x2="175" y2="40" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="165" y1="65" x2="175" y2="65" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <circle cx="170" cy="52" r="3" fill="var(--lx-pink)"/>
+          <line x1="210" y1="28" x2="210" y2="55" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="205" y1="28" x2="215" y2="28" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <line x1="205" y1="55" x2="215" y2="55" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <circle cx="210" cy="42" r="3" fill="var(--lx-pink)"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Error Bar / Confidence Interval / Prediction Band</div>
+        <div class="pl-entry-meta">Best for → Statistical uncertainty · Research results · Model confidence</div>
+        <div class="pl-entry-desc">Overlays interval markers on data points to show measurement uncertainty or prediction ranges. Cyan I-beam error bars with pink dot point estimates and a 10% pink confidence band fill. Covers error bar chart, error band chart, confidence interval chart, prediction interval chart, min-max band, and fan chart.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Cyan I-beam whiskers · Pink point estimate dots · 10% opacity confidence polygon · 2px stroke line through estimates · Dark plot area · No chart chrome clutter</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Clinical Trials</span>
+          <span class="lx-chip cy">ML Model Output</span>
+          <span class="lx-chip yw">Financial Forecasts</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Candlestick / OHLC -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 220 130">
+          <line x1="0" y1="125" x2="220" y2="125" class="mini-axis"/>
+          <!-- Bullish candle (yellow = up) -->
+          <line x1="25" y1="20" x2="25" y2="100" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="18" y="40" width="14" height="35" fill="var(--lx-yellow)" rx="1"/>
+          <!-- Bearish candle (pink = down) -->
+          <line x1="55" y1="30" x2="55" y2="105" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="48" y="35" width="14" height="40" fill="var(--lx-pink)" rx="1"/>
+          <!-- Bullish -->
+          <line x1="85" y1="15" x2="85" y2="90" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="78" y="30" width="14" height="30" fill="var(--lx-yellow)" rx="1"/>
+          <!-- Bearish -->
+          <line x1="115" y1="25" x2="115" y2="95" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="108" y="28" width="14" height="45" fill="var(--lx-pink)" rx="1"/>
+          <!-- Bullish -->
+          <line x1="145" y1="40" x2="145" y2="110" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="138" y="60" width="14" height="25" fill="var(--lx-yellow)" rx="1"/>
+          <!-- Bearish -->
+          <line x1="175" y1="35" x2="175" y2="100" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="168" y="38" width="14" height="38" fill="var(--lx-pink)" rx="1"/>
+          <!-- Bullish -->
+          <line x1="205" y1="10" x2="205" y2="85" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="198" y="20" width="14" height="35" fill="var(--lx-yellow)" rx="1"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Candlestick / OHLC / Range Bar</div>
+        <div class="pl-entry-meta">Best for → Financial data · Price ranges · Open-High-Low-Close</div>
+        <div class="pl-entry-desc">Shows four price points per period — open, high, low, close — as a body + wick formation. Yellow bodies for bullish (up), pink for bearish (down). Covers candlestick, OHLC chart, range bar chart, floating range bar, and high-low chart.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Stock Analysis</span>
+          <span class="lx-chip yw">Crypto Trading</span>
+          <span class="lx-chip cy">Commodity Prices</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Forest Plot -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 220 130">
+          <!-- Centre line (null effect) -->
+          <line x1="110" y1="5" x2="110" y2="120" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="3"/>
+          <!-- Study 1 -->
+          <line x1="60" y1="20" x2="140" y2="20" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <rect x="92" y="14" width="12" height="12" fill="var(--lx-pink)" rx="1" transform="rotate(45,98,20)"/>
+          <!-- Study 2 -->
+          <line x1="80" y1="42" x2="155" y2="42" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <rect x="110" y="36" width="12" height="12" fill="var(--lx-pink)" rx="1" transform="rotate(45,116,42)"/>
+          <!-- Study 3 -->
+          <line x1="45" y1="64" x2="120" y2="64" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <rect x="75" y="58" width="12" height="12" fill="var(--lx-pink)" rx="1" transform="rotate(45,81,64)"/>
+          <!-- Study 4 -->
+          <line x1="95" y1="86" x2="170" y2="86" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <rect x="125" y="80" width="12" height="12" fill="var(--lx-pink)" rx="1" transform="rotate(45,131,86)"/>
+          <!-- Summary diamond -->
+          <polygon points="90,108 110,100 130,108 110,116" fill="var(--lx-yellow)" opacity=".8"/>
+          <text x="5" y="23" class="mini-label">STUDY A</text>
+          <text x="5" y="45" class="mini-label">STUDY B</text>
+          <text x="5" y="67" class="mini-label">STUDY C</text>
+          <text x="5" y="89" class="mini-label">STUDY D</text>
+          <text x="5" y="111" class="mini-label" style="fill:var(--lx-pink);font-weight:700;font-size:8px">POOLED</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Forest Plot / Coefficient / Caterpillar / Meta-Analysis</div>
+        <div class="pl-entry-meta">Best for → Meta-analysis · Effect sizes · Research synthesis</div>
+        <div class="pl-entry-desc">Horizontal confidence intervals with point estimates for multiple studies, anchored to a null-effect reference line. Pink diamond point estimates, cyan interval whiskers, yellow pooled summary diamond. Covers forest plot, coefficient plot, caterpillar plot, meta-analysis interval plot, funnel plot, and control chart.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Systematic Reviews</span>
+          <span class="lx-chip cy">Regression Coefficients</span>
+          <span class="lx-chip pu">Quality Control</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Survival Curve -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 220 130">
+          <line x1="20" y1="120" x2="210" y2="120" class="mini-axis"/>
+          <line x1="20" y1="10" x2="20" y2="120" class="mini-axis"/>
+          <text x="17" y="18" class="mini-label" text-anchor="end">100%</text>
+          <text x="200" y="118" class="mini-label">TIME</text>
+          <!-- Kaplan-Meier step function group 1 -->
+          <polyline points="20,15 50,15 50,25 70,25 70,38 100,38 100,52 120,52 120,65 150,65 150,78 180,78 180,95 210,95" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+          <!-- Group 2 -->
+          <polyline points="20,15 40,15 40,30 65,30 65,50 85,50 85,70 110,70 110,85 140,85 140,100 170,100 170,110 210,110" fill="none" stroke="var(--lx-cyan)" stroke-width="2" stroke-dasharray="4"/>
+          <!-- Censoring ticks -->
+          <line x1="55" y1="22" x2="55" y2="28" stroke="var(--lx-pink)" stroke-width="2"/>
+          <line x1="85" y1="35" x2="85" y2="41" stroke="var(--lx-pink)" stroke-width="2"/>
+          <line x1="135" y1="62" x2="135" y2="68" stroke="var(--lx-pink)" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Survival Curve / Kaplan–Meier</div>
+        <div class="pl-entry-meta">Best for → Time-to-event analysis · Clinical outcomes · Retention analysis</div>
+        <div class="pl-entry-desc">Step-function showing the probability of survival (or retention) over time, with censoring tick marks for incomplete observations. Pink solid for treatment group, cyan dashed for control. Also relevant for SaaS retention cohort analysis beyond clinical use.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Clinical Trials</span>
+          <span class="lx-chip cy">User Retention</span>
+          <span class="lx-chip yw">Equipment Reliability</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 08 — FLOW, PROCESS & JOURNEY
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="FLOW">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 08 · Suite 2</div>
+  <div class="pl-group-title">Flow, Process<br>& Journey</div>
+  <div class="pl-group-desc">Movement, paths, conversion, drop-off, transfer, journeys, and system flows.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Flow Types</div>
+    <div class="pl-subcat-list">Sankey diagram · alluvial diagram · chord diagram · arc diagram · flow map · path map · user journey flow · process flow · decision tree flow · conversion funnel · stepped funnel · retention funnel · pipeline chart · stage progression chart · migration flow diagram · handoff flow · source-to-destination flow · traffic flow diagram · stream of events chart</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Sankey -->
+    <div class="pl-entry" style="grid-column:1/-1">
+      <div class="pl-entry-viz" style="min-height:160px">
+        <svg width="100%" height="150" viewBox="0 0 300 150">
+          <!-- Source nodes -->
+          <rect x="5" y="10" width="18" height="50" fill="var(--lx-pink)" rx="3"/>
+          <rect x="5" y="65" width="18" height="35" fill="var(--lx-cyan)" rx="3"/>
+          <rect x="5" y="105" width="18" height="30" fill="var(--lx-yellow)" rx="3"/>
+          <!-- Middle nodes -->
+          <rect x="135" y="5" width="18" height="45" fill="var(--lx-pink)" rx="3" opacity=".8"/>
+          <rect x="135" y="55" width="18" height="40" fill="var(--lx-cyan)" rx="3" opacity=".8"/>
+          <rect x="135" y="100" width="18" height="38" fill="var(--lx-orange)" rx="3" opacity=".8"/>
+          <!-- Destination nodes -->
+          <rect x="270" y="8" width="18" height="55" fill="var(--lx-yellow)" rx="3"/>
+          <rect x="270" y="68" width="18" height="30" fill="var(--lx-purple)" rx="3"/>
+          <rect x="270" y="103" width="18" height="35" fill="var(--lx-blue)" rx="3"/>
+          <!-- Flows (simplified curved paths) -->
+          <path d="M23,20 C80,20 80,15 135,15" fill="none" stroke="var(--lx-pink)" stroke-width="20" opacity=".12"/>
+          <path d="M23,50 C80,50 80,70 135,70" fill="none" stroke="var(--lx-pink)" stroke-width="12" opacity=".1"/>
+          <path d="M23,75 C80,75 80,60 135,62" fill="none" stroke="var(--lx-cyan)" stroke-width="15" opacity=".1"/>
+          <path d="M23,110 C80,110 80,115 135,115" fill="none" stroke="var(--lx-yellow)" stroke-width="14" opacity=".1"/>
+          <path d="M153,20 C210,20 210,25 270,25" fill="none" stroke="var(--lx-pink)" stroke-width="18" opacity=".1"/>
+          <path d="M153,70 C210,70 210,80 270,80" fill="none" stroke="var(--lx-cyan)" stroke-width="14" opacity=".1"/>
+          <path d="M153,115 C210,115 210,115 270,118" fill="none" stroke="var(--lx-orange)" stroke-width="16" opacity=".1"/>
+          <!-- Labels -->
+          <text x="28" y="38" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.08em">REFERRAL</text>
+          <text x="28" y="85" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.08em">DIRECT</text>
+          <text x="28" y="123" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.08em">NDIA</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Sankey / Alluvial / Flow Diagram</div>
+        <div class="pl-entry-meta">Best for → Flow quantities between stages · Source-to-destination · Budget allocation paths</div>
+        <div class="pl-entry-desc">Width-encoded flow paths between node columns showing how quantities move through a system. Covers Sankey diagram, alluvial diagram, migration flow, source-to-destination flow, traffic flow, handoff flow, and stream of events. Node colours from the neon palette, flow bands at 10–12% opacity for layering without occlusion.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Rounded node rectangles (3px radius) · Curved Bézier flow paths · 10–12% opacity flow bands · Neon palette node colouring · Barlow Condensed 900 node labels · Dark background for maximum flow contrast · Width encodes quantity</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Referral Flow</span>
+          <span class="lx-chip cy">User Journey</span>
+          <span class="lx-chip yw">Budget Allocation</span>
+          <span class="lx-chip or">Energy Flow</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Funnel -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 200 130">
+          <polygon points="10,10 190,10 170,35 30,35" fill="var(--lx-pink)" opacity=".9"/>
+          <text x="100" y="27" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:white">1,240</text>
+          <polygon points="30,38 170,38 155,63 45,63" fill="var(--lx-cyan)" opacity=".8"/>
+          <text x="100" y="55" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:white">856</text>
+          <polygon points="45,66 155,66 140,91 60,91" fill="var(--lx-yellow)" opacity=".8"/>
+          <text x="100" y="83" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:var(--lx-black)">412</text>
+          <polygon points="60,94 140,94 125,119 75,119" fill="var(--lx-orange)" opacity=".8"/>
+          <text x="100" y="111" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:white">187</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Conversion Funnel / Stepped Funnel / Pipeline</div>
+        <div class="pl-entry-meta">Best for → Conversion drop-off · Sales pipeline · Onboarding stages</div>
+        <div class="pl-entry-desc">Progressively narrowing trapezoids showing volume at each stage of a process. Covers conversion funnel, stepped funnel, retention funnel, pipeline chart, and stage progression chart. Each stage uses a different neon colour with Bebas Neue centre counts.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Sales Pipeline</span>
+          <span class="lx-chip cy">NDIS Intake</span>
+          <span class="lx-chip or">Onboarding Flow</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chord Diagram -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 200 130">
+          <g transform="translate(100,65)">
+            <!-- Outer arcs -->
+            <path d="M0,-50 A50,50 0 0,1 43,-25" fill="none" stroke="var(--lx-pink)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M43,-25 A50,50 0 0,1 43,25" fill="none" stroke="var(--lx-cyan)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M43,25 A50,50 0 0,1 0,50" fill="none" stroke="var(--lx-yellow)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M0,50 A50,50 0 0,1 -43,25" fill="none" stroke="var(--lx-orange)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M-43,25 A50,50 0 0,1 -43,-25" fill="none" stroke="var(--lx-purple)" stroke-width="8" stroke-linecap="round"/>
+            <path d="M-43,-25 A50,50 0 0,1 0,-50" fill="none" stroke="var(--lx-blue)" stroke-width="8" stroke-linecap="round"/>
+            <!-- Internal chords -->
+            <path d="M0,-45 Q0,0 40,22" fill="none" stroke="var(--lx-pink)" stroke-width="2" opacity=".25"/>
+            <path d="M40,-22 Q0,-5 -40,22" fill="none" stroke="var(--lx-cyan)" stroke-width="3" opacity=".2"/>
+            <path d="M40,22 Q5,5 -40,-22" fill="none" stroke="var(--lx-yellow)" stroke-width="2.5" opacity=".2"/>
+            <path d="M0,-45 Q-5,5 0,45" fill="none" stroke="var(--lx-purple)" stroke-width="1.5" opacity=".15"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Chord Diagram / Arc Diagram</div>
+        <div class="pl-entry-meta">Best for → Inter-group relationships · Migration between categories · Bi-directional flows</div>
+        <div class="pl-entry-desc">Circular layout with arcs connecting groups and internal chords showing flow volume between them. Covers chord diagram and arc diagram. Outer arcs use distinct neon colours, internal chords at 15–25% opacity with width encoding volume. Covers decision tree flow and user journey flow as structural process variants.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Service Referrals</span>
+          <span class="lx-chip cy">Trade Flows</span>
+          <span class="lx-chip pu">Communication Networks</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 09 — HIERARCHY & TREE
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="TREE">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 09 · Suite 2</div>
+  <div class="pl-group-title">Hierarchy<br>& Tree</div>
+  <div class="pl-group-desc">Nested structures, orgs, taxonomy, budgets, rollups — parent-child relationships in data.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Hierarchy Types</div>
+    <div class="pl-subcat-list">Tree diagram · node-link tree · dendrogram · radial tree · cluster dendrogram · icicle chart · treemap · sunburst · circle packing · partition chart · org chart · genealogy chart · mind-map style tree · collapsible tree · indented tree table</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Tree Diagram / Org Chart -->
+    <div class="pl-entry" style="grid-column:1/-1">
+      <div class="pl-entry-viz" style="min-height:160px">
+        <svg width="100%" height="150" viewBox="0 0 300 150">
+          <!-- Root -->
+          <rect x="125" y="8" width="50" height="22" fill="var(--lx-pink)" rx="4"/>
+          <text x="150" y="23" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:white;text-transform:uppercase;letter-spacing:.06em">ROOT</text>
+          <!-- Level 1 -->
+          <line x1="150" y1="30" x2="150" y2="45" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <line x1="60" y1="45" x2="240" y2="45" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <line x1="60" y1="45" x2="60" y2="55" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <line x1="150" y1="45" x2="150" y2="55" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <line x1="240" y1="45" x2="240" y2="55" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <rect x="35" y="55" width="50" height="22" fill="var(--lx-cyan)" rx="4"/>
+          <text x="60" y="70" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-black);text-transform:uppercase;letter-spacing:.06em">CORE</text>
+          <rect x="125" y="55" width="50" height="22" fill="var(--lx-yellow)" rx="4"/>
+          <text x="150" y="70" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-black);text-transform:uppercase;letter-spacing:.06em">CAP BUILD</text>
+          <rect x="215" y="55" width="50" height="22" fill="var(--lx-orange)" rx="4"/>
+          <text x="240" y="70" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:white;text-transform:uppercase;letter-spacing:.06em">CAPITAL</text>
+          <!-- Level 2 -->
+          <line x1="60" y1="77" x2="60" y2="90" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <line x1="30" y1="90" x2="90" y2="90" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <line x1="30" y1="90" x2="30" y2="98" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <line x1="90" y1="90" x2="90" y2="98" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <rect x="10" y="98" width="40" height="18" fill="rgba(0,212,255,.2)" stroke="var(--lx-cyan)" stroke-width="1" rx="3"/>
+          <text x="30" y="110" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-cyan)">ADL</text>
+          <rect x="70" y="98" width="40" height="18" fill="rgba(0,212,255,.2)" stroke="var(--lx-cyan)" stroke-width="1" rx="3"/>
+          <text x="90" y="110" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-cyan)">SCP</text>
+          <line x1="150" y1="77" x2="150" y2="90" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <line x1="120" y1="90" x2="180" y2="90" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <rect x="105" y="98" width="40" height="18" fill="rgba(204,255,0,.15)" stroke="var(--lx-yellow)" stroke-width="1" rx="3"/>
+          <text x="125" y="110" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-txm)">SC</text>
+          <rect x="155" y="98" width="40" height="18" fill="rgba(204,255,0,.15)" stroke="var(--lx-yellow)" stroke-width="1" rx="3"/>
+          <text x="175" y="110" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-txm)">IDLS</text>
+          <line x1="240" y1="77" x2="240" y2="98" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <rect x="220" y="98" width="40" height="18" fill="rgba(255,102,0,.15)" stroke="var(--lx-orange)" stroke-width="1" rx="3"/>
+          <text x="240" y="110" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-orange)">AT</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Tree Diagram / Org Chart / Dendrogram / Node-Link Tree</div>
+        <div class="pl-entry-meta">Best for → Organisational hierarchy · Category taxonomy · NDIS plan structure</div>
+        <div class="pl-entry-desc">Node-link structures showing parent-child relationships across levels. Covers tree diagram, node-link tree, dendrogram, radial tree, cluster dendrogram, org chart, genealogy chart, mind-map style tree, collapsible tree, and indented tree table. Root nodes in pink, branches in neon palette, leaf nodes with subtle stroke + fill treatment. Icicle chart, treemap, sunburst, circle packing, and partition chart are covered in Group 04 as part-to-whole variants.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Rounded node rectangles (3–4px radius) · Neon fills for parent nodes · Stroke-only leaf nodes with 15% opacity fills · 1px connector lines at 10–15% opacity · Barlow Condensed labels in nodes · JetBrains Mono leaf codes · Top-down vertical layout default</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Plan Structure</span>
+          <span class="lx-chip cy">Org Charts</span>
+          <span class="lx-chip yw">Product Taxonomy</span>
+          <span class="lx-chip pu">File Systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 10 — NETWORK & GRAPH
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="NETWORK">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 10 · Suite 2</div>
+  <div class="pl-group-title">Network<br>& Graph</div>
+  <div class="pl-group-desc">Relationships between people, entities, systems, dependencies, and communication pathways.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Network Types</div>
+    <div class="pl-subcat-list">Force-directed graph · network diagram · node-link diagram · adjacency matrix · bipartite graph · dependency graph · knowledge graph view · social network graph · mesh / topology map · radial network · clustered network · weighted network · edge-bundled graph · graph timeline hybrid</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Force-Directed Graph -->
+    <div class="pl-entry" style="grid-column:1/-1">
+      <div class="pl-entry-viz" style="min-height:180px">
+        <svg width="100%" height="170" viewBox="0 0 300 170">
+          <!-- Edges -->
+          <line x1="150" y1="50" x2="80" y2="90" stroke="rgba(255,45,125,.2)" stroke-width="2"/>
+          <line x1="150" y1="50" x2="220" y2="80" stroke="rgba(255,45,125,.2)" stroke-width="3"/>
+          <line x1="150" y1="50" x2="130" y2="140" stroke="rgba(255,45,125,.15)" stroke-width="1.5"/>
+          <line x1="150" y1="50" x2="250" y2="140" stroke="rgba(255,45,125,.15)" stroke-width="1"/>
+          <line x1="80" y1="90" x2="40" y2="130" stroke="rgba(0,212,255,.2)" stroke-width="1.5"/>
+          <line x1="80" y1="90" x2="130" y2="140" stroke="rgba(0,212,255,.15)" stroke-width="1"/>
+          <line x1="220" y1="80" x2="250" y2="140" stroke="rgba(204,255,0,.2)" stroke-width="2"/>
+          <line x1="220" y1="80" x2="270" y2="40" stroke="rgba(204,255,0,.15)" stroke-width="1.5"/>
+          <line x1="40" y1="130" x2="130" y2="140" stroke="rgba(177,78,255,.15)" stroke-width="1"/>
+          <line x1="80" y1="90" x2="50" y2="40" stroke="rgba(0,212,255,.15)" stroke-width="1"/>
+          <line x1="150" y1="50" x2="50" y2="40" stroke="rgba(255,45,125,.1)" stroke-width="1"/>
+          <!-- Nodes -->
+          <circle cx="150" cy="50" r="14" fill="var(--lx-pink)"/>
+          <text x="150" y="54" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:10px;fill:white">SC</text>
+          <circle cx="80" cy="90" r="10" fill="var(--lx-cyan)"/>
+          <text x="80" y="94" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:8px;fill:var(--lx-black)">P1</text>
+          <circle cx="220" cy="80" r="11" fill="var(--lx-yellow)"/>
+          <text x="220" y="84" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:8px;fill:var(--lx-black)">P2</text>
+          <circle cx="40" cy="130" r="7" fill="var(--lx-purple)"/>
+          <circle cx="130" cy="140" r="8" fill="var(--lx-orange)"/>
+          <circle cx="250" cy="140" r="7" fill="var(--lx-blue)"/>
+          <circle cx="270" cy="40" r="6" fill="rgba(204,255,0,.6)"/>
+          <circle cx="50" cy="40" r="6" fill="rgba(0,212,255,.6)"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Force-Directed Graph / Network / Node-Link</div>
+        <div class="pl-entry-meta">Best for → Relationship mapping · Dependency visualization · Social networks</div>
+        <div class="pl-entry-desc">Nodes positioned by simulated forces with edges showing connections. Node size encodes importance, edge width encodes relationship strength. Covers force-directed graph, network diagram, node-link diagram, social network graph, dependency graph, knowledge graph view, mesh/topology map, radial network, clustered network, weighted network, edge-bundled graph, and graph timeline hybrid. Also covers adjacency matrix and bipartite graph as alternative encodings. Central node (pink) with neon satellite nodes, edges at 10–20% opacity.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Solid neon node fills · Bebas Neue node labels · Edge opacity 10–20% with width = weight · Size hierarchy: hub nodes 12–14px, leaf 6–8px · Dark background for maximum node contrast · Physics-based layout for organic feel · Pink for central/highest-degree nodes</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Support Network</span>
+          <span class="lx-chip cy">System Architecture</span>
+          <span class="lx-chip yw">Knowledge Graphs</span>
+          <span class="lx-chip pu">Social Analysis</span>
+          <span class="lx-chip bl">Dependency Maps</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 11 — GEOSPATIAL & SPATIAL
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="SPATIAL">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 11 · Suite 2</div>
+  <div class="pl-group-title">Geospatial<br>& Spatial</div>
+  <div class="pl-group-desc">Location, density, movement, catchments, regions, logistics, and operational coverage mapped in space.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Geospatial Types</div>
+    <div class="pl-subcat-list">Choropleth map · symbol map · bubble map · proportional symbol map · dot density map · heat map / heatmap · density map · hexbin map · cartogram · filled map · region map · tile grid map · flow map · route map · isochrone map · geofence map · cluster map · pin map · topology map · floorplan heatmap · seating heatmap · store-layout heatmap · image overlay map</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Choropleth / Region Map -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 220 140">
+          <!-- Simplified region shapes -->
+          <path d="M20,20 L80,15 L90,50 L60,70 L25,55 Z" fill="var(--lx-pink)" opacity=".9" stroke="var(--lx-cream)" stroke-width="2"/>
+          <path d="M80,15 L140,10 L150,45 L90,50 Z" fill="var(--lx-pink)" opacity=".6" stroke="var(--lx-cream)" stroke-width="2"/>
+          <path d="M140,10 L200,20 L195,60 L150,45 Z" fill="var(--lx-pink)" opacity=".3" stroke="var(--lx-cream)" stroke-width="2"/>
+          <path d="M25,55 L60,70 L55,110 L15,95 Z" fill="var(--lx-pink)" opacity=".7" stroke="var(--lx-cream)" stroke-width="2"/>
+          <path d="M60,70 L90,50 L150,45 L145,85 L100,100 L55,110 Z" fill="var(--lx-pink)" opacity=".45" stroke="var(--lx-cream)" stroke-width="2"/>
+          <path d="M150,45 L195,60 L190,95 L145,85 Z" fill="var(--lx-pink)" opacity=".2" stroke="var(--lx-cream)" stroke-width="2"/>
+          <path d="M55,110 L100,100 L105,130 L50,135 Z" fill="var(--lx-pink)" opacity=".8" stroke="var(--lx-cream)" stroke-width="2"/>
+          <path d="M100,100 L145,85 L190,95 L185,130 L105,130 Z" fill="var(--lx-pink)" opacity=".5" stroke="var(--lx-cream)" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Choropleth / Region / Filled Map / Cartogram</div>
+        <div class="pl-entry-meta">Best for → Regional density · Geographic comparison · Population data</div>
+        <div class="pl-entry-desc">Fills geographic regions with colour intensity proportional to a data value. Covers choropleth map, filled map, region map, cartogram, and tile grid map. Uses pink at opacity levels from 20% (low) to 90% (high) on a dark background with black strokes between regions.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Service Coverage</span>
+          <span class="lx-chip cy">Election Results</span>
+          <span class="lx-chip yw">Population Density</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bubble Map / Pin Map -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 220 140">
+          <!-- Base map outline -->
+          <rect x="10" y="10" width="200" height="120" fill="rgba(0,0,0,.03)" rx="6" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+          <!-- Grid -->
+          <line x1="10" y1="45" x2="210" y2="45" stroke="rgba(0,0,0,.03)"/>
+          <line x1="10" y1="80" x2="210" y2="80" stroke="rgba(0,0,0,.03)"/>
+          <line x1="75" y1="10" x2="75" y2="130" stroke="rgba(0,0,0,.03)"/>
+          <line x1="140" y1="10" x2="140" y2="130" stroke="rgba(0,0,0,.03)"/>
+          <!-- Bubbles -->
+          <circle cx="55" cy="40" r="18" fill="var(--lx-pink)" opacity=".3" stroke="var(--lx-pink)" stroke-width="1"/>
+          <circle cx="55" cy="40" r="3" fill="var(--lx-pink)"/>
+          <circle cx="130" cy="60" r="28" fill="var(--lx-cyan)" opacity=".2" stroke="var(--lx-cyan)" stroke-width="1"/>
+          <circle cx="130" cy="60" r="3" fill="var(--lx-cyan)"/>
+          <circle cx="170" cy="35" r="12" fill="var(--lx-yellow)" opacity=".3" stroke="var(--lx-yellow)" stroke-width="1"/>
+          <circle cx="170" cy="35" r="3" fill="var(--lx-yellow)"/>
+          <circle cx="80" cy="100" r="22" fill="var(--lx-orange)" opacity=".25" stroke="var(--lx-orange)" stroke-width="1"/>
+          <circle cx="80" cy="100" r="3" fill="var(--lx-orange)"/>
+          <circle cx="180" cy="105" r="10" fill="var(--lx-purple)" opacity=".3" stroke="var(--lx-purple)" stroke-width="1"/>
+          <circle cx="180" cy="105" r="3" fill="var(--lx-purple)"/>
+          <circle cx="40" cy="75" r="8" fill="var(--lx-blue)" opacity=".3" stroke="var(--lx-blue)" stroke-width="1"/>
+          <circle cx="40" cy="75" r="3" fill="var(--lx-blue)"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Bubble Map / Symbol Map / Pin / Cluster / Dot Density</div>
+        <div class="pl-entry-meta">Best for → Point-located data · Magnitude at locations · Service provider mapping</div>
+        <div class="pl-entry-desc">Places sized symbols at geographic coordinates. Covers symbol map, bubble map, proportional symbol map, dot density map, pin map, cluster map, and geofence map. Each location gets a neon-coloured bubble with 20–30% opacity halo and solid 3px centre dot. Size encodes magnitude.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Provider Locations</span>
+          <span class="lx-chip cy">Incident Mapping</span>
+          <span class="lx-chip or">Store Performance</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Heatmap / Hexbin Map -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 220 140">
+          <rect x="10" y="10" width="200" height="120" fill="rgba(0,0,0,.02)" rx="6"/>
+          <!-- Heat spots using radial gradients approximated as circles -->
+          <circle cx="80" cy="55" r="45" fill="var(--lx-pink)" opacity=".08"/>
+          <circle cx="80" cy="55" r="30" fill="var(--lx-pink)" opacity=".12"/>
+          <circle cx="80" cy="55" r="15" fill="var(--lx-pink)" opacity=".25"/>
+          <circle cx="80" cy="55" r="5" fill="var(--lx-pink)" opacity=".6"/>
+          <circle cx="160" cy="80" r="35" fill="var(--lx-pink)" opacity=".06"/>
+          <circle cx="160" cy="80" r="20" fill="var(--lx-pink)" opacity=".12"/>
+          <circle cx="160" cy="80" r="8" fill="var(--lx-pink)" opacity=".35"/>
+          <circle cx="45" cy="100" r="25" fill="var(--lx-pink)" opacity=".05"/>
+          <circle cx="45" cy="100" r="12" fill="var(--lx-pink)" opacity=".15"/>
+          <circle cx="140" cy="35" r="20" fill="var(--lx-pink)" opacity=".04"/>
+          <circle cx="140" cy="35" r="8" fill="var(--lx-pink)" opacity=".12"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Geographic Heatmap / Density Map / Hexbin Map</div>
+        <div class="pl-entry-meta">Best for → Spatial density · Activity hotspots · Coverage intensity</div>
+        <div class="pl-entry-desc">Continuous density surfaces showing concentration patterns over space. Covers heat map, density map, hexbin map, isochrone map, floorplan heatmap, seating heatmap, store-layout heatmap, image overlay map, flow map, route map, and topology map. Concentric pink circles at diminishing opacity create the heat signature effect.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">User Activity</span>
+          <span class="lx-chip cy">Demand Forecasting</span>
+          <span class="lx-chip yw">Real Estate Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 12 — MATRIX, GRID & CELL-BASED
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="MATRIX">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 12 · Suite 2</div>
+  <div class="pl-group-title">Matrix, Grid<br>& Cell-Based</div>
+  <div class="pl-group-desc">Grid-structured data visualizations where each cell encodes a value through colour, size, or annotation.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Matrix & Grid Types</div>
+    <div class="pl-subcat-list">Matrix chart · data matrix · adjacency matrix · confusion matrix · risk matrix · priority matrix · impact-effort matrix · 2×2 matrix · 3×3 matrix · 5×5 risk matrix · heatmap · cell heatmap · table heatmap · text-table heatmap · calendar heatmap · contribution heatmap · retention cohort heatmap · cohort matrix · feature adoption matrix · day/hour activity matrix · correlation matrix · clustered heatmap · highlight table</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Risk Matrix 5x5 -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 200 140">
+          <text x="5" y="10" class="mini-label" style="fill:var(--lx-pink)">RISK MATRIX 5×5</text>
+          <!-- Grid cells - L=likelihood (bottom), I=impact (left) -->
+          <!-- Row 5 (top - highest impact) -->
+          <rect x="30" y="18" width="30" height="20" rx="2" fill="var(--lx-yellow)" opacity=".4"/>
+          <rect x="63" y="18" width="30" height="20" rx="2" fill="var(--lx-orange)" opacity=".6"/>
+          <rect x="96" y="18" width="30" height="20" rx="2" fill="var(--lx-pink)" opacity=".7"/>
+          <rect x="129" y="18" width="30" height="20" rx="2" fill="var(--lx-pink)" opacity=".85"/>
+          <rect x="162" y="18" width="30" height="20" rx="2" fill="var(--lx-pink)"/>
+          <!-- Row 4 -->
+          <rect x="30" y="41" width="30" height="20" rx="2" fill="var(--lx-cyan)" opacity=".3"/>
+          <rect x="63" y="41" width="30" height="20" rx="2" fill="var(--lx-yellow)" opacity=".4"/>
+          <rect x="96" y="41" width="30" height="20" rx="2" fill="var(--lx-orange)" opacity=".6"/>
+          <rect x="129" y="41" width="30" height="20" rx="2" fill="var(--lx-orange)" opacity=".8"/>
+          <rect x="162" y="41" width="30" height="20" rx="2" fill="var(--lx-pink)" opacity=".85"/>
+          <!-- Row 3 -->
+          <rect x="30" y="64" width="30" height="20" rx="2" fill="var(--lx-cyan)" opacity=".2"/>
+          <rect x="63" y="64" width="30" height="20" rx="2" fill="var(--lx-cyan)" opacity=".3"/>
+          <rect x="96" y="64" width="30" height="20" rx="2" fill="var(--lx-yellow)" opacity=".4"/>
+          <rect x="129" y="64" width="30" height="20" rx="2" fill="var(--lx-orange)" opacity=".6"/>
+          <rect x="162" y="64" width="30" height="20" rx="2" fill="var(--lx-orange)" opacity=".8"/>
+          <!-- Row 2 -->
+          <rect x="30" y="87" width="30" height="20" rx="2" fill="rgba(0,0,0,.05)"/>
+          <rect x="63" y="87" width="30" height="20" rx="2" fill="var(--lx-cyan)" opacity=".2"/>
+          <rect x="96" y="87" width="30" height="20" rx="2" fill="var(--lx-cyan)" opacity=".3"/>
+          <rect x="129" y="87" width="30" height="20" rx="2" fill="var(--lx-yellow)" opacity=".35"/>
+          <rect x="162" y="87" width="30" height="20" rx="2" fill="var(--lx-orange)" opacity=".5"/>
+          <!-- Row 1 (bottom - lowest impact) -->
+          <rect x="30" y="110" width="30" height="20" rx="2" fill="rgba(0,0,0,.03)"/>
+          <rect x="63" y="110" width="30" height="20" rx="2" fill="rgba(0,0,0,.05)"/>
+          <rect x="96" y="110" width="30" height="20" rx="2" fill="var(--lx-cyan)" opacity=".15"/>
+          <rect x="129" y="110" width="30" height="20" rx="2" fill="var(--lx-cyan)" opacity=".25"/>
+          <rect x="162" y="110" width="30" height="20" rx="2" fill="var(--lx-yellow)" opacity=".3"/>
+          <!-- Labels -->
+          <text x="12" y="70" class="mini-label" style="writing-mode:tb;text-orientation:mixed;fill:rgba(0,0,0,.2)">IMPACT</text>
+          <text x="110" y="138" text-anchor="middle" class="mini-label" style="fill:rgba(0,0,0,.2)">LIKELIHOOD →</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Risk Matrix / Priority Matrix / Impact-Effort</div>
+        <div class="pl-entry-meta">Best for → Risk assessment · Prioritization · Decision frameworks</div>
+        <div class="pl-entry-desc">A 2×2, 3×3, or 5×5 grid where cell colour encodes severity, priority, or urgency. Colour ramps from low (white/cyan at 15%) through medium (yellow at 35%) to high (orange at 60%) to critical (pink at 85–100%). Covers risk matrix, priority matrix, impact-effort matrix, and confusion matrix.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">2px radius cells · Colour ramp: transparent → cyan → yellow → orange → pink · 3px gap between cells · Dark background · JetBrains Mono axis labels · No borders — colour does all the work</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Risk Register</span>
+          <span class="lx-chip cy">Project Triage</span>
+          <span class="lx-chip or">Security Audit</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cohort Retention Heatmap -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 220 140">
+          <text x="5" y="10" class="mini-label" style="fill:var(--lx-pink)">RETENTION COHORT</text>
+          <!-- Headers -->
+          <text x="60" y="24" class="mini-label">M0</text>
+          <text x="85" y="24" class="mini-label">M1</text>
+          <text x="110" y="24" class="mini-label">M2</text>
+          <text x="135" y="24" class="mini-label">M3</text>
+          <text x="160" y="24" class="mini-label">M4</text>
+          <text x="185" y="24" class="mini-label">M5</text>
+          <!-- Row labels -->
+          <text x="5" y="40" class="mini-label">JAN</text>
+          <text x="5" y="58" class="mini-label">FEB</text>
+          <text x="5" y="76" class="mini-label">MAR</text>
+          <text x="5" y="94" class="mini-label">APR</text>
+          <text x="5" y="112" class="mini-label">MAY</text>
+          <text x="5" y="130" class="mini-label">JUN</text>
+          <!-- Cohort row 1 -->
+          <rect x="50" y="30" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity="1"/>
+          <rect x="75" y="30" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".7"/>
+          <rect x="100" y="30" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".5"/>
+          <rect x="125" y="30" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".35"/>
+          <rect x="150" y="30" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".25"/>
+          <rect x="175" y="30" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".18"/>
+          <!-- Row 2 -->
+          <rect x="50" y="48" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity="1"/>
+          <rect x="75" y="48" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".75"/>
+          <rect x="100" y="48" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".55"/>
+          <rect x="125" y="48" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".4"/>
+          <rect x="150" y="48" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".3"/>
+          <!-- Row 3 -->
+          <rect x="50" y="66" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity="1"/>
+          <rect x="75" y="66" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".65"/>
+          <rect x="100" y="66" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".45"/>
+          <rect x="125" y="66" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".3"/>
+          <!-- Row 4 -->
+          <rect x="50" y="84" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity="1"/>
+          <rect x="75" y="84" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".8"/>
+          <rect x="100" y="84" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".5"/>
+          <!-- Row 5 -->
+          <rect x="50" y="102" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity="1"/>
+          <rect x="75" y="102" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity=".72"/>
+          <!-- Row 6 -->
+          <rect x="50" y="120" width="22" height="14" rx="2" fill="var(--lx-pink)" opacity="1"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Retention Cohort / Feature Adoption / Activity Matrix</div>
+        <div class="pl-entry-meta">Best for → Cohort analysis · Retention tracking · Engagement over time</div>
+        <div class="pl-entry-desc">Triangular grid where rows are cohorts (by signup month) and columns are periods since signup, with cell opacity encoding retention rate. 100% = full pink, diminishing with churn. Covers retention cohort heatmap, cohort matrix, feature adoption matrix, day/hour activity matrix, contribution heatmap, and clustered heatmap. Also covers data matrix, adjacency matrix, cell heatmap, table heatmap, text-table heatmap, calendar heatmap (Group 03), and highlight table.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">SaaS Retention</span>
+          <span class="lx-chip cy">NDIS Plan Outcomes</span>
+          <span class="lx-chip yw">Feature Adoption</span>
+          <span class="lx-chip pu">Engagement Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:32px 28px;position:relative;overflow:hidden">
+  <div style="font-family:'Bebas Neue',serif;font-size:100px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-20px;user-select:none;pointer-events:none">∞</div>
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">END OF SUITE 2 · GROUPS 07–12</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:32px;color:var(--lx-offwhite);line-height:1">SUITE THREE CONTINUES WITH GROUPS 13–18</div>
+  <div style="font-size:11px;color:rgba(245,240,232,.5);margin-top:8px;max-width:500px">Scheduling & Planning · Financial & Market · Progress, Status & Monitoring · Iconographic & Unit · Circular, Radial & Polar · 3D & Pseudo-3D</div>
+  <div style="margin-top:16px;display:flex;gap:6px;flex-wrap:wrap">
+    <span class="lx-chip spk">Suite 1 ✓</span>
+    <span class="lx-chip syw">Suite 2 ✓ Complete</span>
+    <span class="lx-chip dk" style="color:rgba(245,240,232,.4);border-color:rgba(255,255,255,.08)">Suite 3 → Pending</span>
+    <span class="lx-chip dk" style="color:rgba(245,240,232,.4);border-color:rgba(255,255,255,.08)">Suite 4 → Pending</span>
+  </div>
+  <div class="lx-stripe" style="margin:20px -28px -32px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">
+  LIMITLESS SUPPORT CO. · 2026 UI VISUAL DATA PATTERN LIBRARY · SUITE 2 OF 4 · ABN 76 985 845 524
+</div>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.lx-rev').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

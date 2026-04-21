@@ -1,0 +1,809 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 UI Visual Data Pattern Library — Suite 3 · Groups 13–18 — LIMITLESS Support Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-navy:#0A0F1C;--lx-white:#FFF;
+  --lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;
+  --lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-bdr2:rgba(13,13,13,.12);
+  --lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;
+  --r-xs:6px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-p:999px;
+  --sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-md:0 6px 24px rgba(0,0,0,.08);--sh-hv:0 16px 48px rgba(0,0,0,.13);
+  --ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}
+.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}
+.lx-tlogo span{color:var(--lx-pink)}
+.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
+.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}
+.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-bsm{font-size:11px;line-height:1.5}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}
+.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}
+.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}
+.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}
+.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}
+.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}
+.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}
+.lx-chip.dk{border-color:rgba(13,13,13,.45);color:var(--lx-tx);background:rgba(13,13,13,.05)}
+.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-chip.sbk{background:var(--lx-black);color:var(--lx-offwhite);border-color:transparent}
+.fx{display:flex}.fxc{display:flex;align-items:center;justify-content:center}.fxb{display:flex;align-items:center;justify-content:space-between}
+.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}
+.cm{color:var(--lx-txm)}.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}
+@media(max-width:900px){.pl-viz-grid{grid-template-columns:1fr!important}}
+@media(max-width:600px){body{font-size:12px}.pl-group-title{font-size:32px!important}}
+.pl-group-header{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}
+.pl-group-header::before{content:attr(data-mirror);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;letter-spacing:.02em;user-select:none;pointer-events:none}
+.pl-group-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}
+.pl-group-title{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;letter-spacing:.02em;margin-bottom:8px}
+.pl-group-desc{font-family:'Barlow',sans-serif;font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}
+.pl-infinity{position:absolute;right:28px;top:50%;transform:translateY(-50%);opacity:.06}
+.pl-entry{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:0;overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.pl-entry:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.pl-entry-viz{background:var(--lx-cream);border:1px solid var(--lx-bdr);padding:20px;min-height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-radius:var(--r-md) var(--r-md) 0 0}
+.pl-entry-viz::after{content:'∞';font-family:'Bebas Neue',serif;font-size:60px;color:rgba(0,0,0,.04);position:absolute;right:8px;bottom:-10px}
+.pl-entry-body{padding:16px}
+.pl-entry-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;color:var(--lx-tx)}
+.pl-entry-meta{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:8px}
+.pl-entry-desc{font-size:11px;color:var(--lx-txm);line-height:1.5;margin-bottom:8px}
+.pl-use-cases{display:flex;flex-wrap:wrap;gap:4px}
+.pl-subcat{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:12px 16px;margin-bottom:10px}
+.pl-subcat-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--lx-pink);margin-bottom:7px;padding-bottom:7px;border-bottom:2px solid var(--lx-pink)}
+.pl-subcat-list{font-size:11px;color:var(--lx-txm);line-height:1.7}
+.pl-viz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;padding:0 0 10px}
+.pl-group-body{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.pl-style-card{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}
+.pl-style-label{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}
+.pl-style-text{font-size:10px;color:#F5F0E8;opacity:.75;line-height:1.5}
+.mini-axis{stroke:rgba(0,0,0,.12);stroke-width:1}
+.mini-grid{stroke:rgba(0,0,0,.06);stroke-width:.5}
+.mini-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.lx-rev.vis{opacity:1;transform:translateY(0)}
+
+@media(max-width:540px){
+  [style*="grid-column"]{grid-column:1/-1!important}
+  .pl-viz-grid{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="lx-topbar">
+  <div class="fx g3" style="align-items:center">
+    <span class="lx-tlogo">LIMIT<span>LESS</span></span>
+    <span class="lx-tmeta">2026 UI Visual Data Pattern Library</span>
+  </div>
+  <div class="fx g2" style="align-items:center">
+    <span class="lx-tbadge">Suite 3</span>
+    <span class="lx-tbadge pink">Groups 13–18</span>
+  </div>
+</div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+
+<div style="text-align:center;padding:32px 20px 8px">
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">LIMITLESS SUPPORT CO. · PATTERN LIBRARY</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;letter-spacing:.02em;color:var(--lx-black)">SUITE THREE</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">GROUPS 13 — 18</div>
+  <div class="lx-bsm cm" style="max-width:560px;margin:12px auto 0">Operational, financial, monitoring, iconographic, circular, and dimensional data presentations — the applied layer of modern UI.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 13 — SCHEDULING, PLANNING & OPERATIONAL BOARDS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="SCHEDULE">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 13 · Suite 3</div>
+  <div class="pl-group-title">Scheduling, Planning<br>& Operational Boards</div>
+  <div class="pl-group-desc">SaaS, service ops, project systems, rostering, and care coordination UIs — where data meets workflow.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Scheduling Types</div>
+    <div class="pl-subcat-list">Gantt chart · resource timeline · swimlane board · Kanban board with metrics · calendar month view · week planner · roster view · shift allocation grid · capacity planner · utilization heatmap · workload chart · burndown chart · burnup chart · release roadmap · milestone timeline · program board · dependency timeline · booking occupancy chart · seat / room / bed occupancy board</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Gantt Chart -->
+    <div class="pl-entry" style="grid-column:1/-1">
+      <div class="pl-entry-viz" style="min-height:150px">
+        <svg width="100%" height="140" viewBox="0 0 320 140">
+          <!-- Timeline header -->
+          <text x="80" y="12" class="mini-label" style="fill:var(--lx-pink)">WK1</text>
+          <text x="130" y="12" class="mini-label" style="fill:var(--lx-pink)">WK2</text>
+          <text x="180" y="12" class="mini-label" style="fill:var(--lx-pink)">WK3</text>
+          <text x="230" y="12" class="mini-label" style="fill:var(--lx-pink)">WK4</text>
+          <text x="280" y="12" class="mini-label" style="fill:var(--lx-pink)">WK5</text>
+          <!-- Gridlines -->
+          <line x1="75" y1="16" x2="75" y2="135" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+          <line x1="125" y1="16" x2="125" y2="135" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+          <line x1="175" y1="16" x2="175" y2="135" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+          <line x1="225" y1="16" x2="225" y2="135" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+          <line x1="275" y1="16" x2="275" y2="135" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+          <!-- Today marker -->
+          <line x1="160" y1="16" x2="160" y2="135" stroke="var(--lx-pink)" stroke-width="1.5" stroke-dasharray="3"/>
+          <text x="160" y="140" text-anchor="middle" class="mini-label" style="fill:var(--lx-pink)">TODAY</text>
+          <!-- Task rows -->
+          <text x="5" y="32" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">INTAKE</text>
+          <rect x="80" y="22" width="80" height="14" fill="var(--lx-pink)" rx="3"/>
+          <text x="5" y="54" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">PLAN IMPL</text>
+          <rect x="120" y="44" width="120" height="14" fill="var(--lx-cyan)" rx="3"/>
+          <text x="5" y="76" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">SC REVIEW</text>
+          <rect x="200" y="66" width="70" height="14" fill="var(--lx-yellow)" rx="3"/>
+          <text x="5" y="98" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">OT ASSESS</text>
+          <rect x="100" y="88" width="50" height="14" fill="var(--lx-orange)" rx="3"/>
+          <text x="5" y="120" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">REPORT</text>
+          <rect x="240" y="110" width="60" height="14" fill="var(--lx-purple)" rx="3"/>
+          <!-- Dependency arrow -->
+          <line x1="160" y1="29" x2="160" y2="44" stroke="rgba(0,0,0,.15)" stroke-width="1"/>
+          <polygon points="157,44 160,38 163,44" fill="rgba(0,0,0,.15)"/>
+          <!-- Milestone diamond -->
+          <rect x="268" y="108" width="10" height="10" fill="var(--lx-yellow)" transform="rotate(45,273,113)"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Gantt Chart / Resource Timeline / Dependency Timeline</div>
+        <div class="pl-entry-meta">Best for → Project scheduling · Task dependencies · Timeline planning</div>
+        <div class="pl-entry-desc">Horizontal bars on a time axis showing task duration, dependencies, and milestones. Each task uses a different neon colour, with a pink dashed "today" marker. Covers Gantt chart, resource timeline, dependency timeline, release roadmap, milestone timeline, and program board. Yellow diamond markers for milestones, arrow connectors for dependencies.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">3px radius task bars · Neon palette per task/resource · Pink dashed today line · 4% opacity week gridlines · Barlow Condensed 900 row labels · Yellow milestone diamonds · Dependency arrows at 15% opacity · Dark background for timeline contrast</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Plan Lifecycle</span>
+          <span class="lx-chip cy">Sprint Planning</span>
+          <span class="lx-chip yw">Construction Schedules</span>
+          <span class="lx-chip pu">Product Roadmaps</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Kanban -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="display:flex;gap:6px;width:100%">
+          <div style="flex:1;background:rgba(0,0,0,.04);border-radius:6px;padding:6px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-cyan);margin-bottom:6px;text-align:center">TO DO · 3</div>
+            <div style="background:rgba(255,45,125,.12);border-left:3px solid var(--lx-pink);border-radius:3px;padding:5px 6px;margin-bottom:4px;font-size:8px;color:var(--lx-tx)">Intake form</div>
+            <div style="background:rgba(0,212,255,.08);border-left:3px solid var(--lx-cyan);border-radius:3px;padding:5px 6px;margin-bottom:4px;font-size:8px;color:var(--lx-tx)">Budget review</div>
+            <div style="background:rgba(255,102,0,.1);border-left:3px solid var(--lx-orange);border-radius:3px;padding:5px 6px;font-size:8px;color:var(--lx-tx)">OT referral</div>
+          </div>
+          <div style="flex:1;background:rgba(0,0,0,.04);border-radius:6px;padding:6px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-orange);margin-bottom:6px;text-align:center">IN PROGRESS · 2</div>
+            <div style="background:rgba(204,255,0,.08);border-left:3px solid var(--lx-yellow);border-radius:3px;padding:5px 6px;margin-bottom:4px;font-size:8px;color:var(--lx-tx)">Plan impl</div>
+            <div style="background:rgba(177,78,255,.1);border-left:3px solid var(--lx-purple);border-radius:3px;padding:5px 6px;font-size:8px;color:var(--lx-tx)">SA draft</div>
+          </div>
+          <div style="flex:1;background:rgba(0,0,0,.04);border-radius:6px;padding:6px">
+            <div style="font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px;text-align:center">DONE · 1</div>
+            <div style="background:rgba(255,45,125,.08);border-left:3px solid var(--lx-pink);border-radius:3px;padding:5px 6px;font-size:8px;color:rgba(13,13,13,.5)">SC meeting</div>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Kanban Board / Swimlane / Status Board</div>
+        <div class="pl-entry-meta">Best for → Workflow status · Task management · Sprint boards</div>
+        <div class="pl-entry-desc">Column-based boards where cards move through stages. Covers Kanban board with metrics, swimlane board, calendar month view, week planner, roster view, shift allocation grid, and capacity planner. Neon left-border accent per priority/type, JetBrains Mono column counters, dark card surfaces.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Case Management</span>
+          <span class="lx-chip cy">Agile Sprints</span>
+          <span class="lx-chip yw">Roster Planning</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Burndown / Burnup -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="20" y1="115" x2="210" y2="115" class="mini-axis"/>
+          <line x1="20" y1="10" x2="20" y2="115" class="mini-axis"/>
+          <!-- Ideal burndown -->
+          <line x1="20" y1="15" x2="210" y2="110" stroke="rgba(0,0,0,.1)" stroke-width="1.5" stroke-dasharray="4"/>
+          <!-- Actual burndown -->
+          <polyline points="20,15 50,20 80,35 100,30 120,50 145,55 165,70 185,82 210,95" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Scope line -->
+          <polyline points="20,15 50,15 80,12 100,12 120,10 145,10 165,10 185,8 210,8" fill="none" stroke="var(--lx-cyan)" stroke-width="1.5" stroke-dasharray="3"/>
+          <text x="25" y="10" class="mini-label" style="fill:var(--lx-cyan)">SCOPE</text>
+          <text x="180" y="90" class="mini-label" style="fill:var(--lx-pink)">ACTUAL</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Burndown / Burnup / Workload / Utilization</div>
+        <div class="pl-entry-meta">Best for → Sprint progress · Capacity tracking · Work remaining</div>
+        <div class="pl-entry-desc">Time-series showing remaining work decreasing (burndown) or completed work increasing (burnup). Dashed ideal line, solid pink actual, cyan scope creep. Covers burndown chart, burnup chart, workload chart, utilization heatmap, and booking occupancy chart/seat/room/bed occupancy board.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Sprint Tracking</span>
+          <span class="lx-chip cy">SC Hours Remaining</span>
+          <span class="lx-chip or">Resource Capacity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 14 — FINANCIAL & MARKET VISUALS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="FINANCE">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 14 · Suite 3</div>
+  <div class="pl-group-title">Financial &<br>Market Visuals</div>
+  <div class="pl-group-desc">Specialized charts for financial analysis, market data, budgeting, and monetary flows.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Financial Types</div>
+    <div class="pl-subcat-list">Candlestick chart · OHLC chart · waterfall chart · bridge chart · equity curve · drawdown chart · P&L waterfall · budget vs actual chart · burn chart · cash runway chart · revenue bridge · cohort revenue heatmap · price volume chart · depth chart · yield curve · contribution margin waterfall</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- P&L Waterfall / Revenue Bridge -->
+    <div class="pl-entry" style="grid-column:1/-1">
+      <div class="pl-entry-viz" style="min-height:150px">
+        <svg width="100%" height="140" viewBox="0 0 300 140">
+          <line x1="10" y1="130" x2="290" y2="130" class="mini-axis"/>
+          <!-- Revenue -->
+          <rect x="15" y="20" width="30" height="110" fill="var(--lx-cyan)" rx="3"/>
+          <text x="30" y="16" text-anchor="middle" class="mini-label" style="fill:var(--lx-cyan)">REVENUE</text>
+          <text x="30" y="40" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:white">$142K</text>
+          <!-- COGS -->
+          <rect x="55" y="20" width="30" height="40" fill="var(--lx-pink)" rx="3"/>
+          <text x="70" y="16" text-anchor="middle" class="mini-label" style="fill:var(--lx-pink)">COGS</text>
+          <line x1="45" y1="20" x2="55" y2="20" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <!-- Gross Profit subtotal -->
+          <rect x="95" y="60" width="30" height="70" fill="var(--lx-yellow)" rx="3" opacity=".7"/>
+          <text x="110" y="56" text-anchor="middle" class="mini-label" style="fill:var(--lx-pink)">GROSS</text>
+          <text x="110" y="80" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:11px;fill:var(--lx-black)">$91K</text>
+          <!-- OpEx -->
+          <rect x="135" y="60" width="30" height="25" fill="var(--lx-pink)" rx="3"/>
+          <text x="150" y="56" text-anchor="middle" class="mini-label" style="fill:var(--lx-pink)">OPEX</text>
+          <!-- Marketing -->
+          <rect x="175" y="85" width="30" height="15" fill="var(--lx-orange)" rx="3"/>
+          <text x="190" y="81" text-anchor="middle" class="mini-label" style="fill:var(--lx-orange)">MKTG</text>
+          <!-- Other income -->
+          <rect x="215" y="90" width="30" height="10" fill="var(--lx-yellow)" rx="3" opacity=".6"/>
+          <text x="230" y="86" text-anchor="middle" class="mini-label" style="fill:var(--lx-pink)">OTHER+</text>
+          <!-- Net Income -->
+          <rect x="255" y="90" width="30" height="40" fill="var(--lx-cyan)" rx="3" opacity=".8"/>
+          <text x="270" y="86" text-anchor="middle" class="mini-label" style="fill:var(--lx-cyan)">NET</text>
+          <text x="270" y="110" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:11px;fill:white">$52K</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">P&L Waterfall / Revenue Bridge / Budget vs Actual</div>
+        <div class="pl-entry-meta">Best for → Financial decomposition · Profit breakdown · Budget variance</div>
+        <div class="pl-entry-desc">Sequential waterfall showing how revenue flows to net income through cost deductions and additions. Cyan for totals and positive items, pink for deductions, yellow for subtotals, orange for variable costs. Covers P&L waterfall, budget vs actual, revenue bridge, contribution margin waterfall, and bridge chart. Candlestick and OHLC are covered in Group 07.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">P&L Analysis</span>
+          <span class="lx-chip cy">Board Reports</span>
+          <span class="lx-chip yw">NDIS Budget Bridge</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Equity Curve / Cash Runway -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="20" y1="115" x2="210" y2="115" class="mini-axis"/>
+          <line x1="20" y1="10" x2="20" y2="115" class="mini-axis"/>
+          <!-- Zero line -->
+          <line x1="20" y1="60" x2="210" y2="60" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+          <!-- Equity curve -->
+          <polyline points="20,100 40,92 60,85 80,70 100,65 120,55 140,40 150,42 160,48 170,35 190,25 210,18" fill="none" stroke="var(--lx-yellow)" stroke-width="2" stroke-linecap="round"/>
+          <!-- Drawdown area -->
+          <polygon points="140,40 150,42 160,48 170,35 140,40" fill="rgba(255,45,125,.15)"/>
+          <!-- High watermark -->
+          <line x1="140" y1="40" x2="170" y2="40" stroke="var(--lx-pink)" stroke-width="1" stroke-dasharray="2"/>
+          <text x="200" y="15" class="mini-label" style="fill:var(--lx-pink)">ATH</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Equity Curve / Drawdown / Burn / Cash Runway</div>
+        <div class="pl-entry-meta">Best for → Portfolio performance · Capital trajectory · Runway estimation</div>
+        <div class="pl-entry-desc">Cumulative value line showing portfolio or cash balance over time with drawdown zones highlighted. Yellow for the equity/balance curve, pink shaded areas for drawdown periods below the high watermark, dashed pink high watermark reference. Covers equity curve, drawdown chart, burn chart, cash runway chart, yield curve, price volume chart, and depth chart.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Investment Returns</span>
+          <span class="lx-chip yw">Startup Runway</span>
+          <span class="lx-chip cy">Plan Budget Burn</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cohort Revenue Heatmap -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 200 120">
+          <text x="5" y="10" class="mini-label" style="fill:var(--lx-pink)">REVENUE BY COHORT × QUARTER</text>
+          <!-- Headers -->
+          <text x="60" y="26" class="mini-label">Q1</text><text x="90" y="26" class="mini-label">Q2</text><text x="120" y="26" class="mini-label">Q3</text><text x="150" y="26" class="mini-label">Q4</text>
+          <text x="5" y="42" class="mini-label">2023</text><text x="5" y="60" class="mini-label">2024</text><text x="5" y="78" class="mini-label">2025</text><text x="5" y="96" class="mini-label">2026</text>
+          <!-- Cells with yellow intensity -->
+          <rect x="50" y="32" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".2"/>
+          <rect x="80" y="32" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".35"/>
+          <rect x="110" y="32" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".5"/>
+          <rect x="140" y="32" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".6"/>
+          <rect x="50" y="50" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".4"/>
+          <rect x="80" y="50" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".55"/>
+          <rect x="110" y="50" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".7"/>
+          <rect x="140" y="50" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".8"/>
+          <rect x="50" y="68" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".5"/>
+          <rect x="80" y="68" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".7"/>
+          <rect x="110" y="68" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".85"/>
+          <rect x="140" y="68" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity="1"/>
+          <rect x="50" y="86" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".6"/>
+          <rect x="80" y="86" width="25" height="14" rx="2" fill="var(--lx-yellow)" opacity=".75"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Cohort Revenue Heatmap</div>
+        <div class="pl-entry-meta">Best for → Revenue growth by cohort · LTV tracking · Seasonal patterns</div>
+        <div class="pl-entry-desc">Grid heatmap encoding revenue intensity across cohorts and time periods. Uses yellow at ascending opacity for a financial "heat" feel distinct from the pink retention heatmap. Triangular staircase pattern for cohorts that haven't reached later quarters yet.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip yw">SaaS Revenue</span>
+          <span class="lx-chip cy">LTV Analysis</span>
+          <span class="lx-chip pk">Plan Spend Patterns</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 15 — PROGRESS, STATUS & MONITORING
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="STATUS">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 15 · Suite 3</div>
+  <div class="pl-group-title">Progress, Status<br>& Monitoring</div>
+  <div class="pl-group-desc">Product UI indicators — the visual signals that tell users where things stand at a glance.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Progress & Status Types</div>
+    <div class="pl-subcat-list">Progress bar · segmented progress bar · step progress · ring progress · radial progress · circular progress · gauge · angular gauge · linear gauge · thermometer chart · battery indicator · SLA meter · uptime badge with sparkline · status chip matrix · health score indicator · threshold meter · stoplight / traffic light status · pulse ring · severity scale · completion tracker · checklist completion meter</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Progress Bars -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="width:100%">
+          <div style="margin-bottom:12px">
+            <div class="fx" style="justify-content:space-between;margin-bottom:3px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(13,13,13,.4)">CORE SUPPORTS</span>
+              <span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-pink)">78%</span>
+            </div>
+            <div style="height:8px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden">
+              <div style="height:100%;width:78%;background:var(--lx-pink);border-radius:999px"></div>
+            </div>
+          </div>
+          <div style="margin-bottom:12px">
+            <div class="fx" style="justify-content:space-between;margin-bottom:3px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(13,13,13,.4)">CAPACITY BUILDING</span>
+              <span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-cyan)">45%</span>
+            </div>
+            <div style="height:8px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden">
+              <div style="height:100%;width:45%;background:var(--lx-cyan);border-radius:999px"></div>
+            </div>
+          </div>
+          <div>
+            <div class="fx" style="justify-content:space-between;margin-bottom:3px">
+              <span style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(13,13,13,.4)">CAPITAL</span>
+              <span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-yellow);-webkit-text-stroke:1px var(--lx-black);paint-order:stroke fill">92%</span>
+            </div>
+            <div style="height:8px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden">
+              <div style="height:100%;width:92%;background:var(--lx-yellow);border-radius:999px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Progress Bar / Segmented / Linear Gauge</div>
+        <div class="pl-entry-meta">Best for → Completion tracking · Budget utilization · Capacity</div>
+        <div class="pl-entry-desc">Horizontal fill bars showing percentage completion. Covers progress bar, segmented progress bar, linear gauge, thermometer chart, battery indicator, threshold meter, severity scale, and completion tracker. Pill-shaped tracks at 6% opacity, neon fills with Bebas Neue percentage labels.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">8px height pill bars · 999px border-radius · 6% opacity track · Neon fills: pink/cyan/yellow per category · Bebas Neue 14–16px percentage right-aligned · JetBrains Mono 7px labels left-aligned · Striped variant for in-progress states</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Budget</span>
+          <span class="lx-chip cy">Upload Progress</span>
+          <span class="lx-chip yw">Goal Completion</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Gauge / Angular -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="display:flex;gap:20px;justify-content:center">
+          <!-- Semi-circle gauge -->
+          <div style="position:relative;width:100px;height:55px;overflow:hidden">
+            <svg width="100" height="55" viewBox="0 0 100 55">
+              <path d="M10,50 A40,40 0 0,1 90,50" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M10,50 A40,40 0 0,1 75,18" fill="none" stroke="var(--lx-pink)" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <div style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);text-align:center">
+              <div style="font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-tx);line-height:1">84</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">HEALTH</div>
+            </div>
+          </div>
+          <!-- Another gauge -->
+          <div style="position:relative;width:100px;height:55px;overflow:hidden">
+            <svg width="100" height="55" viewBox="0 0 100 55">
+              <path d="M10,50 A40,40 0 0,1 90,50" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="8" stroke-linecap="round"/>
+              <path d="M10,50 A40,40 0 0,1 55,12" fill="none" stroke="var(--lx-orange)" stroke-width="8" stroke-linecap="round"/>
+            </svg>
+            <div style="position:absolute;bottom:2px;left:50%;transform:translateX(-50%);text-align:center">
+              <div style="font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-tx);line-height:1">62</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">SLA</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Gauge / Angular Gauge / SLA Meter / Health Score</div>
+        <div class="pl-entry-meta">Best for → Single KPI with threshold zones · SLA compliance · Health scores</div>
+        <div class="pl-entry-desc">Semi-circular or full-circle arc showing a value against a range. Covers gauge, angular gauge, SLA meter, health score indicator, checklist completion meter, and step progress. Uses SVG arc paths with round linecaps, neon stroke fills, and Bebas Neue centre values.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">System Health</span>
+          <span class="lx-chip or">SLA Compliance</span>
+          <span class="lx-chip cy">Performance Score</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status Indicators -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="width:100%">
+          <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:10px">STATUS INDICATORS</div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+            <!-- Pulse dot -->
+            <div style="text-align:center">
+              <div style="width:12px;height:12px;border-radius:50%;background:var(--lx-pink);margin:0 auto 4px;animation:pulse 1.5s ease-in-out infinite"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">LIVE</div>
+            </div>
+            <!-- Steady dot -->
+            <div style="text-align:center">
+              <div style="width:12px;height:12px;border-radius:50%;background:var(--lx-cyan);margin:0 auto 4px"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">ACTIVE</div>
+            </div>
+            <!-- Warning -->
+            <div style="text-align:center">
+              <div style="width:12px;height:12px;border-radius:50%;background:var(--lx-orange);margin:0 auto 4px"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">REVIEW</div>
+            </div>
+            <!-- Offline ring -->
+            <div style="text-align:center">
+              <div style="width:12px;height:12px;border-radius:50%;border:2px solid rgba(0,0,0,.1);margin:0 auto 4px"></div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">IDLE</div>
+            </div>
+            <!-- Stoplight -->
+            <div style="text-align:center">
+              <div style="display:flex;gap:3px;margin:0 auto 4px;justify-content:center">
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--lx-pink)"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--lx-yellow)"></div>
+                <div style="width:8px;height:8px;border-radius:50%;background:var(--lx-cyan)"></div>
+              </div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">TRAFFIC</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Status Dots / Pulse Ring / Stoplight / Badge / Chip Matrix</div>
+        <div class="pl-entry-meta">Best for → Real-time status · Service health · Availability indicators</div>
+        <div class="pl-entry-desc">Minimal status indicators using colour, animation, and shape to communicate state. Covers status chip matrix, stoplight/traffic light status, pulse ring, uptime badge with sparkline, ring progress, radial progress, circular progress, and step progress. Pulsing animation for live states, solid fills for steady, ring-only for idle.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Server Status</span>
+          <span class="lx-chip cy">Service Monitoring</span>
+          <span class="lx-chip or">Participant Status</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@media(max-width:540px){
+  [style*="grid-column"]{grid-column:1/-1!important}
+  .pl-viz-grid{grid-template-columns:1fr!important}
+}
+</style>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 16 — ICONOGRAPHIC & UNIT-BASED
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="ICONS">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 16 · Suite 3</div>
+  <div class="pl-group-title">Iconographic &<br>Unit-Based</div>
+  <div class="pl-group-desc">Human-readable, non-technical presentations using discrete symbols to represent quantities.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Iconographic Types</div>
+    <div class="pl-subcat-list">Pictogram chart · icon array · isotype chart · waffle chart · unit chart · people chart · person-icon chart · inventory block chart · seat map fill · occupancy icon grid · product box fill display</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Person Icon Chart / Pictogram -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="width:100%">
+          <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:8px">7 OF 10 PARTICIPANTS ACHIEVED GOALS</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:center">
+            <!-- Person icons — filled for achieved -->
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="var(--lx-pink)"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="var(--lx-pink)"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="var(--lx-pink)"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="var(--lx-pink)"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="var(--lx-pink)"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="var(--lx-pink)"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="var(--lx-pink)"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="var(--lx-pink)"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="var(--lx-pink)"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="var(--lx-pink)"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="var(--lx-pink)"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="var(--lx-pink)"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="var(--lx-pink)"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="var(--lx-pink)"/></svg>
+            <!-- Unfilled -->
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/></svg>
+            <svg width="22" height="32" viewBox="0 0 22 32"><circle cx="11" cy="8" r="5" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/><path d="M3,28 Q3,16 11,16 Q19,16 19,28" fill="none" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/></svg>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Pictogram / Icon Array / People Chart / Isotype</div>
+        <div class="pl-entry-meta">Best for → Accessible proportion display · Public-facing reports · Non-technical audiences</div>
+        <div class="pl-entry-desc">Uses repeating human-shaped or object icons where filled = counted and outline = remaining. Covers pictogram chart, icon array, isotype chart, people chart, person-icon chart, inventory block chart, seat map fill, occupancy icon grid, and product box fill display. Waffle and unit chart are covered in Group 04. Pink filled icons, 10% opacity stroke-only outlines for remaining units.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Simplified SVG person icons (circle head + curve body) · Pink filled for counted · 10% opacity stroke-only for uncounted · 6px gap between icons · JetBrains Mono 7px descriptor line above · 22×32px icon size · Dark background</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Participant Outcomes</span>
+          <span class="lx-chip cy">Survey Results</span>
+          <span class="lx-chip yw">Annual Reports</span>
+          <span class="lx-chip pu">Infographics</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 17 — CIRCULAR, RADIAL & POLAR
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="RADIAL">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 17 · Suite 3</div>
+  <div class="pl-group-title">Circular, Radial<br>& Polar</div>
+  <div class="pl-group-desc">The complete circular visualization family — from donuts through radial bars to full polar coordinate systems.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Circular & Radial Types</div>
+    <div class="pl-subcat-list">Donut chart · pie chart · nested donut · radial bar chart · circular bar chart · radial column chart · polar area chart · rose chart · coxcomb chart · radar chart · spider chart · radial line chart · radial area chart · radial heatmap · circular progress ring · angular gauge · circular timeline · radial tree · sunburst · chord diagram · arc diagram</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Radial Bar Chart -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 200 140">
+          <g transform="translate(100,75)">
+            <!-- Track rings -->
+            <circle cx="0" cy="0" r="60" fill="none" stroke="rgba(0,0,0,.04)" stroke-width="10"/>
+            <circle cx="0" cy="0" r="47" fill="none" stroke="rgba(0,0,0,.04)" stroke-width="10"/>
+            <circle cx="0" cy="0" r="34" fill="none" stroke="rgba(0,0,0,.04)" stroke-width="10"/>
+            <circle cx="0" cy="0" r="21" fill="none" stroke="rgba(0,0,0,.04)" stroke-width="10"/>
+            <!-- Data arcs -->
+            <circle cx="0" cy="0" r="60" fill="none" stroke="var(--lx-pink)" stroke-width="10" stroke-linecap="round" stroke-dasharray="302 377" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="47" fill="none" stroke="var(--lx-cyan)" stroke-width="10" stroke-linecap="round" stroke-dasharray="207 295" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="34" fill="none" stroke="var(--lx-yellow)" stroke-width="10" stroke-linecap="round" stroke-dasharray="171 214" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="21" fill="none" stroke="var(--lx-orange)" stroke-width="10" stroke-linecap="round" stroke-dasharray="92 132" style="transform:rotate(-90deg)"/>
+            <!-- Centre infinity -->
+            <text x="0" y="4" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:14px;fill:var(--lx-tx)">∞</text>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Radial Bar / Circular Bar / Multi-Ring Progress</div>
+        <div class="pl-entry-meta">Best for → Multi-category completion · Apple Watch-style activity rings · Compact KPIs</div>
+        <div class="pl-entry-desc">Concentric rings where arc length encodes value. Each ring is a different category with its own neon colour, creating an Apple Watch Activity-style display. Covers radial bar chart, circular bar chart, radial column chart, multi-ring donut, and circular progress ring. The LIMITLESS infinity symbol anchors the centre. Track rings at 4% opacity, data arcs with round linecaps. Donut, pie, nested donut are in Group 04; radar/spider in Group 06; chord/arc in Group 08; sunburst/radial tree in Group 04/09.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">10px stroke-width rings · 13px gap between rings · 4% opacity track circles · Round linecap arcs · stroke-dasharray animation for reveals · Pink/Cyan/Yellow/Orange ring order · Bebas Neue or ∞ centre label · Dark background for neon ring contrast</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Activity Tracking</span>
+          <span class="lx-chip cy">Multi-KPI Display</span>
+          <span class="lx-chip yw">Goal Progress</span>
+          <span class="lx-chip or">Budget Categories</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Polar Area / Rose / Coxcomb -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 200 140">
+          <g transform="translate(100,70)">
+            <!-- Polar wedges with varying radius -->
+            <path d="M0,0 L0,-55 A55,55 0 0,1 39,-39 Z" fill="var(--lx-pink)" opacity=".7"/>
+            <path d="M0,0 L39,-39 A45,45 0 0,1 45,0 Z" fill="var(--lx-cyan)" opacity=".7"/>
+            <path d="M0,0 L35,0 A35,35 0 0,1 25,25 Z" fill="var(--lx-yellow)" opacity=".7"/>
+            <path d="M0,0 L25,25 A50,50 0 0,1 0,50 Z" fill="var(--lx-orange)" opacity=".7"/>
+            <path d="M0,0 L0,40 A40,40 0 0,1 -28,28 Z" fill="var(--lx-purple)" opacity=".7"/>
+            <path d="M0,0 L-28,28 A30,30 0 0,1 -30,0 Z" fill="var(--lx-blue)" opacity=".7"/>
+            <path d="M0,0 L-45,0 A45,45 0 0,1 -32,-32 Z" fill="var(--lx-pink)" opacity=".5"/>
+            <path d="M0,0 L-32,-32 A60,60 0 0,1 0,-60 Z" fill="var(--lx-cyan)" opacity=".5"/>
+            <!-- Centre dot -->
+            <circle cx="0" cy="0" r="4" fill="var(--lx-offwhite)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Polar Area / Rose / Coxcomb / Nightingale</div>
+        <div class="pl-entry-meta">Best for → Cyclical comparison · Seasonal patterns · Wind/directional data</div>
+        <div class="pl-entry-desc">Wedge segments where radius (not angle) encodes magnitude. Equal angular slices with varying radius create the characteristic rose shape. Covers polar area chart, rose chart, coxcomb chart, and nightingale rose chart. Also covers radial line chart, radial area chart, radial heatmap, and circular timeline. Each wedge uses a neon palette colour at 70% opacity.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Seasonal Analysis</span>
+          <span class="lx-chip cy">Wind Rose</span>
+          <span class="lx-chip yw">Hourly Patterns</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 18 — 3D & PSEUDO-3D DATA VIEWS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="3D">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 18 · Suite 3</div>
+  <div class="pl-group-title">3D & Pseudo-3D<br>Data Views</div>
+  <div class="pl-group-desc">Dimensional data presentations — used deliberately in spatial, industrial, scientific, and marketing contexts.</div>
+</div>
+<div class="pl-group-body lx-rev">
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All 3D & Pseudo-3D Types</div>
+    <div class="pl-subcat-list">3D bar chart · 3D column chart · 3D surface plot · 3D scatter plot · 3D bubble plot · 3D heatmap surface · terrain/data-topography view · volumetric density plot · isometric chart · perspective treemap · pseudo-3D donut · extruded map · 3D network · globe visualization</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Isometric Bar -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 220 140">
+          <!-- Isometric bars -->
+          <g transform="translate(20,120)">
+            <!-- Bar 1 -->
+            <polygon points="0,0 20,-10 40,0 20,10" fill="var(--lx-pink)" opacity=".3"/>
+            <polygon points="0,0 0,-70 20,-80 20,-10" fill="var(--lx-pink)" opacity=".8"/>
+            <polygon points="20,-10 20,-80 40,-70 40,0" fill="var(--lx-pink)" opacity=".6"/>
+            <polygon points="0,-70 20,-80 40,-70 20,-60" fill="var(--lx-pink)"/>
+            <!-- Bar 2 -->
+            <polygon points="45,0 65,-10 85,0 65,10" fill="var(--lx-cyan)" opacity=".3"/>
+            <polygon points="45,0 45,-50 65,-60 65,-10" fill="var(--lx-cyan)" opacity=".8"/>
+            <polygon points="65,-10 65,-60 85,-50 85,0" fill="var(--lx-cyan)" opacity=".6"/>
+            <polygon points="45,-50 65,-60 85,-50 65,-40" fill="var(--lx-cyan)"/>
+            <!-- Bar 3 -->
+            <polygon points="90,0 110,-10 130,0 110,10" fill="var(--lx-yellow)" opacity=".3"/>
+            <polygon points="90,0 90,-90 110,-100 110,-10" fill="var(--lx-yellow)" opacity=".7"/>
+            <polygon points="110,-10 110,-100 130,-90 130,0" fill="var(--lx-yellow)" opacity=".5"/>
+            <polygon points="90,-90 110,-100 130,-90 110,-80" fill="var(--lx-yellow)"/>
+            <!-- Bar 4 -->
+            <polygon points="135,0 155,-10 175,0 155,10" fill="var(--lx-orange)" opacity=".3"/>
+            <polygon points="135,0 135,-40 155,-50 155,-10" fill="var(--lx-orange)" opacity=".8"/>
+            <polygon points="155,-10 155,-50 175,-40 175,0" fill="var(--lx-orange)" opacity=".6"/>
+            <polygon points="135,-40 155,-50 175,-40 155,-30" fill="var(--lx-orange)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Isometric Bar / 3D Column / Perspective Treemap</div>
+        <div class="pl-entry-meta">Best for → Marketing presentations · Executive reports · Visual impact</div>
+        <div class="pl-entry-desc">Isometric projection creates a pseudo-3D effect using three-face polygon rendering. Left face darker, right face medium, top face brightest — all derived from the same neon colour at different opacities. Covers 3D bar chart, 3D column chart, isometric chart, perspective treemap, and pseudo-3D donut. Use deliberately — 2D is almost always clearer for analysis.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Three-polygon per bar: left 80%, right 60%, top 100% opacity · Base parallelogram at 30% · Neon palette per bar · No actual 3D rendering — SVG polygon isometry · Dark background · Use sparingly for hero visuals, not data analysis</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Marketing Decks</span>
+          <span class="lx-chip cy">Hero Dashboards</span>
+          <span class="lx-chip yw">Annual Reports</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Scatter / Surface / Globe -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="140" viewBox="0 0 220 140">
+          <!-- Isometric grid floor -->
+          <line x1="30" y1="120" x2="190" y2="120" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+          <line x1="30" y1="120" x2="10" y2="80" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+          <line x1="190" y1="120" x2="170" y2="80" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+          <!-- Grid lines on floor -->
+          <line x1="70" y1="120" x2="50" y2="80" stroke="rgba(0,0,0,.03)"/>
+          <line x1="110" y1="120" x2="90" y2="80" stroke="rgba(0,0,0,.03)"/>
+          <line x1="150" y1="120" x2="130" y2="80" stroke="rgba(0,0,0,.03)"/>
+          <!-- 3D Scattered points with shadow projections -->
+          <ellipse cx="60" cy="115" rx="4" ry="2" fill="rgba(255,45,125,.1)"/>
+          <circle cx="60" cy="70" r="5" fill="var(--lx-pink)" opacity=".8"/>
+          <line x1="60" y1="75" x2="60" y2="115" stroke="rgba(255,45,125,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <ellipse cx="100" cy="110" rx="4" ry="2" fill="rgba(0,212,255,.1)"/>
+          <circle cx="100" cy="45" r="7" fill="var(--lx-cyan)" opacity=".7"/>
+          <line x1="100" y1="52" x2="100" y2="110" stroke="rgba(0,212,255,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <ellipse cx="140" cy="112" rx="4" ry="2" fill="rgba(204,255,0,.1)"/>
+          <circle cx="140" cy="60" r="4" fill="var(--lx-yellow)" opacity=".8"/>
+          <line x1="140" y1="64" x2="140" y2="112" stroke="rgba(204,255,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <ellipse cx="170" cy="108" rx="4" ry="2" fill="rgba(255,102,0,.1)"/>
+          <circle cx="170" cy="30" r="6" fill="var(--lx-orange)" opacity=".7"/>
+          <line x1="170" y1="36" x2="170" y2="108" stroke="rgba(255,102,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <ellipse cx="80" cy="118" rx="4" ry="2" fill="rgba(177,78,255,.1)"/>
+          <circle cx="80" cy="85" r="3" fill="var(--lx-purple)" opacity=".8"/>
+          <line x1="80" y1="88" x2="80" y2="118" stroke="rgba(177,78,255,.1)" stroke-width="1" stroke-dasharray="2"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">3D Scatter / Surface / Globe / Terrain / Volumetric</div>
+        <div class="pl-entry-meta">Best for → Three-variable relationships · Scientific visualization · Spatial data</div>
+        <div class="pl-entry-desc">Points suspended in a 3D coordinate system with floor shadow projections showing their 2D position. Dashed vertical drop lines connect each point to its shadow. Covers 3D scatter plot, 3D bubble plot, 3D surface plot, 3D heatmap surface, terrain/data-topography view, volumetric density plot, extruded map, 3D network, and globe visualization. Each point uses a neon colour with floor shadows at 10% opacity.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Scientific Data</span>
+          <span class="lx-chip cy">Molecular Viz</span>
+          <span class="lx-chip yw">Geospatial 3D</span>
+          <span class="lx-chip pu">Industrial IoT</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:32px 28px;position:relative;overflow:hidden">
+  <div style="font-family:'Bebas Neue',serif;font-size:100px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-20px;user-select:none;pointer-events:none">∞</div>
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">END OF SUITE 3 · GROUPS 13–18</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:32px;color:var(--lx-offwhite);line-height:1">SUITE FOUR CONTINUES WITH GROUPS 19–24</div>
+  <div style="font-size:11px;color:rgba(245,240,232,.5);margin-top:8px;max-width:500px">Scientific & Specialist · Hybrid Dashboard Components · Presentation Styles · Interaction Patterns · Master Checklist · UI Job Framing</div>
+  <div style="margin-top:16px;display:flex;gap:6px;flex-wrap:wrap">
+    <span class="lx-chip spk">Suite 1 ✓</span>
+    <span class="lx-chip spk">Suite 2 ✓</span>
+    <span class="lx-chip syw">Suite 3 ✓ Complete</span>
+    <span class="lx-chip dk" style="color:rgba(245,240,232,.4);border-color:rgba(255,255,255,.08)">Suite 4 → Pending</span>
+  </div>
+  <div class="lx-stripe" style="margin:20px -28px -32px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">
+  LIMITLESS SUPPORT CO. · 2026 UI VISUAL DATA PATTERN LIBRARY · SUITE 3 OF 4 · ABN 76 985 845 524
+</div>
+
+<script>
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.lx-rev').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Form Controls</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+.lx-tog{width:44px;height:24px;border-radius:99px;background:rgba(13,13,13,.12);position:relative;transition:background .25s var(--ease);flex-shrink:0;cursor:pointer}
+.lx-tog.on{background:var(--lx-pink)}
+.lx-tog.on .lx-tog-thumb{transform:translateX(20px)}
+.lx-tog-thumb{position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:white;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .3s var(--spring)}
+.lx-check-box{width:20px;height:20px;border:2px solid var(--lx-bdr2);border-radius:5px;display:flex;align-items:center;justify-content:center;transition:all .2s var(--spring);flex-shrink:0;background:var(--lx-card)}
+.lx-check.on .lx-check-box{background:var(--lx-pink);border-color:var(--lx-pink);transform:scale(1.05)}
+.lx-check-mark{width:11px;height:9px;display:none;fill:none;stroke:#fff;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.lx-check.on .lx-check-mark{display:block}
+.lx-radio-o{width:18px;height:18px;border:2px solid var(--lx-bdr2);border-radius:50%;display:flex;align-items:center;justify-content:center;transition:all .2s var(--spring)}
+.lx-radio.on .lx-radio-o{border-color:var(--lx-pink)}
+.lx-radio.on .lx-radio-dot{transform:scale(1)!important}
+
+</style>
+</head>
+<body>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">TOGGLES</div>
+  <div class="lx-toggle-row" onclick="this.querySelector('.lx-tog').classList.toggle('on')">
+    <div class="lx-tog"><div class="lx-tog-thumb" style="position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:white;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .3s var(--spring)"></div></div>
+    <span style="font-size:12px;font-weight:600">Enable Email Notifications</span>
+  </div>
+  <div class="lx-toggle-row" onclick="this.querySelector('.lx-tog').classList.toggle('on')">
+    <div class="lx-tog on"><div class="lx-tog-thumb" style="position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:white;box-shadow:0 2px 6px rgba(0,0,0,.2);transition:transform .3s var(--spring);transform:translateX(20px)"></div></div>
+    <span style="font-size:12px;font-weight:600">Auto-sync with NDIS Portal</span>
+  </div>
+</div>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">CHECKBOXES</div>
+  <div class="lx-check on" onclick="this.classList.toggle('on')">
+    <div class="lx-check-box"><svg class="lx-check-mark" viewBox="0 0 11 9"><polyline points="1 4 4 7 10 1"/></svg></div>
+    <span style="font-size:12px">I confirm this information is accurate</span>
+  </div>
+  <div class="lx-check" onclick="this.classList.toggle('on')">
+    <div class="lx-check-box"><svg class="lx-check-mark" viewBox="0 0 11 9"><polyline points="1 4 4 7 10 1"/></svg></div>
+    <span style="font-size:12px">Send copy to participant</span>
+  </div>
+  <div class="lx-check" onclick="this.classList.toggle('on')">
+    <div class="lx-check-box"><svg class="lx-check-mark" viewBox="0 0 11 9"><polyline points="1 4 4 7 10 1"/></svg></div>
+    <span style="font-size:12px">Include supporting documentation</span>
+  </div>
+</div>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">RADIO BUTTONS</div>
+  <div id="radio-group">
+    <div class="lx-radio on" onclick="document.querySelectorAll('#radio-group .lx-radio').forEach(r=>r.classList.remove('on'));this.classList.add('on')">
+      <div class="lx-radio-o"><div class="lx-radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--lx-pink);transform:scale(1);transition:transform .25s var(--spring)"></div></div>
+      <span style="font-size:12px">NDIA Managed</span>
+    </div>
+    <div class="lx-radio" onclick="document.querySelectorAll('#radio-group .lx-radio').forEach(r=>r.classList.remove('on'));this.classList.add('on')">
+      <div class="lx-radio-o"><div class="lx-radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--lx-pink);transform:scale(0);transition:transform .25s var(--spring)"></div></div>
+      <span style="font-size:12px">Plan Managed</span>
+    </div>
+    <div class="lx-radio" onclick="document.querySelectorAll('#radio-group .lx-radio').forEach(r=>r.classList.remove('on'));this.classList.add('on')">
+      <div class="lx-radio-o"><div class="lx-radio-dot" style="width:8px;height:8px;border-radius:50%;background:var(--lx-pink);transform:scale(0);transition:transform .25s var(--spring)"></div></div>
+      <span style="font-size:12px">Self Managed</span>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">SEGMENT CONTROL</div>
+  <div style="background:rgba(13,13,13,.06);border-radius:var(--r-sm);padding:3px;display:inline-flex;gap:2px">
+    <button onclick="this.parentElement.querySelectorAll('button').forEach(b=>{b.style.background='transparent';b.style.color='var(--lx-txm)';b.style.boxShadow='none'});this.style.background='var(--lx-card)';this.style.color='var(--lx-tx)';this.style.boxShadow='var(--sh-sm)'" style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:7px 16px;border:none;background:var(--lx-card);border-radius:6px;cursor:pointer;color:var(--lx-tx);box-shadow:var(--sh-sm)">Weekly</button>
+    <button onclick="this.parentElement.querySelectorAll('button').forEach(b=>{b.style.background='transparent';b.style.color='var(--lx-txm)';b.style.boxShadow='none'});this.style.background='var(--lx-card)';this.style.color='var(--lx-tx)';this.style.boxShadow='var(--sh-sm)'" style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:7px 16px;border:none;background:transparent;border-radius:6px;cursor:pointer;color:var(--lx-txm)">Monthly</button>
+    <button onclick="this.parentElement.querySelectorAll('button').forEach(b=>{b.style.background='transparent';b.style.color='var(--lx-txm)';b.style.boxShadow='none'});this.style.background='var(--lx-card)';this.style.color='var(--lx-tx)';this.style.boxShadow='var(--sh-sm)'" style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.05em;padding:7px 16px;border:none;background:transparent;border-radius:6px;cursor:pointer;color:var(--lx-txm)">Yearly</button>
+  </div>
+</div>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">RANGE SLIDER</div>
+  <input type="range" min="0" max="100" value="68" style="-webkit-appearance:none;width:100%;height:4px;border-radius:2px;background:var(--lx-bdr2);outline:none;cursor:pointer">
+  <div class="lx-bxs cm" style="margin-top:4px">Budget allocation: 68%</div>
+</div>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">INPUT WITH VALIDATION STATES</div>
+  <div style="margin-bottom:12px">
+    <div style="font-family:JetBrains Mono,monospace;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:4px">Valid Field</div>
+    <input type="text" value="Iona Karamacoski" style="width:100%;padding:10px 13px;border:1.5px solid #22c55e;border-radius:var(--r-sm);font-family:Barlow,sans-serif;font-size:13px;background:rgba(34,197,94,.03)">
+    <div style="font-size:10px;margin-top:4px;color:#22c55e">✓ Name verified</div>
+  </div>
+  <div style="margin-bottom:12px">
+    <div style="font-family:JetBrains Mono,monospace;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:4px">Error Field</div>
+    <input type="text" value="" placeholder="Required field" style="width:100%;padding:10px 13px;border:1.5px solid var(--lx-pink);border-radius:var(--r-sm);font-family:Barlow,sans-serif;font-size:13px;background:rgba(255,45,125,.03)">
+    <div style="font-size:10px;margin-top:4px;color:var(--lx-pink)">✕ This field is required</div>
+  </div>
+  <div>
+    <div style="font-family:JetBrains Mono,monospace;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:4px">Warning Field</div>
+    <input type="text" value="$95,000" style="width:100%;padding:10px 13px;border:1.5px solid var(--lx-orange);border-radius:var(--r-sm);font-family:Barlow,sans-serif;font-size:13px;background:rgba(255,102,0,.03)">
+    <div style="font-size:10px;margin-top:4px;color:var(--lx-orange)">⚠ Amount exceeds typical plan budget</div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+
+</body>
+</html>

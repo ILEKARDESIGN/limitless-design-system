@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Topbar</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+<!-- Component: Topbar | Category: Foundation -->
+
+<div class="demo-section">
+  <div class="demo-label">TOPBAR — DEFAULT</div>
+  <div class="lx-topbar">
+    <div class="lx-tlogo">LIMIT<span>LESS</span> ∞</div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <span class="lx-tmeta">DESIGN SYSTEM v3.0</span>
+      <span class="lx-tbadge">BADGE</span>
+      <span class="lx-tbadge pink">PINK</span>
+      <span class="lx-tbadge cyan">CYAN</span>
+    </div>
+  </div>
+  <div class="lx-stripe"></div>
+</div>
+
+<div class="demo-section">
+  <div class="demo-label">TOPBAR — WITH ALERT BADGE</div>
+  <div class="lx-topbar">
+    <div style="display:flex;gap:12px;align-items:center">
+      <span class="lx-tlogo">LIMIT<span>LESS</span></span>
+      <span class="lx-tmeta">SUPPORT COORDINATION</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+      <span class="lx-tbadge">v3.0</span>
+      <span class="lx-tbadge pink">35 Components</span>
+      <span class="lx-tbadge cyan">All Verified</span>
+      <span class="lx-tbadge alert">3 Alerts</span>
+    </div>
+  </div>
+  <div class="lx-stripe" style="margin:0;border-radius:0 0 4px 4px"></div>
+</div>
+
+<script src="../../js/core.js"></script>
+</body>
+</html>

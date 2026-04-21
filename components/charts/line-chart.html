@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Line Chart</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+
+<div class="demo-section">
+  <div class="demo-label">LINE CHART WITH FORECAST</div>
+  <div class="lx-card" style="max-width:600px;padding:20px">
+    <div class="lx-cmd" style="margin-bottom:4px">Budget Spend Trajectory</div>
+    <div class="lx-bxs cm" style="margin-bottom:12px">Actual vs projected spending over plan period</div>
+    <svg viewBox="0 0 500 200" style="width:100%;overflow:visible">
+      <line x1="50" y1="10" x2="50" y2="180" stroke="var(--lx-bdr)" stroke-width="1"/>
+      <line x1="50" y1="180" x2="480" y2="180" stroke="var(--lx-bdr)" stroke-width="1"/>
+      <!-- Grid lines -->
+      <line x1="50" y1="50" x2="480" y2="50" stroke="var(--lx-bdr)" stroke-width="0.5" stroke-dasharray="4"/>
+      <line x1="50" y1="90" x2="480" y2="90" stroke="var(--lx-bdr)" stroke-width="0.5" stroke-dasharray="4"/>
+      <line x1="50" y1="130" x2="480" y2="130" stroke="var(--lx-bdr)" stroke-width="0.5" stroke-dasharray="4"/>
+      <!-- Actual line (pink) -->
+      <polyline points="50,170 100,155 150,140 200,120 250,105 300,85 350,72" fill="none" stroke="#FF2D7D" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Forecast line (cyan dashed) -->
+      <polyline points="350,72 400,55 450,40 480,30" fill="none" stroke="#00D4FF" stroke-width="2" stroke-dasharray="6,4" stroke-linecap="round"/>
+      <!-- Data points -->
+      <circle cx="50" cy="170" r="3.5" fill="#FF2D7D"/>
+      <circle cx="100" cy="155" r="3.5" fill="#FF2D7D"/>
+      <circle cx="150" cy="140" r="3.5" fill="#FF2D7D"/>
+      <circle cx="200" cy="120" r="3.5" fill="#FF2D7D"/>
+      <circle cx="250" cy="105" r="3.5" fill="#FF2D7D"/>
+      <circle cx="300" cy="85" r="3.5" fill="#FF2D7D"/>
+      <circle cx="350" cy="72" r="4" fill="#FF2D7D" stroke="#fff" stroke-width="2"/>
+      <!-- Legend -->
+      <line x1="60" y1="195" x2="80" y2="195" stroke="#FF2D7D" stroke-width="2.5"/>
+      <text x="84" y="198" fill="var(--lx-txm)" font-family="JetBrains Mono" font-size="7" letter-spacing=".08em">ACTUAL</text>
+      <line x1="140" y1="195" x2="160" y2="195" stroke="#00D4FF" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="164" y="198" fill="var(--lx-txm)" font-family="JetBrains Mono" font-size="7" letter-spacing=".08em">FORECAST</text>
+    </svg>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Bar Chart</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+
+<div class="demo-section">
+  <div class="demo-label">VERTICAL BAR CHART — NDIS BUDGET BY CATEGORY</div>
+  <div class="lx-card" style="max-width:600px;padding:20px">
+    <div class="lx-cmd" style="margin-bottom:12px">Monthly Budget Utilisation</div>
+    <svg viewBox="0 0 500 220" style="width:100%;overflow:visible">
+      <line x1="50" y1="10" x2="50" y2="190" stroke="var(--lx-bdr)" stroke-width="1"/>
+      <line x1="50" y1="190" x2="480" y2="190" stroke="var(--lx-bdr)" stroke-width="1"/>
+      <!-- Y-axis labels -->
+      <text x="45" y="15" text-anchor="end" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="8" letter-spacing=".1em">$8K</text>
+      <text x="45" y="55" text-anchor="end" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="8">$6K</text>
+      <text x="45" y="100" text-anchor="end" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="8">$4K</text>
+      <text x="45" y="145" text-anchor="end" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="8">$2K</text>
+      <text x="45" y="193" text-anchor="end" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="8">$0</text>
+      <!-- Bars -->
+      <rect x="70" y="50" width="30" height="140" rx="4" fill="#FF2D7D"/>
+      <rect x="115" y="80" width="30" height="110" rx="4" fill="#00D4FF"/>
+      <rect x="160" y="30" width="30" height="160" rx="4" fill="#FF2D7D"/>
+      <rect x="205" y="60" width="30" height="130" rx="4" fill="#FF6600"/>
+      <rect x="250" y="90" width="30" height="100" rx="4" fill="#CCFF00"/>
+      <rect x="295" y="40" width="30" height="150" rx="4" fill="#FF2D7D"/>
+      <rect x="340" y="70" width="30" height="120" rx="4" fill="#00D4FF"/>
+      <rect x="385" y="100" width="30" height="90" rx="4" fill="#B14EFF"/>
+      <rect x="430" y="55" width="30" height="135" rx="4" fill="#2979FF"/>
+      <!-- X-axis labels -->
+      <text x="85" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7" letter-spacing=".1em">JAN</text>
+      <text x="130" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">FEB</text>
+      <text x="175" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">MAR</text>
+      <text x="220" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">APR</text>
+      <text x="265" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">MAY</text>
+      <text x="310" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">JUN</text>
+      <text x="355" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">JUL</text>
+      <text x="400" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">AUG</text>
+      <text x="445" y="208" text-anchor="middle" fill="var(--lx-txl)" font-family="JetBrains Mono" font-size="7">SEP</text>
+    </svg>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+
+</body>
+</html>

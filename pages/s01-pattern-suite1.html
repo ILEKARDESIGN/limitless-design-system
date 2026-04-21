@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>2026 UI Visual Data Pattern Library — Suite 1 · Groups 01–06 — LIMITLESS Support Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════════════════════
+   LIMITLESS 2026 — WIDGET & DASHBOARD CSS DESIGN SUITE v2.0
+   ══════════════════════════════════════════════════════════════ */
+:root{
+  --lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-navy:#0A0F1C;--lx-white:#FFF;
+  --lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;
+  --lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-bdr2:rgba(13,13,13,.12);
+  --lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;
+  --r-xs:6px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-p:999px;
+  --sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-md:0 6px 24px rgba(0,0,0,.08);--sh-hv:0 16px 48px rgba(0,0,0,.13);
+  --ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-xl{font-family:'Bebas Neue',serif;font-size:80px;line-height:.9;letter-spacing:.01em}
+.lx-stat{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:.01em;transition:transform .45s var(--spring)}
+.lx-card:hover .lx-stat{transform:scale(1.06)}
+.lx-dsm{font-family:'Bebas Neue',serif;font-size:24px;line-height:1}
+.lx-ghost{font-family:'Bebas Neue',serif;font-size:110px;line-height:.85;color:rgba(0,0,0,.025);user-select:none;pointer-events:none;position:absolute;right:-4px;bottom:-16px}
+.lx-ghost.inv{color:rgba(255,255,255,.04)}
+.lx-cxl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lx-clg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+.lx-cmd{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.lx-csm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.lx-mlg{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.04em}
+.lx-mmd{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em}
+.lx-msm{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-blg{font-size:15px;line-height:1.6}
+.lx-b{font-size:13px;line-height:1.55}
+.lx-bsm{font-size:11px;line-height:1.5}
+.lx-bxs{font-size:10px;line-height:1.4}
+.lx-sub{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-txm)}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}
+.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}
+.lx-tlogo span{color:var(--lx-pink)}
+.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
+.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}
+.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-tbadge.cyan{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-tbadge.alert{background:var(--lx-orange);color:#fff}
+.lx-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(54px,auto);gap:10px;padding:12px 10px}
+.lx-s1{grid-column:span 1}.lx-s2{grid-column:span 2}.lx-s3{grid-column:span 3}.lx-s4{grid-column:span 4}
+.lx-s5{grid-column:span 5}.lx-s6{grid-column:span 6}.lx-s7{grid-column:span 7}.lx-s8{grid-column:span 8}
+.lx-s9{grid-column:span 9}.lx-s10{grid-column:span 10}.lx-s11{grid-column:span 11}.lx-s12{grid-column:span 12}
+.lx-r2{grid-row:span 2}.lx-r3{grid-row:span 3}
+.lx-card{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:20px;position:relative;overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease);cursor:default}
+.lx-card:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.lx-card.tl{border-radius:var(--r-xl) var(--r-md) var(--r-md) var(--r-md)}
+.lx-card.tr{border-radius:var(--r-md) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.bl{border-radius:var(--r-md) var(--r-md) var(--r-md) var(--r-xl)}
+.lx-card.br{border-radius:var(--r-md) var(--r-md) var(--r-xl) var(--r-md)}
+.lx-card.ptop{border-radius:var(--r-xl) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.pbot{border-radius:var(--r-md) var(--r-md) var(--r-xl) var(--r-xl)}
+.lx-card.dark{background:var(--lx-black);color:var(--lx-offwhite);border-color:rgba(255,255,255,.06)}
+.lx-card.cream{background:var(--lx-cream);border-color:var(--lx-bdr)}
+.lx-card.pink{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-card.yellow{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-card.cyan{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.lx-card.navy{background:var(--lx-navy);color:var(--lx-offwhite);border-color:rgba(255,255,255,.06)}
+.lx-acc{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:20px}
+.lx-acc.yel{border-left-color:var(--lx-yellow)}.lx-acc.cyn{border-left-color:var(--lx-cyan)}
+.lx-acc.org{border-left-color:var(--lx-orange)}.lx-acc.pur{border-left-color:var(--lx-purple)}
+.lx-acc.blu{border-left-color:var(--lx-blue)}
+.lx-sv{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lx-txm);margin-top:4px}
+.lx-sh{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:2px solid var(--lx-tx)}
+.lx-sh.pk{border-bottom-color:var(--lx-pink);color:var(--lx-pink)}
+.lx-sh.cy{border-bottom-color:var(--lx-cyan);color:var(--lx-cyan)}
+.lx-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;background:var(--lx-card);border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--lx-bdr)}
+.lx-tbl th{padding:7px 10px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);background:var(--lx-cream);border-bottom:1px solid var(--lx-bdr);white-space:nowrap}
+.lx-tbl td{padding:7px 10px;border-bottom:1px solid rgba(0,0,0,.03);vertical-align:middle}
+.lx-tbl tr:last-child td{border-bottom:none}
+.lx-tbl tr:hover td{background:rgba(255,45,125,.015)}
+.lx-tm{font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right;letter-spacing:.03em}
+.lx-tn{font-family:'JetBrains Mono',monospace;color:var(--lx-txm);text-align:right}
+.lx-tb{font-weight:700}
+.lx-tp{color:#00a855;font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right}
+.lx-tneg{color:var(--lx-pink);font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right}
+.lx-tpk{color:var(--lx-pink);font-weight:700;text-align:right}
+.lx-ttot td{border-top:2px solid var(--lx-tx);font-weight:700;background:var(--lx-cream)}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}
+.lx-chip.gn{border-color:rgba(0,200,83,.3);color:#00c853;background:rgba(0,200,83,.07)}
+.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}
+.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}
+.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}
+.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}
+.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}
+.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}
+.lx-chip.dk{border-color:rgba(13,13,13,.2);color:var(--lx-tx);background:rgba(13,13,13,.05)}
+.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-chip.sbk{background:var(--lx-black);color:var(--lx-offwhite);border-color:transparent}
+.lx-chip.scy{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.lx-pw{margin-bottom:10px}
+.lx-ph{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.lx-pk2{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-pv{font-family:'Bebas Neue',serif;font-size:16px;color:var(--lx-pink)}
+.lx-pt{height:5px;background:rgba(0,0,0,.06);border-radius:var(--r-p);overflow:hidden}
+.lx-pf{height:100%;border-radius:var(--r-p);background:var(--lx-pink);transition:width 1s var(--spring)}
+.lx-pf.cy{background:var(--lx-cyan)}.lx-pf.or{background:var(--lx-orange)}.lx-pf.pu{background:var(--lx-purple)}
+.lx-pf.bl{background:var(--lx-blue)}.lx-pf.gn{background:#00c853}.lx-pf.yw{background:var(--lx-yellow)}
+.lx-pt.tk{height:10px;border-radius:var(--r-xs)}
+.lx-pf.st{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.15) 0,rgba(255,255,255,.15) 6px,transparent 6px,transparent 12px)}
+.lx-dw{position:relative;width:96px;height:96px;margin:0 auto}
+.lx-dw svg{transform:rotate(-90deg);display:block}
+.lx-dtrk{fill:none;stroke:rgba(0,0,0,.06);stroke-width:9}
+.lx-dfl{fill:none;stroke-width:9;stroke-linecap:round;stroke-dasharray:0 270;transition:stroke-dasharray 1s var(--spring)}
+.lx-dlbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;line-height:1}
+.lx-dsl{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);letter-spacing:.1em}
+.lx-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:9px 20px;border-radius:var(--r-sm);border:none;cursor:pointer;transition:all .18s var(--ease);white-space:nowrap}
+.lx-btn:hover{transform:translateY(-1px);box-shadow:var(--sh-md)}
+.lx-btn:active{transform:translateY(0)}
+.lx-btn.pri{background:var(--lx-pink);color:#fff}
+.lx-btn.sec{background:var(--lx-black);color:var(--lx-offwhite)}
+.lx-btn.out{background:transparent;color:var(--lx-tx);border:1.5px solid var(--lx-bdr2)}
+.lx-btn.yw{background:var(--lx-yellow);color:var(--lx-black)}
+.lx-btn.gh{background:rgba(0,0,0,.04);color:var(--lx-tx)}
+.lx-btn.sm{padding:6px 14px;font-size:11px}.lx-btn.lg{padding:12px 28px;font-size:16px}
+.lx-al{border-radius:var(--r-sm);padding:14px 16px;border-left:4px solid;display:flex;gap:12px;align-items:flex-start}
+.lx-al.inf{background:rgba(0,212,255,.06);border-left-color:var(--lx-cyan)}
+.lx-al.wrn{background:rgba(255,102,0,.07);border-left-color:var(--lx-orange)}
+.lx-al.dng{background:rgba(255,45,125,.07);border-left-color:var(--lx-pink)}
+.lx-al.suc{background:rgba(0,200,83,.07);border-left-color:#00c853}
+.lx-at{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.lx-ab{font-size:11px;color:var(--lx-txm);line-height:1.55}
+.lx-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lx-pink);flex-shrink:0}
+.lx-dot.pulse{animation:lxP 1.5s ease-in-out infinite}
+.lx-dot.gn{background:#00c853}.lx-dot.yw{background:var(--lx-yellow)}
+.lx-dot.cy{background:var(--lx-cyan)}.lx-dot.or{background:var(--lx-orange)}
+@keyframes lxP{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+.lx-div{height:1px;background:var(--lx-bdr);margin:16px 0}
+.lx-div.tk{height:2px;background:var(--lx-tx)}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-ticker{background:var(--lx-yellow);overflow:hidden;padding:10px 0;border-top:2px solid var(--lx-black);border-bottom:2px solid var(--lx-black)}
+.lx-ti{display:flex;width:max-content;animation:lxTk 30s linear infinite}
+.lx-tit{white-space:nowrap;padding:0 32px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:900;color:var(--lx-black);letter-spacing:2px;text-transform:uppercase}
+.lx-ts{color:var(--lx-pink);margin:0 4px}
+@keyframes lxTk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.lx-disc{border:1px solid var(--lx-bdr);border-radius:var(--r-sm);overflow:hidden;margin-bottom:8px}
+.lx-dh{display:flex;justify-content:space-between;align-items:center;padding:11px 14px;cursor:pointer;background:var(--lx-card);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;transition:background .18s}
+.lx-dh:hover{background:var(--lx-cream)}
+.lx-db2{display:none;padding:12px 14px;background:var(--lx-cream);font-size:12px;color:var(--lx-txm);line-height:1.6;border-top:1px solid var(--lx-bdr)}
+.lx-disc.open .lx-db2{display:block}
+.lx-dc{font-size:10px;transition:transform .18s}
+.lx-disc.open .lx-dc{transform:rotate(180deg)}
+.lx-ir{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:12px}
+.lx-ir:last-child{border-bottom:none}
+.lx-ik{color:var(--lx-txm);font-size:11px}
+.lx-iv{font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-pink);line-height:1}
+.lx-iv.n{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--lx-tx)}
+.lx-dbox{background:var(--lx-black);color:var(--lx-offwhite);border-radius:var(--r-md);padding:20px}
+.lx-dbox .lx-dtitle{font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-yellow);margin-bottom:12px}
+.lx-dbox .lx-ik{color:rgba(245,240,232,.5)}
+.lx-dbox .lx-ir{border-bottom-color:rgba(255,255,255,.07)}
+.lx-krow{display:flex;gap:10px;flex-wrap:wrap}
+.lx-k{flex:1;min-width:80px;background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-sm);padding:12px 14px}
+.lx-kv{font-family:'Bebas Neue',serif;font-size:28px;line-height:1}
+.lx-kl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lx-txl);margin-top:2px}
+.lx-tabs{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:4px;display:inline-flex;gap:2px;flex-wrap:wrap}
+.lx-tab{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em;padding:7px 16px;border:none;background:transparent;color:var(--lx-txm);border-radius:var(--r-sm);cursor:pointer;white-space:nowrap;transition:all .18s var(--ease);display:flex;align-items:center;gap:6px}
+.lx-tab:hover{color:var(--lx-tx);background:rgba(0,0,0,.04)}
+.lx-tab.active{background:var(--lx-card);color:var(--lx-tx);box-shadow:var(--sh-sm)}
+.lx-tabs.pk .lx-tab.active{color:var(--lx-pink)}
+.lx-tabs.cy .lx-tab.active{color:var(--lx-cyan)}
+.lx-tabs.yw .lx-tab.active{background:var(--lx-yellow);color:var(--lx-black)}
+.lx-tabs.ul{background:transparent;border:none;border-radius:0;padding:0;border-bottom:2px solid var(--lx-bdr);width:100%}
+.lx-tabs.ul .lx-tab{border-radius:0;padding:9px 16px 10px;position:relative;background:transparent;box-shadow:none}
+.lx-tabs.ul .lx-tab::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--lx-pink);transform:scaleX(0);transition:transform .28s var(--spring)}
+.lx-tabs.ul .lx-tab.active::after{transform:scaleX(1)}
+.lx-tpanels{margin-top:12px}
+.lx-tpanel{display:none;animation:lxFI .2s var(--ease)}
+.lx-tpanel.active{display:block}
+@keyframes lxFI{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.lx-rev.vis{opacity:1;transform:translateY(0)}
+.fx{display:flex}.fxc{display:flex;align-items:center;justify-content:center}.fxb{display:flex;align-items:center;justify-content:space-between}
+.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.g6{gap:24px}
+.mb2{margin-bottom:8px}.mb3{margin-bottom:12px}.mb4{margin-bottom:16px}
+.mt2{margin-top:8px}.mt4{margin-top:16px}
+.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}
+.cor{color:var(--lx-orange)}.cpu{color:var(--lx-purple)}.cbl{color:var(--lx-blue)}
+.cm{color:var(--lx-txm)}.cl{color:var(--lx-txl)}.bld{font-weight:700}
+@media(max-width:900px){
+  .lx-bento{grid-template-columns:repeat(6,1fr)}
+  .lx-s3,.lx-s4,.lx-s5,.lx-s6,.lx-s7,.lx-s8,.lx-s9,.lx-s10,.lx-s11,.lx-s12{grid-column:span 6}
+}
+@media(max-width:600px){
+  .lx-bento{grid-template-columns:1fr;gap:8px;padding:8px}
+  [class*="lx-s"]{grid-column:span 1}
+  .lx-topbar{margin:0 4px}
+  .lx-krow{flex-direction:column}
+}
+
+/* ══════════════════════════════════════════════════════════════
+   PATTERN LIBRARY CUSTOM EXTENSIONS
+   Inspired by the LIMITLESS stacked mirrored wordmark + ∞
+   ══════════════════════════════════════════════════════════════ */
+
+/* Group Header — mirrors the stacked LIMITLESS wordmark treatment */
+.pl-group-header{
+  background:var(--lx-black);
+  padding:40px 28px 32px;
+  margin:0 10px 0;
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--r-xl) var(--r-xl) 0 0;
+}
+.pl-group-header::before{
+  content:attr(data-mirror);
+  font-family:'Bebas Neue',serif;
+  font-size:clamp(48px,8vw,90px);
+  line-height:.88;
+  color:rgba(255,255,255,.03);
+  position:absolute;
+  bottom:-8px;
+  left:28px;
+  letter-spacing:.02em;
+  user-select:none;
+  pointer-events:none;
+}
+.pl-group-num{
+  font-family:'JetBrains Mono',monospace;
+  font-size:9px;
+  font-weight:700;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--lx-pink);
+  margin-bottom:6px;
+}
+.pl-group-title{
+  font-family:'Bebas Neue',serif;
+  font-size:clamp(36px,6vw,64px);
+  line-height:.92;
+  color:var(--lx-offwhite);
+  letter-spacing:.02em;
+  margin-bottom:8px;
+}
+.pl-group-desc{
+  font-family:'Barlow',sans-serif;
+  font-size:12px;
+  color:var(--lx-offwhite);
+  opacity:.6;
+  max-width:600px;
+  line-height:1.5;
+}
+.pl-infinity{
+  position:absolute;
+  right:28px;
+  top:50%;
+  transform:translateY(-50%);
+  opacity:.06;
+}
+
+/* Pattern Card — individual chart type entry */
+.pl-entry{
+  background:var(--lx-card);
+  border:1px solid var(--lx-bdr);
+  border-radius:var(--r-md);
+  padding:0;
+  overflow:hidden;
+  transition:transform .28s var(--ease),box-shadow .28s var(--ease);
+}
+.pl-entry:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.pl-entry-viz{
+  background:var(--lx-cream);
+  border:1px solid var(--lx-bdr);
+  padding:20px;
+  min-height:140px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--r-md) var(--r-md) 0 0;
+}
+.pl-entry-viz::after{
+  content:'∞';
+  font-family:'Bebas Neue',serif;
+  font-size:60px;
+  color:rgba(0,0,0,.04);
+  position:absolute;
+  right:8px;
+  bottom:-10px;
+}
+.pl-entry-body{padding:16px}
+.pl-entry-name{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:14px;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  margin-bottom:4px;
+}
+.pl-entry-meta{
+  font-family:'JetBrains Mono',monospace;
+  font-size:8px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--lx-txl);
+  margin-bottom:8px;
+}
+.pl-entry-desc{
+  font-size:11px;
+  color:var(--lx-txm);
+  line-height:1.5;
+  margin-bottom:8px;
+}
+.pl-use-cases{
+  display:flex;
+  flex-wrap:wrap;
+  gap:4px;
+}
+
+/* Subcategory strip */
+.pl-subcat{
+  background:var(--lx-cream);
+  border:1px solid var(--lx-bdr);
+  border-radius:var(--r-sm);
+  padding:12px 16px;
+  margin-bottom:10px;
+}
+.pl-subcat-title{
+  font-family:'Barlow Condensed',sans-serif;
+  font-weight:900;
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  color:var(--lx-pink);
+  margin-bottom:6px;
+}
+.pl-subcat-list{
+  font-size:11px;
+  color:var(--lx-txm);
+  line-height:1.7;
+}
+
+/* Viz grid for pattern entries */
+.pl-viz-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+  gap:12px;
+  padding:0 10px 10px;
+}
+
+/* Group body wrapper */
+.pl-group-body{
+  background:var(--lx-cream);
+  margin:0 10px;
+  padding:16px;
+  border:1px solid var(--lx-bdr);
+  border-top:none;
+  border-radius:0 0 var(--r-xl) var(--r-xl);
+  margin-bottom:24px;
+}
+
+/* Suite separator */
+.pl-suite-break{
+  text-align:center;
+  padding:40px 20px;
+}
+
+/* Mini SVG chart helpers */
+.mini-bar{fill:var(--lx-pink);rx:2}
+.mini-bar.y{fill:var(--lx-yellow)}
+.mini-bar.c{fill:var(--lx-cyan)}
+.mini-bar.o{fill:var(--lx-orange)}
+.mini-bar.p{fill:var(--lx-purple)}
+.mini-bar.b{fill:var(--lx-blue)}
+.mini-line{fill:none;stroke:var(--lx-pink);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.mini-line.y{stroke:var(--lx-yellow)}
+.mini-line.c{stroke:var(--lx-cyan)}
+.mini-area{fill:rgba(255,45,125,.15);stroke:var(--lx-pink);stroke-width:1.5}
+.mini-dot{fill:var(--lx-pink)}
+.mini-dot.y{fill:var(--lx-yellow)}
+.mini-dot.c{fill:var(--lx-cyan)}
+.mini-grid{stroke:rgba(0,0,0,.06);stroke-width:.5}
+.mini-axis{stroke:rgba(0,0,0,.12);stroke-width:1}
+.mini-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)}
+
+/* Styling directions card */
+.pl-style-card{
+  background:var(--lx-black);
+  border-radius:var(--r-sm);
+  padding:12px 14px;
+  margin-top:8px;
+}
+.pl-style-label{
+  font-family:'JetBrains Mono',monospace;
+  font-size:7px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--lx-yellow);
+  margin-bottom:4px;
+}
+.pl-style-text{
+  font-size:10px;
+  color:var(--lx-offwhite);
+  opacity:.75;
+  line-height:1.5;
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════
+     TOPBAR
+     ═══════════════════════════════════════════════ -->
+<div class="lx-topbar">
+  <div class="fx g3" style="align-items:center">
+    <span class="lx-tlogo">LIMIT<span>LESS</span></span>
+    <span class="lx-tmeta">2026 UI Visual Data Pattern Library</span>
+  </div>
+  <div class="fx g2" style="align-items:center">
+    <span class="lx-tbadge">Suite 1</span>
+    <span class="lx-tbadge pink">Groups 01–06</span>
+    <span class="lx-tmeta">24 Groups · 4 Suites</span>
+  </div>
+</div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+
+<!-- Suite Title -->
+<div style="text-align:center;padding:32px 20px 8px">
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">LIMITLESS SUPPORT CO. · PATTERN LIBRARY</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;letter-spacing:.02em;color:var(--lx-black)">SUITE ONE</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">GROUPS 01 — 06</div>
+  <div class="lx-bsm cm" style="max-width:560px;margin:12px auto 0">The foundational data presentation patterns — from single-value KPIs through to multi-variable correlation and distribution analysis. Every pattern documented for 2026 UI.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 01 — TEXT-FIRST & NUMERIC PRESENTATION
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="NUMERIC">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 01 · Suite 1</div>
+  <div class="pl-group-title">Text-First &<br>Numeric Presentation</div>
+  <div class="pl-group-desc">Visual data presentations that centre on numbers, text, and tabular formats — still the backbone of every operational dashboard and SaaS product in 2026.</div>
+</div>
+<div class="pl-group-body lx-rev">
+
+  <!-- Subcategory: Single-Value Displays -->
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">Single-Value Displays</div>
+    <div class="pl-subcat-list">KPI card · stat card · metric tile · big number · delta card · progress number · benchmark card · target vs actual card · variance card · sparkline card · bullet KPI card · mini trend tile</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- KPI Card -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="text-align:center">
+          <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">ACTIVE PARTICIPANTS</div>
+          <div style="font-family:'Bebas Neue',serif;font-size:64px;color:var(--lx-tx);line-height:.9">847</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink);margin-top:4px">▲ +12.4% FROM LAST PERIOD</div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">KPI Card / Stat Card / Big Number</div>
+        <div class="pl-entry-meta">Best for → Single headline metrics</div>
+        <div class="pl-entry-desc">The workhorse of every dashboard. Displays one primary metric with optional delta, trend indicator, or sparkline. In 2026, these trend toward oversized Bebas Neue numerics on dark backgrounds with neon accent deltas.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Condensed display type at 52–80px · Monospace micro-labels · Neon delta chips · Dark card variant with embossed feel · Hover scale on stat number · Ghost watermark typography behind</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">SaaS MRR</span>
+          <span class="lx-chip cy">Ops Dashboard</span>
+          <span class="lx-chip yw">NDIS Budget</span>
+          <span class="lx-chip pu">Health KPIs</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Delta Card -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="text-align:center;width:100%">
+          <div class="lx-eye" style="color:rgba(13,13,13,.4);margin-bottom:4px">PLAN UTILIZATION</div>
+          <div class="fx g4" style="justify-content:center;align-items:baseline">
+            <div style="font-family:'Bebas Neue',serif;font-size:48px;color:var(--lx-pink);line-height:1">73%</div>
+            <div style="font-family:'Bebas Neue',serif;font-size:24px;color:rgba(0,0,0,.15)">→</div>
+            <div style="font-family:'Bebas Neue',serif;font-size:48px;color:var(--lx-yellow);line-height:1;-webkit-text-stroke:1px var(--lx-black);paint-order:stroke fill">89%</div>
+          </div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-cyan);margin-top:4px">+16PP DELTA · Q3 → Q4</div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Delta Card / Variance Card</div>
+        <div class="pl-entry-meta">Best for → Before/after comparisons · Period-over-period change</div>
+        <div class="pl-entry-desc">Shows the difference between two values with directional emphasis. The comparison layout uses dual numerics with an arrow or connector, styled with contrasting accent colours to instantly communicate direction of change.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Side-by-side Bebas numerics with arrow connector · Pink = previous, Yellow = current · Monospace delta annotation below · Condensed uppercase labels</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Budget Tracking</span>
+          <span class="lx-chip cy">A/B Testing</span>
+          <span class="lx-chip or">Quarter Reviews</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sparkline Card -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="width:100%">
+          <div class="fx" style="justify-content:space-between;align-items:baseline;margin-bottom:8px">
+            <div class="lx-eye" style="color:rgba(13,13,13,.4)">WEEKLY SESSIONS</div>
+            <div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-tx)">2,847</div>
+          </div>
+          <svg width="100%" height="40" viewBox="0 0 200 40" preserveAspectRatio="none">
+            <polyline points="0,35 20,28 40,30 60,18 80,22 100,12 120,15 140,8 160,10 180,5 200,3" class="mini-line" style="stroke:var(--lx-pink)"/>
+            <polyline points="0,35 20,28 40,30 60,18 80,22 100,12 120,15 140,8 160,10 180,5 200,3" fill="none" stroke="url(#sparkGrad)" stroke-width="0"/>
+            <polygon points="0,40 0,35 20,28 40,30 60,18 80,22 100,12 120,15 140,8 160,10 180,5 200,3 200,40" fill="rgba(255,45,125,.1)"/>
+          </svg>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Sparkline Card / Mini Trend Tile</div>
+        <div class="pl-entry-meta">Best for → Trend at a glance · Compact monitoring</div>
+        <div class="pl-entry-desc">Embeds a miniature line or area chart within a KPI card to show recent trajectory without axis clutter. Critical for dashboards where space is at a premium but trend direction matters.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Thin 2px stroke sparkline · Subtle area fill at 10% opacity · No axes or labels on the chart itself · Stat number anchored top-right · Responsive SVG preserveAspectRatio="none"</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Product Analytics</span>
+          <span class="lx-chip bl">Server Monitoring</span>
+          <span class="lx-chip yw">Revenue Tiles</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benchmark / Target vs Actual -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="width:100%">
+          <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:10px">SC HOURS — TARGET VS ACTUAL</div>
+          <div style="position:relative;height:16px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden">
+            <div style="height:100%;width:68%;background:var(--lx-pink);border-radius:999px;position:relative">
+              <div style="position:absolute;right:-1px;top:-3px;bottom:-3px;width:3px;background:var(--lx-yellow);border-radius:999px;box-shadow:1px 0 0 var(--lx-black)"></div>
+            </div>
+            <div style="position:absolute;left:85%;top:-4px;bottom:-4px;width:2px;background:var(--lx-cyan)"></div>
+          </div>
+          <div class="fx" style="justify-content:space-between;margin-top:6px">
+            <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-pink)">ACTUAL: 68H</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-cyan)">TARGET: 85H</span>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Bullet KPI / Target vs Actual / Benchmark Card</div>
+        <div class="pl-entry-meta">Best for → Performance against targets · Goal tracking</div>
+        <div class="pl-entry-desc">Encodes actual value as a filled bar with target as a reference marker. The bullet chart variant compresses comparison, target, and qualitative ranges into one compact horizontal bar — ideal for dense operational views.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Pill-shaped progress track · Pink fill for actual · Cyan target marker line · Yellow threshold markers · Dark background with subtle qualitative zones</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">SC Caseload</span>
+          <span class="lx-chip cy">Sales Targets</span>
+          <span class="lx-chip or">SLA Compliance</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subcategory: Tabular Displays -->
+  <div class="pl-subcat" style="margin-top:16px">
+    <div class="pl-subcat-title">Tabular Displays</div>
+    <div class="pl-subcat-list">Plain data table · sortable table · filterable table · grouped table · pivot table · cross-tab · matrix table · comparison table · summary table · expandable hierarchy table · tree table · sticky-column table · frozen-header table · embedded-chart table · heatmapped table · ranked table · audit log table · ledger table · schedule table · calendar table · scorecard table</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Data Table -->
+    <div class="pl-entry" style="grid-column:span 2">
+      <div class="pl-entry-viz" style="padding:12px">
+        <table style="width:100%;border-collapse:separate;border-spacing:0;font-size:10px;color:var(--lx-tx);overflow:hidden;border-radius:10px">
+          <thead>
+            <tr style="background:var(--lx-pink);border-radius:10px">
+              <th style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-align:left;border-radius:10px 0 0 0">Participant</th>
+              <th style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-align:right">Hours</th>
+              <th style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-align:right">Budget</th>
+              <th style="padding:8px 10px;font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-align:center;border-radius:0 10px 0 0">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06)">Kane Cameron</td><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06);text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px">24.5</td><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06);text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink)">$2,450</td><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06);text-align:center"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lx-pink)"></span></td></tr>
+            <tr><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06)">Jema Cameron</td><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06);text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px">18.0</td><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06);text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-cyan)">$1,800</td><td style="padding:6px 10px;border-bottom:1px solid rgba(0,0,0,.06);text-align:center"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lx-cyan)"></span></td></tr>
+            <tr><td style="padding:6px 10px">Leonard Peris</td><td style="padding:6px 10px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px">31.2</td><td style="padding:6px 10px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-orange)">$3,120</td><td style="padding:6px 10px;text-align:center"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--lx-yellow);border:1px solid rgba(0,0,0,.15)"></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Data Table Family</div>
+        <div class="pl-entry-meta">Covers → Plain · sortable · filterable · grouped · pivot · cross-tab · matrix · comparison · summary · hierarchy · tree · sticky-column · frozen-header · embedded-chart · heatmapped · ranked · audit log · ledger · schedule · calendar · scorecard</div>
+        <div class="pl-entry-desc">The most versatile and enduring data presentation. In 2026, tables trend toward dark-surface rendering with monospace value columns, coloured status dots, and inline micro-charts. The LIMITLESS treatment uses JetBrains Mono for all numeric cells, Barlow for text columns, and neon accents for key values.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">Dark background tables with subtle row dividers · JetBrains Mono right-aligned numerics · Yellow column headers · Pink/Cyan/Yellow value-based colouring · Inline status dots · Hover row highlight at 1.5% opacity · Embedded sparklines in cells · Sticky headers on scroll</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS CRM</span>
+          <span class="lx-chip cy">Admin Panels</span>
+          <span class="lx-chip yw">BI Dashboards</span>
+          <span class="lx-chip pu">Audit Views</span>
+          <span class="lx-chip bl">Ledgers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subcategory: Text-Visual Hybrids -->
+  <div class="pl-subcat" style="margin-top:16px">
+    <div class="pl-subcat-title">Text-Visual Hybrids</div>
+    <div class="pl-subcat-list">Leaderboard · ranked list · top-N list · activity feed · timeline list · annotated list · icon list with values · progress list · checklist with metrics · status board · scorecard grid · benchmark strip · narrative insights panel · natural-language summary with inline chips</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Leaderboard -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="width:100%">
+          <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:10px">TOP PROVIDERS BY HOURS</div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span style="font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-pink);width:28px">01</span>
+            <span style="font-size:12px;color:var(--lx-tx);flex:1;font-weight:600">Accessible Futures</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-yellow);background:var(--lx-pink);padding:3px 10px;border-radius:999px;font-weight:700">342h</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+            <span style="font-family:'Bebas Neue',serif;font-size:22px;color:rgba(0,0,0,.2);width:28px">02</span>
+            <span style="font-size:12px;color:var(--lx-txm);flex:1">IDS Victoria</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-cyan);background:var(--lx-yellow);padding:3px 10px;border-radius:999px;font-weight:700">287h</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px">
+            <span style="font-family:'Bebas Neue',serif;font-size:22px;color:rgba(0,0,0,.12);width:28px">03</span>
+            <span style="font-size:12px;color:var(--lx-txl);flex:1">Merri Health</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-orange);background:var(--lx-cyan);padding:3px 10px;border-radius:999px;font-weight:700">195h</span>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Leaderboard / Ranked List / Top-N</div>
+        <div class="pl-entry-meta">Best for → Rankings · Competitive comparison · Quick scanning</div>
+        <div class="pl-entry-desc">Ordered lists with rank indicators, progressive emphasis fading from position 1 downward. The LIMITLESS approach uses Bebas Neue rank numbers with diminishing opacity, creating a natural visual hierarchy.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Provider Rankings</span>
+          <span class="lx-chip cy">User Engagement</span>
+          <span class="lx-chip yw">Sales Leaderboards</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Activity Feed -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="width:100%">
+          <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:10px">ACTIVITY FEED</div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--lx-pink);margin-top:4px;flex-shrink:0"></div>
+            <div>
+              <div style="font-size:10px;color:var(--lx-tx)">Plan review submitted</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5)">2 MINS AGO</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--lx-cyan);margin-top:4px;flex-shrink:0"></div>
+            <div>
+              <div style="font-size:10px;color:rgba(13,13,13,.7)">Service agreement signed</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5)">1 HOUR AGO</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start">
+            <div style="width:6px;height:6px;border-radius:50%;background:var(--lx-yellow);margin-top:4px;flex-shrink:0"></div>
+            <div>
+              <div style="font-size:10px;color:rgba(13,13,13,.5)">Budget alert triggered</div>
+              <div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5)">3 HOURS AGO</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Activity Feed / Timeline List / Status Board</div>
+        <div class="pl-entry-meta">Best for → Real-time updates · Event logs · Notifications</div>
+        <div class="pl-entry-desc">Chronological event streams with colour-coded status dots and progressive opacity for recency. Covers activity feeds, timeline lists, annotated lists, checklist with metrics, and narrative insights panels.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">CRM Activity</span>
+          <span class="lx-chip bl">Audit Trails</span>
+          <span class="lx-chip or">Incident Feeds</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 02 — COMPARISON CHARTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="COMPARE">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 02 · Suite 1</div>
+  <div class="pl-group-title">Comparison<br>Charts</div>
+  <div class="pl-group-desc">Used to compare categories, rankings, differences, or magnitudes across datasets.</div>
+</div>
+<div class="pl-group-body lx-rev">
+
+  <!-- Subcategory: Bar Family -->
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">Bar Family</div>
+    <div class="pl-subcat-list">Vertical bar / column chart · horizontal bar · grouped bar · clustered bar · stacked bar · 100% stacked bar · diverging bar · floating bar · overlapping bar · lollipop chart · dumbbell chart · dot bar hybrid · bullet chart · bar-in-bar · bar with target marker · bar with confidence interval · bar with error bars · waterfall chart · bridge chart · Mekko / Marimekko · mosaic plot · population pyramid · tornado chart · Pareto chart · bump bar hybrid · race bar chart · radial bar · circular bar · segmented bar · progress bar · stacked progress bar · usage bar · Gantt-style category bar</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Vertical Bar -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="0" y1="118" x2="220" y2="118" class="mini-axis"/>
+          <rect x="10" y="60" width="22" height="58" class="mini-bar" rx="3"/>
+          <rect x="40" y="30" width="22" height="88" class="mini-bar y" rx="3"/>
+          <rect x="70" y="45" width="22" height="73" class="mini-bar c" rx="3"/>
+          <rect x="100" y="15" width="22" height="103" class="mini-bar" rx="3"/>
+          <rect x="130" y="50" width="22" height="68" class="mini-bar o" rx="3"/>
+          <rect x="160" y="70" width="22" height="48" class="mini-bar p" rx="3"/>
+          <rect x="190" y="25" width="22" height="93" class="mini-bar y" rx="3"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Vertical Bar / Column Chart</div>
+        <div class="pl-entry-meta">Best for → Categorical comparison · Discrete values</div>
+        <div class="pl-entry-desc">The foundational comparison chart. Covers vertical bar, grouped bar, clustered bar, and column chart variants. Each bar uses the LIMITLESS neon palette cycling through pink, yellow, cyan, orange, and purple for distinct category encoding.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">3px border-radius on bars · Neon palette rotation · Dark plot area · Minimal gridlines at 6% opacity · No chart chrome — bars speak directly · Hover tooltip with monospace values</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Revenue by Product</span>
+          <span class="lx-chip cy">Support Hours</span>
+          <span class="lx-chip yw">Category Spend</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horizontal Bar -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <rect x="0" y="5" width="180" height="14" class="mini-bar" rx="3"/>
+          <rect x="0" y="25" width="140" height="14" class="mini-bar y" rx="3"/>
+          <rect x="0" y="45" width="200" height="14" class="mini-bar c" rx="3"/>
+          <rect x="0" y="65" width="100" height="14" class="mini-bar o" rx="3"/>
+          <rect x="0" y="85" width="160" height="14" class="mini-bar p" rx="3"/>
+          <rect x="0" y="105" width="80" height="14" class="mini-bar b" rx="3"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Horizontal Bar Chart</div>
+        <div class="pl-entry-meta">Best for → Long category labels · Ranked comparisons</div>
+        <div class="pl-entry-desc">When category names are long or when showing ranked data, horizontal bars outperform vertical. Also covers progress bar, usage bar, and stacked progress bar as they share the same visual grammar.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Provider Rankings</span>
+          <span class="lx-chip bl">Feature Usage</span>
+          <span class="lx-chip yw">Survey Results</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stacked Bar -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="0" y1="118" x2="220" y2="118" class="mini-axis"/>
+          <g>
+            <rect x="15" y="70" width="30" height="48" fill="var(--lx-pink)" rx="0"/>
+            <rect x="15" y="40" width="30" height="30" fill="var(--lx-cyan)" rx="0"/>
+            <rect x="15" y="18" width="30" height="22" fill="var(--lx-yellow)" rx="3" ry="3"/>
+          </g>
+          <g>
+            <rect x="55" y="50" width="30" height="68" fill="var(--lx-pink)" rx="0"/>
+            <rect x="55" y="25" width="30" height="25" fill="var(--lx-cyan)" rx="0"/>
+            <rect x="55" y="8" width="30" height="17" fill="var(--lx-yellow)" rx="3" ry="3"/>
+          </g>
+          <g>
+            <rect x="95" y="60" width="30" height="58" fill="var(--lx-pink)" rx="0"/>
+            <rect x="95" y="35" width="30" height="25" fill="var(--lx-cyan)" rx="0"/>
+            <rect x="95" y="10" width="30" height="25" fill="var(--lx-yellow)" rx="3" ry="3"/>
+          </g>
+          <g>
+            <rect x="135" y="45" width="30" height="73" fill="var(--lx-pink)" rx="0"/>
+            <rect x="135" y="20" width="30" height="25" fill="var(--lx-cyan)" rx="0"/>
+            <rect x="135" y="5" width="30" height="15" fill="var(--lx-yellow)" rx="3" ry="3"/>
+          </g>
+          <g>
+            <rect x="175" y="55" width="30" height="63" fill="var(--lx-pink)" rx="0"/>
+            <rect x="175" y="30" width="30" height="25" fill="var(--lx-cyan)" rx="0"/>
+            <rect x="175" y="12" width="30" height="18" fill="var(--lx-yellow)" rx="3" ry="3"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Stacked / Grouped / 100% Stacked Bar</div>
+        <div class="pl-entry-meta">Best for → Composition + comparison · Part-to-whole across categories</div>
+        <div class="pl-entry-desc">Layers segments within bars to show composition. Covers stacked bar, 100% stacked bar, grouped bar, overlapping bar, and segmented bar. Only the topmost segment receives border-radius for a clean stack appearance.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Budget Breakdown</span>
+          <span class="lx-chip cy">Service Mix</span>
+          <span class="lx-chip or">Workforce Allocation</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Lollipop / Dumbbell -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="0" y1="118" x2="220" y2="118" class="mini-axis"/>
+          <line x1="25" y1="118" x2="25" y2="35" stroke="var(--lx-pink)" stroke-width="2"/>
+          <circle cx="25" cy="35" r="5" fill="var(--lx-pink)"/>
+          <line x1="65" y1="118" x2="65" y2="20" stroke="var(--lx-yellow)" stroke-width="2"/>
+          <circle cx="65" cy="20" r="5" fill="var(--lx-yellow)"/>
+          <line x1="105" y1="118" x2="105" y2="55" stroke="var(--lx-cyan)" stroke-width="2"/>
+          <circle cx="105" cy="55" r="5" fill="var(--lx-cyan)"/>
+          <line x1="145" y1="118" x2="145" y2="15" stroke="var(--lx-pink)" stroke-width="2"/>
+          <circle cx="145" cy="15" r="5" fill="var(--lx-pink)"/>
+          <line x1="185" y1="118" x2="185" y2="45" stroke="var(--lx-orange)" stroke-width="2"/>
+          <circle cx="185" cy="45" r="5" fill="var(--lx-orange)"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Lollipop / Dumbbell / Dot Bar Hybrid</div>
+        <div class="pl-entry-meta">Best for → Cleaner bar alternatives · Range comparisons · Before/after</div>
+        <div class="pl-entry-desc">Replaces thick bars with thin stems and terminal dots for a lighter visual weight. The dumbbell variant shows two endpoints connected by a line for range or change comparisons. Covers lollipop, dumbbell, connected dot plot, and dot bar hybrid.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Year-over-Year</span>
+          <span class="lx-chip cy">Benchmark Gaps</span>
+          <span class="lx-chip pu">Performance Ranges</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Waterfall -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="0" y1="100" x2="220" y2="100" class="mini-axis"/>
+          <rect x="10" y="20" width="20" height="80" fill="var(--lx-cyan)" rx="2"/>
+          <rect x="40" y="20" width="20" height="25" fill="var(--lx-pink)" rx="2"/>
+          <line x1="30" y1="20" x2="40" y2="20" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <rect x="70" y="45" width="20" height="15" fill="var(--lx-pink)" rx="2"/>
+          <line x1="60" y1="45" x2="70" y2="45" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <rect x="100" y="30" width="20" height="30" fill="var(--lx-yellow)" rx="2"/>
+          <line x1="90" y1="60" x2="100" y2="60" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <rect x="130" y="30" width="20" height="10" fill="var(--lx-pink)" rx="2"/>
+          <line x1="120" y1="30" x2="130" y2="30" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <rect x="160" y="25" width="20" height="15" fill="var(--lx-yellow)" rx="2"/>
+          <line x1="150" y1="40" x2="160" y2="40" stroke="rgba(0,0,0,.1)" stroke-width="1" stroke-dasharray="2"/>
+          <rect x="190" y="25" width="20" height="75" fill="var(--lx-cyan)" rx="2"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Waterfall / Bridge / Pareto</div>
+        <div class="pl-entry-meta">Best for → Cumulative contribution · P&L breakdown · Sequential changes</div>
+        <div class="pl-entry-desc">Shows how sequential positive and negative values contribute to a total. Cyan for totals, yellow for increases, pink for decreases. Covers waterfall, bridge chart, and Pareto chart. Dashed connectors link floating segments.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Financial P&L</span>
+          <span class="lx-chip cy">Revenue Bridges</span>
+          <span class="lx-chip yw">Cost Drivers</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tornado / Population Pyramid -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="110" y1="0" x2="110" y2="120" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <rect x="30" y="8" width="80" height="12" fill="var(--lx-pink)" rx="2"/>
+          <rect x="110" y="8" width="70" height="12" fill="var(--lx-cyan)" rx="2"/>
+          <rect x="45" y="28" width="65" height="12" fill="var(--lx-pink)" rx="2"/>
+          <rect x="110" y="28" width="85" height="12" fill="var(--lx-cyan)" rx="2"/>
+          <rect x="55" y="48" width="55" height="12" fill="var(--lx-pink)" rx="2"/>
+          <rect x="110" y="48" width="60" height="12" fill="var(--lx-cyan)" rx="2"/>
+          <rect x="40" y="68" width="70" height="12" fill="var(--lx-pink)" rx="2"/>
+          <rect x="110" y="68" width="50" height="12" fill="var(--lx-cyan)" rx="2"/>
+          <rect x="60" y="88" width="50" height="12" fill="var(--lx-pink)" rx="2"/>
+          <rect x="110" y="88" width="40" height="12" fill="var(--lx-cyan)" rx="2"/>
+          <rect x="70" y="108" width="40" height="10" fill="var(--lx-pink)" rx="2"/>
+          <rect x="110" y="108" width="30" height="10" fill="var(--lx-cyan)" rx="2"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Tornado / Population Pyramid / Diverging Bar</div>
+        <div class="pl-entry-meta">Best for → Two-sided comparison · Demographic splits · Sensitivity analysis</div>
+        <div class="pl-entry-desc">Mirror-image horizontal bars extending from a central axis, comparing two populations or variables. Uses pink for one side and cyan for the other, creating a visually striking diverging pattern. Covers tornado chart, population pyramid, and diverging bar chart.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Demographics</span>
+          <span class="lx-chip cy">Survey Results</span>
+          <span class="lx-chip or">Risk Sensitivity</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Subcategory: Dot-Based Comparison -->
+  <div class="pl-subcat" style="margin-top:16px">
+    <div class="pl-subcat-title">Dot-Based Comparison</div>
+    <div class="pl-subcat-list">Cleveland dot plot · strip plot · beeswarm comparison · jittered dot chart · connected dot plot · slope chart · dumbbell chart · arrow chart · difference plot</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Slope Chart -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <text x="5" y="10" class="mini-label">2024</text>
+          <text x="195" y="10" class="mini-label">2025</text>
+          <line x1="30" y1="30" x2="190" y2="50" stroke="var(--lx-pink)" stroke-width="2"/>
+          <circle cx="30" cy="30" r="4" fill="var(--lx-pink)"/>
+          <circle cx="190" cy="50" r="4" fill="var(--lx-pink)"/>
+          <line x1="30" y1="60" x2="190" y2="25" stroke="var(--lx-yellow)" stroke-width="2"/>
+          <circle cx="30" cy="60" r="4" fill="var(--lx-yellow)"/>
+          <circle cx="190" cy="25" r="4" fill="var(--lx-yellow)"/>
+          <line x1="30" y1="90" x2="190" y2="80" stroke="var(--lx-cyan)" stroke-width="2"/>
+          <circle cx="30" cy="90" r="4" fill="var(--lx-cyan)"/>
+          <circle cx="190" cy="80" r="4" fill="var(--lx-cyan)"/>
+          <line x1="30" y1="105" x2="190" y2="95" stroke="var(--lx-orange)" stroke-width="2"/>
+          <circle cx="30" cy="105" r="4" fill="var(--lx-orange)"/>
+          <circle cx="190" cy="95" r="4" fill="var(--lx-orange)"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Slope Chart / Connected Dot Plot</div>
+        <div class="pl-entry-meta">Best for → Two-point change · Rank shifts · Before/after</div>
+        <div class="pl-entry-desc">Connects two time points with lines to show direction and magnitude of change. Rising lines indicate improvement, falling lines indicate decline. Uses the neon palette to encode different series. Also covers Cleveland dot plot, arrow chart, and difference plot.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Plan Outcomes</span>
+          <span class="lx-chip cy">Ranking Changes</span>
+          <span class="lx-chip yw">Market Share Shifts</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 03 — TREND & TIME-SERIES CHARTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="TRENDS">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 03 · Suite 1</div>
+  <div class="pl-group-title">Trend &<br>Time-Series</div>
+  <div class="pl-group-desc">Change over time, seasonality, volatility, monitoring, and forecasting. The essential temporal visualization family.</div>
+</div>
+<div class="pl-group-body lx-rev">
+
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">Line Family</div>
+    <div class="pl-subcat-list">Line chart · line graph · single-series line · multi-series line · smoothed line · stepped line · dashed comparison line · cumulative line · indexed line · normalized line · rolling-average line · forecast line · projection line · actual vs target line · line with markers · sparkline · spark area · banded sparkline · step-after / step-before line · bump chart · run chart · control chart</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Multi-Series Line -->
+    <div class="pl-entry" style="grid-column:span 2">
+      <div class="pl-entry-viz" style="min-height:160px">
+        <svg width="100%" height="140" viewBox="0 0 300 140">
+          <line x1="30" y1="130" x2="290" y2="130" class="mini-axis"/>
+          <line x1="30" y1="0" x2="30" y2="130" class="mini-axis"/>
+          <line x1="30" y1="32" x2="290" y2="32" class="mini-grid"/>
+          <line x1="30" y1="65" x2="290" y2="65" class="mini-grid"/>
+          <line x1="30" y1="97" x2="290" y2="97" class="mini-grid"/>
+          <!-- Series 1 — Orange (swapped from pink for legibility on light) -->
+          <polyline points="30,100 65,85 100,90 135,60 170,55 205,40 240,35 275,20" class="mini-line" style="stroke:var(--lx-orange)"/>
+          <circle cx="275" cy="20" r="4" fill="var(--lx-orange)"/>
+          <!-- Series 2 — Yellow -->
+          <polyline points="30,110 65,100 100,95 135,85 170,80 205,70 240,65 275,55" class="mini-line" style="stroke:var(--lx-yellow)"/>
+          <circle cx="275" cy="55" r="4" fill="var(--lx-yellow)"/>
+          <!-- Series 3 — Cyan -->
+          <polyline points="30,115 65,112 100,108 135,105 170,95 205,90 240,88 275,82" class="mini-line" style="stroke:var(--lx-cyan)"/>
+          <circle cx="275" cy="82" r="4" fill="var(--lx-cyan)"/>
+          <!-- Forecast zone — pink vertical (swapped from yellow for legibility on light) -->
+          <rect x="230" y="0" width="60" height="130" fill="rgba(255,45,125,.04)"/>
+          <line x1="230" y1="0" x2="230" y2="130" stroke="var(--lx-pink)" stroke-width="1.5" stroke-dasharray="4"/>
+          <text x="235" y="10" class="mini-label" style="fill:var(--lx-pink)">FORECAST</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Line Chart Family</div>
+        <div class="pl-entry-meta">Best for → Trends over time · Multi-variable comparison · Forecasting</div>
+        <div class="pl-entry-desc">The essential time-series visualization. Covers all line variants: single/multi-series, smoothed, stepped, cumulative, indexed, normalized, rolling-average, forecast with projection zone, actual vs target with dashed reference, sparklines, bump charts, run charts, and control charts. The LIMITLESS treatment uses 2px strokes with terminal dot markers, minimal gridlines, and a yellow-tinted forecast zone.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">2px rounded-cap strokes · Terminal dot markers · 6% opacity gridlines · Dashed forecast boundary · Tinted forecast zone · No excessive axis labels · Monospace value tooltips · Dark plot background · Neon palette series encoding</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Revenue Trends</span>
+          <span class="lx-chip cy">Server Metrics</span>
+          <span class="lx-chip yw">Budget Forecasting</span>
+          <span class="lx-chip pu">Health Tracking</span>
+          <span class="lx-chip bl">Stock Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl-subcat" style="margin-top:16px">
+    <div class="pl-subcat-title">Area Family</div>
+    <div class="pl-subcat-list">Area chart · stacked area chart · 100% stacked area chart · streamgraph · horizon graph · ribbon chart · confidence band chart · range area chart · line-range chart · area-line combo</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Stacked Area -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <polygon points="0,120 0,80 30,70 60,65 90,55 120,50 150,40 180,35 220,30 220,120" fill="rgba(255,45,125,.3)" stroke="var(--lx-pink)" stroke-width="1.5"/>
+          <polygon points="0,120 0,95 30,88 60,82 90,78 120,72 150,65 180,60 220,55 220,120" fill="rgba(0,212,255,.2)" stroke="var(--lx-cyan)" stroke-width="1"/>
+          <polygon points="0,120 0,108 30,105 60,100 90,97 120,92 150,88 180,84 220,80 220,120" fill="rgba(204,255,0,.15)" stroke="var(--lx-yellow)" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Area / Stacked Area / Streamgraph</div>
+        <div class="pl-entry-meta">Best for → Volume over time · Cumulative totals · Composition trends</div>
+        <div class="pl-entry-desc">Fills beneath line charts to encode volume. Covers area chart, stacked area, 100% stacked area, streamgraph, horizon graph, ribbon chart, confidence band, range area, and area-line combo. Low-opacity fills prevent occlusion.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Traffic Volume</span>
+          <span class="lx-chip cy">Market Share</span>
+          <span class="lx-chip yw">Revenue Layers</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl-subcat" style="margin-top:16px">
+    <div class="pl-subcat-title">Time Monitoring</div>
+    <div class="pl-subcat-list">Event timeline · swimlane timeline · status-over-time chart · incident timeline · release timeline · milestone chart · sparkline grid · calendar heatmap · punchcard · activity calendar · time-of-day heatmap · weekday/hour matrix</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Calendar Heatmap -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="100" viewBox="0 0 220 100">
+          <text x="0" y="10" class="mini-label">MON</text>
+          <text x="0" y="26" class="mini-label">WED</text>
+          <text x="0" y="42" class="mini-label">FRI</text>
+          <!-- Generate calendar cells -->
+          <g transform="translate(24,0)">
+            <rect x="0" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.1)"/>
+            <rect x="13" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.3)"/>
+            <rect x="26" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.6)"/>
+            <rect x="39" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.2)"/>
+            <rect x="52" y="2" width="10" height="10" rx="2" fill="var(--lx-pink)"/>
+            <rect x="65" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.4)"/>
+            <rect x="78" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.1)"/>
+            <rect x="91" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.7)"/>
+            <rect x="104" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.3)"/>
+            <rect x="117" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.5)"/>
+            <rect x="130" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.2)"/>
+            <rect x="143" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.8)"/>
+            <rect x="156" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.1)"/>
+            <rect x="169" y="2" width="10" height="10" rx="2" fill="rgba(255,45,125,.4)"/>
+            <!-- Row 2 -->
+            <rect x="0" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.4)"/>
+            <rect x="13" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.1)"/>
+            <rect x="26" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.8)"/>
+            <rect x="39" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.5)"/>
+            <rect x="52" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.2)"/>
+            <rect x="65" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.9)"/>
+            <rect x="78" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.3)"/>
+            <rect x="91" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.6)"/>
+            <rect x="104" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.1)"/>
+            <rect x="117" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.4)"/>
+            <rect x="130" y="15" width="10" height="10" rx="2" fill="var(--lx-pink)"/>
+            <rect x="143" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.2)"/>
+            <rect x="156" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.6)"/>
+            <rect x="169" y="15" width="10" height="10" rx="2" fill="rgba(255,45,125,.3)"/>
+            <!-- Row 3 -->
+            <rect x="0" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.2)"/>
+            <rect x="13" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.5)"/>
+            <rect x="26" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.3)"/>
+            <rect x="39" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.7)"/>
+            <rect x="52" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.1)"/>
+            <rect x="65" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.4)"/>
+            <rect x="78" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.6)"/>
+            <rect x="91" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.9)"/>
+            <rect x="104" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.2)"/>
+            <rect x="117" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.5)"/>
+            <rect x="130" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.3)"/>
+            <rect x="143" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.7)"/>
+            <rect x="156" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.4)"/>
+            <rect x="169" y="28" width="10" height="10" rx="2" fill="rgba(255,45,125,.1)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Calendar Heatmap / Punchcard / Activity Matrix</div>
+        <div class="pl-entry-meta">Best for → Activity patterns · Contribution tracking · Temporal density</div>
+        <div class="pl-entry-desc">Grid of time cells coloured by intensity. Covers calendar heatmap, punchcard, activity calendar, time-of-day heatmap, weekday/hour matrix, and sparkline grid. Uses pink at varying opacities from 10% to 100% to encode magnitude on a dark surface.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">GitHub-style Activity</span>
+          <span class="lx-chip cy">Support Demand</span>
+          <span class="lx-chip yw">Session Frequency</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 04 — PART-TO-WHOLE CHARTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="WHOLE">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 04 · Suite 1</div>
+  <div class="pl-group-title">Part-to-Whole<br>Charts</div>
+  <div class="pl-group-desc">Composition, share, segmentation, allocation, and budget splits — showing how parts relate to the total.</div>
+</div>
+<div class="pl-group-body lx-rev">
+
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">Circular Composition</div>
+    <div class="pl-subcat-list">Pie chart · donut chart · doughnut chart · nested donut · segmented donut · concentric donut · semi-donut · gauge donut · radial donut progress · multi-ring donut · rose chart · polar area chart · coxcomb chart · nightingale rose chart · sunburst chart · radial treemap · radial partition chart</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Donut -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <div style="display:flex;gap:16px;justify-content:center;align-items:center">
+          <!-- Donut 1 -->
+          <div style="position:relative;width:80px;height:80px">
+            <svg width="80" height="80" viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="10"/>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="var(--lx-pink)" stroke-width="10" stroke-linecap="round" stroke-dasharray="176 251" stroke-dashoffset="0"/>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <span style="font-family:'Bebas Neue',serif;font-size:20px;color:var(--lx-tx)">70%</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">CORE</span>
+            </div>
+          </div>
+          <!-- Donut 2 -->
+          <div style="position:relative;width:80px;height:80px">
+            <svg width="80" height="80" viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="10"/>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="var(--lx-yellow)" stroke-width="10" stroke-linecap="round" stroke-dasharray="100 251" stroke-dashoffset="0"/>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <span style="font-family:'Bebas Neue',serif;font-size:20px;color:var(--lx-tx)">40%</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">CAP</span>
+            </div>
+          </div>
+          <!-- Donut 3 -->
+          <div style="position:relative;width:80px;height:80px">
+            <svg width="80" height="80" viewBox="0 0 100 100" style="transform:rotate(-90deg)">
+              <circle cx="50" cy="50" r="40" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="10"/>
+              <circle cx="50" cy="50" r="40" fill="none" stroke="var(--lx-cyan)" stroke-width="10" stroke-linecap="round" stroke-dasharray="226 251" stroke-dashoffset="0"/>
+            </svg>
+            <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+              <span style="font-family:'Bebas Neue',serif;font-size:20px;color:var(--lx-tx)">90%</span>
+              <span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5)">CB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Donut / Pie / Nested Donut / Gauge Donut</div>
+        <div class="pl-entry-meta">Best for → Single-metric proportion · Budget utilization · Goal completion</div>
+        <div class="pl-entry-desc">The circular workhorse. Covers pie, donut, doughnut, nested donut, segmented donut, concentric donut, semi-donut, gauge donut, radial donut progress, and multi-ring donut. The LIMITLESS treatment uses 10px stroke-width SVG circles with round linecaps and Bebas Neue centre labels on dark backgrounds.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">SVG circle-based rendering · stroke-dasharray animation · Round linecaps · Bebas Neue 20–22px centre value · JetBrains Mono 6–7px sub-label · 6% opacity track ring · No segment gaps — use dasharray precision · 96px standard size, 80px compact</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Budget Split</span>
+          <span class="lx-chip cy">Plan Utilization</span>
+          <span class="lx-chip yw">Goal Completion</span>
+          <span class="lx-chip pu">Market Share</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sunburst -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 200 130">
+          <g transform="translate(100,65)">
+            <!-- Inner ring -->
+            <circle cx="0" cy="0" r="20" fill="none" stroke="var(--lx-pink)" stroke-width="14" stroke-dasharray="62 126" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="20" fill="none" stroke="var(--lx-cyan)" stroke-width="14" stroke-dasharray="40 126" stroke-dashoffset="-62" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="20" fill="none" stroke="var(--lx-yellow)" stroke-width="14" stroke-dasharray="24 126" stroke-dashoffset="-102" style="transform:rotate(-90deg)"/>
+            <!-- Outer ring -->
+            <circle cx="0" cy="0" r="38" fill="none" stroke="var(--lx-pink)" stroke-width="10" stroke-dasharray="30 239" stroke-dashoffset="0" opacity=".7" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="38" fill="none" stroke="var(--lx-pink)" stroke-width="10" stroke-dasharray="28 239" stroke-dashoffset="-32" opacity=".5" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="38" fill="none" stroke="var(--lx-cyan)" stroke-width="10" stroke-dasharray="38 239" stroke-dashoffset="-62" opacity=".7" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="38" fill="none" stroke="var(--lx-yellow)" stroke-width="10" stroke-dasharray="20 239" stroke-dashoffset="-102" opacity=".6" style="transform:rotate(-90deg)"/>
+            <circle cx="0" cy="0" r="38" fill="none" stroke="var(--lx-orange)" stroke-width="10" stroke-dasharray="15 239" stroke-dashoffset="-124" opacity=".7" style="transform:rotate(-90deg)"/>
+            <!-- Centre -->
+            <text x="0" y="3" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:rgba(0,0,0,.25)">∞</text>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Sunburst / Radial Treemap / Radial Partition</div>
+        <div class="pl-entry-meta">Best for → Hierarchical composition · Multi-level breakdowns</div>
+        <div class="pl-entry-desc">Nested concentric rings showing hierarchical part-to-whole relationships. Inner ring = top-level categories, outer rings = subcategories. Also covers rose chart, polar area chart, coxcomb / nightingale rose chart. The LIMITLESS infinity symbol anchors the centre.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Org Budgets</span>
+          <span class="lx-chip cy">File Systems</span>
+          <span class="lx-chip or">Product Hierarchy</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pl-subcat" style="margin-top:16px">
+    <div class="pl-subcat-title">Rectangular / Linear Composition</div>
+    <div class="pl-subcat-list">Stacked bar · 100% stacked bar · stacked area · 100% stacked area · treemap · slice-and-dice treemap · squarified treemap · strip treemap · icicle chart · waffle chart · unit chart · proportional symbol grid · Marimekko · mosaic plot · packed bubbles · circle packing · partition chart</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Treemap -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <rect x="2" y="2" width="120" height="70" fill="var(--lx-pink)" rx="3" opacity=".9"/>
+          <text x="10" y="20" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;fill:white;text-transform:uppercase;letter-spacing:.05em">Core</text>
+          <text x="10" y="36" style="font-family:'Bebas Neue',serif;font-size:24px;fill:white">$48K</text>
+          <rect x="124" y="2" width="94" height="40" fill="var(--lx-cyan)" rx="3" opacity=".8"/>
+          <text x="130" y="16" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-black);text-transform:uppercase;letter-spacing:.06em">Capacity</text>
+          <text x="130" y="32" style="font-family:'Bebas Neue',serif;font-size:18px;fill:var(--lx-black)">$22K</text>
+          <rect x="124" y="44" width="94" height="28" fill="var(--lx-yellow)" rx="3" opacity=".8"/>
+          <text x="130" y="58" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-black);text-transform:uppercase;letter-spacing:.06em">Capital</text>
+          <rect x="2" y="74" width="70" height="44" fill="var(--lx-purple)" rx="3" opacity=".7"/>
+          <text x="8" y="88" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:white;text-transform:uppercase;letter-spacing:.06em">Transport</text>
+          <rect x="74" y="74" width="48" height="44" fill="var(--lx-orange)" rx="3" opacity=".7"/>
+          <text x="80" y="88" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:white;text-transform:uppercase;letter-spacing:.06em">Consum</text>
+          <rect x="124" y="74" width="94" height="44" fill="var(--lx-blue)" rx="3" opacity=".6"/>
+          <text x="130" y="88" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:white;text-transform:uppercase;letter-spacing:.06em">SC Hours</text>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Treemap / Icicle / Partition</div>
+        <div class="pl-entry-meta">Best for → Area-proportional hierarchy · Space-efficient composition</div>
+        <div class="pl-entry-desc">Subdivides a rectangle into proportionally-sized cells. Covers treemap (squarified, slice-and-dice, strip), icicle chart, partition chart, Marimekko, and mosaic plot. Labels use Barlow Condensed 900 with Bebas Neue values inside each cell.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">NDIS Budget</span>
+          <span class="lx-chip cy">Disk Usage</span>
+          <span class="lx-chip yw">Market Segments</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Waffle -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="110" viewBox="0 0 160 110">
+          <!-- 10x10 waffle grid -->
+          <g transform="translate(5,5)">
+            <!-- Row by row, 10 cells each, fill first 73 with pink, rest with track -->
+            <rect x="0" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="15" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="30" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="45" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="60" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="75" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="90" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="105" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="120" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="135" y="0" width="13" height="13" rx="2" fill="var(--lx-pink)"/>
+            <rect x="0" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="15" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="30" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="45" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="60" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="75" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="90" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="105" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="120" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="135" y="15" width="13" height="13" rx="2" fill="var(--lx-pink)"/>
+            <rect x="0" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="15" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="30" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="45" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="60" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="75" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="90" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="105" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="120" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="135" y="30" width="13" height="13" rx="2" fill="var(--lx-pink)"/>
+            <rect x="0" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="15" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="30" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="45" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="60" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="75" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="90" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="105" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="120" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="135" y="45" width="13" height="13" rx="2" fill="var(--lx-pink)"/>
+            <rect x="0" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="15" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="30" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="45" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="60" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="75" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="90" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="105" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="120" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="135" y="60" width="13" height="13" rx="2" fill="var(--lx-pink)"/>
+            <rect x="0" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="15" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="30" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="45" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="60" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="75" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="90" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="105" y="75" width="13" height="13" rx="2" fill="var(--lx-pink)"/><rect x="120" y="75" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="135" y="75" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/>
+            <rect x="0" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="15" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="30" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="45" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="60" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="75" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="90" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="105" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="120" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/><rect x="135" y="90" width="13" height="13" rx="2" fill="rgba(0,0,0,.06)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Waffle / Unit Chart / Pictogram / Icon Array</div>
+        <div class="pl-entry-meta">Best for → Percentage as discrete units · Human-readable proportions</div>
+        <div class="pl-entry-desc">Divides 100 squares into filled and unfilled units representing a percentage. Covers waffle chart, unit chart, proportional symbol grid, packed bubbles, and circle packing. Each cell is 13×13px with 2px radius — pink filled vs 6% opacity track.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Goal Progress</span>
+          <span class="lx-chip cy">Survey Results</span>
+          <span class="lx-chip yw">Inventory Status</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 05 — DISTRIBUTION CHARTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="DISTRIB">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 05 · Suite 1</div>
+  <div class="pl-group-title">Distribution<br>Charts</div>
+  <div class="pl-group-desc">Spread, frequency, skew, clustering, outliers — understanding how values are distributed across a range.</div>
+</div>
+<div class="pl-group-body lx-rev">
+
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">Frequency & Shape</div>
+    <div class="pl-subcat-list">Histogram · cumulative histogram · density plot · kernel density estimate · frequency polygon · ridgeline plot · joyplot · violin plot · mirrored violin · half violin · box plot · box-and-whisker plot · boxen plot · letter-value plot · raincloud plot · dot plot · strip plot · rug plot · beeswarm plot · swarm plot · stem-and-leaf style display · quantile dot plot · ECDF plot · QQ plot · PP plot</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Histogram -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <line x1="0" y1="118" x2="220" y2="118" class="mini-axis"/>
+          <rect x="5" y="95" width="18" height="23" fill="var(--lx-pink)" opacity=".4" rx="1"/>
+          <rect x="25" y="80" width="18" height="38" fill="var(--lx-pink)" opacity=".5" rx="1"/>
+          <rect x="45" y="55" width="18" height="63" fill="var(--lx-pink)" opacity=".7" rx="1"/>
+          <rect x="65" y="30" width="18" height="88" fill="var(--lx-pink)" opacity=".85" rx="1"/>
+          <rect x="85" y="10" width="18" height="108" fill="var(--lx-pink)" rx="1"/>
+          <rect x="105" y="20" width="18" height="98" fill="var(--lx-pink)" opacity=".9" rx="1"/>
+          <rect x="125" y="40" width="18" height="78" fill="var(--lx-pink)" opacity=".7" rx="1"/>
+          <rect x="145" y="65" width="18" height="53" fill="var(--lx-pink)" opacity=".5" rx="1"/>
+          <rect x="165" y="85" width="18" height="33" fill="var(--lx-pink)" opacity=".4" rx="1"/>
+          <rect x="185" y="100" width="18" height="18" fill="var(--lx-pink)" opacity=".3" rx="1"/>
+          <!-- Density curve overlay -->
+          <polyline points="14,95 34,80 54,55 74,30 94,10 114,20 134,40 154,65 174,85 194,100" fill="none" stroke="var(--lx-yellow)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Histogram / Density Plot / KDE</div>
+        <div class="pl-entry-meta">Best for → Frequency distribution · Data shape · Normal vs skewed</div>
+        <div class="pl-entry-desc">Bins continuous data into frequency columns with an optional density curve overlay. Covers histogram, cumulative histogram, density plot, kernel density estimate, frequency polygon, ECDF, and QQ/PP plots. Pink bars at descending opacity from the mode, yellow density curve overlay for smooth distribution shape.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Score Distribution</span>
+          <span class="lx-chip cy">Response Times</span>
+          <span class="lx-chip yw">Age Demographics</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Box Plot / Violin -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <!-- Box plot 1 -->
+          <line x1="35" y1="15" x2="35" y2="105" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <rect x="20" y="35" width="30" height="45" fill="none" stroke="var(--lx-pink)" stroke-width="2" rx="2"/>
+          <line x1="20" y1="55" x2="50" y2="55" stroke="var(--lx-yellow)" stroke-width="2"/>
+          <line x1="25" y1="15" x2="45" y2="15" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+          <line x1="25" y1="105" x2="45" y2="105" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+          <circle cx="35" cy="8" r="2.5" fill="var(--lx-orange)"/>
+          <!-- Box plot 2 -->
+          <line x1="95" y1="25" x2="95" y2="95" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <rect x="80" y="40" width="30" height="35" fill="none" stroke="var(--lx-cyan)" stroke-width="2" rx="2"/>
+          <line x1="80" y1="52" x2="110" y2="52" stroke="var(--lx-yellow)" stroke-width="2"/>
+          <line x1="85" y1="25" x2="105" y2="25" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+          <line x1="85" y1="95" x2="105" y2="95" stroke="rgba(0,0,0,.12)" stroke-width="1"/>
+          <!-- Violin 3 -->
+          <path d="M155,20 Q175,30 175,60 Q175,90 155,100 Q135,90 135,60 Q135,30 155,20 Z" fill="rgba(177,78,255,.2)" stroke="var(--lx-purple)" stroke-width="1.5"/>
+          <line x1="155" y1="20" x2="155" y2="100" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+          <line x1="140" y1="55" x2="170" y2="55" stroke="var(--lx-yellow)" stroke-width="2"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Box Plot / Violin / Raincloud / Beeswarm</div>
+        <div class="pl-entry-meta">Best for → Spread & outliers · Comparing distributions · Statistical summary</div>
+        <div class="pl-entry-desc">Shows median, quartiles, range, and outliers. Covers box-and-whisker, boxen, letter-value, violin, mirrored/half violin, raincloud, beeswarm, swarm, strip plot, rug plot, dot plot, and quantile dot plot. Yellow median lines, neon box strokes, orange outlier dots on dark backgrounds.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Clinical Scores</span>
+          <span class="lx-chip cy">Performance Spread</span>
+          <span class="lx-chip pu">Research Data</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ridgeline -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <path d="M0,80 Q30,60 60,65 Q90,40 120,50 Q150,60 180,55 Q200,62 220,70" fill="rgba(255,45,125,.15)" stroke="var(--lx-pink)" stroke-width="1.5"/>
+          <path d="M0,65 Q30,45 60,50 Q90,25 120,35 Q150,45 180,40 Q200,47 220,55" fill="rgba(0,212,255,.12)" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+          <path d="M0,50 Q30,30 60,35 Q90,10 120,20 Q150,30 180,25 Q200,32 220,40" fill="rgba(204,255,0,.1)" stroke="var(--lx-yellow)" stroke-width="1.5"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Ridgeline / Joyplot</div>
+        <div class="pl-entry-meta">Best for → Comparing multiple distributions · Temporal distribution shifts</div>
+        <div class="pl-entry-desc">Stacked overlapping density curves showing how distributions compare or evolve. Each ridge uses a neon stroke with low-opacity fill — pink, cyan, yellow layered with slight vertical offsets for depth. Also covers stem-and-leaf style displays.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Monthly Patterns</span>
+          <span class="lx-chip cy">Regional Comparison</span>
+          <span class="lx-chip yw">Cohort Analysis</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 06 — RELATIONSHIP & CORRELATION CHARTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="RELATE">
+  <svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+  <div class="pl-group-num">Group 06 · Suite 1</div>
+  <div class="pl-group-title">Relationship &<br>Correlation</div>
+  <div class="pl-group-desc">Visualizing how two or more variables interact, correlate, or cluster together.</div>
+</div>
+<div class="pl-group-body lx-rev">
+
+  <div class="pl-subcat">
+    <div class="pl-subcat-title">All Relationship Types</div>
+    <div class="pl-subcat-list">Scatter plot · scatter chart · scatterplot matrix · pair plot · bubble chart · packed bubble chart · connected scatter plot · correlation matrix · correlogram · heatmap correlation grid · hexbin chart · contour plot · regression plot · trendline scatter · quadrant chart · portfolio matrix · perceptual map · correspondence map · biplot · ternary plot · parallel coordinates · radial parallel coordinates · radar chart · spider chart · star plot · petal chart</div>
+  </div>
+
+  <div class="pl-viz-grid">
+    <!-- Scatter Plot -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 220 130">
+          <line x1="20" y1="120" x2="210" y2="120" class="mini-axis"/>
+          <line x1="20" y1="5" x2="20" y2="120" class="mini-axis"/>
+          <!-- Trendline -->
+          <line x1="25" y1="105" x2="205" y2="15" stroke="rgba(204,255,0,.2)" stroke-width="1.5" stroke-dasharray="4"/>
+          <!-- Dots -->
+          <circle cx="35" cy="100" r="4" fill="var(--lx-pink)" opacity=".8"/>
+          <circle cx="50" cy="92" r="4" fill="var(--lx-pink)" opacity=".8"/>
+          <circle cx="65" cy="88" r="5" fill="var(--lx-pink)" opacity=".8"/>
+          <circle cx="75" cy="78" r="3" fill="var(--lx-pink)" opacity=".8"/>
+          <circle cx="90" cy="70" r="6" fill="var(--lx-pink)" opacity=".8"/>
+          <circle cx="100" cy="65" r="4" fill="var(--lx-pink)" opacity=".8"/>
+          <circle cx="115" cy="55" r="5" fill="var(--lx-cyan)" opacity=".8"/>
+          <circle cx="125" cy="50" r="3" fill="var(--lx-cyan)" opacity=".8"/>
+          <circle cx="140" cy="42" r="7" fill="var(--lx-cyan)" opacity=".8"/>
+          <circle cx="155" cy="35" r="4" fill="var(--lx-cyan)" opacity=".8"/>
+          <circle cx="165" cy="30" r="5" fill="var(--lx-cyan)" opacity=".8"/>
+          <circle cx="180" cy="22" r="4" fill="var(--lx-yellow)" opacity=".8"/>
+          <circle cx="195" cy="18" r="6" fill="var(--lx-yellow)" opacity=".8"/>
+          <circle cx="205" cy="12" r="3" fill="var(--lx-yellow)" opacity=".8"/>
+          <!-- Outlier -->
+          <circle cx="55" cy="30" r="4" fill="var(--lx-orange)" opacity=".9"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Scatter / Bubble / Regression / Hexbin</div>
+        <div class="pl-entry-meta">Best for → Correlation · Clustering · Outlier detection · Multi-variable</div>
+        <div class="pl-entry-desc">Plots individual data points on two axes to reveal relationships. Covers scatter plot, bubble chart (size = third variable), connected scatter, regression with trendline, hexbin, and contour plot. Uses neon dots on dark backgrounds with dashed yellow trendlines. Orange marks outliers. Bubble size encodes a third variable.</div>
+        <div class="pl-style-card">
+          <div class="pl-style-label">2026 Styling Direction</div>
+          <div class="pl-style-text">3–7px radius dots · 80% opacity for depth layering · Dashed yellow trendline · Orange outlier encoding · Colour segments for cluster identification · Minimal axes with monospace labels · Dark plot area with 6% gridlines</div>
+        </div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Cost vs Outcome</span>
+          <span class="lx-chip cy">Risk vs Impact</span>
+          <span class="lx-chip yw">Market Analysis</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Radar / Spider -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="130" viewBox="0 0 200 130">
+          <g transform="translate(100,65)">
+            <!-- Grid rings -->
+            <polygon points="0,-50 47,-15 29,40 -29,40 -47,-15" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+            <polygon points="0,-35 33,-11 20,28 -20,28 -33,-11" fill="none" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+            <polygon points="0,-20 19,-6 12,16 -12,16 -19,-6" fill="none" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+            <!-- Spokes -->
+            <line x1="0" y1="0" x2="0" y2="-50" stroke="rgba(0,0,0,.06)"/>
+            <line x1="0" y1="0" x2="47" y2="-15" stroke="rgba(0,0,0,.06)"/>
+            <line x1="0" y1="0" x2="29" y2="40" stroke="rgba(0,0,0,.06)"/>
+            <line x1="0" y1="0" x2="-29" y2="40" stroke="rgba(0,0,0,.06)"/>
+            <line x1="0" y1="0" x2="-47" y2="-15" stroke="rgba(0,0,0,.06)"/>
+            <!-- Data polygon 1 -->
+            <polygon points="0,-45 40,-12 18,35 -25,30 -38,-10" fill="rgba(255,45,125,.15)" stroke="var(--lx-pink)" stroke-width="2"/>
+            <!-- Data polygon 2 -->
+            <polygon points="0,-30 35,-5 25,28 -15,35 -42,-12" fill="rgba(0,212,255,.1)" stroke="var(--lx-cyan)" stroke-width="1.5" stroke-dasharray="3"/>
+            <!-- Vertex dots -->
+            <circle cx="0" cy="-45" r="3" fill="var(--lx-pink)"/>
+            <circle cx="40" cy="-12" r="3" fill="var(--lx-pink)"/>
+            <circle cx="18" cy="35" r="3" fill="var(--lx-pink)"/>
+            <circle cx="-25" cy="30" r="3" fill="var(--lx-pink)"/>
+            <circle cx="-38" cy="-10" r="3" fill="var(--lx-pink)"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Radar / Spider / Star / Petal</div>
+        <div class="pl-entry-meta">Best for → Multi-dimensional comparison · Skill profiles · Assessment scoring</div>
+        <div class="pl-entry-desc">Plots multiple variables on radial axes emanating from a centre point. Covers radar chart, spider chart, star plot, petal chart, and radial parallel coordinates. Pink filled polygon with cyan dashed overlay for comparison. Grid rings at diminishing opacity.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">WHODAS Scores</span>
+          <span class="lx-chip cy">Product Comparison</span>
+          <span class="lx-chip pu">Team Skills</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Correlation Matrix -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 180 120">
+          <!-- 5x5 correlation matrix -->
+          <g transform="translate(30,5)">
+            <rect x="0" y="0" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity="1"/>
+            <rect x="28" y="0" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".7"/>
+            <rect x="56" y="0" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".3"/>
+            <rect x="84" y="0" width="25" height="20" rx="2" fill="var(--lx-cyan)" opacity=".2"/>
+            <rect x="112" y="0" width="25" height="20" rx="2" fill="var(--lx-cyan)" opacity=".5"/>
+
+            <rect x="0" y="23" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".7"/>
+            <rect x="28" y="23" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity="1"/>
+            <rect x="56" y="23" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".5"/>
+            <rect x="84" y="23" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".1"/>
+            <rect x="112" y="23" width="25" height="20" rx="2" fill="var(--lx-cyan)" opacity=".3"/>
+
+            <rect x="0" y="46" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".3"/>
+            <rect x="28" y="46" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".5"/>
+            <rect x="56" y="46" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity="1"/>
+            <rect x="84" y="46" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".6"/>
+            <rect x="112" y="46" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".2"/>
+
+            <rect x="0" y="69" width="25" height="20" rx="2" fill="var(--lx-cyan)" opacity=".2"/>
+            <rect x="28" y="69" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".1"/>
+            <rect x="56" y="69" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".6"/>
+            <rect x="84" y="69" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity="1"/>
+            <rect x="112" y="69" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".4"/>
+
+            <rect x="0" y="92" width="25" height="20" rx="2" fill="var(--lx-cyan)" opacity=".5"/>
+            <rect x="28" y="92" width="25" height="20" rx="2" fill="var(--lx-cyan)" opacity=".3"/>
+            <rect x="56" y="92" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".2"/>
+            <rect x="84" y="92" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity=".4"/>
+            <rect x="112" y="92" width="25" height="20" rx="2" fill="var(--lx-pink)" opacity="1"/>
+          </g>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Correlation Matrix / Correlogram / Heatmap Grid</div>
+        <div class="pl-entry-meta">Best for → Variable relationships · Feature selection · Multi-metric correlation</div>
+        <div class="pl-entry-desc">A grid where cell colour intensity encodes correlation strength. Pink = positive correlation, cyan = negative correlation, opacity = magnitude. Covers correlation matrix, correlogram, heatmap correlation grid, scatterplot matrix, and pair plot. Also applicable to quadrant chart, portfolio matrix, perceptual map, correspondence map, and biplot.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">ML Feature Selection</span>
+          <span class="lx-chip cy">Risk Assessment</span>
+          <span class="lx-chip yw">Market Research</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Parallel Coordinates -->
+    <div class="pl-entry">
+      <div class="pl-entry-viz">
+        <svg width="100%" height="120" viewBox="0 0 220 120">
+          <!-- Axes -->
+          <line x1="20" y1="10" x2="20" y2="110" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/>
+          <line x1="70" y1="10" x2="70" y2="110" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/>
+          <line x1="120" y1="10" x2="120" y2="110" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/>
+          <line x1="170" y1="10" x2="170" y2="110" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/>
+          <line x1="200" y1="10" x2="200" y2="110" stroke="rgba(0,0,0,.1)" stroke-width="1.5"/>
+          <!-- Lines -->
+          <polyline points="20,25 70,40 120,20 170,55 200,30" fill="none" stroke="var(--lx-pink)" stroke-width="1.5" opacity=".7"/>
+          <polyline points="20,45 70,30 120,60 170,35 200,50" fill="none" stroke="var(--lx-cyan)" stroke-width="1.5" opacity=".7"/>
+          <polyline points="20,70 70,55 120,45 170,75 200,65" fill="none" stroke="var(--lx-yellow)" stroke-width="1.5" opacity=".7"/>
+          <polyline points="20,90 70,80 120,85 170,45 200,90" fill="none" stroke="var(--lx-orange)" stroke-width="1.5" opacity=".5"/>
+          <polyline points="20,55 70,65 120,50 170,90 200,75" fill="none" stroke="var(--lx-purple)" stroke-width="1.5" opacity=".5"/>
+        </svg>
+      </div>
+      <div class="pl-entry-body">
+        <div class="pl-entry-name">Parallel Coordinates / Ternary Plot</div>
+        <div class="pl-entry-meta">Best for → High-dimensional comparison · Multi-variable profiling</div>
+        <div class="pl-entry-desc">Vertical parallel axes with polylines connecting each data point's values across dimensions. Each series uses a distinct neon colour at 70% opacity, with crossings revealing patterns and clusters. Also covers ternary plot for three-component composition analysis.</div>
+        <div class="pl-use-cases" style="margin-top:8px">
+          <span class="lx-chip pk">Assessment Profiles</span>
+          <span class="lx-chip cy">Product Comparison</span>
+          <span class="lx-chip or">Process Variables</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:32px 28px;position:relative;overflow:hidden">
+  <div style="font-family:'Bebas Neue',serif;font-size:100px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-20px;user-select:none;pointer-events:none">∞</div>
+  <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">END OF SUITE 1 · GROUPS 01–06</div>
+  <div style="font-family:'Bebas Neue',serif;font-size:32px;color:var(--lx-offwhite);line-height:1">SUITE TWO CONTINUES WITH GROUPS 07–12</div>
+  <div style="font-size:11px;color:rgba(245,240,232,.5);margin-top:8px;max-width:500px">Interval & Uncertainty · Flow & Process · Hierarchy & Tree · Network & Graph · Geospatial & Spatial · Matrix, Grid & Cell-Based</div>
+  <div style="margin-top:16px;display:flex;gap:6px;flex-wrap:wrap">
+    <span class="lx-chip spk">Suite 1 ✓ Complete</span>
+    <span class="lx-chip dk" style="color:rgba(245,240,232,.4);border-color:rgba(255,255,255,.08)">Suite 2 → Pending</span>
+    <span class="lx-chip dk" style="color:rgba(245,240,232,.4);border-color:rgba(255,255,255,.08)">Suite 3 → Pending</span>
+    <span class="lx-chip dk" style="color:rgba(245,240,232,.4);border-color:rgba(255,255,255,.08)">Suite 4 → Pending</span>
+  </div>
+  <div class="lx-stripe" style="margin:20px -28px -32px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">
+  LIMITLESS SUPPORT CO. · 2026 UI VISUAL DATA PATTERN LIBRARY · SUITE 1 OF 4 · ABN 76 985 845 524
+</div>
+
+<script>
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.08 });
+document.querySelectorAll('.lx-rev').forEach(el => io.observe(el));
+
+// Disclosure toggles
+document.querySelectorAll('.lx-dh').forEach(h => {
+  h.addEventListener('click', () => h.parentElement.classList.toggle('open'));
+});
+</script>
+</body>
+</html>

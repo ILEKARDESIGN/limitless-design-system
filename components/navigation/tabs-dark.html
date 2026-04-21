@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Dark Tabs</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+<!-- Component: Dark Tabs | Category: Navigation -->
+
+<div class="demo-section">
+  <div class="demo-label">DARK TAB GRID — WITH COLOUR CLASSES</div>
+  <div class="lx-tabs">
+    <button class="lx-tab tc-pk active" data-tab="t1">Overview <span class="lx-tc">4</span></button>
+    <button class="lx-tab tc-cy" data-tab="t2">Budget <span class="lx-tc">12</span></button>
+    <button class="lx-tab tc-yw" data-tab="t3">Goals</button>
+    <button class="lx-tab tc-or" data-tab="t4">Alerts <span class="lx-tc">3</span></button>
+    <button class="lx-tab tc-pu" data-tab="t5">AI Brain</button>
+    <button class="lx-tab tc-bl" data-tab="t6">Reports</button>
+  </div>
+  <div class="lx-tpanels" style="margin-top:10px">
+    <div class="lx-tpanel active" id="t1"><div class="lx-card"><div class="lx-cmd">Overview Panel Content</div></div></div>
+    <div class="lx-tpanel" id="t2"><div class="lx-card"><div class="lx-cmd">Budget Panel Content</div></div></div>
+    <div class="lx-tpanel" id="t3"><div class="lx-card"><div class="lx-cmd">Goals Panel Content</div></div></div>
+    <div class="lx-tpanel" id="t4"><div class="lx-card"><div class="lx-cmd">Alerts Panel Content</div></div></div>
+    <div class="lx-tpanel" id="t5"><div class="lx-card"><div class="lx-cmd">AI Brain Panel Content</div></div></div>
+    <div class="lx-tpanel" id="t6"><div class="lx-card"><div class="lx-cmd">Reports Panel Content</div></div></div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Suite 7 · Task Management, Scheduling & Project Boards — LIMITLESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#888;--r-sm:10px;--r-md:16px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}.lx-tlogo span{color:var(--lx-pink)}.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.55}.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.fx{display:flex}.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.cm{color:var(--lx-txm)}
+.dk-label{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-pink)}
+.pl-group-header{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}.pl-group-header::before{content:attr(data-mirror);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;user-select:none;pointer-events:none}.pl-group-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}.pl-group-title{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;margin-bottom:8px}.pl-group-desc{font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}
+.pl-entry{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.pl-entry:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.pl-entry-viz{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md) var(--r-md) 0 0;padding:16px;min-height:160px;display:flex;align-items:flex-start;justify-content:center;position:relative;overflow:hidden}
+.pl-entry-body{padding:16px}.pl-entry-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;color:var(--lx-tx)}.pl-entry-meta{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:8px}.pl-entry-desc{font-size:11px;color:var(--lx-txm);line-height:1.55;margin-bottom:8px}
+.pl-use-cases{display:flex;flex-wrap:wrap;gap:4px}
+.pl-group-body{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.pl-style-card{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}.pl-style-label{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}.pl-style-text{font-size:10px;color:#F5F0E8;opacity:.75;line-height:1.5}
+.pl-viz-grid{display:grid;grid-template-columns:1fr;gap:16px}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.lx-rev.vis{opacity:1;transform:translateY(0)}
+
+/* ═══ Component-specific styles for rendered patterns ═══ */
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;width:100%}
+.cal-hdr{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--lx-tx);opacity:.4;text-align:center;padding:4px 0}
+.cal-day{background:rgba(0,0,0,.02);border-radius:4px;padding:4px 5px;min-height:44px;font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-tx);opacity:.6;position:relative}
+.cal-day.today{background:rgba(255,45,125,.1);border:1px solid var(--lx-pink);opacity:1}
+.cal-day.other{opacity:.25}
+.cal-event{font-family:'Barlow Condensed',sans-serif;font-weight:700;font-size:7px;text-transform:uppercase;letter-spacing:.03em;padding:1px 4px;border-radius:3px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sched-row{display:flex;gap:2px;margin-bottom:2px;align-items:stretch}
+.sched-time{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.4;width:36px;flex-shrink:0;padding-top:4px;text-align:right;padding-right:6px}
+.sched-slot{flex:1;min-height:28px;background:rgba(0,0,0,.02);border-radius:4px;position:relative}
+.sched-event{position:absolute;left:2px;right:2px;border-radius:4px;padding:4px 6px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;text-transform:uppercase;letter-spacing:.04em;color:white;overflow:hidden}
+.task-item{display:flex;align-items:flex-start;gap:8px;padding:8px 10px;background:rgba(0,0,0,.02);border-radius:6px;margin-bottom:4px;border-left:3px solid transparent}
+.task-check{width:16px;height:16px;border-radius:4px;border:1.5px solid rgba(0,0,0,.15);flex-shrink:0;margin-top:1px;display:flex;align-items:center;justify-content:center}
+.task-check.done{background:var(--lx-pink);border-color:var(--lx-pink)}
+.task-check.done::after{content:'✓';font-size:10px;color:white;line-height:1}
+.task-name{font-family:'Barlow',sans-serif;font-size:11px;color:var(--lx-tx);font-weight:500}
+.task-name.done{text-decoration:line-through;opacity:.4}
+.task-sub{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.4;margin-top:1px}
+.board-col{flex:1;min-width:0;background:rgba(0,0,0,.02);border-radius:8px;padding:8px}
+.board-col-hdr{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.board-card{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:6px;padding:8px;margin-bottom:5px;border-left:3px solid}
+.board-card-title{font-family:'Barlow',sans-serif;font-size:10px;font-weight:600;color:var(--lx-tx);margin-bottom:3px}
+.board-card-meta{font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.4;letter-spacing:.06em}
+.board-card-chips{display:flex;gap:3px;margin-top:4px;flex-wrap:wrap}
+.board-chip{font-family:'JetBrains Mono',monospace;font-size:5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:1px 5px;border-radius:999px}
+.proj-item{background:rgba(0,0,0,.02);border-radius:8px;margin-bottom:6px;overflow:hidden;border:1px solid var(--lx-bdr)}
+.proj-hdr{display:flex;justify-content:space-between;align-items:center;padding:10px 12px;cursor:pointer}
+.proj-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--lx-tx)}
+.proj-bar{height:4px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden;width:60px}
+.proj-fill{height:100%;border-radius:999px}
+.proj-subs{padding:0 12px 10px}
+.proj-sub{display:flex;align-items:center;gap:6px;padding:4px 0;border-top:1px solid rgba(0,0,0,.04);font-size:9px;color:var(--lx-tx);opacity:.6}
+.proj-sub-check{width:12px;height:12px;border-radius:3px;border:1.5px solid rgba(0,0,0,.12);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:7px}
+.proj-sub-check.done{background:var(--lx-pink);border-color:var(--lx-pink);color:white}
+</style>
+</head>
+<body>
+<div class="lx-topbar"><div class="fx g3" style="align-items:center"><span class="lx-tlogo">LIMIT<span>LESS</span></span><span class="lx-tmeta">2026 Pattern Library · Supplement</span></div><div class="fx g2" style="align-items:center"><span class="lx-tbadge">Suite 7</span><span class="lx-tbadge pink">Task · Schedule · Project</span></div></div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+<div style="text-align:center;padding:32px 20px 8px"><div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px">OPERATIONAL UI PATTERNS · FULLY RENDERED</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;color:var(--lx-black)">SUITE SEVEN</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">TASK MANAGEMENT · SCHEDULING · PROJECT BOARDS</div><div style="font-size:12px;color:var(--lx-txm);max-width:560px;margin:12px auto 0;line-height:1.5">Calendar views, daily and weekly schedules, task lists, taskboards, and project boards with subtask expansion — the operational backbone of any CRM or PMS.</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 33 — CALENDAR & SCHEDULE VIEWS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="CALENDAR">
+<div class="pl-group-num">Group 33 · Suite 7</div>
+<div class="pl-group-title">Calendar &<br>Schedule Views</div>
+<div class="pl-group-desc">Month calendar, daily schedule, and weekly schedule — the time-based operational views every CRM needs.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Calendar Month View -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:280px">
+<div style="width:100%">
+<div class="fx" style="justify-content:space-between;align-items:center;margin-bottom:10px">
+<div class="dk-label">APRIL 2026</div>
+<div class="fx g2"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;color:var(--lx-tx);opacity:.5;cursor:pointer">‹ MAR</span><span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;color:var(--lx-tx);opacity:.5;cursor:pointer">MAY ›</span></div>
+</div>
+<div class="cal-grid">
+<div class="cal-hdr">MON</div><div class="cal-hdr">TUE</div><div class="cal-hdr">WED</div><div class="cal-hdr">THU</div><div class="cal-hdr">FRI</div><div class="cal-hdr">SAT</div><div class="cal-hdr">SUN</div>
+<div class="cal-day other">30</div><div class="cal-day other">31</div><div class="cal-day">1<div class="cal-event" style="background:var(--lx-pink);color:white">Kane SC Mtg</div></div><div class="cal-day">2</div><div class="cal-day">3<div class="cal-event" style="background:var(--lx-cyan);color:var(--lx-black)">OT Review</div></div><div class="cal-day">4</div><div class="cal-day today">5<div class="cal-event" style="background:var(--lx-yellow);color:var(--lx-black)">Plan Due</div></div>
+<div class="cal-day">6<div class="cal-event" style="background:var(--lx-purple);color:white">Psych Ref</div></div><div class="cal-day">7<div class="cal-event" style="background:var(--lx-pink);color:white">Kane Review</div></div><div class="cal-day">8</div><div class="cal-day">9<div class="cal-event" style="background:var(--lx-orange);color:white">SA Renewal</div></div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+<div class="cal-day">13<div class="cal-event" style="background:var(--lx-cyan);color:var(--lx-black)">Jema Mtg</div></div><div class="cal-day">14</div><div class="cal-day">15<div class="cal-event" style="background:var(--lx-pink);color:white">Progress Rpt</div></div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div>
+<div class="cal-day">20</div><div class="cal-day">21<div class="cal-event" style="background:var(--lx-orange);color:white">IDS Check-in</div></div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26<div class="cal-event" style="background:var(--lx-yellow);color:var(--lx-black)">Report Due</div></div>
+<div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day other">1</div><div class="cal-day other">2</div><div class="cal-day other">3</div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Calendar Month View</div>
+<div class="pl-entry-meta">Best for → Overview of month's commitments · Deadline awareness · Scheduling gaps</div>
+<div class="pl-entry-desc">7-column grid with day numbers, colour-coded event pills, today highlight (pink border + tint), and dimmed adjacent-month days. Each event uses a neon colour by type: pink = SC meetings, cyan = assessments, yellow = deadlines, orange = renewals, purple = referrals. Compact 7px Barlow Condensed event labels with text-overflow ellipsis.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">SC Calendar</span><span class="lx-chip cy">Appointment Booking</span><span class="lx-chip yw">Deadline Tracking</span></div>
+</div></div>
+
+<!-- Daily Schedule -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:240px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:10px">DAILY SCHEDULE — SUN 5 APR 2026</div>
+<div class="sched-row"><div class="sched-time">8:00</div><div class="sched-slot"></div></div>
+<div class="sched-row"><div class="sched-time">9:00</div><div class="sched-slot"><div class="sched-event" style="background:var(--lx-pink);top:2px;height:52px">Kane Cameron — SC Meeting<br><span style="font-family:'JetBrains Mono',monospace;font-size:6px;opacity:.7">9:00–10:00 · Bundoora · 1h billable</span></div></div></div>
+<div class="sched-row"><div class="sched-time">10:00</div><div class="sched-slot"></div></div>
+<div class="sched-row"><div class="sched-time">11:00</div><div class="sched-slot"><div class="sched-event" style="background:var(--lx-cyan);top:2px;height:26px;color:var(--lx-black)">Phone — NDIA Planner<br><span style="font-family:'JetBrains Mono',monospace;font-size:6px;opacity:.7">11:00–11:30 · 0.5h</span></div></div></div>
+<div class="sched-row"><div class="sched-time">12:00</div><div class="sched-slot"></div></div>
+<div class="sched-row"><div class="sched-time">1:00</div><div class="sched-slot"><div class="sched-event" style="background:var(--lx-yellow);top:2px;height:26px;color:var(--lx-black)">Admin — Plan Review Write-up<br><span style="font-family:'JetBrains Mono',monospace;font-size:6px;opacity:.7">1:00–2:00 · 1h billable</span></div></div></div>
+<div class="sched-row"><div class="sched-time">2:00</div><div class="sched-slot"></div></div>
+<div class="sched-row"><div class="sched-time">3:00</div><div class="sched-slot"><div class="sched-event" style="background:var(--lx-purple);top:2px;height:52px">Jema Cameron — Provider Mtg<br><span style="font-family:'JetBrains Mono',monospace;font-size:6px;opacity:.7">3:00–4:00 · IDS office · 1h</span></div></div></div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Daily Schedule / Day View</div>
+<div class="pl-entry-meta">Best for → Today's appointments · Time blocking · Billable hour tracking</div>
+<div class="pl-entry-desc">Vertical time-slot grid with coloured event blocks positioned at their scheduled time. Block height corresponds to duration. Each block shows participant name, type, location, and billable hours in JetBrains Mono. Colour by activity type. Empty slots visible as grey tracks for gap identification.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">SC Daily View</span><span class="lx-chip cy">Appointment Management</span><span class="lx-chip yw">Time Tracking</span></div>
+</div></div>
+
+<!-- Weekly Schedule -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:200px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:10px">WEEKLY SCHEDULE — W/C 6 APR 2026</div>
+<div style="display:grid;grid-template-columns:36px repeat(5,1fr);gap:2px">
+<div></div><div class="cal-hdr">MON 6</div><div class="cal-hdr">TUE 7</div><div class="cal-hdr">WED 8</div><div class="cal-hdr">THU 9</div><div class="cal-hdr">FRI 10</div>
+<div class="sched-time" style="padding-top:8px">9</div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-pink);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:white;text-transform:uppercase;letter-spacing:.03em">Kane SC</div></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-cyan);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:var(--lx-black);text-transform:uppercase;letter-spacing:.03em">OT Assess</div></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-orange);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:white;text-transform:uppercase;letter-spacing:.03em">SA Review</div></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"></div>
+<div class="sched-time" style="padding-top:8px">11</div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-purple);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:white;text-transform:uppercase;letter-spacing:.03em">Psych Ref</div></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-pink);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:white;text-transform:uppercase;letter-spacing:.03em">Jema SC</div></div>
+<div class="sched-time" style="padding-top:8px">2</div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-yellow);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:var(--lx-black);text-transform:uppercase;letter-spacing:.03em">Admin</div></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-yellow);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:var(--lx-black);text-transform:uppercase;letter-spacing:.03em">Reports</div></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"></div>
+<div style="background:rgba(0,0,0,.02);border-radius:4px;padding:3px"><div style="background:var(--lx-blue);border-radius:3px;padding:3px 4px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;color:white;text-transform:uppercase;letter-spacing:.03em">Leonard</div></div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Weekly Schedule / Week Planner</div>
+<div class="pl-entry-meta">Best for → Week-at-a-glance · Workload distribution · Gap spotting</div>
+<div class="pl-entry-desc">Grid with days as columns and time blocks as rows, showing event pills positioned in their time/day cell. Reveals workload distribution across the week, empty slots for availability, and potential scheduling conflicts. Each event uses Barlow Condensed 900 at 7px with neon background by type.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">SC Week Planning</span><span class="lx-chip cy">Resource Allocation</span><span class="lx-chip or">Conflict Detection</span></div>
+</div></div>
+
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 34 — TASK MANAGEMENT
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="TASKS">
+<div class="pl-group-num">Group 34 · Suite 7</div>
+<div class="pl-group-title">Task Lists &<br>Taskboards</div>
+<div class="pl-group-desc">Checklist task lists and Kanban taskboards — the action-management layer of every CRM.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Task List -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:260px">
+<div style="width:100%">
+<div class="fx" style="justify-content:space-between;margin-bottom:10px"><div class="dk-label">TASK LIST — KANE CAMERON</div><div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-tx);opacity:.6">5 of 8 complete</div></div>
+<div class="task-item" style="border-left-color:var(--lx-pink)"><div class="task-check done"></div><div><div class="task-name done">Submit plan review to NDIA</div><div class="task-sub">DUE 01 APR · COMPLETED 31 MAR</div></div></div>
+<div class="task-item" style="border-left-color:var(--lx-pink)"><div class="task-check done"></div><div><div class="task-name done">Follow up OT report</div><div class="task-sub">DUE 28 MAR · COMPLETED 27 MAR</div></div></div>
+<div class="task-item" style="border-left-color:var(--lx-pink)"><div class="task-check done"></div><div><div class="task-name done">Send SA to IDS</div><div class="task-sub">DUE 25 MAR · COMPLETED 25 MAR</div></div></div>
+<div class="task-item" style="border-left-color:var(--lx-orange)"><div class="task-check"></div><div><div class="task-name">Chase PYMHWS referral response</div><div class="task-sub" style="color:var(--lx-orange);opacity:1">OVERDUE · DUE 02 APR · HIGH</div></div></div>
+<div class="task-item" style="border-left-color:var(--lx-cyan)"><div class="task-check"></div><div><div class="task-name">Schedule plan implementation meeting</div><div class="task-sub">DUE 10 APR · MEDIUM</div></div></div>
+<div class="task-item" style="border-left-color:var(--lx-cyan)"><div class="task-check"></div><div><div class="task-name">Request transport quote from provider</div><div class="task-sub">DUE 14 APR · LOW</div></div></div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Task List / Checklist with Priority & Due Dates</div>
+<div class="pl-entry-meta">Best for → Action item tracking · Follow-up management · Accountability</div>
+<div class="pl-entry-desc">Vertical list with checkbox toggles, task names, due dates, priority indicators, and completion state. Completed tasks show pink filled checkbox with strikethrough. Overdue tasks flag in orange with "OVERDUE" label. Left border colour indicates priority tier: pink = high/overdue, orange = urgent, cyan = standard. JetBrains Mono metadata line shows due date and priority.</div>
+<div class="pl-style-card"><div class="pl-style-label">Design Specifications</div><div class="pl-style-text">16px checkbox with 4px radius · Pink fill + white ✓ when done · 3px left border accent by priority · Strikethrough + 40% opacity for completed · JetBrains Mono 7px due/priority meta · Dark card rows with 3% white background · Sortable by due date, priority, status</div></div>
+<div class="pl-use-cases"><span class="lx-chip pk">SC Action Items</span><span class="lx-chip cy">Follow-ups</span><span class="lx-chip or">Compliance Tasks</span></div>
+</div></div>
+
+<!-- Taskboard / Kanban -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:320px">
+<div style="width:100%;display:flex;gap:6px">
+<!-- To Do -->
+<div class="board-col">
+<div class="board-col-hdr" style="color:var(--lx-tx)">To Do <span style="font-family:'JetBrains Mono',monospace;font-size:8px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:999px;color:var(--lx-tx);opacity:.6">4</span></div>
+<div class="board-card" style="border-left-color:var(--lx-pink)"><div class="board-card-title">Chase PYMHWS referral</div><div class="board-card-meta">KANE · DUE 02 APR</div><div class="board-card-chips"><span class="board-chip" style="background:var(--lx-pink);color:white">HIGH</span><span class="board-chip" style="background:rgba(255,102,0,.2);color:var(--lx-orange)">OVERDUE</span></div></div>
+<div class="board-card" style="border-left-color:var(--lx-cyan)"><div class="board-card-title">Schedule plan impl meeting</div><div class="board-card-meta">KANE · DUE 10 APR</div><div class="board-card-chips"><span class="board-chip" style="background:rgba(0,212,255,.15);color:var(--lx-cyan)">MEDIUM</span></div></div>
+<div class="board-card" style="border-left-color:var(--lx-cyan)"><div class="board-card-title">Request transport quote</div><div class="board-card-meta">KANE · DUE 14 APR</div><div class="board-card-chips"><span class="board-chip" style="background:rgba(0,212,255,.15);color:var(--lx-cyan)">LOW</span></div></div>
+<div class="board-card" style="border-left-color:var(--lx-purple)"><div class="board-card-title">Update risk register</div><div class="board-card-meta">JEMA · DUE 12 APR</div><div class="board-card-chips"><span class="board-chip" style="background:rgba(177,78,255,.15);color:var(--lx-purple)">MEDIUM</span></div></div>
+</div>
+<!-- In Progress -->
+<div class="board-col">
+<div class="board-col-hdr" style="color:var(--lx-orange)">In Progress <span style="font-family:'JetBrains Mono',monospace;font-size:8px;background:var(--lx-orange);padding:1px 6px;border-radius:999px;color:white">2</span></div>
+<div class="board-card" style="border-left-color:var(--lx-orange)"><div class="board-card-title">Progress report — Kane</div><div class="board-card-meta">DUE 15 APR · 60% DRAFTED</div><div class="board-card-chips"><span class="board-chip" style="background:rgba(255,102,0,.12);color:var(--lx-orange)">HIGH</span></div></div>
+<div class="board-card" style="border-left-color:var(--lx-orange)"><div class="board-card-title">SA renewal — IDS</div><div class="board-card-meta">JEMA · AWAITING SIGN</div><div class="board-card-chips"><span class="board-chip" style="background:rgba(255,102,0,.15);color:var(--lx-orange)">MEDIUM</span></div></div>
+</div>
+<!-- Done -->
+<div class="board-col">
+<div class="board-col-hdr" style="color:var(--lx-pink)">Done <span style="font-family:'JetBrains Mono',monospace;font-size:8px;background:var(--lx-pink);padding:1px 6px;border-radius:999px;color:white">3</span></div>
+<div class="board-card" style="border-left-color:var(--lx-pink);opacity:.5"><div class="board-card-title">Submit plan review</div><div class="board-card-meta">KANE · 31 MAR</div></div>
+<div class="board-card" style="border-left-color:var(--lx-pink);opacity:.5"><div class="board-card-title">Follow up OT report</div><div class="board-card-meta">KANE · 27 MAR</div></div>
+<div class="board-card" style="border-left-color:var(--lx-pink);opacity:.5"><div class="board-card-title">Send SA to IDS</div><div class="board-card-meta">KANE · 25 MAR</div></div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Taskboard / Kanban Board</div>
+<div class="pl-entry-meta">Best for → Workflow status at a glance · Drag-and-drop task management · Team visibility</div>
+<div class="pl-entry-desc">Three-column board (To Do / In Progress / Done) with draggable task cards. Each card has a left-border priority accent, participant name, due date, and status chips. Column headers show counts in neon-coloured badges. Done column cards fade to 50% opacity. Overdue cards get pink HIGH chip + orange OVERDUE chip. Cards are filterable by participant, priority, and due date.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Case Management</span><span class="lx-chip cy">Sprint Board</span><span class="lx-chip yw">Compliance Tasks</span><span class="lx-chip or">Team Workflow</span></div>
+</div></div>
+
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 35 — PROJECT BOARDS WITH SUBTASKS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="PROJECTS">
+<div class="pl-group-num">Group 35 · Suite 7</div>
+<div class="pl-group-title">Project Lists &<br>Boards with Subtasks</div>
+<div class="pl-group-desc">Hierarchical project management — projects containing subtasks with progress tracking and expandable detail.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Project List with Subtasks -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:310px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:10px">PROJECT LIST — ACTIVE CASES</div>
+<!-- Project 1 -->
+<div class="proj-item">
+<div class="proj-hdr">
+<div class="fx g3" style="align-items:center">
+<span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-pink)">▾</span>
+<div><div class="proj-name">Kane Cameron — Plan Implementation</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.5;margin-top:1px">4 OF 7 SUBTASKS · DUE 15 APR 2026</div></div>
+</div>
+<div class="fx g2" style="align-items:center">
+<div class="proj-bar"><div class="proj-fill" style="width:57%;background:var(--lx-pink)"></div></div>
+<span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-pink)">57%</span>
+</div>
+</div>
+<div class="proj-subs">
+<div class="proj-sub"><div class="proj-sub-check done">✓</div><span style="text-decoration:line-through;opacity:.5">Submit plan review to NDIA</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.4">31 MAR</span></div>
+<div class="proj-sub"><div class="proj-sub-check done">✓</div><span style="text-decoration:line-through;opacity:.5">Follow up OT report</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.4">27 MAR</span></div>
+<div class="proj-sub"><div class="proj-sub-check done">✓</div><span style="text-decoration:line-through;opacity:.5">Send SA to IDS</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.4">25 MAR</span></div>
+<div class="proj-sub"><div class="proj-sub-check done">✓</div><span style="text-decoration:line-through;opacity:.5">Coordinate with PYMHWS</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.4">28 MAR</span></div>
+<div class="proj-sub"><div class="proj-sub-check"></div><span>Chase PYMHWS referral response</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-orange)">OVERDUE</span></div>
+<div class="proj-sub"><div class="proj-sub-check"></div><span>Schedule plan implementation meeting</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5">10 APR</span></div>
+<div class="proj-sub"><div class="proj-sub-check"></div><span>Draft progress report</span><span style="margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5">15 APR</span></div>
+</div>
+</div>
+<!-- Project 2 (collapsed) -->
+<div class="proj-item">
+<div class="proj-hdr">
+<div class="fx g3" style="align-items:center">
+<span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-cyan)">▸</span>
+<div><div class="proj-name">Jema Cameron — SA Management</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.5;margin-top:1px">2 OF 4 SUBTASKS · DUE 20 APR 2026</div></div>
+</div>
+<div class="fx g2" style="align-items:center">
+<div class="proj-bar"><div class="proj-fill" style="width:50%;background:var(--lx-cyan)"></div></div>
+<span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-cyan)">50%</span>
+</div>
+</div>
+</div>
+<!-- Project 3 (collapsed) -->
+<div class="proj-item">
+<div class="proj-hdr">
+<div class="fx g3" style="align-items:center">
+<span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-orange)">▸</span>
+<div><div class="proj-name">Leonard Peris — Housing Search</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.5;margin-top:1px">1 OF 5 SUBTASKS · DUE 30 APR 2026</div></div>
+</div>
+<div class="fx g2" style="align-items:center">
+<div class="proj-bar"><div class="proj-fill" style="width:20%;background:var(--lx-yellow)"></div></div>
+<span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-orange)">20%</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Project List with Subtasks (Expandable)</div>
+<div class="pl-entry-meta">Best for → Case management · Multi-step workflows · Progress tracking with detail</div>
+<div class="pl-entry-desc">Collapsible project rows with progress bar, percentage, due date, and expandable subtask lists. Each project uses a neon accent colour. Expanded projects show subtask checklist with individual due dates, overdue flags, and strikethrough for completed items. The progress bar fills proportionally based on subtask completion. ▾ = expanded, ▸ = collapsed. This is the ClickUp/Asana list view adapted for SC case management.</div>
+<div class="pl-style-card"><div class="pl-style-label">Design Specifications</div><div class="pl-style-text">Project row: 4% white background · Barlow Condensed 900 12px project name · JetBrains Mono 7px subtask count + due date · 60px progress bar with neon fill · Bebas Neue 14px percentage · Subtask rows: 12px checkbox · 9px task text · JetBrains Mono 6px due dates · Pink done checkboxes · Orange OVERDUE flags · Collapsible with ▾/▸ toggle</div></div>
+<div class="pl-use-cases"><span class="lx-chip pk">Case Plans</span><span class="lx-chip cy">Referral Workflows</span><span class="lx-chip yw">Report Preparation</span><span class="lx-chip pu">Onboarding Steps</span></div>
+</div></div>
+
+<!-- Project Board with Subtask Cards -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:280px">
+<div style="width:100%;display:flex;gap:6px">
+<!-- Not Started -->
+<div class="board-col">
+<div class="board-col-hdr" style="color:var(--lx-tx)">Not Started <span style="font-family:'JetBrains Mono',monospace;font-size:8px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:999px;color:var(--lx-tx);opacity:.6">1</span></div>
+<div class="board-card" style="border-left-color:var(--lx-orange)">
+<div class="board-card-title">Leonard — Housing Search</div>
+<div style="height:3px;background:rgba(0,0,0,.04);border-radius:999px;margin:4px 0;overflow:hidden"><div style="width:20%;height:100%;background:var(--lx-yellow);border-radius:999px"></div></div>
+<div class="board-card-meta">1/5 SUBTASKS · 20%</div>
+<div style="margin-top:4px;padding-top:4px;border-top:1px solid rgba(0,0,0,.04)">
+<div style="font-size:7px;color:var(--lx-tx);opacity:.5;margin-bottom:2px">↳ SDA eligibility check</div>
+<div style="font-size:7px;color:var(--lx-tx);opacity:.5;margin-bottom:2px">↳ Provider shortlist</div>
+<div style="font-size:7px;color:var(--lx-tx);opacity:.5">↳ Site inspections</div>
+</div>
+</div>
+</div>
+<!-- Active -->
+<div class="board-col">
+<div class="board-col-hdr" style="color:var(--lx-cyan)">Active <span style="font-family:'JetBrains Mono',monospace;font-size:8px;background:var(--lx-cyan);padding:1px 6px;border-radius:999px;color:var(--lx-black)">2</span></div>
+<div class="board-card" style="border-left-color:var(--lx-pink)">
+<div class="board-card-title">Kane — Plan Implementation</div>
+<div style="height:3px;background:rgba(0,0,0,.04);border-radius:999px;margin:4px 0;overflow:hidden"><div style="width:57%;height:100%;background:var(--lx-pink);border-radius:999px"></div></div>
+<div class="board-card-meta">4/7 SUBTASKS · 57%</div>
+<div style="margin-top:4px;padding-top:4px;border-top:1px solid rgba(0,0,0,.04)">
+<div style="font-size:7px;color:var(--lx-orange)">↳ Chase PYMHWS — OVERDUE</div>
+<div style="font-size:7px;color:var(--lx-tx);opacity:.5;margin-top:1px">↳ Schedule impl meeting</div>
+<div style="font-size:7px;color:var(--lx-tx);opacity:.5;margin-top:1px">↳ Draft progress report</div>
+</div>
+</div>
+<div class="board-card" style="border-left-color:var(--lx-cyan)">
+<div class="board-card-title">Jema — SA Management</div>
+<div style="height:3px;background:rgba(0,0,0,.04);border-radius:999px;margin:4px 0;overflow:hidden"><div style="width:50%;height:100%;background:var(--lx-cyan);border-radius:999px"></div></div>
+<div class="board-card-meta">2/4 SUBTASKS · 50%</div>
+<div style="margin-top:4px;padding-top:4px;border-top:1px solid rgba(0,0,0,.04)">
+<div style="font-size:7px;color:var(--lx-tx);opacity:.5">↳ SA renewal — awaiting</div>
+<div style="font-size:7px;color:var(--lx-tx);opacity:.5;margin-top:1px">↳ Update risk register</div>
+</div>
+</div>
+</div>
+<!-- Complete -->
+<div class="board-col">
+<div class="board-col-hdr" style="color:var(--lx-pink)">Complete <span style="font-family:'JetBrains Mono',monospace;font-size:8px;background:var(--lx-pink);padding:1px 6px;border-radius:999px;color:white">0</span></div>
+<div style="text-align:center;padding:20px 10px;font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.3">No completed projects this period</div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Project Board with Subtasks (Kanban-Style)</div>
+<div class="pl-entry-meta">Best for → Multi-project overview · Case status board · Portfolio management</div>
+<div class="pl-entry-desc">Kanban columns (Not Started / Active / Complete) where each card represents a project/case with embedded progress bar, subtask count, and expandable subtask preview. Active cards show remaining subtasks inline, with overdue items flagged in orange. Each card's left border and progress bar use the project's assigned neon colour. This is the Motion/ClickUp board view adapted for SC caseload management — each "project" is a participant case with discrete action items as subtasks.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Caseload Board</span><span class="lx-chip cy">Project Portfolio</span><span class="lx-chip yw">Team Workboard</span><span class="lx-chip or">Sprint Board</span></div>
+</div></div>
+
+</div></div>
+
+
+<!-- FOOTER -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:32px 28px;position:relative;overflow:hidden">
+<div style="font-family:'Bebas Neue',serif;font-size:100px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-20px;user-select:none;pointer-events:none">∞</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:8px">SUITE 7 COMPLETE · TASK · SCHEDULE · PROJECT PATTERNS</div>
+<div style="font-family:'Bebas Neue',serif;font-size:32px;color:var(--lx-offwhite);line-height:1;margin-bottom:12px">FULL LIBRARY<br>7 SUITES · 35 GROUPS</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px">
+<span class="lx-chip spk">S1 ✓</span><span class="lx-chip spk">S2 ✓</span><span class="lx-chip spk">S3 ✓</span><span class="lx-chip spk">S4 ✓</span><span class="lx-chip scy" style="background:var(--lx-cyan);color:var(--lx-black)">S5 CRM ✓</span><span class="lx-chip syw">S6 Core ✓</span><span class="lx-chip spk">S7 Task/Sched ✓</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px">
+<div style="border-left:3px solid var(--lx-pink);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-pink)">35</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">TOTAL GROUPS</div></div>
+<div style="border-left:3px solid var(--lx-cyan);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-cyan)">300+</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">TOTAL PATTERNS</div></div>
+<div style="border-left:3px solid var(--lx-yellow);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-yellow)">7</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">SUITES</div></div>
+</div>
+<div class="lx-stripe" style="margin:20px -28px -32px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">LIMITLESS SUPPORT CO. · SUITE 7 · TASK MANAGEMENT & SCHEDULING · ABN 76 985 845 524</div>
+<script>const io=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('vis'),io.unobserve(e.target))})},{threshold:.08});document.querySelectorAll('.lx-rev').forEach(el=>io.observe(el));</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* ═══════════════════════════════════════════════════════════
+   LIMITLESS Design Tokens v3.0
+   All CSS custom properties for the design system
+   ═══════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── COLOUR PALETTE ────────────────────────────────────── */
+  --lx-pink:      #FF2D7D;   /* Primary — CTAs, active, accent           */
+  --lx-yellow:    #CCFF00;   /* Secondary — highlights, confirm, ticker   */
+  --lx-orange:    #FF6600;   /* Warnings, urgent, review                  */
+  --lx-cyan:      #00D4FF;   /* Info, secondary data                      */
+  --lx-blue:      #2979FF;   /* Progress, data series                     */
+  --lx-purple:    #B14EFF;   /* Stats, AI, donuts                         */
+
+  /* ── NEUTRALS ──────────────────────────────────────────── */
+  --lx-black:     #0D0D0D;   /* Topbar, dark cards, nav                   */
+  --lx-offwhite:  #F5F0E8;   /* Page background (NEVER pure white)        */
+  --lx-cream:     #FAF7F2;   /* Card alt, panels, table headers           */
+  --lx-navy:      #0A0F1C;   /* Footer, nav variant                       */
+  --lx-white:     #FFF;      /* Card default bg                           */
+
+  /* ── SEMANTIC ALIASES ──────────────────────────────────── */
+  --lx-bg:        #F5F0E8;
+  --lx-card:      #FFF;
+  --lx-bdr:       rgba(13,13,13,.08);
+  --lx-bdr2:      rgba(13,13,13,.12);
+  --lx-tx:        #0D0D0D;
+  --lx-txm:       #555;      /* Text muted                                */
+  --lx-txl:       #999;      /* Text light                                */
+
+  /* ── BORDER RADIUS ─────────────────────────────────────── */
+  --r-xs:  6px;
+  --r-sm:  10px;
+  --r-md:  16px;
+  --r-lg:  24px;
+  --r-xl:  32px;
+  --r-p:   999px;            /* Pill                                      */
+
+  /* ── SHADOWS ───────────────────────────────────────────── */
+  --sh-sm:  0 2px 8px rgba(0,0,0,.06);
+  --sh-md:  0 6px 24px rgba(0,0,0,.08);
+  --sh-hv:  0 16px 48px rgba(0,0,0,.13);   /* Hover bloom              */
+
+  /* ── EASING ────────────────────────────────────────────── */
+  --ease:   cubic-bezier(.4, 0, .2, 1);
+  --spring: cubic-bezier(.34, 1.56, .64, 1);
+
+  /* ── GRADIENT ──────────────────────────────────────────── */
+  --lx-gradient: linear-gradient(90deg, #FF2D7D, #FF6600, #CCFF00, #00D4FF);
+
+  /* ── FONT FAMILIES ─────────────────────────────────────── */
+  --font-display:   'Bebas Neue', serif;
+  --font-heading:   'Barlow Condensed', sans-serif;
+  --font-body:      'Barlow', system-ui, sans-serif;
+  --font-mono:      'JetBrains Mono', monospace;
+
+  /* 🚫 BANNED: #00C853 (green) — NEVER use as a brand colour */
+}

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Suite 4 · Groups 19–24 — Styles, Interactions, Checklist, Jobs — LIMITLESS</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;--r-sm:10px;--r-md:16px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.top{background:var(--lx-black);color:#F5F0E8;padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}.tl{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}.tl span{color:var(--lx-pink)}.tm{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}.tb{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:2px 8px;border-radius:var(--r-p)}.tb.y{background:var(--lx-yellow);color:var(--lx-black)}.tb.p{background:var(--lx-pink);color:#fff}
+.stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.chip{display:inline-flex;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}.chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}.chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.fx{display:flex}.g2{gap:8px}.g3{gap:12px}.cm{color:var(--lx-txm)}.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}
+.gh{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}.gh::before{content:attr(data-m);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;user-select:none;pointer-events:none}.gn{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}.gt{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;margin-bottom:8px}.gd{font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}
+.gb{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.sub{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:12px 16px;margin-bottom:12px}.sub-t{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--lx-pink);margin-bottom:7px;padding-bottom:7px;border-bottom:2px solid var(--lx-pink)}.sub-l{font-size:11px;color:var(--lx-txm);line-height:1.7}
+.rv{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.rv.vis{opacity:1;transform:translateY(0)}
+.stg{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:10px}
+.st{border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--lx-bdr);transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.st:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.st-viz{padding:12px;min-height:80px;display:flex;align-items:center;justify-content:center}
+.st-body{padding:8px 10px;background:var(--lx-card)}.st-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:2px}.st-desc{font-size:8px;color:var(--lx-txm);line-height:1.4}
+.jc{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:16px;text-align:center;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.jc:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}.jc-icon{font-family:'Bebas Neue',serif;font-size:32px;line-height:1;margin-bottom:4px}.jc-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:3px}.jc-desc{font-size:9px;color:var(--lx-txm);line-height:1.3}
+.cl-grid{columns:3;column-gap:12px;font-size:10px;line-height:1.8;color:var(--lx-txm)}.cl-grid span{color:var(--lx-pink);font-weight:700}
+@media(max-width:900px){.stg{grid-template-columns:repeat(2,1fr)!important}.cl-grid{columns:2!important}}
+@media(max-width:600px){.stg{grid-template-columns:1fr!important}.cl-grid{columns:1!important}.gt{font-size:32px!important}}
+/* Groups 19-20 original classes — LCC light treatment */
+.pl-group-header{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}
+.pl-group-header::before{content:attr(data-m);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;user-select:none;pointer-events:none}
+.pl-group-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}
+.pl-group-title{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;margin-bottom:8px}
+.pl-group-desc{font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}
+.pl-infinity{position:absolute;right:28px;top:50%;transform:translateY(-50%);opacity:.06}
+.pl-entry{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}
+.pl-entry:hover{transform:translateY(-3px);box-shadow:0 16px 48px rgba(0,0,0,.13)}
+.pl-entry-viz{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md) var(--r-md) 0 0;padding:20px;min-height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.pl-entry-viz::after{content:'∞';font-family:'Bebas Neue',serif;font-size:60px;color:rgba(0,0,0,.04);position:absolute;right:8px;bottom:-10px}
+.pl-entry-body{padding:16px}
+.pl-entry-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;color:var(--lx-tx)}
+.pl-entry-meta{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:8px}
+.pl-entry-desc{font-size:11px;color:var(--lx-txm);line-height:1.5;margin-bottom:8px}
+.pl-use-cases{display:flex;flex-wrap:wrap;gap:4px}
+.pl-subcat{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:12px 16px;margin-bottom:10px}
+.pl-subcat-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--lx-pink);margin-bottom:7px;padding-bottom:7px;border-bottom:2px solid var(--lx-pink)}
+.pl-subcat-list{font-size:11px;color:var(--lx-txm);line-height:1.7}
+.pl-viz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;padding:0 0 10px}
+.pl-group-body{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.pl-style-card{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}
+.pl-style-label{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}
+.pl-style-text{font-size:10px;color:#F5F0E8;opacity:.75;line-height:1.5}
+.mini-axis{stroke:rgba(0,0,0,.12);stroke-width:1}
+.mini-grid{stroke:rgba(0,0,0,.06);stroke-width:.5}
+.mini-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.45)}
+</style>
+</head>
+<body>
+<div class="top"><div class="fx g3" style="align-items:center"><span class="tl">LIMIT<span>LESS</span></span><span class="tm">2026 Pattern Library</span></div><div class="fx g2" style="align-items:center"><span class="tb y">Suite 4</span><span class="tb p">Groups 19–24</span></div></div>
+<div class="stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+<div style="text-align:center;padding:32px 20px 8px"><div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px">VISUAL DEMONSTRATIONS · EVERY STYLE & INTERACTION RENDERED</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;color:var(--lx-black)">SUITE FOUR</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">GROUPS 19 — 24</div><div class="lx-bsm cm" style="max-width:560px;margin:12px auto 0">Scientific & specialist patterns, hybrid dashboard components, stylistic treatments with live demos, interactive interaction patterns, master checklist, and the 12 Jobs framework.</div></div>
+
+
+<!-- ═══════════════ GROUP 19 — SCIENTIFIC & SPECIALIST ═══════════════ -->
+<div class="pl-group-header rv" data-m="SCIENCE"><svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg><div class="pl-group-num">Group 19 · Suite 4</div><div class="pl-group-title">Scientific, Technical<br>& Specialist</div><div class="pl-group-desc">Domain-specific visualizations for research, engineering, medical, and specialist analytical workflows.</div></div>
+<div class="pl-group-body rv"><div class="pl-subcat"><div class="pl-subcat-title">All Scientific & Specialist Types</div><div class="pl-subcat-list">Contour plot · surface plot · spectrogram · waveform chart · chromatogram · phase plot · vector field · quiver plot · streamline plot · scatter contour hybrid · response surface · triangular mesh plot · ternary plot · nomogram · parallel sets · Sankey-ribbon hybrid · sleep stage chart · medical timeline · genomic track view</div></div><div class="pl-viz-grid"><div class="pl-entry"><div class="pl-entry-viz"><svg width="100%" height="130" viewBox="0 0 220 130"><ellipse cx="100" cy="60" rx="85" ry="50" fill="none" stroke="var(--lx-pink)" stroke-width="1" opacity=".15"/><ellipse cx="100" cy="60" rx="55" ry="32" fill="none" stroke="var(--lx-pink)" stroke-width="1.5" opacity=".4"/><ellipse cx="100" cy="60" rx="25" ry="16" fill="none" stroke="var(--lx-pink)" stroke-width="2" opacity=".7"/><ellipse cx="100" cy="60" rx="12" ry="8" fill="var(--lx-pink)" opacity=".2" stroke="var(--lx-pink)" stroke-width="2"/><ellipse cx="165" cy="85" rx="25" ry="16" fill="none" stroke="var(--lx-cyan)" stroke-width="1" opacity=".25"/><ellipse cx="165" cy="85" rx="10" ry="6" fill="var(--lx-cyan)" opacity=".15" stroke="var(--lx-cyan)" stroke-width="1.5"/><circle cx="100" cy="60" r="2" fill="var(--lx-pink)"/><circle cx="165" cy="85" r="2" fill="var(--lx-cyan)"/></svg></div><div class="pl-entry-body"><div class="pl-entry-name">Contour / Surface / Response Surface</div><div class="pl-entry-meta">Best for → Topographic data · Optimization landscapes · Density estimation</div><div class="pl-entry-desc">Iso-lines showing constant values across a 2D plane. Covers contour plot, surface plot, scatter contour hybrid, response surface, triangular mesh plot.</div><div class="pl-use-cases"><span class="lx-chip pk">Optimization</span><span class="lx-chip cy">Terrain</span><span class="lx-chip yw">ML Hyperparameter</span></div></div></div><div class="pl-entry"><div class="pl-entry-viz"><svg width="100%" height="130" viewBox="0 0 220 130"><line x1="0" y1="65" x2="220" y2="65" stroke="rgba(0,0,0,.06)"/><path d="M0,65 Q5,30 10,65 Q15,100 20,65 Q25,25 30,65 Q35,105 40,65 Q45,20 50,65 Q55,108 60,65 Q65,28 70,65 Q75,95 80,65 Q85,35 90,65 Q95,90 100,65 Q105,40 110,65 Q115,88 120,65 Q125,42 130,65 Q135,85 140,65 Q145,45 150,65 Q155,82 160,65 Q165,48 170,65 Q175,80 180,65 Q185,50 190,65 Q195,78 200,65 Q205,52 210,65 Q215,75 220,65" fill="none" stroke="var(--lx-cyan)" stroke-width="1.5" opacity=".8"/><path d="M0,65 Q30,15 60,20 Q90,25 120,35 Q150,42 180,50 Q210,58 220,62" fill="none" stroke="var(--lx-pink)" stroke-width="1" stroke-dasharray="3" opacity=".5"/><path d="M0,65 Q30,115 60,110 Q90,105 120,95 Q150,88 180,80 Q210,72 220,68" fill="none" stroke="var(--lx-pink)" stroke-width="1" stroke-dasharray="3" opacity=".5"/></svg></div><div class="pl-entry-body"><div class="pl-entry-name">Waveform / Spectrogram / Phase / Vector Field</div><div class="pl-entry-meta">Best for → Signal analysis · Audio · Time-frequency decomposition</div><div class="pl-entry-desc">Oscillating signal traces with amplitude envelopes. Covers waveform, spectrogram, chromatogram, phase plot, vector field, quiver plot, streamline plot, nomogram.</div><div class="pl-use-cases"><span class="lx-chip cy">Audio</span><span class="lx-chip pk">EEG/ECG</span><span class="lx-chip pu">Signals</span></div></div></div><div class="pl-entry"><div class="pl-entry-viz"><svg width="100%" height="120" viewBox="0 0 220 120"><line x1="20" y1="110" x2="210" y2="110" class="mini-axis"/><text x="5" y="22" class="mini-label">WAKE</text><text x="5" y="42" class="mini-label">REM</text><text x="5" y="62" class="mini-label">N1</text><text x="5" y="82" class="mini-label">N2</text><text x="5" y="102" class="mini-label">N3</text><polyline points="30,18 45,18 45,38 55,38 55,58 70,58 70,78 95,78 95,98 115,98 115,78 130,78 130,38 145,38 145,18 155,18 155,38 165,38 165,78 190,78 190,98 200,98 200,78 210,78" fill="none" stroke="var(--lx-purple)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><rect x="45" y="30" width="10" height="16" fill="var(--lx-cyan)" opacity=".1" rx="2"/><rect x="130" y="30" width="15" height="16" fill="var(--lx-cyan)" opacity=".1" rx="2"/></svg></div><div class="pl-entry-body"><div class="pl-entry-name">Sleep Stage / Medical Timeline / Genomic Track</div><div class="pl-entry-meta">Best for → Categorical time-series · Clinical state transitions</div><div class="pl-entry-desc">Step-function showing categorical state transitions over time. Covers sleep stage chart, medical timeline, genomic track view, parallel sets, Sankey-ribbon hybrid.</div><div class="pl-use-cases"><span class="lx-chip pu">Sleep</span><span class="lx-chip pk">Clinical</span><span class="lx-chip cy">Genomics</span><span class="lx-chip bl">IoT</span></div></div></div></div></div>
+<div class="pl-group-header rv" data-m="HYBRID"><svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg><div class="pl-group-num">Group 20 · Suite 4</div><div class="pl-group-title">Hybrid Dashboard<br>Components</div><div class="pl-group-desc">Mixed visual modules combining multiple chart types — the real building blocks of production dashboards.</div></div>
+<div class="pl-group-body rv"><div class="pl-subcat"><div class="pl-subcat-title">All Hybrid Types</div><div class="pl-subcat-list">KPI card + sparkline · table + in-cell bars · table + heatmap cells · map + ranked sidebar · bar + line combo · area + line combo · bar + target markers · scatter + regression + marginal histogram · box plot + jitter · violin + swarm · treemap + detail pane · funnel + conversion cards · calendar + heatmap + event list · timeline + annotation callouts · network graph + side metrics · matrix + filters + drill panel · small multiples · faceted charts · repeated panels · linked views · overview + detail · zoomable drill-down · explorable narrative dashboard</div></div><div class="pl-viz-grid"><div class="pl-entry"><div class="pl-entry-viz"><div style="width:100%"><div class="fx" style="justify-content:space-between;align-items:flex-start"><div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(13,13,13,.4)">MONTHLY SESSIONS</div><div style="font-family:'Bebas Neue',serif;font-size:40px;color:var(--lx-tx);line-height:1">1,847</div><div style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-pink);margin-top:2px">▲ +18.2%</div></div><svg width="100" height="40" viewBox="0 0 100 40"><polygon points="0,38 0,30 15,24 30,28 45,18 60,15 75,10 90,6 100,3 100,38" fill="rgba(255,45,125,.1)"/><polyline points="0,30 15,24 30,28 45,18 60,15 75,10 90,6 100,3" fill="none" stroke="var(--lx-pink)" stroke-width="1.5" stroke-linecap="round"/></svg></div><div style="margin-top:12px;border-top:1px solid rgba(0,0,0,.06);padding-top:8px"><div class="fx" style="justify-content:space-between;margin-bottom:5px"><span style="font-size:9px;color:rgba(13,13,13,.5)">Core</span><div class="fx g2" style="align-items:center"><div style="width:60px;height:4px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden"><div style="width:72%;height:100%;background:var(--lx-pink);border-radius:999px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-pink)">72%</span></div></div><div class="fx" style="justify-content:space-between"><span style="font-size:9px;color:rgba(13,13,13,.5)">CB</span><div class="fx g2" style="align-items:center"><div style="width:60px;height:4px;background:rgba(0,0,0,.06);border-radius:999px;overflow:hidden"><div style="width:45%;height:100%;background:var(--lx-cyan);border-radius:999px"></div></div><span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-cyan)">45%</span></div></div></div></div></div><div class="pl-entry-body"><div class="pl-entry-name">KPI + Sparkline + In-Cell Bars</div><div class="pl-entry-meta">Best for → Dense dashboard modules · Multi-metric cards</div><div class="pl-entry-desc">Combines hero KPI with sparkline and mini-bar rows. Covers all hybrid composite types listed above.</div><div class="pl-use-cases"><span class="lx-chip pk">NDIS Dashboard</span><span class="lx-chip cy">SaaS</span><span class="lx-chip yw">Executive</span></div></div></div><div class="pl-entry"><div class="pl-entry-viz"><svg width="100%" height="120" viewBox="0 0 220 120"><line x1="15" y1="115" x2="210" y2="115" class="mini-axis"/><rect x="22" y="50" width="18" height="65" fill="var(--lx-pink)" opacity=".6" rx="2"/><rect x="52" y="35" width="18" height="80" fill="var(--lx-pink)" opacity=".6" rx="2"/><rect x="82" y="45" width="18" height="70" fill="var(--lx-pink)" opacity=".6" rx="2"/><rect x="112" y="25" width="18" height="90" fill="var(--lx-pink)" opacity=".6" rx="2"/><rect x="142" y="40" width="18" height="75" fill="var(--lx-pink)" opacity=".6" rx="2"/><rect x="172" y="30" width="18" height="85" fill="var(--lx-pink)" opacity=".6" rx="2"/><polyline points="31,55 61,40 91,48 121,28 151,42 181,32" fill="none" stroke="var(--lx-orange)" stroke-width="2" stroke-linecap="round"/><circle cx="31" cy="55" r="3" fill="var(--lx-orange)"/><circle cx="61" cy="40" r="3" fill="var(--lx-orange)"/><circle cx="121" cy="28" r="3" fill="var(--lx-orange)"/><circle cx="181" cy="32" r="3" fill="var(--lx-orange)"/><line x1="15" y1="38" x2="210" y2="38" stroke="var(--lx-cyan)" stroke-width="1" stroke-dasharray="4"/></svg></div><div class="pl-entry-body"><div class="pl-entry-name">Bar + Line Combo / Small Multiples / Faceted</div><div class="pl-entry-meta">Best for → Dual-axis · Volume + rate · Pattern comparison</div><div class="pl-entry-desc">Layers bars with line overlays and targets. Also covers small multiples, faceted grids, linked views, overview + detail, and explorable narrative dashboards.</div><div class="pl-use-cases"><span class="lx-chip pk">Revenue</span><span class="lx-chip cy">Hours vs Target</span><span class="lx-chip yw">Volume + Rate</span></div></div></div></div></div>
+
+
+<!-- ═══════════════ GROUP 21 — 20 STYLISTIC TREATMENTS ═══════════════ -->
+<div class="gh rv" data-m="STYLE"><div class="gn">Group 21 · Suite 4</div><div class="gt">20 Stylistic<br>Treatments</div><div class="gd">The same dataset [12, 28, 18, 35, 22] rendered as bars in 20 radically different visual styles.</div></div>
+<div class="gb rv">
+<div class="sub"><div class="sub-t">Each tile shows the same 5-bar dataset in that visual style</div><div class="sub-l">Style is a design decision separate from chart type. Every tile below proves it.</div></div>
+<div class="stg">
+<div class="st"><div class="st-viz" style="background:var(--lx-black)"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="2" y="26" width="15" height="24" fill="var(--lx-pink)"/><rect x="20" y="6" width="15" height="44" fill="var(--lx-orange)"/><rect x="38" y="18" width="15" height="32" fill="var(--lx-cyan)"/><rect x="56" y="0" width="15" height="50" fill="var(--lx-orange)"/><rect x="74" y="14" width="15" height="36" fill="var(--lx-purple)"/></svg></div><div class="st-body"><div class="st-name cpk">1. Neo-Brutalist</div><div class="st-desc">Hard edges, neon on dark, condensed type — the LIMITLESS default.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#fff"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="6" y="28" width="12" height="22" fill="rgba(0,0,0,.07)" rx="1"/><rect x="22" y="8" width="12" height="42" fill="rgba(0,0,0,.1)" rx="1"/><rect x="38" y="20" width="12" height="30" fill="rgba(0,0,0,.07)" rx="1"/><rect x="54" y="2" width="12" height="48" fill="rgba(0,0,0,.12)" rx="1"/><rect x="70" y="16" width="12" height="34" fill="rgba(0,0,0,.07)" rx="1"/></svg></div><div class="st-body"><div class="st-name" style="color:var(--lx-txm)">2. Minimal</div><div class="st-desc">Single grey tone, generous whitespace, no labels.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#fafafa"><svg width="100" height="50" viewBox="0 0 100 50"><line x1="4" y1="48" x2="96" y2="48" stroke="rgba(0,0,0,.12)" stroke-width=".5"/><line x1="4" y1="30" x2="96" y2="30" stroke="rgba(0,0,0,.06)" stroke-width=".5"/><line x1="4" y1="12" x2="96" y2="12" stroke="rgba(0,0,0,.06)" stroke-width=".5"/><text x="2" y="32" style="font-family:monospace;font-size:3.5px;fill:rgba(0,0,0,.3)">20</text><rect x="10" y="28" width="10" height="20" fill="#4a90d9"/><rect x="24" y="8" width="10" height="40" fill="#4a90d9"/><rect x="38" y="20" width="10" height="28" fill="#4a90d9"/><rect x="52" y="2" width="10" height="46" fill="#4a90d9"/><rect x="66" y="16" width="10" height="32" fill="#4a90d9"/><text x="15" y="26" text-anchor="middle" style="font-family:monospace;font-size:4px;fill:#4a90d9">12</text><text x="29" y="6" text-anchor="middle" style="font-family:monospace;font-size:4px;fill:#4a90d9">28</text></svg></div><div class="st-body"><div class="st-name" style="color:#4a90d9">3. Analytical</div><div class="st-desc">Dense gridlines, axis labels, monospace value annotations.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#f8f5f0"><svg width="100" height="50" viewBox="0 0 100 50"><text x="50" y="8" text-anchor="middle" style="font-family:Georgia,serif;font-size:4px;fill:#333;font-style:italic">Revenue by Quarter</text><rect x="10" y="16" width="13" height="32" fill="#c0392b" rx="1"/><rect x="26" y="4" width="13" height="44" fill="#c0392b" rx="1"/><rect x="42" y="14" width="13" height="34" fill="#c0392b" rx="1"/><rect x="58" y="0" width="13" height="48" fill="#c0392b" rx="1"/><rect x="74" y="10" width="13" height="38" fill="#c0392b" rx="1"/><line x1="58" y1="0" x2="95" y2="0" stroke="#c0392b" stroke-width=".4" stroke-dasharray="2"/><text x="96" y="3" style="font-family:Georgia,serif;font-size:3px;fill:#c0392b">Peak</text></svg></div><div class="st-body"><div class="st-name" style="color:#c0392b">4. Editorial</div><div class="st-desc">Serif annotations, callout lines, print-quality narrative.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#1a1a2e"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="4" y="26" width="14" height="24" fill="#e94560" rx="2"/><rect x="22" y="6" width="14" height="44" fill="#e94560" rx="2"/><rect x="40" y="18" width="14" height="32" fill="#e94560" rx="2"/><rect x="58" y="0" width="14" height="50" fill="#e94560" rx="2"/><rect x="76" y="14" width="14" height="36" fill="#e94560" rx="2"/></svg></div><div class="st-body"><div class="st-name" style="color:#e94560">5. Executive Dashboard</div><div class="st-desc">KPI-forward, big numbers, dark surface, maximum signal.</div></div></div>
+<div class="st"><div class="st-viz" style="background:linear-gradient(135deg,#667eea,#764ba2)"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="8" y="4" width="84" height="42" rx="6" fill="rgba(255,255,255,.12)" stroke="rgba(255,255,255,.18)" stroke-width=".5"/><rect x="14" y="24" width="10" height="18" fill="rgba(255,255,255,.45)" rx="3"/><rect x="28" y="10" width="10" height="32" fill="rgba(255,255,255,.5)" rx="3"/><rect x="42" y="18" width="10" height="24" fill="rgba(255,255,255,.45)" rx="3"/><rect x="56" y="6" width="10" height="36" fill="rgba(255,255,255,.6)" rx="3"/><rect x="70" y="14" width="10" height="28" fill="rgba(255,255,255,.45)" rx="3"/></svg></div><div class="st-body"><div class="st-name" style="color:#764ba2">6. Glassmorphism</div><div class="st-desc">Frosted-glass card, backdrop-blur, translucent bars.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#000"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="4" y="26" width="14" height="24" fill="#0f0"/><rect x="22" y="6" width="14" height="44" fill="#0f0"/><rect x="40" y="18" width="14" height="32" fill="#0f0"/><rect x="58" y="0" width="14" height="50" fill="#0f0"/><rect x="76" y="14" width="14" height="36" fill="#0f0"/><line x1="0" y1="48" x2="100" y2="48" stroke="#0f0" stroke-width=".3" opacity=".3"/></svg></div><div class="st-body"><div class="st-name cpk">7. Dark High-Contrast</div><div class="st-desc">Neon on pure black. Terminal/monitoring aesthetic.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.04)"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="8" y="26" width="12" height="22" fill="#5046e5" rx="4"/><rect x="24" y="8" width="12" height="40" fill="#5046e5" rx="4"/><rect x="40" y="18" width="12" height="30" fill="#5046e5" rx="4"/><rect x="56" y="2" width="12" height="46" fill="#5046e5" rx="4"/><rect x="72" y="14" width="12" height="34" fill="#5046e5" rx="4"/></svg></div><div class="st-body"><div class="st-name" style="color:#5046e5">8. Card-Based SaaS</div><div class="st-desc">White cards, large radius, Stripe/Linear aesthetic.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#f4f4f4"><svg width="100" height="50" viewBox="0 0 100 50"><line x1="0" y1="12" x2="100" y2="12" stroke="rgba(0,0,0,.04)"/><line x1="0" y1="24" x2="100" y2="24" stroke="rgba(0,0,0,.04)"/><line x1="0" y1="36" x2="100" y2="36" stroke="rgba(0,0,0,.04)"/><rect x="4" y="26" width="7" height="22" fill="#2196F3"/><rect x="12" y="30" width="7" height="18" fill="#FF9800"/><rect x="22" y="6" width="7" height="42" fill="#2196F3"/><rect x="30" y="12" width="7" height="36" fill="#FF9800"/><rect x="40" y="18" width="7" height="30" fill="#2196F3"/><rect x="48" y="22" width="7" height="26" fill="#FF9800"/><rect x="58" y="0" width="7" height="48" fill="#2196F3"/><rect x="66" y="6" width="7" height="42" fill="#FF9800"/><rect x="76" y="14" width="7" height="34" fill="#2196F3"/><rect x="84" y="18" width="7" height="30" fill="#FF9800"/></svg></div><div class="st-body"><div class="st-name" style="color:#2196F3">9. Dense Enterprise BI</div><div class="st-desc">Maximum density, grouped bars, dual series, gridlines.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#ffeaa7"><svg width="100" height="50" viewBox="0 0 100 50"><circle cx="14" cy="38" r="6" fill="#e17055"/><circle cx="32" cy="18" r="12" fill="#e17055"/><circle cx="52" cy="28" r="8" fill="#e17055"/><circle cx="72" cy="10" r="16" fill="#e17055"/><circle cx="90" cy="24" r="10" fill="#e17055"/><text x="72" y="14" text-anchor="middle" style="font-size:7px;fill:white;font-weight:900">35</text></svg></div><div class="st-body"><div class="st-name" style="color:#e17055">10. Infographic</div><div class="st-desc">Illustrative proportional circles replace bars.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-black)"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="0" y="26" width="20" height="24" fill="var(--lx-pink)"/><rect x="20" y="6" width="20" height="44" fill="var(--lx-cyan)"/><rect x="40" y="18" width="20" height="32" fill="var(--lx-orange)"/><rect x="60" y="0" width="20" height="50" fill="var(--lx-orange)"/><rect x="80" y="14" width="20" height="36" fill="var(--lx-purple)"/></svg></div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">11. Posterized Data Art</div><div class="st-desc">Edge-to-edge blocks, no gaps, poster-grade impact.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#0a1628"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="1" y="1" width="98" height="48" rx="2" fill="none" stroke="rgba(0,200,255,.12)" stroke-width=".5"/><rect x="8" y="26" width="12" height="22" fill="none" stroke="#00c8ff" stroke-width=".8"/><rect x="24" y="6" width="12" height="42" fill="rgba(0,200,255,.12)" stroke="#00c8ff" stroke-width=".8"/><rect x="40" y="18" width="12" height="30" fill="none" stroke="#00c8ff" stroke-width=".8"/><rect x="56" y="0" width="12" height="48" fill="rgba(0,200,255,.12)" stroke="#00c8ff" stroke-width=".8"/><rect x="72" y="14" width="12" height="34" fill="none" stroke="#00c8ff" stroke-width=".8"/></svg></div><div class="st-body"><div class="st-name" style="color:#00c8ff">12. Futuristic HUD</div><div class="st-desc">Wireframe outlines, scan-line aesthetic, monospace readouts.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#fff"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="8" y="26" width="14" height="24" fill="#333" rx="1"/><rect x="26" y="6" width="14" height="44" fill="#555" rx="1"/><rect x="44" y="18" width="14" height="32" fill="#777" rx="1"/><rect x="62" y="0" width="14" height="50" fill="#333" rx="1"/><rect x="80" y="14" width="14" height="36" fill="#999" rx="1"/></svg></div><div class="st-body"><div class="st-name">13. Monochrome</div><div class="st-desc">Grayscale, print-safe, no colour dependency.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#fff;border:1px solid #ddd"><svg width="100" height="50" viewBox="0 0 100 50"><line x1="4" y1="46" x2="96" y2="46" stroke="#999" stroke-width=".5"/><line x1="4" y1="0" x2="4" y2="46" stroke="#999" stroke-width=".5"/><text x="2" y="5" style="font-family:serif;font-size:4px;fill:#333">Fig.3</text><rect x="12" y="26" width="12" height="20" fill="#333"/><rect x="28" y="6" width="12" height="40" fill="#666"/><rect x="44" y="18" width="12" height="28" fill="#333"/><rect x="60" y="0" width="12" height="46" fill="#666"/><rect x="76" y="14" width="12" height="32" fill="#333"/></svg></div><div class="st-body"><div class="st-name">14. Print Report</div><div class="st-desc">Serif labels, full axis frames, B&W safe, academic.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#f9f9f9"><svg width="70" height="40" viewBox="0 0 70 40" style="display:block;margin:0 auto"><rect x="0" y="0" width="70" height="40" rx="5" fill="#fff" stroke="rgba(0,0,0,.06)"/><rect x="6" y="18" width="8" height="18" fill="var(--lx-pink)" rx="2"/><rect x="16" y="6" width="8" height="30" fill="var(--lx-pink)" rx="2"/><rect x="26" y="14" width="8" height="22" fill="var(--lx-pink)" rx="2"/><rect x="36" y="2" width="8" height="34" fill="var(--lx-pink)" rx="2"/><rect x="46" y="10" width="8" height="26" fill="var(--lx-pink)" rx="2"/></svg></div><div class="st-body"><div class="st-name cpk">15. Mobile Compact</div><div class="st-desc">Thumb-friendly, rounded bars, phone-width.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#e0e5ec"><svg width="100" height="50" viewBox="0 0 100 50"><defs><filter id="n"><feDropShadow dx="1.5" dy="1.5" stdDeviation="1.5" flood-color="rgba(0,0,0,.12)"/><feDropShadow dx="-1.5" dy="-1.5" stdDeviation="1.5" flood-color="rgba(255,255,255,.6)"/></filter></defs><rect x="8" y="24" width="12" height="24" fill="#e0e5ec" rx="3" filter="url(#n)"/><rect x="24" y="6" width="12" height="42" fill="#e0e5ec" rx="3" filter="url(#n)"/><rect x="40" y="16" width="12" height="32" fill="#e0e5ec" rx="3" filter="url(#n)"/><rect x="56" y="0" width="12" height="48" fill="#e0e5ec" rx="3" filter="url(#n)"/><rect x="72" y="12" width="12" height="36" fill="#e0e5ec" rx="3" filter="url(#n)"/></svg></div><div class="st-body"><div class="st-name" style="color:#8395a7">16. Soft UI / Neumorphism</div><div class="st-desc">Embossed surfaces, inner/outer shadows, tactile.</div></div></div>
+<div class="st"><div class="st-viz" style="background:linear-gradient(180deg,#f5f5f0,#e8e4d8)"><svg width="100" height="50" viewBox="0 0 100 50"><defs><linearGradient id="s" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6ab04c"/><stop offset="1" stop-color="#27ae60"/></linearGradient></defs><rect x="8" y="26" width="12" height="22" fill="url(#s)" rx="1" stroke="rgba(0,0,0,.08)" stroke-width=".5"/><rect x="24" y="6" width="12" height="42" fill="url(#s)" rx="1" stroke="rgba(0,0,0,.08)" stroke-width=".5"/><rect x="40" y="18" width="12" height="30" fill="url(#s)" rx="1" stroke="rgba(0,0,0,.08)" stroke-width=".5"/><rect x="56" y="0" width="12" height="48" fill="url(#s)" rx="1" stroke="rgba(0,0,0,.08)" stroke-width=".5"/><rect x="72" y="14" width="12" height="34" fill="url(#s)" rx="1" stroke="rgba(0,0,0,.08)" stroke-width=".5"/></svg></div><div class="st-body"><div class="st-name" style="color:#27ae60">17. Skeuomorphic</div><div class="st-desc">Gradient fills, textured backgrounds, physical feel.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-black)"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="2" y="24" width="16" height="26" fill="var(--lx-pink)" rx="2"/><rect x="20" y="4" width="16" height="46" fill="var(--lx-cyan)" rx="2"/><rect x="38" y="16" width="16" height="34" fill="var(--lx-yellow)" rx="2"/><rect x="56" y="0" width="16" height="50" fill="var(--lx-orange)" rx="2"/><rect x="74" y="12" width="16" height="38" fill="var(--lx-purple)" rx="2"/><text x="64" y="46" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:18px;fill:rgba(255,255,255,.03)">∞</text></svg></div><div class="st-body"><div class="st-name ccy">18. Kiosk / Wallboard</div><div class="st-desc">Large-format oversized, auto-refresh, ambient.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#fafafa"><svg width="100" height="50" viewBox="0 0 100 50"><rect x="8" y="26" width="12" height="24" fill="var(--lx-pink)" opacity=".25" rx="2"/><rect x="24" y="6" width="12" height="44" fill="var(--lx-pink)" opacity=".45" rx="2"/><rect x="40" y="18" width="12" height="32" fill="var(--lx-pink)" opacity=".3" rx="2"/><rect x="56" y="0" width="12" height="50" fill="var(--lx-pink)" rx="2"/><rect x="72" y="14" width="12" height="36" fill="var(--lx-pink)" opacity=".35" rx="2"/></svg></div><div class="st-body"><div class="st-name cpk">19. Accent-Color Driven</div><div class="st-desc">Single neon accent at varying opacity on neutral.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:6px;padding:6px 8px;width:90px"><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-txl);letter-spacing:.08em;text-transform:uppercase">REVENUE</div><div style="font-family:'Bebas Neue',serif;font-size:16px;color:var(--lx-tx)">$2.4K</div><svg width="80" height="16" viewBox="0 0 80 16"><polyline points="0,14 12,10 24,12 36,6 48,8 60,3 72,1" fill="none" stroke="var(--lx-pink)" stroke-width="1.5" stroke-linecap="round"/><polygon points="0,16 0,14 12,10 24,12 36,6 48,8 60,3 72,1 72,16" fill="rgba(255,45,125,.06)"/></svg></div></div><div class="st-body"><div class="st-name ccy">20. Embedded Mini-Viz</div><div class="st-desc">Tiny inline charts inside KPI cards or table cells.</div></div></div>
+</div>
+
+<!-- 16 STRUCTURAL STYLES -->
+<div class="sub" style="margin-top:16px"><div class="sub-t">16 Structural Styles — Layout Wireframes</div><div class="sub-l">How charts are arranged within a page. Each tile shows the layout as a miniature wireframe diagram.</div></div>
+<div class="stg">
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="width:70px;height:40px;border:1px solid rgba(0,0,0,.08);border-radius:3px;background:var(--lx-card);display:flex;align-items:center;justify-content:center"><svg width="40" height="24"><rect x="4" y="4" width="6" height="16" fill="var(--lx-pink)" rx="1"/><rect x="12" y="0" width="6" height="20" fill="var(--lx-cyan)" rx="1"/><rect x="20" y="8" width="6" height="12" fill="var(--lx-orange)" rx="1"/><rect x="28" y="2" width="6" height="18" fill="var(--lx-purple)" rx="1"/></svg></div></div><div class="st-body"><div class="st-name cpk">1. Single Chart</div><div class="st-desc">One chart, full focus, hero visual.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;width:60px"><div style="height:18px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div><div style="height:18px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div><div style="height:18px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div><div style="height:18px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div></div></div><div class="st-body"><div class="st-name ccy">2. Card Grid / Bento</div><div class="st-desc">Flexible card arrangement.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="display:flex;gap:3px;width:70px"><div style="flex:1;height:36px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div><div style="flex:1;height:36px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">3. Side-by-Side</div><div class="st-desc">Two charts for direct comparison.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:2px;width:70px"><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px"></div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px"></div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px"></div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px"></div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px"></div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px"></div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">4. Small Multiples</div><div class="st-desc">Same chart repeated per segment.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;width:60px"><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;font-size:3px;color:var(--lx-txl);display:flex;align-items:center;justify-content:center">A</div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;font-size:3px;color:var(--lx-txl);display:flex;align-items:center;justify-content:center">B</div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;font-size:3px;color:var(--lx-txl);display:flex;align-items:center;justify-content:center">C</div><div style="height:16px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;font-size:3px;color:var(--lx-txl);display:flex;align-items:center;justify-content:center">D</div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">5. Faceted Grid / Trellis</div><div class="st-desc">One panel per dimension value.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="width:60px;text-align:center"><div style="height:10px;background:var(--lx-pink);border-radius:2px;margin-bottom:2px;font-size:4px;color:white;display:flex;align-items:center;justify-content:center;font-weight:700">TOP</div><div style="font-size:6px;color:var(--lx-pink)">↓</div><div style="display:flex;gap:2px"><div style="flex:1;height:10px;background:rgba(255,45,125,.15);border-radius:1px"></div><div style="flex:1;height:10px;background:rgba(255,45,125,.15);border-radius:1px"></div><div style="flex:1;height:10px;background:rgba(255,45,125,.15);border-radius:1px"></div></div></div></div><div class="st-body"><div class="st-name cpk">6. Drill-Down Hierarchy</div><div class="st-desc">Click to reveal sub-categories.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="display:flex;align-items:center;gap:3px"><div style="width:12px;height:12px;border-radius:50%;background:var(--lx-pink);font-size:5px;color:white;display:flex;align-items:center;justify-content:center;font-weight:700">1</div><div style="width:14px;height:1px;background:var(--lx-pink)"></div><div style="width:12px;height:12px;border-radius:50%;background:var(--lx-cyan);font-size:5px;color:white;display:flex;align-items:center;justify-content:center;font-weight:700">2</div><div style="width:14px;height:1px;background:rgba(0,0,0,.1)"></div><div style="width:12px;height:12px;border-radius:50%;border:1px solid rgba(0,0,0,.12);font-size:5px;color:var(--lx-txl);display:flex;align-items:center;justify-content:center">3</div></div></div><div class="st-body"><div class="st-name ccy">7. Stepper Narrative</div><div class="st-desc">Sequential wizard-style data story.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="width:60px"><div style="height:8px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;margin-bottom:1px"></div><div style="height:12px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;margin-bottom:1px;border-left:2px solid var(--lx-pink)"></div><div style="height:8px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;margin-bottom:1px"></div><div style="height:12px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;border-left:2px solid var(--lx-cyan)"></div><div style="font-size:4px;color:var(--lx-txl);text-align:center;margin-top:2px">↕ SCROLL</div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">8. Scrollytelling</div><div class="st-desc">Scroll-triggered chart transitions.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="width:60px"><div style="display:flex;gap:1px;margin-bottom:2px"><div style="flex:1;height:6px;background:var(--lx-pink);border-radius:2px 0 0 2px;font-size:3px;color:white;display:flex;align-items:center;justify-content:center">A</div><div style="flex:1;height:6px;background:rgba(0,0,0,.05);border-radius:0 2px 2px 0;font-size:3px;color:var(--lx-txl);display:flex;align-items:center;justify-content:center">B</div></div><div style="height:26px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">9. Tabbed Analytics</div><div class="st-desc">Tab strip switches chart views in-place.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="display:flex;gap:2px;width:60px"><div style="width:18px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px;height:34px"></div><div style="flex:1;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px;height:34px"></div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">10. Split Panel</div><div class="st-desc">Filters left, viz right.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="width:60px"><div style="height:8px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:1px;margin-bottom:2px;position:relative"><div style="position:absolute;left:25%;top:0;bottom:0;width:20%;border:1px solid var(--lx-pink);background:rgba(255,45,125,.08);border-radius:1px"></div></div><div style="height:22px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px"></div></div></div><div class="st-body"><div class="st-name cpk">11. Overview + Detail</div><div class="st-desc">Context + focus linked by selection.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="display:flex;gap:2px;width:60px"><div style="width:22px;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px;height:34px;padding:2px"><div style="height:4px;background:rgba(255,45,125,.15);border-radius:1px;margin-bottom:1px"></div><div style="height:4px;background:rgba(0,0,0,.03);border-radius:1px;margin-bottom:1px"></div><div style="height:4px;background:rgba(0,0,0,.03);border-radius:1px"></div></div><div style="flex:1;background:var(--lx-card);border:1px solid rgba(0,0,0,.05);border-radius:2px;height:34px;display:flex;align-items:center;justify-content:center;font-size:4px;color:var(--lx-txl)">DETAIL</div></div></div><div class="st-body"><div class="st-name ccy">12. Master-Detail</div><div class="st-desc">List left, expanded detail right.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-black)"><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;width:70px"><div style="height:14px;background:rgba(255,255,255,.04);border-radius:1px;border:1px solid rgba(255,255,255,.05)"></div><div style="height:14px;background:rgba(255,255,255,.04);border-radius:1px;border:1px solid rgba(255,255,255,.05)"></div><div style="height:14px;background:rgba(255,255,255,.04);border-radius:1px;border:1px solid rgba(255,255,255,.05)"></div><div style="height:14px;background:rgba(255,255,255,.04);border-radius:1px;border:1px solid rgba(255,255,255,.05)"></div><div style="height:14px;background:rgba(255,255,255,.04);border-radius:1px;border:1px solid rgba(255,255,255,.05)"></div><div style="height:14px;background:rgba(255,255,255,.04);border-radius:1px;border:1px solid rgba(255,255,255,.05)"></div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">13. Command Centre</div><div class="st-desc">Multi-panel dark monitoring wall.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-black)"><div style="display:flex;gap:2px;width:70px"><div style="flex:2;height:30px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:1px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:12px;color:rgba(255,255,255,.08)">KPI</div><div style="flex:1;display:flex;flex-direction:column;gap:2px"><div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:1px"></div><div style="flex:1;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.05);border-radius:1px"></div></div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">14. Cockpit / NOC Wall</div><div class="st-desc">Large-screen operational display.</div></div></div>
+<div class="st"><div class="st-viz" style="background:#fff"><div style="width:56px;border:1px solid rgba(0,0,0,.06);border-radius:2px;padding:3px"><div style="height:3px;background:rgba(0,0,0,.05);border-radius:1px;width:50%;margin-bottom:2px"></div><div style="height:14px;background:rgba(0,0,0,.02);border-radius:1px;margin-bottom:2px"></div><div style="height:3px;background:rgba(0,0,0,.05);border-radius:1px;width:70%;margin-bottom:2px"></div><div style="height:14px;background:rgba(0,0,0,.02);border-radius:1px"></div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">15. Report Page</div><div class="st-desc">A4 print with charts in prose.</div></div></div>
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)"><div style="width:60px"><div style="background:rgba(0,0,0,.04);border-radius:6px;padding:3px 4px;margin-bottom:2px;font-size:4px;color:var(--lx-txm)">What were sales?</div><div style="background:rgba(255,45,125,.05);border-radius:6px;padding:3px 4px;font-size:4px;color:var(--lx-tx)"><svg width="30" height="8" style="display:block;margin:1px 0"><rect x="0" y="2" width="6" height="6" fill="var(--lx-pink)" rx="1"/><rect x="8" y="0" width="6" height="8" fill="var(--lx-cyan)" rx="1"/><rect x="16" y="4" width="6" height="4" fill="var(--lx-orange)" rx="1"/></svg>Up 12%</div></div></div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">16. Conversation UI</div><div class="st-desc">Inline charts inside chat/AI responses.</div></div></div>
+</div>
+</div>
+
+<!-- ═══════════════ GROUP 22 — 23 INTERACTION PATTERNS ═══════════════ -->
+<div class="gh rv" data-m="INTERACT"><div class="gn">Group 22 · Suite 4</div><div class="gt">23 Interactive<br>Patterns</div><div class="gd">Every pattern below is a live, working demo. Hover, click, toggle, drag — these are real interactions, not static images.</div></div>
+<div class="gb rv">
+<div class="sub"><div class="sub-t">Try each interaction — they all work</div><div class="sub-l">Hover over bars, click tabs, drag sliders, toggle checkboxes. Each tile is a live demonstration of the interaction pattern.</div></div>
+<div class="stg" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+
+<!-- 1. HOVER REVEAL -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);position:relative;cursor:pointer" id="ix1">
+<svg width="140" height="60" viewBox="0 0 140 60" id="ix1svg">
+<rect class="hb" data-v="12" x="8" y="28" width="18" height="30" fill="var(--lx-pink)" rx="2" style="transition:opacity .15s"/>
+<rect class="hb" data-v="28" x="32" y="6" width="18" height="52" fill="var(--lx-pink)" rx="2" style="transition:opacity .15s"/>
+<rect class="hb" data-v="18" x="56" y="20" width="18" height="38" fill="var(--lx-pink)" rx="2" style="transition:opacity .15s"/>
+<rect class="hb" data-v="35" x="80" y="0" width="18" height="58" fill="var(--lx-pink)" rx="2" style="transition:opacity .15s"/>
+<rect class="hb" data-v="22" x="104" y="16" width="18" height="42" fill="var(--lx-pink)" rx="2" style="transition:opacity .15s"/>
+<rect id="ix1tt" x="0" y="0" width="28" height="14" rx="3" fill="var(--lx-black)" style="display:none"/>
+<text id="ix1tv" x="0" y="0" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:8px;fill:var(--lx-yellow);display:none"></text>
+</svg>
+</div><div class="st-body"><div class="st-name cpk">1. Hover Reveal</div><div class="st-desc">Hover each bar — tooltip appears, siblings dim.</div></div></div>
+
+<!-- 2. DRILL-DOWN -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:pointer" id="ix2">
+<div style="text-align:center;width:100%">
+<div id="ix2bc" style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);margin-bottom:6px"><span style="color:var(--lx-pink);font-weight:700">ALL</span></div>
+<svg width="140" height="50" viewBox="0 0 140 50" id="ix2svg"></svg>
+</div>
+</div><div class="st-body"><div class="st-name ccy">2. Drill-Down</div><div class="st-desc">Click a bar to drill into sub-categories. Click breadcrumb to go back.</div></div></div>
+
+<!-- 3. CROSS-FILTERING -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:pointer" id="ix3">
+<div style="display:flex;gap:8px;align-items:center;width:100%">
+<svg width="70" height="50" viewBox="0 0 70 50" id="ix3bars">
+<rect class="cf" data-i="0" x="4" y="12" width="14" height="36" fill="var(--lx-pink)" rx="2" style="cursor:pointer;transition:opacity .15s"/>
+<rect class="cf" data-i="1" x="22" y="22" width="14" height="26" fill="var(--lx-cyan)" rx="2" style="cursor:pointer;transition:opacity .15s"/>
+<rect class="cf" data-i="2" x="40" y="6" width="14" height="42" fill="var(--lx-orange)" rx="2" style="cursor:pointer;transition:opacity .15s"/>
+</svg>
+<svg width="50" height="50" viewBox="0 0 50 50" id="ix3donut">
+<circle cx="25" cy="25" r="18" fill="none" stroke="rgba(0,0,0,.04)" stroke-width="7"/>
+<circle id="ix3arc" cx="25" cy="25" r="18" fill="none" stroke="var(--lx-pink)" stroke-width="7" stroke-dasharray="113 0" style="transform:rotate(-90deg);transform-origin:center;transition:all .3s"/>
+</svg>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">3. Cross-Filtering</div><div class="st-desc">Click a bar — donut updates to show that category's share.</div></div></div>
+
+<!-- 4. ZOOM & PAN -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<input type="range" min="0" max="60" value="20" id="ix4r" style="width:100%;accent-color:var(--lx-pink);height:6px;margin-bottom:4px">
+<svg width="140" height="40" viewBox="0 0 140 40" id="ix4svg"></svg>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">4. Zoom & Pan</div><div class="st-desc">Drag the range slider to pan across the time series.</div></div></div>
+
+<!-- 5. PLAYBACK -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:pointer" id="ix5wrap">
+<div style="text-align:center;width:100%">
+<svg width="140" height="40" viewBox="0 0 140 40" id="ix5svg">
+<rect id="ix5b0" x="4" y="10" width="0" height="8" fill="var(--lx-pink)" rx="2" style="transition:width .4s"/>
+<rect id="ix5b1" x="4" y="22" width="0" height="8" fill="var(--lx-cyan)" rx="2" style="transition:width .4s"/>
+<rect id="ix5b2" x="4" y="34" width="0" height="8" fill="var(--lx-orange)" rx="2" style="transition:width .4s"/>
+<text id="ix5l0" x="4" y="8" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-pink)"></text>
+<text id="ix5l1" x="4" y="20" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-cyan)"></text>
+<text id="ix5l2" x="4" y="44" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-orange)"></text>
+</svg>
+<div id="ix5yr" style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-pink);font-weight:700">▶ CLICK TO PLAY</div>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">5. Playback / Race</div><div class="st-desc">Click to animate through 2020–2025 data. Bars race and reorder.</div></div></div>
+
+<!-- 6. SPOTLIGHT -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:pointer">
+<svg width="140" height="50" viewBox="0 0 140 50" id="ix6svg">
+<polyline id="ix6l0" points="4,40 28,30 52,32 76,20 100,22 124,10 138,8" fill="none" stroke="var(--lx-pink)" stroke-width="2" style="cursor:pointer;transition:opacity .2s"/>
+<polyline id="ix6l1" points="4,36 28,28 52,24 76,22 100,16 124,18 138,14" fill="none" stroke="var(--lx-cyan)" stroke-width="2" style="cursor:pointer;transition:opacity .2s"/>
+<polyline id="ix6l2" points="4,30 28,32 52,28 76,30 100,24 124,26 138,20" fill="none" stroke="var(--lx-orange)" stroke-width="2" style="cursor:pointer;transition:opacity .2s"/>
+<text x="4" y="8" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-txl)">CLICK A LINE TO SPOTLIGHT</text>
+</svg>
+</div><div class="st-body"><div class="st-name cpk">6. Spotlight Mode</div><div class="st-desc">Click any line to highlight it. Others fade. Click again to reset.</div></div></div>
+
+<!-- 7. THRESHOLD TOGGLE -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<label style="display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-orange);cursor:pointer;margin-bottom:4px"><input type="checkbox" id="ix7cb" checked style="accent-color:var(--lx-orange)"> SHOW TARGET LINE</label>
+<svg width="140" height="40" viewBox="0 0 140 40">
+<polyline points="4,34 28,24 52,26 76,14 100,16 124,8 138,6" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+<line id="ix7line" x1="0" y1="20" x2="140" y2="20" stroke="var(--lx-orange)" stroke-width="1.5" stroke-dasharray="4"/>
+<rect id="ix7zone" x="0" y="0" width="140" height="20" fill="rgba(255,102,0,.04)"/>
+<text id="ix7lbl" x="136" y="18" text-anchor="end" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-orange)">TARGET</text>
+</svg>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">7. Threshold Toggle</div><div class="st-desc">Check/uncheck to show or hide the target reference line.</div></div></div>
+
+<!-- 8. SEGMENTATION SWITCHER -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="text-align:center;width:100%">
+<div style="display:inline-flex;gap:1px;background:rgba(0,0,0,.04);border-radius:6px;padding:2px;margin-bottom:6px" id="ix8tabs">
+<div class="ix8t" data-d="12,28,18,35,22" style="padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:7px;cursor:pointer;background:var(--lx-pink);color:white">CORE</div>
+<div class="ix8t" data-d="20,15,30,10,25" style="padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:7px;cursor:pointer;color:var(--lx-txl)">CB</div>
+<div class="ix8t" data-d="8,40,12,28,16" style="padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:7px;cursor:pointer;color:var(--lx-txl)">CAPITAL</div>
+</div>
+<svg width="130" height="40" viewBox="0 0 130 40" id="ix8svg"></svg>
+</div>
+</div><div class="st-body"><div class="st-name ccy">8. Segmentation Switcher</div><div class="st-desc">Click tabs — chart data changes to show each segment.</div></div></div>
+
+<!-- 9. PARAMETERIZED -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<div style="display:flex;align-items:center;gap:6px;margin-bottom:4px"><span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl)">RATE</span><input type="range" min="50" max="120" value="85" id="ix9s" style="flex:1;accent-color:var(--lx-pink);height:4px"><span id="ix9v" style="font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-pink);font-weight:700">$85</span></div>
+<svg width="140" height="36" viewBox="0 0 140 36" id="ix9svg"></svg>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">9. Parameterized / What-If</div><div class="st-desc">Drag the slider — the projected line recalculates live.</div></div></div>
+
+<!-- 10. PROGRESSIVE DISCLOSURE -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<div onclick="let d=document.getElementById('ix10d');d.style.display=d.style.display==='none'?'block':'none';this.querySelector('span').textContent=d.style.display==='none'?'▸':'▾'" style="background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:6px;padding:8px 10px;cursor:pointer;display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase">Total Budget</div><div style="font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-pink)">$48,200</div></div><span style="font-size:16px;color:var(--lx-pink)">▸</span>
+</div>
+<div id="ix10d" style="display:none;margin-top:6px;background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:6px;padding:8px 10px">
+<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:3px"><span>Core Supports</span><span style="font-weight:700;color:var(--lx-pink)">$32,000</span></div>
+<div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:3px"><span>Capacity Building</span><span style="font-weight:700;color:var(--lx-cyan)">$12,000</span></div>
+<div style="display:flex;justify-content:space-between;font-size:10px"><span>Capital</span><span style="font-weight:700;color:var(--lx-orange)">$4,200</span></div>
+</div>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">10. Progressive Disclosure</div><div class="st-desc">Click the summary card to expand/collapse the detail breakdown.</div></div></div>
+
+<!-- 11. AI EXPLANATION -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<svg width="140" height="36" viewBox="0 0 140 36">
+<polyline points="4,30 20,22 36,24 52,10 68,16 84,8 100,6 116,12 132,4" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+<circle id="ix11dot" cx="52" cy="10" r="6" fill="none" stroke="var(--lx-orange)" stroke-width="1.5" stroke-dasharray="3" style="cursor:pointer"/>
+</svg>
+<div id="ix11tip" style="display:none;background:rgba(177,78,255,.06);border:1px solid rgba(177,78,255,.15);border-radius:6px;padding:6px 8px;margin-top:4px;font-size:9px;color:var(--lx-purple);transition:all .2s">🧠 <strong>AI Insight:</strong> Spike at Week 4 correlates with NDIS quarter-end claiming surge. Similar pattern observed in 85% of participant cohorts.</div>
+</div>
+</div><div class="st-body"><div class="st-name cpk">11. AI Explanation</div><div class="st-desc">Click the circled outlier to reveal the AI-generated explanation.</div></div></div>
+
+<!-- 12. NORMALIZE TOGGLE -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="text-align:center;width:100%">
+<div style="display:inline-flex;gap:1px;background:rgba(0,0,0,.04);border-radius:6px;padding:2px;margin-bottom:6px" id="ix12tabs">
+<div class="ix12t" data-m="abs" onclick="ix12('abs')" style="padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:7px;cursor:pointer;background:var(--lx-pink);color:white">ABSOLUTE</div>
+<div class="ix12t" data-m="pct" onclick="ix12('pct')" style="padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:7px;cursor:pointer;color:var(--lx-txl)">PERCENTAGE</div>
+</div>
+<svg width="130" height="36" viewBox="0 0 130 36" id="ix12svg"></svg>
+</div>
+</div><div class="st-body"><div class="st-name ccy">12. Normalize Toggle</div><div class="st-desc">Switch between absolute values and 100% stacked view.</div></div></div>
+
+<!-- 13-23: Remaining as compact interactive rows -->
+</div>
+
+<div class="sub" style="margin-top:12px"><div class="sub-t">Patterns 13–23 — Click / Toggle to Interact</div></div>
+<div class="stg" style="grid-template-columns:repeat(auto-fill,minmax(240px,1fr))">
+
+<!-- 13. LINKED BRUSHING -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:crosshair">
+<svg width="140" height="50" viewBox="0 0 140 50" id="ix13svg">
+<circle cx="20" cy="35" r="4" fill="var(--lx-pink)" class="ix13d" data-i="0" style="transition:opacity .15s;cursor:pointer"/>
+<circle cx="35" cy="20" r="5" fill="var(--lx-cyan)" class="ix13d" data-i="1" style="transition:opacity .15s;cursor:pointer"/>
+<circle cx="55" cy="28" r="3" fill="var(--lx-orange)" class="ix13d" data-i="2" style="transition:opacity .15s;cursor:pointer"/>
+<circle cx="70" cy="12" r="6" fill="var(--lx-pink)" class="ix13d" data-i="3" style="transition:opacity .15s;cursor:pointer"/>
+<circle cx="90" cy="22" r="4" fill="var(--lx-cyan)" class="ix13d" data-i="4" style="transition:opacity .15s;cursor:pointer"/>
+<circle cx="110" cy="8" r="5" fill="var(--lx-orange)" class="ix13d" data-i="5" style="transition:opacity .15s;cursor:pointer"/>
+<circle cx="125" cy="30" r="3" fill="var(--lx-pink)" class="ix13d" data-i="6" style="transition:opacity .15s;cursor:pointer"/>
+</svg>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">13. Linked Brushing</div><div class="st-desc">Click any dot — others of the same colour highlight, rest fade.</div></div></div>
+
+<!-- 14. FORECAST TOGGLE -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<label style="display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-pink);cursor:pointer;margin-bottom:4px"><input type="checkbox" id="ix14cb" checked style="accent-color:var(--lx-pink)"> SHOW FORECAST</label>
+<svg width="140" height="40" viewBox="0 0 140 40">
+<polyline points="4,34 28,24 52,26 76,14 90,16" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+<polyline id="ix14fc" points="90,16 104,12 118,8 132,4" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-dasharray="4"/>
+<rect id="ix14z" x="90" y="0" width="46" height="40" fill="rgba(255,45,125,.04)"/>
+<line id="ix14d" x1="90" y1="0" x2="90" y2="40" stroke="var(--lx-pink)" stroke-width=".8" stroke-dasharray="3"/>
+<text id="ix14t" x="111" y="20" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-pink)">FORECAST</text>
+</svg>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">14. Forecast Toggle</div><div class="st-desc">Toggle the checkbox to show/hide the projected forecast zone.</div></div></div>
+
+<!-- 15. CONFIDENCE BANDS -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<label style="display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-cyan);cursor:pointer;margin-bottom:4px"><input type="checkbox" id="ix15cb" checked style="accent-color:var(--lx-cyan)"> CONFIDENCE BAND</label>
+<svg width="140" height="40" viewBox="0 0 140 40">
+<polygon id="ix15band" points="4,30 28,20 52,22 76,14 100,16 124,8 138,6 138,14 124,16 100,22 76,20 52,28 28,26 4,36" fill="rgba(0,212,255,.1)"/>
+<polyline points="4,33 28,23 52,25 76,17 100,19 124,12 138,10" fill="none" stroke="var(--lx-cyan)" stroke-width="1" stroke-dasharray="2" id="ix15lo"/>
+<polyline points="4,27 28,17 52,19 76,11 100,13 124,4 138,2" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+</svg>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">15. Confidence Bands</div><div class="st-desc">Toggle the band to show/hide the uncertainty range.</div></div></div>
+
+<!-- 16. COHORT SELECTOR -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<div style="display:flex;gap:4px;flex-wrap:wrap;margin-bottom:6px" id="ix16chips">
+<div class="ix16c" data-v="38" onclick="ix16(this)" style="padding:2px 8px;border-radius:999px;background:var(--lx-pink);font-family:'JetBrains Mono',monospace;font-size:7px;color:white;cursor:pointer">COMPLEX</div>
+<div class="ix16c" data-v="24" onclick="ix16(this)" style="padding:2px 8px;border-radius:999px;background:rgba(0,0,0,.06);font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);cursor:pointer">MODERATE</div>
+<div class="ix16c" data-v="15" onclick="ix16(this)" style="padding:2px 8px;border-radius:999px;background:rgba(0,0,0,.06);font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);cursor:pointer">STANDARD</div>
+</div>
+<div style="display:flex;align-items:baseline;gap:6px"><span id="ix16n" style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-pink)">38</span><span style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-txm)">PARTICIPANTS</span></div>
+</div>
+</div><div class="st-body"><div class="st-name cpk">16. Cohort Selector</div><div class="st-desc">Click a chip — the KPI updates to that cohort's count.</div></div></div>
+
+<!-- 17. ANNOTATION LAYER -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<svg width="140" height="50" viewBox="0 0 140 50" style="cursor:pointer" onclick="let a=document.getElementById('ix17a');a.style.display=a.style.display==='none'?'block':'none'">
+<polyline points="4,40 28,30 52,32 76,14 100,20 124,10 138,6" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+<circle cx="76" cy="14" r="4" fill="var(--lx-pink)"/>
+<g id="ix17a" style="display:none"><line x1="76" y1="14" x2="108" y2="6" stroke="var(--lx-orange)" stroke-width=".8"/><rect x="88" y="0" width="46" height="12" rx="3" fill="var(--lx-card)" stroke="var(--lx-orange)" stroke-width=".8"/><text x="111" y="8" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-orange)">Q4 PEAK ↑35</text></g>
+</svg>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">17. Annotation Layer</div><div class="st-desc">Click the chart to toggle the annotation callout on/off.</div></div></div>
+
+<!-- 18. BENCHMARK OVERLAY -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<label style="display:flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txm);cursor:pointer;margin-bottom:4px"><input type="checkbox" id="ix18cb" style="accent-color:var(--lx-blue)" checked> INDUSTRY AVERAGE</label>
+<svg width="140" height="40" viewBox="0 0 140 40">
+<polyline points="4,34 28,24 52,26 76,14 100,16 124,8 138,6" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+<line id="ix18line" x1="0" y1="22" x2="140" y2="22" stroke="var(--lx-blue)" stroke-width="1.5" stroke-dasharray="5"/>
+<text id="ix18lbl" x="136" y="20" text-anchor="end" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-blue)">AVG</text>
+</svg>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">18. Benchmark Overlay</div><div class="st-desc">Toggle the industry average reference line.</div></div></div>
+
+<!-- 19. OUTLIER REVEAL -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<svg width="140" height="50" viewBox="0 0 140 50">
+<polyline points="4,40 28,30 52,32 76,8 100,28 124,24 138,20" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+<circle cx="76" cy="8" r="7" fill="none" stroke="var(--lx-orange)" stroke-width="1.5" stroke-dasharray="3" style="cursor:pointer" onclick="let t=document.getElementById('ix19t');t.style.display=t.style.display==='none'?'block':'none'"/>
+<text x="76" y="8" text-anchor="middle" style="font-size:8px;fill:var(--lx-orange);cursor:pointer;dominant-baseline:central" onclick="let t=document.getElementById('ix19t');t.style.display=t.style.display==='none'?'block':'none'">!</text>
+</svg>
+<div id="ix19t" style="display:none;background:rgba(255,102,0,.06);border:1px solid rgba(255,102,0,.15);border-radius:6px;padding:4px 8px;font-size:8px;color:var(--lx-orange);margin-top:2px">⚠ <strong>Outlier detected:</strong> Value 3.2σ above mean. Likely quarter-end claiming surge.</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">19. Outlier Reveal</div><div class="st-desc">Click the circled anomaly to reveal the explanation.</div></div></div>
+
+<!-- 20. COMPACT/EXPANDED -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream)">
+<div style="width:100%">
+<div style="display:inline-flex;gap:1px;background:rgba(0,0,0,.04);border-radius:6px;padding:2px;margin-bottom:6px">
+<div onclick="document.getElementById('ix20f').style.display='none';document.getElementById('ix20m').style.display='block';this.style.background='var(--lx-cyan)';this.style.color='var(--lx-black)';this.nextElementSibling.style.background='';this.nextElementSibling.style.color='var(--lx-txl)'" style="padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:7px;cursor:pointer;background:var(--lx-cyan);color:var(--lx-black)">MINI</div>
+<div onclick="document.getElementById('ix20m').style.display='none';document.getElementById('ix20f').style.display='block';this.style.background='var(--lx-cyan)';this.style.color='var(--lx-black)';this.previousElementSibling.style.background='';this.previousElementSibling.style.color='var(--lx-txl)'" style="padding:3px 10px;border-radius:4px;font-family:'JetBrains Mono',monospace;font-size:7px;cursor:pointer;color:var(--lx-txl)">FULL</div>
+</div>
+<div id="ix20m"><svg width="140" height="16" viewBox="0 0 140 16"><polyline points="0,14 20,10 40,12 60,4 80,6 100,2 120,4 140,1" fill="none" stroke="var(--lx-pink)" stroke-width="1.5"/></svg></div>
+<div id="ix20f" style="display:none"><svg width="140" height="50" viewBox="0 0 140 50"><line x1="0" y1="48" x2="140" y2="48" stroke="rgba(0,0,0,.08)"/><line x1="0" y1="30" x2="140" y2="30" stroke="rgba(0,0,0,.05)"/><line x1="0" y1="12" x2="140" y2="12" stroke="rgba(0,0,0,.05)"/><polyline points="0,44 20,34 40,38 60,14 80,18 100,8 120,12 140,4" fill="none" stroke="var(--lx-pink)" stroke-width="2"/><polygon points="0,48 0,44 20,34 40,38 60,14 80,18 100,8 120,12 140,4 140,48" fill="rgba(255,45,125,.06)"/><text x="2" y="10" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:var(--lx-txl)">40</text><text x="2" y="28" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:var(--lx-txl)">20</text></svg></div>
+</div>
+</div><div class="st-body"><div class="st-name ccy">20. Compact / Expanded</div><div class="st-desc">Toggle between sparkline mini-view and full chart with axes.</div></div></div>
+
+<!-- 21-23 as small interactive rows -->
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:pointer" onclick="let s=document.getElementById('ix21s');s.style.display=s.style.display==='none'?'block':'none'">
+<div style="width:100%;text-align:center">
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);margin-bottom:4px">CLICK TO ZOOM</div>
+<svg width="140" height="12" viewBox="0 0 140 12"><rect x="0" y="0" width="140" height="12" fill="rgba(0,0,0,.02)" rx="3"/><rect x="30" y="0" width="40" height="12" fill="rgba(255,45,125,.1)" stroke="var(--lx-pink)" stroke-width=".5" rx="3"/></svg>
+<div id="ix21s" style="display:none;margin-top:4px"><svg width="140" height="30" viewBox="0 0 140 30"><polyline points="0,26 20,18 40,20 60,10 80,14 100,6 120,8 140,2" fill="none" stroke="var(--lx-pink)" stroke-width="2"/><polygon points="0,30 0,26 20,18 40,20 60,10 80,14 100,6 120,8 140,2 140,30" fill="rgba(255,45,125,.06)"/></svg></div>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-purple)">21. Scrubber / Range Select</div><div class="st-desc">Click to expand the selected range into a zoomed detail view.</div></div></div>
+
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:pointer" onclick="let t=document.getElementById('ix22t');t.textContent=t.textContent==='Click to add →'?'📌 Plan review due 15/04':'Click to add →'">
+<svg width="140" height="40" viewBox="0 0 140 40">
+<polyline points="4,34 28,24 52,26 76,14 100,16 124,8 138,6" fill="none" stroke="var(--lx-pink)" stroke-width="2"/>
+<circle cx="76" cy="14" r="3.5" fill="var(--lx-pink)"/>
+</svg>
+<div id="ix22t" style="font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-orange);text-align:center;margin-top:2px">Click to add →</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-blue)">22. Click-to-Annotate</div><div class="st-desc">Click the chart to add/remove a pinned annotation.</div></div></div>
+
+<div class="st"><div class="st-viz" style="background:var(--lx-cream);cursor:pointer" onclick="let el=this.querySelectorAll('.ix23b');el.forEach(b=>{let w=Math.random()*100+20;b.style.width=w+'px'})">
+<div style="width:100%;text-align:center">
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);margin-bottom:4px">CLICK TO REORDER</div>
+<div style="padding:0 4px"><div class="ix23b" style="height:8px;background:var(--lx-pink);border-radius:999px;margin-bottom:3px;width:90px;transition:width .5s var(--ease)"></div><div class="ix23b" style="height:8px;background:var(--lx-cyan);border-radius:999px;margin-bottom:3px;width:60px;transition:width .5s var(--ease)"></div><div class="ix23b" style="height:8px;background:var(--lx-orange);border-radius:999px;width:75px;transition:width .5s var(--ease)"></div></div>
+</div>
+</div><div class="st-body"><div class="st-name" style="color:var(--lx-orange)">23. Race Bar Chart</div><div class="st-desc">Click to randomize — bars animate to new widths (simulating time step).</div></div></div>
+
+</div>
+</div>
+
+<!-- ═══════════════ GROUP 23 — MASTER CHECKLIST ═══════════════ -->
+<div class="gh rv" data-m="MASTER"><div class="gn">Group 23 · Suite 4</div><div class="gt">Compact Master<br>Checklist</div><div class="gd">Every chart name in one dense reference — the complete 2026 UI visual data vocabulary.</div></div>
+<div class="gb rv"><div class="cl-grid"><span>Bar</span>, column, <span>grouped bar</span>, <span>stacked bar</span>, 100% stacked bar, <span>diverging bar</span>, floating bar, <span>lollipop</span>, <span>bullet</span>, <span>dumbbell</span>, <span>slope</span>, <span>waterfall</span>, <span>Pareto</span>, <span>tornado</span>, population pyramid, <span>Marimekko</span>, mosaic, <span>line</span>, <span>sparkline</span>, step line, <span>bump</span>, <span>area</span>, <span>stacked area</span>, 100% stacked area, <span>streamgraph</span>, <span>horizon graph</span>, ribbon, <span>pie</span>, <span>donut</span>, <span>nested donut</span>, segmented donut, <span>radial bar</span>, circular bar, <span>polar area</span>, <span>rose</span>, <span>radar</span>, <span>sunburst</span>, <span>treemap</span>, <span>icicle</span>, <span>circle packing</span>, <span>waffle</span>, <span>pictogram</span>, <span>histogram</span>, <span>density</span>, ECDF, <span>violin</span>, <span>box plot</span>, boxen, <span>beeswarm</span>, strip plot, rug plot, <span>raincloud</span>, <span>scatter</span>, <span>bubble</span>, <span>hexbin</span>, <span>contour</span>, <span>correlogram</span>, <span>correlation matrix</span>, <span>parallel coordinates</span>, <span>ternary plot</span>, <span>error bar</span>, error band, range bar, <span>candlestick</span>, OHLC, <span>forest plot</span>, <span>funnel</span>, <span>Sankey</span>, <span>alluvial</span>, <span>chord</span>, arc, flow map, <span>tree</span>, <span>dendrogram</span>, <span>org chart</span>, <span>network graph</span>, <span>adjacency matrix</span>, <span>choropleth</span>, symbol map, dot density map, <span>heatmap</span>, <span>calendar heatmap</span>, <span>cohort heatmap</span>, <span>risk matrix</span>, <span>confusion matrix</span>, <span>Gantt</span>, <span>timeline</span>, <span>swimlane</span>, roadmap, <span>burndown</span>, burnup, <span>progress bar</span>, circular progress, <span>gauge</span>, thermometer, <span>KPI card</span>, <span>scorecard</span>, <span>table</span>, <span>pivot table</span>, tree table, <span>highlight table</span>, <span>ranked list</span>, <span>leaderboard</span>, <span>small multiples</span>, <span>faceted grid</span>, <span>linked dashboard</span>, mixed composites.</div></div>
+
+<!-- ═══════════════ GROUP 24 — 12 JOBS ═══════════════ -->
+<div class="gh rv" data-m="JOBS"><div class="gn">Group 24 · Suite 4</div><div class="gt">The 12 Jobs of<br>Visual Data in UI</div><div class="gd">Every visual data presentation falls into one or more of these fundamental jobs.</div></div>
+<div class="gb rv">
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px">
+<div class="jc"><div class="jc-icon cpk">1</div><div class="jc-name">Show a Single Metric</div><div class="jc-desc">KPI card, stat, big number, gauge, progress ring</div></div>
+<div class="jc"><div class="jc-icon ccy">2</div><div class="jc-name">Compare Categories</div><div class="jc-desc">Bar, column, lollipop, dumbbell, slope, radar</div></div>
+<div class="jc"><div class="jc-icon cyw">3</div><div class="jc-name">Show Change Over Time</div><div class="jc-desc">Line, area, sparkline, step, bump, timeline</div></div>
+<div class="jc"><div class="jc-icon" style="color:var(--lx-orange)">4</div><div class="jc-name">Show Part-to-Whole</div><div class="jc-desc">Pie, donut, treemap, waffle, sunburst, stacked bar</div></div>
+<div class="jc"><div class="jc-icon" style="color:var(--lx-purple)">5</div><div class="jc-name">Show Distribution</div><div class="jc-desc">Histogram, density, box plot, violin, beeswarm</div></div>
+<div class="jc"><div class="jc-icon" style="color:var(--lx-blue)">6</div><div class="jc-name">Show Relationships</div><div class="jc-desc">Scatter, bubble, correlation matrix, parallel coords</div></div>
+<div class="jc"><div class="jc-icon cpk">7</div><div class="jc-name">Show Flow</div><div class="jc-desc">Sankey, alluvial, chord, funnel, user journey</div></div>
+<div class="jc"><div class="jc-icon ccy">8</div><div class="jc-name">Show Hierarchy</div><div class="jc-desc">Tree, dendrogram, org chart, sunburst, treemap</div></div>
+<div class="jc"><div class="jc-icon cyw">9</div><div class="jc-name">Show Location</div><div class="jc-desc">Choropleth, bubble map, heatmap, pin map, flow map</div></div>
+<div class="jc"><div class="jc-icon" style="color:var(--lx-orange)">10</div><div class="jc-name">Show Status / Progress</div><div class="jc-desc">Progress bar, gauge, status dot, traffic light</div></div>
+<div class="jc"><div class="jc-icon" style="color:var(--lx-purple)">11</div><div class="jc-name">Show Operations</div><div class="jc-desc">Gantt, Kanban, roster, calendar, burndown</div></div>
+<div class="jc"><div class="jc-icon" style="color:var(--lx-blue)">12</div><div class="jc-name">Show Detail Records</div><div class="jc-desc">Table, pivot table, audit log, ledger, scorecard</div></div>
+</div>
+<div style="margin-top:16px;background:var(--lx-black);border-radius:var(--r-md);padding:20px;position:relative;overflow:hidden"><div style="font-family:'Bebas Neue',serif;font-size:80px;color:rgba(255,255,255,.02);position:absolute;right:16px;bottom:-12px;user-select:none;pointer-events:none">∞</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:16px;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-yellow);margin-bottom:8px">THE LIMITLESS DECISION FRAMEWORK</div><div style="font-size:12px;color:rgba(245,240,232,.5);line-height:1.6;max-width:700px">Start with the <strong style="color:var(--lx-pink)">job</strong> your data needs to do — not the chart name. Ask: <em style="color:var(--lx-cyan)">"What job am I hiring this visualization to do?"</em> Then select the specific chart type from that job's family.</div></div>
+</div>
+
+<!-- FOOTER -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:40px 28px;position:relative;overflow:hidden"><div style="font-family:'Bebas Neue',serif;font-size:120px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-24px;user-select:none;pointer-events:none">∞</div><div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:8px">SUITE 4 COMPLETE</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(28px,5vw,48px);color:#F5F0E8;line-height:.95;margin-bottom:16px">6 GROUPS · 20 STYLES · 16 LAYOUTS<br>23 INTERACTIONS · 12 JOBS</div><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px"><span class="chip spk">Suite 1 ✓</span><span class="chip spk">Suite 2 ✓</span><span class="chip spk">Suite 3 ✓</span><span class="chip syw">Suite 4 ✓</span></div><div class="stripe" style="margin:24px -28px -40px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div></div>
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">LIMITLESS SUPPORT CO. · SUITE 4 · GROUPS 19–24 · 6 GROUPS COMPLETE · ABN 76 985 845 524</div>
+<script>
+// Scroll reveal
+const io=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('vis'),io.unobserve(e.target))})},{threshold:.08});document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+// 1. HOVER REVEAL
+document.querySelectorAll('#ix1svg .hb').forEach(b=>{
+  b.addEventListener('mouseenter',function(){
+    const v=this.dataset.v,x=+this.getAttribute('x'),w=+this.getAttribute('width');
+    document.querySelectorAll('#ix1svg .hb').forEach(s=>s.setAttribute('opacity',s===this?'1':'.2'));
+    const tt=document.getElementById('ix1tt'),tv=document.getElementById('ix1tv');
+    tt.setAttribute('x',x+w/2-14);tt.setAttribute('y',+this.getAttribute('y')-18);tt.style.display='';
+    tv.setAttribute('x',x+w/2);tv.setAttribute('y',+this.getAttribute('y')-8);tv.textContent=v;tv.style.display='';
+  });
+  b.addEventListener('mouseleave',()=>{
+    document.querySelectorAll('#ix1svg .hb').forEach(s=>s.setAttribute('opacity','1'));
+    document.getElementById('ix1tt').style.display='none';document.getElementById('ix1tv').style.display='none';
+  });
+});
+
+// 2. DRILL-DOWN
+const ix2data={ALL:{Core:35,CB:22,Capital:18},Core:{ADL:20,SCP:10,Transport:5},CB:{SC:12,IDLS:6,Therapy:4},Capital:{AT:10,Home:8}};
+let ix2level='ALL',ix2parent=null;
+function ix2draw(){
+  const d=ix2data[ix2level]||ix2data.ALL,keys=Object.keys(d),max=Math.max(...Object.values(d));
+  const svg=document.getElementById('ix2svg');let h='';const w=130/keys.length;
+  keys.forEach((k,i)=>{
+    const bh=d[k]/max*40,y=48-bh;
+    h+=`<rect x="${i*w+4}" y="${y}" width="${w-8}" height="${bh}" fill="var(--lx-pink)" rx="2" style="cursor:pointer" onclick="ix2drill('${k}')"/>`;
+    h+=`<text x="${i*w+w/2}" y="${y-3}" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-pink)">${d[k]}</text>`;
+    h+=`<text x="${i*w+w/2}" y="49" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:var(--lx-txm)">${k}</text>`;
+  });
+  svg.innerHTML=h;
+  const bc=document.getElementById('ix2bc');
+  bc.innerHTML=ix2parent?`<span style="cursor:pointer;color:var(--lx-txl)" onclick="ix2level='ALL';ix2parent=null;ix2draw()">ALL</span> → <span style="color:var(--lx-pink);font-weight:700">${ix2level}</span>`:`<span style="color:var(--lx-pink);font-weight:700">ALL</span>`;
+}
+function ix2drill(k){if(ix2data[k]){ix2parent=ix2level;ix2level=k;ix2draw()}}
+ix2draw();
+
+// 3. CROSS-FILTERING
+const ix3shares=[36,26,42],ix3colors=['var(--lx-pink)','var(--lx-cyan)','var(--lx-orange)'];
+document.querySelectorAll('#ix3bars .cf').forEach(b=>{
+  b.addEventListener('click',function(){
+    const i=+this.dataset.i,total=ix3shares.reduce((a,b)=>a+b,0),pct=ix3shares[i]/total*113;
+    document.querySelectorAll('#ix3bars .cf').forEach((s,j)=>s.setAttribute('opacity',j===i?'1':'.2'));
+    document.getElementById('ix3arc').setAttribute('stroke',ix3colors[i]);
+    document.getElementById('ix3arc').setAttribute('stroke-dasharray',pct+' '+(113-pct));
+  });
+});
+
+// 4. ZOOM & PAN
+function ix4draw(){
+  const off=+document.getElementById('ix4r').value,pts=[];
+  for(let i=0;i<10;i++){const x=i*15+5,y=38-Math.sin((i+off/10)*0.8)*28-Math.random()*4;pts.push(x+','+Math.max(2,y));}
+  document.getElementById('ix4svg').innerHTML=`<polyline points="${pts.join(' ')}" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-linecap="round"/><polygon points="${pts.join(' ')} 140,40 0,40" fill="rgba(255,45,125,.06)"/>`;
+}
+document.getElementById('ix4r').addEventListener('input',ix4draw);ix4draw();
+
+// 5. PLAYBACK / RACE
+const ix5data=[[30,20,40],[50,35,30],[40,55,50],[60,45,70],[80,60,55],[90,85,75]];
+const ix5yrs=['2020','2021','2022','2023','2024','2025'];let ix5i=0,ix5timer=null;
+function ix5step(){
+  const d=ix5data[ix5i],m=Math.max(...d);
+  ['ix5b0','ix5b1','ix5b2'].forEach((id,j)=>{document.getElementById(id).setAttribute('width',d[j]/m*120)});
+  document.getElementById('ix5yr').textContent='▶ '+ix5yrs[ix5i];
+  ix5i=(ix5i+1)%ix5data.length;
+}
+document.getElementById('ix5wrap').addEventListener('click',()=>{if(ix5timer){clearInterval(ix5timer);ix5timer=null;return}ix5i=0;ix5step();ix5timer=setInterval(ix5step,600)});
+ix5step();
+
+// 6. SPOTLIGHT
+let ix6active=null;
+['ix6l0','ix6l1','ix6l2'].forEach(id=>{
+  document.getElementById(id).addEventListener('click',function(){
+    if(ix6active===id){['ix6l0','ix6l1','ix6l2'].forEach(i=>document.getElementById(i).setAttribute('opacity','1'));ix6active=null;}
+    else{['ix6l0','ix6l1','ix6l2'].forEach(i=>document.getElementById(i).setAttribute('opacity',i===id?'1':'.1'));ix6active=id;}
+  });
+});
+
+// 7. THRESHOLD TOGGLE
+document.getElementById('ix7cb').addEventListener('change',function(){
+  const v=this.checked?'':'none';
+  ['ix7line','ix7zone','ix7lbl'].forEach(id=>document.getElementById(id).style.display=v);
+});
+
+// 8. SEGMENTATION SWITCHER
+function ix8draw(d){
+  const vals=d.split(',').map(Number),max=Math.max(...vals);let h='';
+  vals.forEach((v,i)=>{const bh=v/max*36,y=38-bh;h+=`<rect x="${i*25+4}" y="${y}" width="18" height="${bh}" fill="var(--lx-pink)" rx="2"/><text x="${i*25+13}" y="${y-2}" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-pink)">${v}</text>`;});
+  document.getElementById('ix8svg').innerHTML=h;
+}
+document.querySelectorAll('.ix8t').forEach(t=>{t.addEventListener('click',function(){
+  document.querySelectorAll('.ix8t').forEach(s=>{s.style.background='';s.style.color='var(--lx-txl)'});
+  this.style.background='var(--lx-pink)';this.style.color='white';ix8draw(this.dataset.d);
+})});
+ix8draw('12,28,18,35,22');
+
+// 9. PARAMETERIZED
+function ix9draw(){
+  const r=+document.getElementById('ix9s').value;document.getElementById('ix9v').textContent='$'+r;
+  const pts=[];for(let i=0;i<8;i++){const x=i*20,y=34-((r-50)/70)*30*(1+i/10);pts.push(x+','+Math.max(2,y));}
+  document.getElementById('ix9svg').innerHTML=`<polyline points="${pts.join(' ')}" fill="none" stroke="var(--lx-pink)" stroke-width="2"/><polygon points="${pts.join(' ')} 140,36 0,36" fill="rgba(255,45,125,.06)"/>`;
+}
+document.getElementById('ix9s').addEventListener('input',ix9draw);ix9draw();
+
+// 11. AI EXPLANATION
+document.getElementById('ix11dot').addEventListener('click',()=>{const t=document.getElementById('ix11tip');t.style.display=t.style.display==='none'?'block':'none'});
+
+// 12. NORMALIZE
+function ix12(mode){
+  document.querySelectorAll('.ix12t').forEach(t=>{t.style.background=t.dataset.m===mode?'var(--lx-pink)':'';t.style.color=t.dataset.m===mode?'white':'var(--lx-txl)'});
+  const svg=document.getElementById('ix12svg');
+  if(mode==='abs'){svg.innerHTML='<rect x="4" y="14" width="22" height="22" fill="var(--lx-pink)" rx="2"/><rect x="30" y="4" width="22" height="32" fill="var(--lx-cyan)" rx="2"/><rect x="56" y="20" width="22" height="16" fill="var(--lx-orange)" rx="2"/><rect x="82" y="8" width="22" height="28" fill="var(--lx-purple)" rx="2"/><text x="15" y="12" text-anchor="middle" style="font-family:\'JetBrains Mono\',monospace;font-size:6px;fill:var(--lx-pink)">22</text><text x="41" y="2" text-anchor="middle" style="font-family:\'JetBrains Mono\',monospace;font-size:6px;fill:var(--lx-cyan)">35</text>';}
+  else{svg.innerHTML='<rect x="4" y="0" width="22" height="36" fill="var(--lx-pink)" rx="2"/><rect x="4" y="0" width="22" height="14" fill="var(--lx-cyan)" rx="2"/><rect x="30" y="0" width="22" height="36" fill="var(--lx-pink)" rx="2"/><rect x="30" y="0" width="22" height="20" fill="var(--lx-cyan)" rx="2"/><rect x="56" y="0" width="22" height="36" fill="var(--lx-pink)" rx="2"/><rect x="56" y="0" width="22" height="10" fill="var(--lx-cyan)" rx="2"/><rect x="82" y="0" width="22" height="36" fill="var(--lx-pink)" rx="2"/><rect x="82" y="0" width="22" height="16" fill="var(--lx-cyan)" rx="2"/>';}
+}
+ix12('abs');
+
+// 13. LINKED BRUSHING
+document.querySelectorAll('.ix13d').forEach(d=>{d.addEventListener('click',function(){
+  const color=this.getAttribute('fill');
+  document.querySelectorAll('.ix13d').forEach(s=>s.setAttribute('opacity',s.getAttribute('fill')===color?'1':'.15'));
+})});
+
+// 14. FORECAST TOGGLE
+document.getElementById('ix14cb').addEventListener('change',function(){
+  const v=this.checked?'':'none';['ix14fc','ix14z','ix14d','ix14t'].forEach(id=>document.getElementById(id).style.display=v);
+});
+
+// 15. CONFIDENCE BANDS
+document.getElementById('ix15cb').addEventListener('change',function(){
+  const v=this.checked?'':'none';['ix15band','ix15lo'].forEach(id=>document.getElementById(id).style.display=v);
+});
+
+// 16. COHORT SELECTOR
+function ix16(el){
+  document.querySelectorAll('.ix16c').forEach(c=>{c.style.background='rgba(0,0,0,.06)';c.style.color='var(--lx-txl)'});
+  el.style.background='var(--lx-pink)';el.style.color='white';
+  document.getElementById('ix16n').textContent=el.dataset.v;
+}
+
+// 18. BENCHMARK OVERLAY
+document.getElementById('ix18cb').addEventListener('change',function(){
+  const v=this.checked?'':'none';['ix18line','ix18lbl'].forEach(id=>document.getElementById(id).style.display=v);
+});
+</script>
+</body>
+</html>

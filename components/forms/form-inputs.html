@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Form Inputs</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">TEXT INPUT</div>
+  <div style="margin-bottom:12px">
+    <label style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px">Participant Name</label>
+    <input type="text" value="Iona Karamacoski" style="width:100%;padding:10px 14px;border:1px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:Barlow,sans-serif;font-size:13px;background:var(--lx-card);outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--lx-pink)'" onblur="this.style.borderColor='var(--lx-bdr2)'">
+  </div>
+  <div style="margin-bottom:12px">
+    <label style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px">NDIS Number</label>
+    <input type="text" placeholder="Enter NDIS number..." style="width:100%;padding:10px 14px;border:1px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:JetBrains Mono,monospace;font-size:12px;background:var(--lx-card);outline:none;letter-spacing:.04em">
+  </div>
+  <div style="margin-bottom:12px">
+    <label style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px">Case Notes</label>
+    <textarea rows="4" placeholder="Enter case notes..." style="width:100%;padding:10px 14px;border:1px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:Barlow,sans-serif;font-size:13px;background:var(--lx-card);outline:none;resize:vertical"></textarea>
+  </div>
+  <div style="margin-bottom:12px">
+    <label style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em;display:block;margin-bottom:4px">Service Category</label>
+    <select style="width:100%;padding:10px 14px;border:1px solid var(--lx-bdr2);border-radius:var(--r-sm);font-family:Barlow,sans-serif;font-size:13px;background:var(--lx-card);outline:none">
+      <option>Core Supports</option>
+      <option>Capacity Building</option>
+      <option>Capital Supports</option>
+      <option>Transport</option>
+    </select>
+  </div>
+</div>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">TOGGLE ROW</div>
+  <div class="lx-toggle-row" style="display:flex;align-items:center;justify-content:space-between;padding:10px 0;cursor:pointer">
+    <span class="lx-cmd">Enable Notifications</span>
+    <div class="lx-tog" style="width:40px;height:22px;border-radius:var(--r-p);background:var(--lx-bdr2);position:relative;transition:background .2s">
+      <div style="width:18px;height:18px;border-radius:50%;background:#fff;position:absolute;top:2px;left:2px;transition:transform .2s var(--spring);box-shadow:var(--sh-sm)"></div>
+    </div>
+  </div>
+</div>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">FILE DROP ZONE</div>
+  <div style="border:2px dashed var(--lx-bdr2);border-radius:var(--r-md);padding:30px;text-align:center;cursor:pointer;transition:border-color .2s" onmouseover="this.style.borderColor='var(--lx-pink)'" onmouseout="this.style.borderColor='var(--lx-bdr2)'">
+    <div class="lx-csm" style="color:var(--lx-txl)">Drop files here or click to browse</div>
+    <div class="lx-bxs cm" style="margin-top:4px">PDF, DOCX, PNG up to 10MB</div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+
+</body>
+</html>

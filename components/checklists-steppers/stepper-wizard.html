@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Stepper / Wizard</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+
+<div class="demo-section" style="max-width:500px">
+  <div class="demo-label">NUMBERED STEPPER — 3 STEPS</div>
+  <div style="display:flex;gap:0;margin-bottom:20px">
+    <div style="flex:1;text-align:center">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--lx-pink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:Bebas Neue,serif;font-size:16px">1</div>
+      <div class="lx-csm cpk" style="margin-top:4px">Details</div>
+      <div class="lx-bxs cm" style="margin-top:2px">Participant info</div>
+    </div>
+    <div style="flex:0 0 40px;display:flex;align-items:center;padding-bottom:30px"><div style="height:2px;width:100%;background:var(--lx-pink)"></div></div>
+    <div style="flex:1;text-align:center">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--lx-pink);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-family:Bebas Neue,serif;font-size:16px">2</div>
+      <div class="lx-csm cpk" style="margin-top:4px">Services</div>
+      <div class="lx-bxs cm" style="margin-top:2px">Select supports</div>
+    </div>
+    <div style="flex:0 0 40px;display:flex;align-items:center;padding-bottom:30px"><div style="height:2px;width:100%;background:var(--lx-bdr2)"></div></div>
+    <div style="flex:1;text-align:center">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--lx-bdr2);color:var(--lx-txm);display:inline-flex;align-items:center;justify-content:center;font-family:Bebas Neue,serif;font-size:16px">3</div>
+      <div class="lx-csm cm" style="margin-top:4px">Confirm</div>
+      <div class="lx-bxs cm" style="margin-top:2px">Review & submit</div>
+    </div>
+  </div>
+  <div class="lx-card">
+    <div class="lx-eye" style="color:var(--lx-pink);margin-bottom:4px">STEP 2 OF 3</div>
+    <div class="lx-clg" style="margin-bottom:12px">Select Supports</div>
+    <div class="lx-bsm cm">Choose the support services to include in the participant&rsquo;s plan recommendation.</div>
+    <div style="display:flex;gap:8px;margin-top:16px;justify-content:flex-end">
+      <button class="lx-btn out sm">← Back</button>
+      <button class="lx-btn pri sm">Next Step →</button>
+    </div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+
+</body>
+</html>

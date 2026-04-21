@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Process Flow</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+
+<div class="demo-section" style="max-width:600px">
+  <div class="demo-label">PROCESS FLOW — STATUS LIFECYCLE</div>
+  <div style="display:flex;align-items:center;gap:0;flex-wrap:wrap">
+    <div style="background:var(--lx-pink);color:#fff;padding:8px 16px;border-radius:var(--r-sm) 0 0 var(--r-sm);font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;white-space:nowrap">Intake</div>
+    <div style="width:0;height:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-left:10px solid var(--lx-pink)"></div>
+    <div style="background:var(--lx-orange);color:#fff;padding:8px 16px;font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-left:-1px;white-space:nowrap">Assessment</div>
+    <div style="width:0;height:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-left:10px solid var(--lx-orange)"></div>
+    <div style="background:var(--lx-cyan);color:var(--lx-black);padding:8px 16px;font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-left:-1px;white-space:nowrap">Plan Active</div>
+    <div style="width:0;height:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-left:10px solid var(--lx-cyan)"></div>
+    <div style="background:var(--lx-purple);color:#fff;padding:8px 16px;font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-left:-1px;white-space:nowrap">Review</div>
+    <div style="width:0;height:0;border-top:16px solid transparent;border-bottom:16px solid transparent;border-left:10px solid var(--lx-purple)"></div>
+    <div style="background:var(--lx-yellow);color:var(--lx-black);padding:8px 16px;border-radius:0 var(--r-sm) var(--r-sm) 0;font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;margin-left:-1px;white-space:nowrap">Renewed</div>
+  </div>
+</div>
+
+<div class="demo-section" style="max-width:600px">
+  <div class="demo-label">APPROVAL CHAIN</div>
+  <div style="display:flex;flex-direction:column;gap:8px">
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--lx-pink);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px">✓</div>
+      <div class="lx-cmd" style="font-size:12px">Support Coordinator Submitted</div>
+      <span class="lx-chip spk" style="font-size:6px;margin-left:auto">Complete</span>
+    </div>
+    <div style="width:2px;height:20px;background:var(--lx-pink);margin-left:15px"></div>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--lx-orange);color:#fff;display:flex;align-items:center;justify-content:center;font-size:14px">⏳</div>
+      <div class="lx-cmd" style="font-size:12px">Manager Review</div>
+      <span class="lx-chip or" style="font-size:6px;margin-left:auto">In Progress</span>
+    </div>
+    <div style="width:2px;height:20px;background:var(--lx-bdr2);margin-left:15px"></div>
+    <div style="display:flex;align-items:center;gap:12px;opacity:.5">
+      <div style="width:32px;height:32px;border-radius:50%;background:var(--lx-bdr2);color:var(--lx-txl);display:flex;align-items:center;justify-content:center;font-size:14px">3</div>
+      <div class="lx-cmd" style="font-size:12px">NDIA Submission</div>
+      <span class="lx-chip dk" style="font-size:6px;margin-left:auto">Pending</span>
+    </div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+
+</body>
+</html>

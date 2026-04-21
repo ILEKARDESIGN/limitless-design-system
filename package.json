@@ -1,0 +1,34 @@
+{
+  "name": "@limitless/design-system",
+  "version": "3.0.0",
+  "description": "LIMITLESS Support Co. — Neo-brutalist enterprise design system for NDIS support coordination platforms. 35 component families, 12-column bento grid, neon accent palette.",
+  "author": "Ile Karamacoski <ile.kar@limitlesssupportco.com.au>",
+  "license": "PROPRIETARY",
+  "homepage": "https://github.com/limitless-support-co/design-system",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/limitless-support-co/design-system.git"
+  },
+  "keywords": [
+    "design-system",
+    "ndis",
+    "support-coordination",
+    "neo-brutalist",
+    "component-library",
+    "limitless",
+    "bento-grid",
+    "dashboard",
+    "crm"
+  ],
+  "main": "css/limitless.css",
+  "files": [
+    "css/",
+    "js/",
+    "tokens/",
+    "components/"
+  ],
+  "scripts": {
+    "build": "cat tokens/tokens.css css/core.css css/components.css css/animations.css css/print.css > dist/limitless.css",
+    "dev": "npx live-server --port=3000 --open=pages/showcase-all.html"
+  }
+}

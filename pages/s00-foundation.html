@@ -1,0 +1,1329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS CSS Design Suite 2026 — v3.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════════════════
+   LIMITLESS CSS DESIGN SUITE v3.0 — PASTE START
+   Priority source: rosehill_kane_funding_pathways_v5_final-3
+   Additional components from prior skill where non-conflicting
+   ═══════════════════════════════════════════════════════════ */
+
+/* 1. TOKENS ─────────────────────────────────────────────── */
+:root{
+  --lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-navy:#0A0F1C;--lx-white:#FFF;
+  --lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;
+  --lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-bdr2:rgba(13,13,13,.12);
+  --lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;
+  --r-xs:6px;--r-sm:10px;--r-md:16px;--r-lg:24px;--r-xl:32px;--r-p:999px;
+  --sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-md:0 6px 24px rgba(0,0,0,.08);--sh-hv:0 16px 48px rgba(0,0,0,.13);
+  --ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1);
+}
+
+/* 2. RESET + BASE ───────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+
+/* 3. TYPOGRAPHY ─────────────────────────────────────────── */
+.lx-xl{font-family:'Bebas Neue',serif;font-size:80px;line-height:.9;letter-spacing:.01em}
+.lx-stat{font-family:'Bebas Neue',serif;font-size:52px;line-height:1;letter-spacing:.01em;transition:transform .45s var(--spring)}
+.lx-card:hover .lx-stat{transform:scale(1.06)}
+.lx-dsm{font-family:'Bebas Neue',serif;font-size:24px;line-height:1}
+.lx-ghost{font-family:'Bebas Neue',serif;font-size:110px;line-height:.85;color:rgba(0,0,0,.025);user-select:none;pointer-events:none;position:absolute;right:-4px;bottom:-16px}
+.lx-ghost.inv{color:rgba(255,255,255,.04)}
+.lx-cxl{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:28px;text-transform:uppercase;letter-spacing:.04em;line-height:1.05}
+.lx-clg{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:20px;text-transform:uppercase;letter-spacing:.04em}
+.lx-cmd{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em}
+.lx-csm{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.06em}
+.lx-mlg{font-family:'JetBrains Mono',monospace;font-size:13px;letter-spacing:.04em}
+.lx-mmd{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em}
+.lx-msm{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase}
+.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-blg{font-size:15px;line-height:1.6}
+.lx-b{font-size:13px;line-height:1.55}
+.lx-bsm{font-size:11px;line-height:1.5}
+.lx-bxs{font-size:10px;line-height:1.4}
+.lx-sub{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-txm)}
+.lx-sv{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--lx-txm);margin-top:4px}
+
+/* 4. TOPBAR ─────────────────────────────────────────────── */
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}
+.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}
+.lx-tlogo span{color:var(--lx-pink)}
+.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}
+.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}
+.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-tbadge.cyan{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-tbadge.alert{background:var(--lx-orange);color:#fff}
+.lx-tbadge.navy{background:var(--lx-navy);color:var(--lx-offwhite)}
+
+/* 5. BENTO GRID ─────────────────────────────────────────── */
+.lx-bento{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(54px,auto);gap:10px;padding:12px 10px}
+.lx-s1{grid-column:span 1}.lx-s2{grid-column:span 2}.lx-s3{grid-column:span 3}.lx-s4{grid-column:span 4}
+.lx-s5{grid-column:span 5}.lx-s6{grid-column:span 6}.lx-s7{grid-column:span 7}.lx-s8{grid-column:span 8}
+.lx-s9{grid-column:span 9}.lx-s10{grid-column:span 10}.lx-s11{grid-column:span 11}.lx-s12{grid-column:span 12}
+.lx-r2{grid-row:span 2}.lx-r3{grid-row:span 3}
+
+/* 6. CARDS ──────────────────────────────────────────────── */
+.lx-card{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:20px;position:relative;overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease);cursor:default}
+.lx-card:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}
+.lx-card.tl{border-radius:var(--r-xl) var(--r-md) var(--r-md) var(--r-md)}
+.lx-card.tr{border-radius:var(--r-md) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.bl{border-radius:var(--r-md) var(--r-md) var(--r-md) var(--r-xl)}
+.lx-card.br{border-radius:var(--r-md) var(--r-md) var(--r-xl) var(--r-md)}
+.lx-card.ptop{border-radius:var(--r-xl) var(--r-xl) var(--r-md) var(--r-md)}
+.lx-card.pbot{border-radius:var(--r-md) var(--r-md) var(--r-xl) var(--r-xl)}
+.lx-card.dark{background:var(--lx-black);color:var(--lx-offwhite);border-color:rgba(255,255,255,.06)}
+.lx-card.cream{background:var(--lx-cream);border-color:var(--lx-bdr)}
+.lx-card.pink{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-card.yellow{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-card.cyan{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.lx-card.navy{background:var(--lx-navy);color:var(--lx-offwhite);border-color:rgba(255,255,255,.06)}
+
+/* Accent border card */
+.lx-acc{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:20px}
+.lx-acc.cyn{border-left-color:var(--lx-cyan)}
+.lx-acc.org{border-left-color:var(--lx-orange)}
+.lx-acc.pur{border-left-color:var(--lx-purple)}
+.lx-acc.blu{border-left-color:var(--lx-blue)}
+.lx-acc.yel{border-left-color:var(--lx-yellow)}
+
+/* 7. SECTION HEADING ────────────────────────────────────── */
+.lx-sh{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;padding-bottom:7px;border-bottom:2px solid var(--lx-tx)}
+.lx-sh.pk{border-bottom-color:var(--lx-pink);color:var(--lx-pink)}
+.lx-sh.cy{border-bottom-color:var(--lx-cyan);color:var(--lx-cyan)}
+.lx-sh.yw{border-bottom-color:var(--lx-yellow)}
+
+/* 8. TABLE ──────────────────────────────────────────────── */
+.lx-tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:11px;background:var(--lx-card);border-radius:var(--r-sm);overflow:hidden;border:1px solid var(--lx-bdr)}
+.lx-tbl th{padding:7px 10px;text-align:left;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl);background:var(--lx-cream);border-bottom:1px solid var(--lx-bdr);white-space:nowrap}
+.lx-tbl td{padding:7px 10px;border-bottom:1px solid rgba(0,0,0,.03);vertical-align:top}
+.lx-tbl tr:last-child td{border-bottom:none}
+.lx-tbl tr:hover td{background:rgba(255,45,125,.015)}
+.lx-tb{font-weight:700}
+.lx-tm{font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right;letter-spacing:.03em}
+.lx-tp{color:#00a855;font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right}
+.lx-tneg{color:var(--lx-pink);font-family:'JetBrains Mono',monospace;font-weight:500;text-align:right}
+.lx-tpk{color:var(--lx-pink);font-weight:700;text-align:right}
+.lx-ttot td{border-top:2px solid var(--lx-tx);font-weight:700;background:var(--lx-cream)}
+
+/* 9. CHIPS ──────────────────────────────────────────────── */
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}
+.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}
+.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}
+.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}
+.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}
+.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}
+.lx-chip.gn{border-color:rgba(0,200,83,.3);color:#00c853;background:rgba(0,200,83,.07)}
+.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}
+.lx-chip.dk{border-color:rgba(13,13,13,.2);color:var(--lx-tx);background:rgba(13,13,13,.05)}
+.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}
+.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}
+.lx-chip.scy{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.lx-chip.sbk{background:var(--lx-black);color:var(--lx-offwhite);border-color:transparent}
+
+/* 10. ALERTS ────────────────────────────────────────────── */
+.lx-al{border-radius:var(--r-sm);padding:16px 18px;border-left:5px solid;display:flex;gap:12px;align-items:flex-start;margin-bottom:10px}
+.lx-al.inf{background:rgba(0,212,255,.12);border-left-color:var(--lx-cyan)}
+.lx-al.wrn{background:rgba(255,102,0,.12);border-left-color:var(--lx-orange)}
+.lx-al.dng{background:rgba(255,45,125,.12);border-left-color:var(--lx-pink)}
+.lx-al.suc{background:rgba(0,200,83,.12);border-left-color:#00c853}
+.lx-at{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:2px}
+.lx-ab{font-size:11px;color:var(--lx-txm);line-height:1.55}
+
+/* 11. DIVIDERS + STRIPE ─────────────────────────────────── */
+.lx-div{height:1px;background:var(--lx-bdr);margin:16px 0}
+.lx-div.tk{height:2px;background:var(--lx-tx)}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+
+/* 12. INFO ROWS + DARK BOX ──────────────────────────────── */
+.lx-ir{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:12px;flex-wrap:wrap;gap:4px}
+.lx-ir:last-child{border-bottom:none}
+.lx-ik{color:var(--lx-txm);font-size:11px}
+.lx-iv{font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-pink);line-height:1}
+.lx-iv.n{font-family:'Barlow',sans-serif;font-size:12px;font-weight:600;color:var(--lx-tx)}
+.lx-dbox{background:var(--lx-black);color:var(--lx-offwhite);border-radius:var(--r-md);padding:20px}
+.lx-dbox .lx-dtitle{font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-yellow);margin-bottom:12px}
+.lx-dbox .lx-ik{color:rgba(245,240,232,.5)}
+.lx-dbox .lx-ir{border-bottom-color:rgba(255,255,255,.07)}
+.lx-dbox .lx-iv.n{color:var(--lx-offwhite)}
+.lx-dbox a{color:var(--lx-cyan)}
+
+/* 13. DARK TAB GRID (v5-final-3 primary) ────────────────── */
+/* .lx-tabs = dark grid shell; .lx-tab = individual tab button */
+.lx-tabs{background:var(--lx-black);border:2px solid var(--lx-black);border-radius:var(--r-md);padding:6px;display:flex;gap:4px;flex-wrap:wrap}
+.lx-tab{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:10px 18px;border:2px solid transparent;background:transparent;border-radius:var(--r-sm);cursor:pointer;white-space:nowrap;transition:all .2s var(--ease);display:flex;align-items:center;gap:7px}
+.lx-tab:hover{background:rgba(255,255,255,.1);transform:translateY(-1px)}
+.lx-tab.active{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.3)}
+/* Generic per-tab colour classes — use data-bg/data-fg for JS or these for CSS */
+.lx-tab.tc-pk{border-color:var(--lx-pink);color:var(--lx-pink)}.lx-tab.tc-pk.active{background:var(--lx-pink);color:#fff}
+.lx-tab.tc-yw{border-color:var(--lx-yellow);color:var(--lx-yellow)}.lx-tab.tc-yw.active{background:var(--lx-yellow);color:var(--lx-black)}
+.lx-tab.tc-cy{border-color:var(--lx-cyan);color:var(--lx-cyan)}.lx-tab.tc-cy.active{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-tab.tc-bl{border-color:var(--lx-blue);color:var(--lx-blue)}.lx-tab.tc-bl.active{background:var(--lx-blue);color:#fff}
+.lx-tab.tc-pu{border-color:var(--lx-purple);color:var(--lx-purple)}.lx-tab.tc-pu.active{background:var(--lx-purple);color:#fff}
+.lx-tab.tc-or{border-color:var(--lx-orange);color:var(--lx-orange)}.lx-tab.tc-or.active{background:var(--lx-orange);color:#fff}
+/* Tab count badge on dark tabs */
+.lx-tc{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;background:rgba(255,255,255,.12);color:inherit;padding:2px 7px;border-radius:var(--r-p);transition:background .18s}
+.lx-tab.active .lx-tc{background:rgba(255,255,255,.3)}
+.lx-tab.tc-yw.active .lx-tc,.lx-tab.tc-cy.active .lx-tc{background:rgba(0,0,0,.12)}
+/* Hidden: tab currently shown in spotlight */
+.lx-tab.in-spot{display:none!important}
+/* Bounce + Wave animations on neighbouring tabs */
+.lx-tab.bounce{animation:tabBounce .5s var(--spring)}
+@keyframes tabBounce{0%{transform:scale(1)}25%{transform:scale(.92) translateY(3px)}50%{transform:scale(1.06) translateY(-2px)}75%{transform:scale(.97)}100%{transform:scale(1)}}
+.lx-tab.wave{animation:tabWave .45s var(--spring)}
+@keyframes tabWave{0%{transform:translateY(0)}30%{transform:translateY(4px)}60%{transform:translateY(-3px)}100%{transform:translateY(0)}}
+
+/* 14. SPOTLIGHT SYSTEM ───────────────────────────────────── */
+/* Shell — dark container wrapping spotlight + tab grid */
+.tab-shell,.lx-tab-shell{background:var(--lx-black);border-radius:var(--r-md);padding:10px;border:1px solid rgba(255,255,255,.06)}
+/* Spotlight zone */
+.tab-spot,.lx-tab-spot{padding:0 0 8px;position:relative;min-height:52px}
+/* Spotlight active button */
+.spot-btn,.lx-spot-btn{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:.06em;padding:14px 28px;border:none;border-radius:var(--r-sm);cursor:pointer;display:inline-flex;align-items:center;gap:8px;white-space:nowrap;box-shadow:0 6px 24px rgba(0,0,0,.4);transition:all .3s var(--ease);animation:spotIn .4s var(--spring) both}
+@keyframes spotIn{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:none}}
+.spot-btn.exiting,.lx-spot-btn.exiting{animation:spotOut .3s var(--ease) both}
+@keyframes spotOut{from{opacity:1;transform:none}to{opacity:0;transform:translateY(10px) scale(.85)}}
+/* Ghost flyer animating between grid and spotlight */
+.tab-flyer,.lx-tab-flyer{position:fixed;z-index:9999;pointer-events:none;font-family:'Barlow Condensed',sans-serif;font-weight:900;text-transform:uppercase;letter-spacing:.06em;border-radius:var(--r-sm);display:flex;align-items:center;gap:6px;white-space:nowrap}
+/* Tab panels */
+.lx-tpanels{margin-top:10px}
+.lx-tpanels.surface{background:var(--lx-offwhite);border-radius:var(--r-sm);padding:20px}
+.lx-tpanel{display:none;animation:lxFI .2s var(--ease)}
+.lx-tpanel.active{display:block}
+@keyframes lxFI{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* 15. COLOURED ARROW DROPDOWN ───────────────────────────── */
+/* Both .dd and .lx-dd work */
+.dd,.lx-dd{border:1px solid var(--lx-bdr);border-radius:var(--r-sm);overflow:hidden;margin-bottom:8px;transition:border-color .2s}
+.dd:hover,.lx-dd:hover{border-color:var(--lx-bdr2)}
+.dd-h,.lx-dd-h{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;cursor:pointer;background:var(--lx-card);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.04em;transition:background .18s;user-select:none;gap:10px}
+.dd-h:hover,.lx-dd-h:hover{background:var(--lx-cream)}
+.dd-arrow,.lx-dd-arrow{width:36px;height:36px;min-width:36px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;transition:transform .3s var(--spring),box-shadow .18s;flex-shrink:0;font-weight:700;font-size:18px;line-height:1;cursor:pointer}
+.dd:hover .dd-arrow,.lx-dd:hover .lx-dd-arrow,.dd:hover .lx-dd-arrow,.lx-dd:hover .dd-arrow{transform:scale(1.15);box-shadow:0 2px 12px rgba(0,0,0,.1)}
+.dd.open .dd-arrow,.lx-dd.open .lx-dd-arrow,.dd.open .lx-dd-arrow,.lx-dd.open .dd-arrow{transform:rotate(180deg)}
+.dd.open:hover .dd-arrow,.lx-dd.open:hover .lx-dd-arrow{transform:rotate(180deg) scale(1.15)}
+.dd-body,.lx-dd-body{display:none;padding:14px 16px;background:var(--lx-cream);font-size:12px;color:var(--lx-txm);line-height:1.65;border-top:1px solid var(--lx-bdr)}
+.dd.open .dd-body,.lx-dd.open .lx-dd-body,.dd.open .lx-dd-body,.lx-dd.open .dd-body{display:block}
+.dd-body p,.lx-dd-body p{margin-bottom:8px}
+.dd-body p:last-child,.lx-dd-body p:last-child{margin-bottom:0}
+.dd-body strong,.lx-dd-body strong{color:var(--lx-tx)}
+/* Arrow colour variants — both prefix styles work */
+.arr-pk,.lx-arr-pk{background:rgba(255,45,125,.1);color:var(--lx-pink)}
+.arr-cy,.lx-arr-cy{background:rgba(0,212,255,.1);color:var(--lx-cyan)}
+.arr-bl,.lx-arr-bl{background:rgba(41,121,255,.1);color:var(--lx-blue)}
+.arr-or,.lx-arr-or{background:rgba(255,102,0,.1);color:var(--lx-orange)}
+.arr-yw,.lx-arr-yw{background:rgba(204,255,0,.15);color:#6b8200}
+.arr-pu,.lx-arr-pu{background:rgba(177,78,255,.1);color:var(--lx-purple)}
+
+/* 16. CHECKLIST ─────────────────────────────────────────── */
+/* Both .ck and .lx-ck work */
+.ck,.lx-ck{margin-bottom:8px;display:flex;gap:12px;padding:12px 14px;border-radius:var(--r-sm);border:1px solid var(--lx-bdr);background:var(--lx-card);cursor:pointer;transition:all .18s var(--ease);align-items:flex-start;user-select:none}
+.ck:hover,.lx-ck:hover{background:var(--lx-cream);border-color:var(--lx-bdr2)}
+.ck-box,.lx-ck-box{width:22px;height:22px;border:2.5px solid var(--lx-bdr2);border-radius:6px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:all .2s var(--ease);background:var(--lx-card);margin-top:1px}
+.ck.done .ck-box,.lx-ck.done .lx-ck-box,.ck.done .lx-ck-box,.lx-ck.done .ck-box{background:var(--lx-pink);border-color:var(--lx-pink)}
+.ck-box svg,.lx-ck-box svg{width:14px;height:14px;stroke:#fff;stroke-width:3;fill:none;opacity:0;transition:opacity .15s}
+.ck.done .ck-box svg,.lx-ck.done .lx-ck-box svg,.ck.done .lx-ck-box svg,.lx-ck.done .ck-box svg{opacity:1}
+.ck.done .ck-text,.lx-ck.done .lx-ck-text,.ck.done .lx-ck-text,.lx-ck.done .ck-text{opacity:.45;text-decoration:line-through}
+.ck-text,.lx-ck-text{flex:1}
+/* Urgency left borders — both prefix styles */
+.urg-c,.lx-ck.urg-c{border-left:4px solid var(--lx-pink)}
+.urg-h,.lx-ck.urg-h{border-left:4px solid var(--lx-orange)}
+.urg-m,.lx-ck.urg-m{border-left:4px solid var(--lx-cyan)}
+.urg-s,.lx-ck.urg-s{border-left:4px solid var(--lx-blue)}
+
+/* 17. SECTION BLOCK ─────────────────────────────────────── */
+.sb{margin-bottom:20px}
+.sb p{font-size:12px;line-height:1.6;color:var(--lx-txm);margin-bottom:8px}
+.sb p strong{color:var(--lx-tx)}
+
+/* 18. RESPONSIBILITY CARD ───────────────────────────────── */
+/* Both .resp and .lx-resp work */
+.resp,.lx-resp{border-radius:var(--r-sm);padding:16px;margin-bottom:10px;border:1px solid var(--lx-bdr)}
+.resp.school,.lx-resp.school{border-left:5px solid var(--lx-cyan);background:rgba(0,212,255,.03)}
+.resp.sc,.lx-resp.sc{border-left:5px solid var(--lx-pink);background:rgba(255,45,125,.03)}
+.resp.both,.lx-resp.both{border-left:5px solid var(--lx-purple);background:rgba(177,78,255,.03)}
+.resp.gov,.lx-resp.gov{border-left:5px solid var(--lx-blue);background:rgba(41,121,255,.03)}
+.resp.warn,.lx-resp.warn{border-left:5px solid var(--lx-orange);background:rgba(255,102,0,.03)}
+.resp-tag,.lx-resp-tag{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:2px 8px;border-radius:var(--r-p);display:inline-block;margin-bottom:6px}
+.resp-tag.t-school,.lx-resp-tag.t-school{background:var(--lx-cyan);color:var(--lx-black)}
+.resp-tag.t-sc,.lx-resp-tag.t-sc{background:var(--lx-pink);color:#fff}
+.resp-tag.t-both,.lx-resp-tag.t-both{background:var(--lx-purple);color:#fff}
+.resp-tag.t-gov,.lx-resp-tag.t-gov{background:var(--lx-blue);color:#fff}
+.resp-tag.t-warn,.lx-resp-tag.t-warn{background:var(--lx-orange);color:#fff}
+.resp-tag.t-ndis,.lx-resp-tag.t-ndis{background:var(--lx-black);color:var(--lx-yellow)}
+
+/* 19. NUMBERED REC CARD ─────────────────────────────────── */
+/* Both .rec and .lx-rec work */
+.rec,.lx-rec{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:18px;margin-bottom:10px;transition:transform .2s var(--ease),box-shadow .2s}
+.rec:hover,.lx-rec:hover{transform:translateY(-2px);box-shadow:var(--sh-md)}
+.rec-num,.lx-rec-num{font-family:'Bebas Neue',serif;font-size:36px;line-height:1;margin-bottom:4px}
+
+/* 20. LIGHT PILL TABS ───────────────────────────────────── */
+/* .lx-ptabs = pill/capsule strip on light backgrounds */
+/* Note: .lx-tabs is the dark grid (v5-final-3 primary) */
+.lx-ptabs{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:4px;display:inline-flex;gap:2px;flex-wrap:wrap}
+.lx-ptabs .lx-tab{background:transparent;color:var(--lx-txm);border:none;padding:7px 16px;font-size:12px}
+.lx-ptabs .lx-tab:hover{color:var(--lx-tx);background:rgba(0,0,0,.04);transform:none}
+.lx-ptabs .lx-tab.active{background:var(--lx-card);color:var(--lx-tx);box-shadow:var(--sh-sm);transform:none}
+.lx-ptabs.pk .lx-tab.active{color:var(--lx-pink)}
+.lx-ptabs.cy .lx-tab.active{color:var(--lx-cyan)}
+.lx-ptabs.yw .lx-tab.active{background:var(--lx-yellow);color:var(--lx-black)}
+.lx-ptabs .lx-tab.active .lx-tc{background:var(--lx-pink);color:#fff}
+.lx-ptabs .lx-tc{background:var(--lx-bdr);color:var(--lx-txm)}
+/* Underline strip variant */
+.lx-ptabs.ul{background:transparent;border:none;border-radius:0;padding:0;border-bottom:2px solid var(--lx-bdr);width:100%}
+.lx-ptabs.ul .lx-tab{border-radius:0;padding:9px 16px 10px;position:relative;box-shadow:none}
+.lx-ptabs.ul .lx-tab::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:2px;background:var(--lx-pink);transform:scaleX(0);transition:transform .28s var(--spring)}
+.lx-ptabs.ul .lx-tab.active::after{transform:scaleX(1)}
+.lx-ptabs.ul.cy .lx-tab.active::after{background:var(--lx-cyan)}
+
+/* 21. PROGRESS BARS ─────────────────────────────────────── */
+.lx-pw{margin-bottom:10px}
+.lx-ph{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.lx-pk2{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--lx-txl)}
+.lx-pv{font-family:'Bebas Neue',serif;font-size:16px;color:var(--lx-pink)}
+.lx-pt{height:5px;background:rgba(0,0,0,.06);border-radius:var(--r-p);overflow:hidden}
+.lx-pf{height:100%;border-radius:var(--r-p);background:var(--lx-pink);transition:width 1s var(--spring)}
+.lx-pf.cy{background:var(--lx-cyan)}.lx-pf.or{background:var(--lx-orange)}.lx-pf.pu{background:var(--lx-purple)}
+.lx-pf.bl{background:var(--lx-blue)}.lx-pf.gn{background:#00c853}.lx-pf.yw{background:var(--lx-yellow)}
+.lx-pt.tk{height:10px;border-radius:var(--r-xs)}
+.lx-pf.st{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.15) 0,rgba(255,255,255,.15) 6px,transparent 6px,transparent 12px)}
+
+/* 22. DONUT CHARTS ──────────────────────────────────────── */
+.lx-dw{position:relative;width:96px;height:96px;margin:0 auto}
+.lx-dw svg{transform:rotate(-90deg);display:block}
+.lx-dtrk{fill:none;stroke:rgba(0,0,0,.06);stroke-width:9}
+.lx-dfl{fill:none;stroke-width:9;stroke-linecap:round;stroke-dasharray:0 270;transition:stroke-dasharray 1s var(--spring)}
+.lx-dlbl{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;line-height:1}
+.lx-dsl{font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-txl);letter-spacing:.1em}
+
+/* 23. BUTTONS ───────────────────────────────────────────── */
+.lx-btn{display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:13px;text-transform:uppercase;letter-spacing:.06em;padding:9px 20px;border-radius:var(--r-sm);border:none;cursor:pointer;transition:all .18s var(--ease);white-space:nowrap}
+.lx-btn:hover{transform:translateY(-1px);box-shadow:var(--sh-md)}
+.lx-btn:active{transform:translateY(0)}
+.lx-btn.pri{background:var(--lx-pink);color:#fff}
+.lx-btn.sec{background:var(--lx-black);color:var(--lx-offwhite)}
+.lx-btn.out{background:transparent;color:var(--lx-tx);border:1.5px solid var(--lx-bdr2)}
+.lx-btn.yw{background:var(--lx-yellow);color:var(--lx-black)}
+.lx-btn.gh{background:rgba(0,0,0,.04);color:var(--lx-tx)}
+.lx-btn.sm{padding:6px 14px;font-size:11px}
+.lx-btn.lg{padding:12px 28px;font-size:16px}
+
+/* 24. STATUS DOT ────────────────────────────────────────── */
+.lx-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--lx-pink);flex-shrink:0}
+.lx-dot.pulse{animation:lxPulse 1.5s ease-in-out infinite}
+.lx-dot.gn{background:#00c853}.lx-dot.yw{background:var(--lx-yellow)}
+.lx-dot.cy{background:var(--lx-cyan)}.lx-dot.or{background:var(--lx-orange)}
+@keyframes lxPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.8)}}
+
+/* 25. TICKER ────────────────────────────────────────────── */
+.lx-ticker{background:var(--lx-yellow);overflow:hidden;padding:10px 0;border-top:2px solid var(--lx-black);border-bottom:2px solid var(--lx-black)}
+.lx-ti{display:flex;width:max-content;animation:lxTk 30s linear infinite}
+.lx-tit{white-space:nowrap;padding:0 32px;font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:900;color:var(--lx-black);letter-spacing:2px;text-transform:uppercase}
+.lx-ts{color:var(--lx-pink);margin:0 4px}
+@keyframes lxTk{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* 26. KPI ROW ───────────────────────────────────────────── */
+.lx-krow{display:flex;gap:10px;flex-wrap:wrap}
+.lx-k{flex:1;min-width:80px;background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-sm);padding:12px 14px}
+.lx-kv{font-family:'Bebas Neue',serif;font-size:28px;line-height:1}
+.lx-kl{font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--lx-txl);margin-top:2px}
+
+/* 27. PAGINATION ────────────────────────────────────────── */
+.lx-pag{display:flex;align-items:center;gap:4px}
+.lx-pg{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:700;min-width:34px;height:34px;display:inline-flex;align-items:center;justify-content:center;border-radius:var(--r-sm);border:1.5px solid var(--lx-bdr);background:var(--lx-card);color:var(--lx-txm);cursor:pointer;transition:all .18s var(--ease);user-select:none}
+.lx-pg:hover{border-color:var(--lx-pink);color:var(--lx-pink);background:rgba(255,45,125,.05)}
+.lx-pg.active{background:var(--lx-pink);color:#fff;border-color:var(--lx-pink)}
+.lx-pg.dis{opacity:.35;cursor:not-allowed;pointer-events:none}
+.lx-pg.prv,.lx-pg.nxt{font-size:13px;padding:0 10px}
+.lx-pg.el{border:none;background:transparent;cursor:default}
+.lx-pg.el:hover{color:var(--lx-txm);background:transparent;border-color:transparent}
+.lx-pag.cy .lx-pg:hover{border-color:var(--lx-cyan);color:var(--lx-cyan);background:rgba(0,212,255,.05)}
+.lx-pag.cy .lx-pg.active{background:var(--lx-cyan);border-color:var(--lx-cyan);color:var(--lx-black)}
+.lx-pag.yw .lx-pg.active{background:var(--lx-yellow);border-color:var(--lx-yellow);color:var(--lx-black)}
+.lx-pag.dk .lx-pg{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.1);color:rgba(245,240,232,.5)}
+.lx-pag.dk .lx-pg:hover{color:var(--lx-offwhite);border-color:var(--lx-pink);background:rgba(255,45,125,.1)}
+.lx-pag.dk .lx-pg.active{background:var(--lx-pink);border-color:var(--lx-pink);color:#fff}
+.lx-pag.pl .lx-pg{border-radius:var(--r-p)}
+.lx-pag.co .lx-pg{min-width:28px;height:28px;font-size:10px}
+.lx-pi{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--lx-txl);white-space:nowrap}
+
+/* 28. NAVIGATION ────────────────────────────────────────── */
+.lx-snav{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:8px;min-width:200px}
+.lx-nsec{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl);padding:10px 10px 5px;margin-top:4px}
+.lx-nsec:first-child{margin-top:0}
+.lx-ni{display:flex;align-items:center;gap:9px;font-family:'Barlow',sans-serif;font-size:13px;font-weight:500;color:var(--lx-txm);padding:8px 10px;border-radius:var(--r-sm);cursor:pointer;transition:all .18s var(--ease);text-decoration:none;position:relative}
+.lx-ni:hover{background:var(--lx-cream);color:var(--lx-tx)}
+.lx-ni.active{background:rgba(255,45,125,.08);color:var(--lx-pink);font-weight:700}
+.lx-ni.active::before{content:'';position:absolute;left:0;top:20%;bottom:20%;width:3px;border-radius:0 var(--r-p) var(--r-p) 0;background:var(--lx-pink)}
+.lx-snav.cy .lx-ni.active{background:rgba(0,212,255,.08);color:var(--lx-cyan)}
+.lx-snav.cy .lx-ni.active::before{background:var(--lx-cyan)}
+.lx-nico{width:16px;height:16px;flex-shrink:0;opacity:.5;transition:opacity .18s}
+.lx-ni:hover .lx-nico,.lx-ni.active .lx-nico{opacity:1}
+.lx-nbadge{margin-left:auto;font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;background:var(--lx-cream);color:var(--lx-txm);padding:1px 7px;border-radius:var(--r-p)}
+.lx-ni.active .lx-nbadge{background:var(--lx-pink);color:#fff}
+.lx-ndiv{height:1px;background:var(--lx-bdr);margin:6px 10px}
+.lx-tnav{display:flex;align-items:center;gap:4px;background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:6px 8px}
+.lx-tni{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;text-transform:uppercase;letter-spacing:.05em;color:var(--lx-txm);padding:6px 14px;border-radius:var(--r-sm);cursor:pointer;white-space:nowrap;transition:all .18s var(--ease);text-decoration:none}
+.lx-tni:hover{color:var(--lx-tx);background:var(--lx-cream)}
+.lx-tni.active{background:var(--lx-black);color:var(--lx-offwhite)}
+.lx-tnsep{width:1px;height:16px;background:var(--lx-bdr);margin:0 4px}
+.lx-bc{display:flex;align-items:center;gap:6px;font-family:'Barlow',sans-serif;font-size:12px}
+.lx-bci{color:var(--lx-txm);cursor:pointer}
+.lx-bci:hover{color:var(--lx-tx);text-decoration:underline}
+.lx-bci.cur{color:var(--lx-tx);font-weight:600;cursor:default}
+.lx-bci.cur:hover{text-decoration:none}
+.lx-bcs{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--lx-txl)}
+
+/* 29. SCROLL REVEAL ─────────────────────────────────────── */
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}
+.lx-rev.vis{opacity:1;transform:translateY(0)}
+
+/* 30. UTILITIES ─────────────────────────────────────────── */
+.fx{display:flex}.fxc{display:flex;align-items:center;justify-content:center}.fxb{display:flex;align-items:center;justify-content:space-between}
+.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.g6{gap:24px}
+.mb2{margin-bottom:8px}.mb3{margin-bottom:12px}.mb4{margin-bottom:16px}
+.mt2{margin-top:8px}.mt4{margin-top:16px}
+.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}
+.cor{color:var(--lx-orange)}.cpu{color:var(--lx-purple)}.cbl{color:var(--lx-blue)}
+.cm{color:var(--lx-txm)}.cl{color:var(--lx-txl)}.bld{font-weight:700}
+
+/* 31. RESPONSIVE ────────────────────────────────────────── */
+@media(max-width:900px){
+  .lx-bento{grid-template-columns:repeat(6,1fr)}
+  .lx-s3,.lx-s4,.lx-s5,.lx-s6,.lx-s7,.lx-s8,.lx-s9,.lx-s10,.lx-s11,.lx-s12{grid-column:span 6}
+}
+@media(max-width:600px){
+  .lx-bento{grid-template-columns:1fr;gap:8px;padding:8px}
+  [class*="lx-s"]{grid-column:span 1}
+  .lx-topbar{margin:0 4px;flex-wrap:wrap;gap:6px}
+  .lx-krow{flex-direction:column}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   LIMITLESS CSS DESIGN SUITE v3.0 — PASTE END
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Style guide page styles (not part of reusable system) ─ */
+.sg{max-width:1200px;margin:0 auto;padding-bottom:80px}
+.sg-s{padding:26px 10px 6px}
+.sg-t{font-family:'Bebas Neue',serif;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.sg-t::after{content:'';flex:1;height:1px;background:var(--lx-bdr)}
+.sg-box{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);padding:20px}
+.sg-sw-g{display:grid;grid-template-columns:repeat(auto-fill,minmax(108px,1fr));gap:8px}
+.sg-sw{border-radius:var(--r-sm);height:56px;display:flex;flex-direction:column;justify-content:flex-end;padding:6px 8px}
+.sg-sw span{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.1em;font-weight:700;line-height:1.4;opacity:.85}
+.sg-hero{background:var(--lx-black);color:var(--lx-offwhite);border-radius:var(--r-lg);padding:28px;margin-bottom:10px;position:relative;overflow:hidden}
+.sg-ht{font-family:'Bebas Neue',serif;font-size:clamp(38px,7vw,76px);line-height:.9}
+.sg-hs{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,240,232,.4);margin-bottom:12px}
+.sg-gh{position:absolute;right:-10px;bottom:-30px;font-family:'Bebas Neue',serif;font-size:140px;color:rgba(255,255,255,.03);line-height:.85;pointer-events:none;user-select:none}
+.sg-code{background:var(--lx-black);color:var(--lx-yellow);font-family:'JetBrains Mono',monospace;font-size:10px;padding:12px 14px;border-radius:var(--r-sm);overflow-x:auto;white-space:pre;line-height:1.7;margin-top:8px}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="lx-topbar">
+  <div class="fx g3" style="align-items:center">
+    <span class="lx-tlogo">LIMIT<span>LESS</span></span>
+    <span class="lx-tmeta">CSS Design Suite v3.0</span>
+  </div>
+  <div class="fx g2" style="align-items:center;flex-wrap:wrap">
+    <span class="lx-tbadge">v3.0</span>
+    <span class="lx-tbadge pink">31 Components</span>
+    <span class="lx-tbadge cyan">All Verified</span>
+  </div>
+</div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+
+<div class="sg">
+
+<!-- HERO -->
+<div style="padding:14px 10px 0">
+  <div class="sg-hero">
+    <div class="sg-hs">LIMITLESS Support Co. &middot; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="264f4a43084d4754664a4f4b4f524a4355555553565649545245490845494b084753">[email&#160;protected]</a> &middot; 0421 742 108</div>
+    <div class="sg-ht">CSS DESIGN<br>SUITE 2026</div>
+    <div class="fx g2 mt2" style="flex-wrap:wrap">
+      <span class="lx-chip syw">Widget System</span>
+      <span class="lx-chip spk">Dashboard Components</span>
+      <span class="lx-chip cy">Copy-Paste Ready</span>
+      <span class="lx-chip sbk">v3.0 — Merged &amp; Verified</span>
+    </div>
+    <div class="sg-gh">LX</div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="lx-ticker" style="margin:0 10px;border-radius:var(--r-sm)">
+  <div class="lx-ti">
+    <span class="lx-tit">LIMITLESS SUPPORT CO <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">CSS DESIGN SUITE 2026 <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">ILE KARAMACOSKI <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">NDIS SUPPORT COORDINATION <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">INTEGRITY &middot; EMPATHY &middot; EXCELLENCE &middot; EQUITY <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">LIMITLESS SUPPORT CO <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">CSS DESIGN SUITE 2026 <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">ILE KARAMACOSKI <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">NDIS SUPPORT COORDINATION <span class="lx-ts">&#9670;</span></span>
+    <span class="lx-tit">INTEGRITY &middot; EMPATHY &middot; EXCELLENCE &middot; EQUITY <span class="lx-ts">&#9670;</span></span>
+  </div>
+</div>
+
+<!-- §01 COLOURS -->
+<div class="sg-s"><div class="sg-t">01 &middot; Colour Tokens</div>
+<div class="sg-sw-g">
+  <div class="sg-sw" style="background:#FF2D7D"><span style="color:#fff">--lx-pink<br>#FF2D7D</span></div>
+  <div class="sg-sw" style="background:#CCFF00"><span style="color:#0D0D0D">--lx-yellow<br>#CCFF00</span></div>
+  <div class="sg-sw" style="background:#FF6600"><span style="color:#fff">--lx-orange<br>#FF6600</span></div>
+  <div class="sg-sw" style="background:#00D4FF"><span style="color:#0D0D0D">--lx-cyan<br>#00D4FF</span></div>
+  <div class="sg-sw" style="background:#2979FF"><span style="color:#fff">--lx-blue<br>#2979FF</span></div>
+  <div class="sg-sw" style="background:#B14EFF"><span style="color:#fff">--lx-purple<br>#B14EFF</span></div>
+  <div class="sg-sw" style="background:#0D0D0D"><span style="color:#F5F0E8">--lx-black<br>#0D0D0D</span></div>
+  <div class="sg-sw" style="background:#F5F0E8;border:1px solid rgba(0,0,0,.08)"><span style="color:#0D0D0D">--lx-offwhite<br>#F5F0E8</span></div>
+  <div class="sg-sw" style="background:#FAF7F2;border:1px solid rgba(0,0,0,.08)"><span style="color:#0D0D0D">--lx-cream<br>#FAF7F2</span></div>
+  <div class="sg-sw" style="background:#0A0F1C"><span style="color:#F5F0E8">--lx-navy<br>#0A0F1C</span></div>
+</div></div>
+
+<!-- §02 TYPOGRAPHY -->
+<div class="sg-s"><div class="sg-t">02 &middot; Typography Scale</div>
+<div class="lx-bento">
+  <div class="lx-card lx-s6">
+    <div class="lx-eye mb2">Display — Bebas Neue</div>
+    <div class="lx-xl cpk" style="font-size:56px">XL 80PX</div>
+    <div class="lx-stat" style="font-size:48px">STAT 48PX</div>
+    <div class="lx-dsm">Small Display 24px</div>
+    <div class="lx-div"></div>
+    <div class="lx-eye mb2">Condensed — Barlow Condensed 900</div>
+    <div class="lx-cxl">XL Heading 28px</div>
+    <div class="lx-clg">Large Heading 20px</div>
+    <div class="lx-cmd">Medium Heading 15px</div>
+    <div class="lx-csm">Small Heading 12px</div>
+  </div>
+  <div class="lx-card lx-s6">
+    <div class="lx-eye mb2">Mono — JetBrains Mono</div>
+    <div class="lx-mlg">Large mono 13px — data labels</div>
+    <div class="lx-mmd mt2">Medium mono 11px — eyebrows &amp; badges</div>
+    <div class="lx-msm mt2">SMALL MONO 9PX — MICRO LABELS</div>
+    <div class="lx-div"></div>
+    <div class="lx-eye mb2">Body — Barlow</div>
+    <div class="lx-blg">Large body 15px — lead text, intro paragraphs.</div>
+    <div class="lx-b mt2">Standard body 13px — general widget content across all panels.</div>
+    <div class="lx-bsm mt2">Small body 11px — helper text, footnotes, secondary descriptions.</div>
+    <div class="lx-bxs mt2">XS body 10px — micro labels, meta information.</div>
+    <div class="lx-sub mt2">Sublabel — uppercase tracking</div>
+  </div>
+</div></div>
+
+<!-- §03 TOPBAR -->
+<div class="sg-s"><div class="sg-t">03 &middot; Topbar</div>
+<div class="sg-box" style="display:flex;flex-direction:column;gap:8px;padding:10px">
+  <div class="lx-topbar" style="position:static;margin:0">
+    <div class="fx g3" style="align-items:center"><span class="lx-tlogo">LIMIT<span>LESS</span></span><span class="lx-tmeta">Widget Title</span></div>
+    <div class="fx g2" style="align-items:center"><span class="lx-tbadge">Status</span><span class="lx-tbadge pink">Urgent</span><span class="lx-tbadge cyan">Active</span><span class="lx-tmeta">Participant Name</span></div>
+  </div>
+  <div class="lx-topbar" style="position:static;margin:0;background:var(--lx-navy)">
+    <div class="fx g3" style="align-items:center"><span class="lx-tlogo">LIMIT<span>LESS</span></span><span class="lx-tmeta">Navy Variant</span></div>
+    <div class="fx g2" style="align-items:center"><span class="lx-tbadge alert">At Risk</span><span class="lx-tbadge navy">Archived</span></div>
+  </div>
+</div></div>
+
+<!-- §04 BENTO + CARDS -->
+<div class="sg-s"><div class="sg-t">04 &middot; Bento Grid + Card System</div>
+<div class="lx-bento">
+  <div class="lx-card lx-s4 tl">
+    <div class="lx-eye mb2">Stat Card — TL Corner</div>
+    <div class="lx-stat cpk">$84,320</div>
+    <div class="lx-sv">Total Plan Budget</div>
+    <div class="lx-ghost">$</div>
+  </div>
+  <div class="lx-card lx-s4">
+    <div class="lx-eye mb2">Standard Stat</div>
+    <div class="lx-stat cpu">55.83</div>
+    <div class="lx-sv">Sunday Hours / Year</div>
+  </div>
+  <div class="lx-card lx-s4 tr">
+    <div class="lx-eye mb2">Stat Card — TR Corner</div>
+    <div class="lx-stat ccy">93.2%</div>
+    <div class="lx-sv">Budget Utilisation</div>
+  </div>
+  <div class="lx-card lx-s3 dark">
+    <div class="lx-eye mb2" style="color:rgba(245,240,232,.4)">Dark</div>
+    <div class="lx-stat cyw" style="font-size:36px">$127</div>
+    <div class="lx-sv" style="color:rgba(245,240,232,.4)">Hourly Rate</div>
+  </div>
+  <div class="lx-card lx-s3 pink fxc" style="flex-direction:column;text-align:center">
+    <div class="lx-eye mb2" style="color:rgba(255,255,255,.6)">Pink</div>
+    <div class="lx-dsm" style="color:#fff">URGENT</div>
+  </div>
+  <div class="lx-card lx-s3 yellow fxc" style="flex-direction:column;text-align:center">
+    <div class="lx-eye mb2">Yellow</div>
+    <div class="lx-dsm">ACTION</div>
+  </div>
+  <div class="lx-card lx-s3 cream">
+    <div class="lx-eye mb2">Cream</div>
+    <div class="lx-cmd cpk mt2">Neutral Surface</div>
+  </div>
+  <div class="lx-s12">
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:10px">
+      <div class="lx-acc"><div class="lx-eye mb2">Pink Accent</div><div class="lx-cmd">Risk</div><div class="lx-bsm mt2 cm">High-priority alert.</div></div>
+      <div class="lx-acc cyn"><div class="lx-eye mb2">Cyan Accent</div><div class="lx-cmd">Info</div><div class="lx-bsm mt2 cm">Advisory content.</div></div>
+      <div class="lx-acc yel"><div class="lx-eye mb2">Yellow Accent</div><div class="lx-cmd">Recommend</div><div class="lx-bsm mt2 cm">Key suggestion.</div></div>
+      <div class="lx-acc org"><div class="lx-eye mb2">Orange Accent</div><div class="lx-cmd">Warning</div><div class="lx-bsm mt2 cm">Review needed.</div></div>
+      <div class="lx-acc pur"><div class="lx-eye mb2">Purple Accent</div><div class="lx-cmd">Priority</div><div class="lx-bsm mt2 cm">Capacity building.</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- §05 TABLE -->
+<div class="sg-s"><div class="sg-t">05 &middot; Table Component</div>
+<div style="padding:0 10px">
+  <div class="lx-card" style="padding:14px">
+    <div class="lx-sh pk mb3">Budget Allocation Overview</div>
+    <table class="lx-tbl">
+      <thead><tr><th>Support Category</th><th>Provider</th><th style="text-align:right">Allocated</th><th style="text-align:right">Spent</th><th style="text-align:right">Variance</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td class="lx-tb">Assistance with Daily Life</td><td class="cm">ABC Care Services</td><td class="lx-tm">$32,500.00</td><td class="lx-tm">$28,740.00</td><td class="lx-tp">+$3,760.00</td><td><span class="lx-chip gn">On Track</span></td></tr>
+        <tr><td class="lx-tb">Support Coordination</td><td class="cm">LIMITLESS Support Co.</td><td class="lx-tm">$10,414.56</td><td class="lx-tm">$7,200.00</td><td class="lx-tp">+$3,214.56</td><td><span class="lx-chip cy">Active</span></td></tr>
+        <tr><td class="lx-tb">Improved Daily Living</td><td class="cm">OT Works Pty Ltd</td><td class="lx-tm">$8,700.00</td><td class="lx-tm">$9,320.00</td><td class="lx-tneg">-$620.00</td><td><span class="lx-chip pk">Over Budget</span></td></tr>
+        <tr><td class="lx-tb">Social &amp; Community</td><td class="cm">Community Connect</td><td class="lx-tm">$5,200.00</td><td class="lx-tm">$1,040.00</td><td class="lx-tp">+$4,160.00</td><td><span class="lx-chip or">Under-utilised</span></td></tr>
+      </tbody>
+      <tfoot><tr class="lx-ttot"><td colspan="2" class="lx-tb">TOTAL</td><td class="lx-tpk">$56,814.56</td><td class="lx-tm">$46,300.00</td><td class="lx-tp">+$10,514.56</td><td></td></tr></tfoot>
+    </table>
+  </div>
+</div></div>
+
+<!-- §06 CHIPS -->
+<div class="sg-s"><div class="sg-t">06 &middot; Chips / Badges</div>
+<div class="sg-box">
+  <div class="lx-eye mb3">Outline Chips</div>
+  <div class="fx g2 mb4" style="flex-wrap:wrap">
+    <span class="lx-chip gn">Completed</span><span class="lx-chip pk">Urgent</span><span class="lx-chip cy">Active</span>
+    <span class="lx-chip yw">Pending</span><span class="lx-chip or">Review</span><span class="lx-chip pu">Priority</span>
+    <span class="lx-chip bl">In Progress</span><span class="lx-chip dk">Archived</span>
+  </div>
+  <div class="lx-eye mb3">Solid Chips</div>
+  <div class="fx g2" style="flex-wrap:wrap">
+    <span class="lx-chip spk">Recommended</span><span class="lx-chip syw">Action Required</span>
+    <span class="lx-chip scy">New Info</span><span class="lx-chip sbk">Confidential</span>
+  </div>
+</div></div>
+
+<!-- §07 ALERTS -->
+<div class="sg-s"><div class="sg-t">07 &middot; Alerts + Notices</div>
+<div style="padding:0 10px;display:flex;flex-direction:column;gap:8px">
+  <div class="lx-al inf"><div><div class="lx-at ccy">Info — Plan Ending Soon</div><div class="lx-ab">This participant's plan ends in 6 weeks. Begin preparing the reassessment report and scheduling the planning meeting immediately.</div></div></div>
+  <div class="lx-al wrn"><div><div class="lx-at cor">Warning — Budget Review Required</div><div class="lx-ab">Capacity building supports are trending 12% over projection. Immediate review recommended to avoid overspend before plan end.</div></div></div>
+  <div class="lx-al dng"><div><div class="lx-at cpk">Critical — Safeguarding Concern</div><div class="lx-ab">An incident report has been filed and escalated to the NDIS Commission. Immediate documentation and welfare check required.</div></div></div>
+  <div class="lx-al suc"><div><div class="lx-at" style="color:#00a844">Goal Achieved</div><div class="lx-ab">Participant has successfully secured supported independent living. Transition plan is now active and service agreements are in place.</div></div></div>
+</div></div>
+
+<!-- §08 INFO ROWS + DARK BOX + KPI ROW -->
+<div class="sg-s"><div class="sg-t">08 &middot; Info Rows + Dark Box + KPI Row</div>
+<div class="lx-bento">
+  <div class="lx-card lx-s4">
+    <div class="lx-sh mb3">Participant Summary</div>
+    <div class="lx-ir"><span class="lx-ik">Plan End Date</span><span class="lx-iv">31 OCT 2025</span></div>
+    <div class="lx-ir"><span class="lx-ik">Plan Management</span><span class="lx-iv n">Plan Managed</span></div>
+    <div class="lx-ir"><span class="lx-ik">Total Budget</span><span class="lx-iv">$84,320</span></div>
+    <div class="lx-ir"><span class="lx-ik">Support Coordinator</span><span class="lx-iv n">Ile Karamacoski</span></div>
+  </div>
+  <div class="lx-card lx-s4 dark" style="padding:0">
+    <div class="lx-dbox" style="height:100%">
+      <div class="lx-dtitle">Quick Reference</div>
+      <div class="lx-ir"><span class="lx-ik">NDIS Number</span><span class="lx-iv">430 892 XXX</span></div>
+      <div class="lx-ir"><span class="lx-ik">Days Remaining</span><span class="lx-iv">42</span></div>
+      <div class="lx-ir"><span class="lx-ik">Next Review</span><span class="lx-iv">15 OCT</span></div>
+      <div class="lx-ir"><span class="lx-ik">Link demo</span><a href="#" style="font-size:11px">View Portal</a></div>
+    </div>
+  </div>
+  <div class="lx-card lx-s4">
+    <div class="lx-sh mb3">KPI Row</div>
+    <div class="lx-krow" style="flex-direction:column;gap:6px">
+      <div class="lx-k"><div class="lx-kv cpk">$84K</div><div class="lx-kl">Plan Budget</div></div>
+      <div class="lx-k"><div class="lx-kv ccy">87%</div><div class="lx-kl">Utilised</div></div>
+      <div class="lx-k"><div class="lx-kv cor">42</div><div class="lx-kl">Days Left</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- §09 SPOTLIGHT TAB SYSTEM -->
+<div class="sg-s"><div class="sg-t">09 &middot; Spotlight Tab System (Primary — v5-final-3)</div>
+<div style="padding:0 10px">
+  <div class="lx-card lx-s12 tab-shell">
+    <!-- SPOTLIGHT ZONE -->
+    <div class="tab-spot">
+      <button class="spot-btn" id="demoSpotBtn" data-tab="overview" style="background:var(--lx-pink);color:#fff">&#9711; OVERVIEW</button>
+    </div>
+    <!-- TAB GRID -->
+    <div class="lx-tabs" id="demoGrid">
+      <button class="lx-tab tc-pk" data-tab="overview" data-bg="var(--lx-pink)" data-fg="#fff">&#9711; Overview</button>
+      <button class="lx-tab tc-yw" data-tab="budget" data-bg="var(--lx-yellow)" data-fg="#0D0D0D">Budget <span class="lx-tc">4</span></button>
+      <button class="lx-tab tc-cy" data-tab="goals" data-bg="var(--lx-cyan)" data-fg="#0D0D0D">Goals <span class="lx-tc">5</span></button>
+      <button class="lx-tab tc-bl" data-tab="risks" data-bg="var(--lx-blue)" data-fg="#fff">Risks <span class="lx-tc">2</span></button>
+      <button class="lx-tab tc-pu" data-tab="actions" data-bg="var(--lx-purple)" data-fg="#fff">Checklist <span class="lx-tc">18</span></button>
+      <button class="lx-tab tc-or" data-tab="contact" data-bg="var(--lx-orange)" data-fg="#fff">Contacts</button>
+    </div>
+    <!-- PANELS -->
+    <div class="lx-tpanels surface" id="demoPanels">
+      <div class="lx-tpanel active" data-panel="overview">
+        <div class="lx-sh pk mb3">Plan Overview</div>
+        <p class="lx-b cm">Participant is on track. Plan ends 31 Oct 2025. All core supports have been implemented and service agreements are in place. Click other tabs to see the animated spotlight transition.</p>
+      </div>
+      <div class="lx-tpanel" data-panel="budget">
+        <div class="lx-sh mb3">Budget Summary</div>
+        <p class="lx-b cm">Core: 87% utilised. Capacity building: 54%. Improved Daily Living is $620 over — review required before the next claim period.</p>
+      </div>
+      <div class="lx-tpanel" data-panel="goals">
+        <div class="lx-sh cy mb3">Goals Progress</div>
+        <p class="lx-b cm">3 of 5 goals achieved. Goal 4 (employment pathway) is in progress. Goal 5 (SIL transition) delayed pending NDIA approval.</p>
+      </div>
+      <div class="lx-tpanel" data-panel="risks">
+        <div class="lx-sh mb3">Identified Risks</div>
+        <div class="lx-al dng mb3"><div><div class="lx-at cpk">Risk 1 — Carer Sustainability</div><div class="lx-ab">Primary carer reporting fatigue. Respite hours may need to increase in Q3.</div></div></div>
+        <div class="lx-al wrn"><div><div class="lx-at cor">Risk 2 — Budget Overrun</div><div class="lx-ab">Improved Daily Living currently $620 over-utilised. Review OT hours immediately.</div></div></div>
+      </div>
+      <div class="lx-tpanel" data-panel="actions">
+        <div class="lx-sh pk mb3">Action Checklist</div>
+        <div class="ck urg-c"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">1. Convene Urgent SSG Meeting</div><div class="lx-bsm cm">Schedule this week. <span class="lx-chip cy">School</span></div></div></div>
+        <div class="ck urg-h"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">2. Submit SSS Referrals</div><div class="lx-bsm cm">Within 5 school days. <span class="lx-chip cy">School</span></div></div></div>
+        <div class="ck urg-m"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">3. Check DIP Status</div><div class="lx-bsm cm">NWV Regional: 1300 338 691 <span class="lx-chip pk">SC assists</span></div></div></div>
+      </div>
+      <div class="lx-tpanel" data-panel="contact">
+        <div class="lx-sh mb3">All Contacts</div>
+        <div class="lx-dbox">
+          <div class="lx-dtitle">Support Coordinator</div>
+          <div class="lx-ir"><span class="lx-ik">Name</span><span class="lx-iv n">Ile Karamacoski</span></div>
+          <div class="lx-ir"><span class="lx-ik">Mobile</span><span class="lx-iv n">0421 742 108</span></div>
+          <div class="lx-ir"><span class="lx-ik">Email</span><a href="/cdn-cgi/l/email-protection#741d18115a1f150634181d191d0018110707070104041b0600171b5a171b195a1501"><span class="__cf_email__" data-cfemail="3b52575e15505a497b575256524f575e4848484e4b4b54494f585415585456155a4e">[email&#160;protected]</span></a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- §10 COLOURED ARROW DROPDOWN -->
+<div class="sg-s"><div class="sg-t">10 &middot; Coloured Arrow Dropdown</div>
+<div style="padding:0 10px">
+  <div class="dd">
+    <div class="dd-h">
+      <span>Pink Arrow — School Obligations (click to expand)</span>
+      <div class="dd-arrow arr-pk">&#8964;</div>
+    </div>
+    <div class="dd-body"><p>The school retains curriculum responsibility during hospital/home recovery. Plan must include adjusted assessment timelines, hospital education coordination, modified workload, and communication plan.</p><p><strong>Legal basis:</strong> Disability Standards for Education 2005, Cth.</p></div>
+  </div>
+  <div class="dd">
+    <div class="dd-h">
+      <span>Cyan Arrow — Information Notice</span>
+      <div class="dd-arrow arr-cy">&#8964;</div>
+    </div>
+    <div class="dd-body"><p>VCE Special Provision can be applied from Year 9 onwards for long-term conditions. Kane's four permanent diagnoses clearly qualify. Contact VCAA Special Provision: <strong><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5b282b3e38323a372b29342d32283234351b2d383a3a752d3238753e3f2e753a2e">[email&#160;protected]</a></strong></p></div>
+  </div>
+  <div class="dd open">
+    <div class="dd-h">
+      <span>Blue Arrow — Government Funding (pre-opened)</span>
+      <div class="dd-arrow arr-bl">&#8964;</div>
+    </div>
+    <div class="dd-body"><p>Commonwealth per-student Disability Loading via NCCD provides approximately <strong>$4,900/student</strong> at Substantial/Extensive adjustment level in 2026. Census date: 7 August 2026.</p></div>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px">
+    <div class="dd"><div class="dd-h"><span>Orange</span><div class="dd-arrow arr-or">&#8964;</div></div><div class="dd-body"><p>Warning content here.</p></div></div>
+    <div class="dd"><div class="dd-h"><span>Yellow</span><div class="dd-arrow arr-yw">&#8964;</div></div><div class="dd-body"><p>Highlight content here.</p></div></div>
+    <div class="dd"><div class="dd-h"><span>Purple</span><div class="dd-arrow arr-pu">&#8964;</div></div><div class="dd-body"><p>Joint action content here.</p></div></div>
+  </div>
+</div></div>
+
+<!-- §11 CHECKLIST -->
+<div class="sg-s"><div class="sg-t">11 &middot; Checklist (click to toggle)</div>
+<div style="padding:0 10px">
+  <div class="fx g2 mb3" style="flex-wrap:wrap">
+    <span class="lx-chip pk">&#9679; Critical — This Week</span>
+    <span class="lx-chip or">&#9679; High — 2 Weeks</span>
+    <span class="lx-chip cy">&#9679; Medium — This Term</span>
+    <span class="lx-chip bl">&#9679; Standard — Ongoing</span>
+  </div>
+  <div class="ck urg-c"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">1. Convene Urgent SSG Meeting</div><div class="lx-bsm cm"><strong>Who:</strong> Year Level Coordinator. <strong>Purpose:</strong> Written learning-risk response. <span class="lx-chip cy">School</span></div></div></div>
+  <div class="ck urg-c"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">2. Implement All Reasonable Adjustments</div><div class="lx-bsm cm">Quiet-room SAC, noise-cancelling, extra time, ergonomic seating. Legal obligation. <span class="lx-chip cy">School</span></div></div></div>
+  <div class="ck urg-h"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">3. Submit SSS Referrals (Psych, OT, Behaviour)</div><div class="lx-bsm cm">SSS Key Contact submits. DET-funded. Parent consent required. <span class="lx-chip cy">School</span></div></div></div>
+  <div class="ck urg-m"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">4. Process CSEF + Parent Payment Exemption</div><div class="lx-bsm cm">CSEF: confirmed eligible ($400/yr). Deadline: 26 June 2026. <span class="lx-chip cy">School</span> <span class="lx-chip pk">SC assists Jema</span></div></div></div>
+  <div class="ck urg-s"><div class="ck-box"><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg></div><div class="ck-text"><div class="lx-cmd mb2">5. Document All Actions for Audit &amp; Compliance</div><div class="lx-bsm cm">Maintain records of every SSG, IEP version, adjustment, referral. NCCD evidence. <span class="lx-chip cy">School</span></div></div></div>
+</div></div>
+
+<!-- §12 RESPONSIBILITY CARDS -->
+<div class="sg-s"><div class="sg-t">12 &middot; Responsibility Cards</div>
+<div style="padding:0 10px">
+  <p class="lx-bsm cm mb3">Colour signals ownership: <span class="lx-chip cy">Cyan = School</span> <span class="lx-chip pk">Pink = Support Coordinator</span> <span class="lx-chip pu">Purple = Joint</span> <span class="lx-chip bl">Blue = Government</span></p>
+  <div class="resp school"><span class="resp-tag t-school">School</span><div class="lx-cmd mb2">Convene urgent SSG meeting and create/update IEP</div><p class="lx-bsm cm">Core school governance obligation. IEP must include English and Maths goals, all adjustments, de-escalation protocol, surgery contingency, and fortnightly review cycle.</p></div>
+  <div class="resp sc"><span class="resp-tag t-sc">Support Coordinator</span><div class="lx-cmd mb2">Assist Jema to provide consent for DIP and SSS referrals</div><p class="lx-bsm cm">Jema has an acquired brain injury affecting capacity to process complex information. SC to explain in plain language and support consent process.</p></div>
+  <div class="resp both"><span class="resp-tag t-both">Joint Action</span><div class="lx-cmd mb2">Surgery contingency education plan</div><p class="lx-bsm cm">Draft within 2 weeks. Update when surgery dates confirmed. Consider Virtual School Victoria for remote subjects.</p></div>
+  <div class="resp gov"><span class="resp-tag t-gov">Government</span><div class="lx-cmd mb2">Commonwealth Disability Loading via NCCD</div><p class="lx-bsm cm">Census date: 7 August 2026. School must compile evidence at Substantial/Extensive adjustment level.</p></div>
+  <div class="resp warn"><span class="resp-tag t-warn">Warning</span><div class="lx-cmd mb2">Do NOT wait for NDIS to fund tutoring</div><p class="lx-bsm cm">Tutoring is explicitly excluded under Schedule 2, Item 16 of the Transitional Rules 2024. This is a mainstream education responsibility.</p></div>
+</div></div>
+
+<!-- §13 NUMBERED REC CARDS -->
+<div class="sg-s"><div class="sg-t">13 &middot; Numbered Recommendation Cards</div>
+<div style="padding:0 10px;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px">
+  <div class="rec" style="border-left:4px solid var(--lx-pink)"><div class="rec-num cpk">01</div><div class="lx-cmd mb2">Convene Urgent SSG Meeting This Week</div><p class="lx-bsm cm">School governance obligation. Written learning-risk response required. <span class="lx-chip cy">School</span></p></div>
+  <div class="rec" style="border-left:4px solid var(--lx-cyan)"><div class="rec-num ccy">02</div><div class="lx-cmd mb2">Implement All Reasonable Adjustments</div><p class="lx-bsm cm">Legal obligation under DDA 1992 and Disability Standards 2005. No external approval required. <span class="lx-chip cy">School</span></p></div>
+  <div class="rec" style="border-left:4px solid var(--lx-blue)"><div class="rec-num cbl">03</div><div class="lx-cmd mb2">Surgery Contingency Education Plan</div><p class="lx-bsm cm">Prepare now. Update when dates confirmed. Include VSV option. <span class="lx-chip cy">School</span> <span class="lx-chip pu">Joint</span></p></div>
+  <div class="rec" style="border-left:4px solid var(--lx-orange)"><div class="rec-num cor">04</div><div class="lx-cmd mb2">NCCD Reporting at Substantial/Extensive Level</div><p class="lx-bsm cm">Compile evidence before 7 August 2026. Verify equity loadings. <span class="lx-chip cy">School</span></p></div>
+</div></div>
+
+<!-- §14 PROGRESS BARS -->
+<div class="sg-s"><div class="sg-t">14 &middot; Progress Bars</div>
+<div class="lx-bento">
+  <div class="lx-card lx-s6">
+    <div class="lx-sh mb3">Slim (5px) — All Colours</div>
+    <div class="lx-pw"><div class="lx-ph"><span class="lx-pk2">Core Supports Utilised</span><span class="lx-pv">87%</span></div><div class="lx-pt"><div class="lx-pf" data-w="87"></div></div></div>
+    <div class="lx-pw"><div class="lx-ph"><span class="lx-pk2">Capacity Building</span><span class="lx-pv ccy">54%</span></div><div class="lx-pt"><div class="lx-pf cy" data-w="54"></div></div></div>
+    <div class="lx-pw"><div class="lx-ph"><span class="lx-pk2">Goals Achieved</span><span class="lx-pv cor">60%</span></div><div class="lx-pt"><div class="lx-pf or" data-w="60"></div></div></div>
+    <div class="lx-pw"><div class="lx-ph"><span class="lx-pk2">Sunday Buffer Used</span><span class="lx-pv cpu">93%</span></div><div class="lx-pt"><div class="lx-pf pu st" data-w="93"></div></div></div>
+    <div class="lx-pw" style="margin-bottom:0"><div class="lx-ph"><span class="lx-pk2">Plan Elapsed</span><span class="lx-pv cbl">72%</span></div><div class="lx-pt"><div class="lx-pf bl" data-w="72"></div></div></div>
+  </div>
+  <div class="lx-card lx-s6">
+    <div class="lx-sh mb3">Thick (10px) + Striped</div>
+    <div class="lx-pw"><div class="lx-ph"><span class="lx-pk2">Core Supports</span><span class="lx-pv">87%</span></div><div class="lx-pt tk"><div class="lx-pf" data-w="87"></div></div></div>
+    <div class="lx-pw"><div class="lx-ph"><span class="lx-pk2">Capacity Building</span><span class="lx-pv ccy">54%</span></div><div class="lx-pt tk"><div class="lx-pf cy" data-w="54"></div></div></div>
+    <div class="lx-pw mb4"><div class="lx-ph"><span class="lx-pk2">Sunday Buffer (striped)</span><span class="lx-pv cpu">93%</span></div><div class="lx-pt tk"><div class="lx-pf pu st" data-w="93"></div></div></div>
+    <div class="lx-sh yw mb3">Section Heading Variants</div>
+    <div class="lx-sh pk mb2">Pink Heading</div>
+    <div class="lx-sh cy">Cyan Heading</div>
+  </div>
+</div></div>
+
+<!-- §15 DONUT CHARTS -->
+<div class="sg-s"><div class="sg-t">15 &middot; Donut Charts</div>
+<div class="lx-card" style="margin:0 10px;padding:20px">
+  <div style="display:grid;grid-template-columns:repeat(6,1fr);gap:16px;text-align:center">
+    <div><div class="lx-dw"><svg viewBox="0 0 100 100" width="96" height="96"><circle class="lx-dtrk" cx="50" cy="50" r="44"/><circle class="lx-dfl" cx="50" cy="50" r="44" stroke="var(--lx-pink)" data-pct="87"/></svg><div class="lx-dlbl">87%<div class="lx-dsl">CORE</div></div></div><div class="lx-sub mt2">Core Supports</div></div>
+    <div><div class="lx-dw"><svg viewBox="0 0 100 100" width="96" height="96"><circle class="lx-dtrk" cx="50" cy="50" r="44"/><circle class="lx-dfl" cx="50" cy="50" r="44" stroke="var(--lx-cyan)" data-pct="54"/></svg><div class="lx-dlbl" style="font-size:18px">54%<div class="lx-dsl">CAP</div></div></div><div class="lx-sub mt2">Capacity Bldg</div></div>
+    <div><div class="lx-dw"><svg viewBox="0 0 100 100" width="96" height="96"><circle class="lx-dtrk" cx="50" cy="50" r="44"/><circle class="lx-dfl" cx="50" cy="50" r="44" stroke="var(--lx-yellow)" data-pct="80"/></svg><div class="lx-dlbl" style="font-size:18px">80%<div class="lx-dsl">PLAN</div></div></div><div class="lx-sub mt2">Plan Elapsed</div></div>
+    <div><div class="lx-dw"><svg viewBox="0 0 100 100" width="96" height="96"><circle class="lx-dtrk" cx="50" cy="50" r="44"/><circle class="lx-dfl" cx="50" cy="50" r="44" stroke="var(--lx-purple)" data-pct="93"/></svg><div class="lx-dlbl" style="font-size:18px">93%<div class="lx-dsl">BUF</div></div></div><div class="lx-sub mt2">Buffer Used</div></div>
+    <div><div class="lx-dw"><svg viewBox="0 0 100 100" width="96" height="96"><circle class="lx-dtrk" cx="50" cy="50" r="44"/><circle class="lx-dfl" cx="50" cy="50" r="44" stroke="var(--lx-orange)" data-pct="60"/></svg><div class="lx-dlbl" style="font-size:18px">60%<div class="lx-dsl">GOAL</div></div></div><div class="lx-sub mt2">Goals Met</div></div>
+    <div><div class="lx-dw"><svg viewBox="0 0 100 100" width="96" height="96"><circle class="lx-dtrk" cx="50" cy="50" r="44"/><circle class="lx-dfl" cx="50" cy="50" r="44" stroke="var(--lx-blue)" data-pct="72"/></svg><div class="lx-dlbl" style="font-size:18px">72%<div class="lx-dsl">ELAP</div></div></div><div class="lx-sub mt2">Time Elapsed</div></div>
+  </div>
+</div></div>
+
+<!-- §16 BUTTONS + DOTS -->
+<div class="sg-s"><div class="sg-t">16 &middot; Buttons + Status Dots</div>
+<div class="sg-box">
+  <div class="lx-eye mb3">Button Variants</div>
+  <div class="fx g2 mb3" style="flex-wrap:wrap">
+    <button class="lx-btn pri">Primary Action</button>
+    <button class="lx-btn sec">Secondary</button>
+    <button class="lx-btn yw">Confirm</button>
+    <button class="lx-btn out">Outline</button>
+    <button class="lx-btn gh">Ghost</button>
+  </div>
+  <div class="fx g2 mb4" style="flex-wrap:wrap">
+    <button class="lx-btn pri sm">Small Primary</button>
+    <button class="lx-btn sec sm">Small Secondary</button>
+    <button class="lx-btn out sm">Small Outline</button>
+    <button class="lx-btn pri lg">Large Primary</button>
+  </div>
+  <div class="lx-div"></div>
+  <div class="lx-eye mb3">Status Dots</div>
+  <div class="fx g4" style="flex-wrap:wrap;align-items:center">
+    <div class="fx g2" style="align-items:center"><div class="lx-dot pulse"></div><span class="lx-bsm">Active (pulse)</span></div>
+    <div class="fx g2" style="align-items:center"><div class="lx-dot gn"></div><span class="lx-bsm">On track</span></div>
+    <div class="fx g2" style="align-items:center"><div class="lx-dot yw"></div><span class="lx-bsm">Pending</span></div>
+    <div class="fx g2" style="align-items:center"><div class="lx-dot or"></div><span class="lx-bsm">Review</span></div>
+    <div class="fx g2" style="align-items:center"><div class="lx-dot cy"></div><span class="lx-bsm">Info</span></div>
+    <div class="fx g2" style="align-items:center"><div class="lx-dot" style="background:var(--lx-purple)"></div><span class="lx-bsm">Priority</span></div>
+  </div>
+</div></div>
+
+<!-- §17 LIGHT PILL TABS -->
+<div class="sg-s"><div class="sg-t">17 &middot; Light Pill Tabs (.lx-ptabs)</div>
+<div style="padding:0 10px;display:flex;flex-direction:column;gap:14px">
+  <div class="sg-box">
+    <div class="lx-eye mb3">Pill Tabs with live panels</div>
+    <div class="lx-ptabs pk" id="ptabs1">
+      <button class="lx-tab active" data-ptab="ov1">Overview</button>
+      <button class="lx-tab" data-ptab="bu1">Budget <span class="lx-tc">4</span></button>
+      <button class="lx-tab" data-ptab="go1">Goals <span class="lx-tc">5</span></button>
+      <button class="lx-tab" data-ptab="ri1">Risks <span class="lx-tc">2</span></button>
+    </div>
+    <div class="lx-tpanels">
+      <div class="lx-tpanel active" data-ptanel="ov1"><div class="lx-card cream" style="margin-top:10px"><div class="lx-sh mb2">Plan Overview</div><p class="lx-b cm">Participant is on track. Plan ends 31 Oct 2025. All core supports implemented.</p></div></div>
+      <div class="lx-tpanel" data-ptanel="bu1"><div class="lx-card cream" style="margin-top:10px"><div class="lx-sh mb2">Budget</div><p class="lx-b cm">Core: 87%. Capacity building: 54%. Improved Daily Living $620 over.</p></div></div>
+      <div class="lx-tpanel" data-ptanel="go1"><div class="lx-card cream" style="margin-top:10px"><div class="lx-sh mb2">Goals</div><p class="lx-b cm">3 of 5 goals achieved. Goal 4 in progress. Goal 5 delayed.</p></div></div>
+      <div class="lx-tpanel" data-ptanel="ri1"><div class="lx-card cream" style="margin-top:10px"><div class="lx-sh pk mb2">Risks</div><div class="lx-al dng"><div><div class="lx-at cpk">Carer Sustainability Risk</div><div class="lx-ab">Primary carer reporting fatigue.</div></div></div></div></div>
+    </div>
+  </div>
+  <div class="sg-box">
+    <div class="lx-eye mb3">Underline Tabs (.lx-ptabs.ul)</div>
+    <div class="lx-ptabs ul" id="ptabs2">
+      <button class="lx-tab active" data-ptab2="All">All Participants</button>
+      <button class="lx-tab" data-ptab2="Active">Active <span class="lx-tc">8</span></button>
+      <button class="lx-tab" data-ptab2="Review">Under Review <span class="lx-tc">3</span></button>
+      <button class="lx-tab" data-ptab2="Closed">Closed</button>
+    </div>
+    <div style="padding:12px 0 2px;font-size:11px;color:var(--lx-txm)">Showing: <strong id="ptab2lbl">All Participants</strong></div>
+  </div>
+</div></div>
+
+<!-- §18 PAGINATION -->
+<div class="sg-s"><div class="sg-t">18 &middot; Pagination</div>
+<div class="sg-box" style="display:flex;flex-direction:column;gap:18px">
+  <div>
+    <div class="lx-eye mb3">Default — Pink Active</div>
+    <div class="fx g4" style="align-items:center;flex-wrap:wrap">
+      <div class="lx-pag"><button class="lx-pg prv dis">&lsaquo;</button><button class="lx-pg active">1</button><button class="lx-pg">2</button><button class="lx-pg">3</button><button class="lx-pg el">&middot;&middot;&middot;</button><button class="lx-pg">12</button><button class="lx-pg nxt">&rsaquo;</button></div>
+      <span class="lx-pi">Page 1 of 12 &middot; 48 results</span>
+    </div>
+  </div>
+  <div>
+    <div class="lx-eye mb3">Cyan + Pill</div>
+    <div class="lx-pag pl cy"><button class="lx-pg prv">&lsaquo;</button><button class="lx-pg">1</button><button class="lx-pg">2</button><button class="lx-pg active">3</button><button class="lx-pg">4</button><button class="lx-pg el">&middot;&middot;&middot;</button><button class="lx-pg">9</button><button class="lx-pg nxt">&rsaquo;</button></div>
+  </div>
+  <div>
+    <div class="lx-eye mb3">Yellow + Compact</div>
+    <div class="lx-pag co yw"><button class="lx-pg prv">&lsaquo;</button><button class="lx-pg">1</button><button class="lx-pg active">2</button><button class="lx-pg">3</button><button class="lx-pg nxt">&rsaquo;</button></div>
+  </div>
+  <div class="lx-card dark" style="padding:16px">
+    <div class="lx-eye mb3" style="color:rgba(245,240,232,.35)">Dark Variant</div>
+    <div class="lx-pag dk"><button class="lx-pg prv">&lsaquo;</button><button class="lx-pg">1</button><button class="lx-pg active">2</button><button class="lx-pg">3</button><button class="lx-pg el">&middot;&middot;&middot;</button><button class="lx-pg">8</button><button class="lx-pg nxt">&rsaquo;</button></div>
+  </div>
+</div></div>
+
+<!-- §19 NAVIGATION -->
+<div class="sg-s"><div class="sg-t">19 &middot; Navigation — Sidebar, Topnav, Breadcrumb</div>
+<div class="lx-bento">
+  <div class="lx-s5">
+    <div class="lx-snav" style="height:100%">
+      <div class="lx-nsec">Main</div>
+      <a class="lx-ni active">
+        <svg class="lx-nico" viewBox="0 0 16 16" fill="none"><rect x="1" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="9" y="1" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="1" y="9" width="6" height="6" rx="1.5" fill="currentColor"/><rect x="9" y="9" width="6" height="6" rx="1.5" fill="currentColor"/></svg>
+        Dashboard <span class="lx-nbadge">New</span>
+      </a>
+      <a class="lx-ni">
+        <svg class="lx-nico" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="6" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M2 14c0-3.314 2.686-5 6-5s6 1.686 6 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Participants <span class="lx-nbadge">12</span>
+      </a>
+      <a class="lx-ni">
+        <svg class="lx-nico" viewBox="0 0 16 16" fill="none"><rect x="2" y="3" width="12" height="10" rx="1.5" stroke="currentColor" stroke-width="1.5"/><path d="M5 3V2M11 3V2M2 7h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Schedule
+      </a>
+      <a class="lx-ni">
+        <svg class="lx-nico" viewBox="0 0 16 16" fill="none"><path d="M13 2H3a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1ZM5 6h6M5 9h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Case Notes <span class="lx-nbadge">3</span>
+      </a>
+      <div class="lx-ndiv"></div>
+      <div class="lx-nsec">Settings</div>
+      <a class="lx-ni">
+        <svg class="lx-nico" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 1v2M8 13v2M1 8h2M13 8h2" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        Preferences
+      </a>
+    </div>
+  </div>
+  <div class="lx-s7" style="display:flex;flex-direction:column;gap:12px">
+    <div>
+      <div class="lx-eye mb2">Top Navigation Bar</div>
+      <div class="lx-tnav">
+        <a class="lx-tni active">Overview</a>
+        <a class="lx-tni">Participants</a>
+        <a class="lx-tni">Reports</a>
+        <div class="lx-tnsep"></div>
+        <a class="lx-tni">Documents</a>
+        <a class="lx-tni">Settings</a>
+      </div>
+    </div>
+    <div>
+      <div class="lx-eye mb2">Breadcrumb</div>
+      <div class="lx-card" style="padding:12px 16px">
+        <div class="lx-bc">
+          <span class="lx-bci">Dashboard</span>
+          <span class="lx-bcs">&rsaquo;</span>
+          <span class="lx-bci">Participants</span>
+          <span class="lx-bcs">&rsaquo;</span>
+          <span class="lx-bci">Iona Alexander</span>
+          <span class="lx-bcs">&rsaquo;</span>
+          <span class="lx-bci cur">Support Schedule</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="lx-eye mb2">Dark Topnav</div>
+      <div class="lx-card dark" style="padding:12px">
+        <div class="lx-tnav lx-tnav-dark" style="background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.08)">
+          <a class="lx-tni">Overview</a>
+          <a class="lx-tni">Budget</a>
+          <a class="lx-tni active">Active</a>
+          <a class="lx-tni">Documents</a>
+        </div>
+      </div>
+    </div>
+    <div>
+      <div class="lx-eye mb2">Section Block (.sb)</div>
+      <div class="sb">
+        <div class="lx-sh cy">Section Block Heading</div>
+        <p>Section blocks wrap heading + body text with consistent spacing. Use for panel introductions. <strong>Strong text renders darker.</strong></p>
+        <p>Second paragraph demonstrates the automatic bottom margin applied to all <code>p</code> tags inside <code>.sb</code>.</p>
+      </div>
+    </div>
+  </div>
+</div></div>
+
+<!-- §20 SCROLL REVEAL -->
+<div class="sg-s"><div class="sg-t">20 &middot; Scroll Reveal</div>
+<div style="padding:0 10px">
+  <div class="lx-al inf mb3"><div><div class="lx-at ccy">How Scroll Reveal Works</div><div class="lx-ab">Add <code class="lx-msm">lx-rev</code> to any element. The IntersectionObserver JS adds <code class="lx-msm">vis</code> when it enters the viewport, transitioning from <code>opacity:0; translateY(20px)</code> to visible. Scroll down to see these cards animate in.</div></div></div>
+  <div class="lx-bento" style="padding:0">
+    <div class="lx-card lx-s4 tl lx-rev"><div class="lx-eye mb2">Scroll Reveal</div><div class="lx-stat cpk">01</div><div class="lx-sv">Fades + Slides Up</div></div>
+    <div class="lx-card lx-s4 lx-rev" style="transition-delay:.1s"><div class="lx-eye mb2">Stagger Delay</div><div class="lx-stat ccy">02</div><div class="lx-sv">Add transition-delay</div></div>
+    <div class="lx-card lx-s4 tr lx-rev" style="transition-delay:.2s"><div class="lx-eye mb2">Third Card</div><div class="lx-stat cpu">03</div><div class="lx-sv">For cascade effect</div></div>
+  </div>
+</div></div>
+
+<!-- STRIPE -->
+<div style="padding:20px 10px 0"><div class="lx-stripe" style="border-radius:var(--r-p)"></div></div>
+
+<!-- §21 CODE SNIPPETS -->
+<div class="sg-s"><div class="sg-t">21 &middot; Quick-Start Code Snippets</div>
+<div style="display:flex;flex-direction:column;gap:10px;padding:0 10px">
+
+  <div class="sg-box"><div class="lx-eye mb2">Spotlight Tab System</div>
+  <div class="sg-code">&lt;!-- Shell --&gt;
+&lt;div class="tab-shell"&gt;
+  &lt;div class="tab-spot"&gt;
+    &lt;button class="spot-btn" id="mySpotBtn" data-tab="a" style="background:var(--lx-pink);color:#fff"&gt;&#9711; TAB A&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="lx-tabs" id="myGrid"&gt;
+    &lt;button class="lx-tab tc-pk" data-tab="a" data-bg="var(--lx-pink)" data-fg="#fff"&gt;&#9711; Tab A&lt;/button&gt;
+    &lt;button class="lx-tab tc-yw" data-tab="b" data-bg="var(--lx-yellow)" data-fg="#0D0D0D"&gt;Tab B&lt;/button&gt;
+    &lt;button class="lx-tab tc-cy" data-tab="c" data-bg="var(--lx-cyan)" data-fg="#0D0D0D"&gt;Tab C&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="lx-tpanels surface" id="myPanels"&gt;
+    &lt;div class="lx-tpanel active" data-panel="a"&gt;Panel A&lt;/div&gt;
+    &lt;div class="lx-tpanel" data-panel="b"&gt;Panel B&lt;/div&gt;
+    &lt;div class="lx-tpanel" data-panel="c"&gt;Panel C&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Then call in script: initSpotlight('mySpotBtn','myGrid','myPanels') --&gt;</div></div>
+
+  <div class="sg-box"><div class="lx-eye mb2">Arrow Dropdown</div>
+  <div class="sg-code">&lt;div class="dd"&gt;
+  &lt;div class="dd-h" onclick="this.closest('.dd').classList.toggle('open')"&gt;
+    &lt;span&gt;Dropdown Title&lt;/span&gt;
+    &lt;div class="dd-arrow arr-pk"&gt;&amp;#8964;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="dd-body"&gt;
+    &lt;p&gt;Body content here. Supports &lt;strong&gt;bold text&lt;/strong&gt;.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div></div>
+
+  <div class="sg-box"><div class="lx-eye mb2">Checklist Item</div>
+  <div class="sg-code">&lt;div class="ck urg-c" onclick="this.classList.toggle('done')"&gt;
+  &lt;div class="ck-box"&gt;
+    &lt;svg viewBox="0 0 24 24"&gt;&lt;path d="M5 13l4 4L19 7"/&gt;&lt;/svg&gt;
+  &lt;/div&gt;
+  &lt;div class="ck-text"&gt;
+    &lt;div class="lx-cmd mb2"&gt;Action Title&lt;/div&gt;
+    &lt;div class="lx-bsm cm"&gt;Detail text here.&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;!-- Urgency: urg-c (pink) | urg-h (orange) | urg-m (cyan) | urg-s (blue) --&gt;</div></div>
+
+  <div class="sg-box"><div class="lx-eye mb2">Responsibility Card</div>
+  <div class="sg-code">&lt;div class="resp school"&gt;
+  &lt;span class="resp-tag t-school"&gt;School&lt;/span&gt;
+  &lt;div class="lx-cmd mb2"&gt;Action title here&lt;/div&gt;
+  &lt;p class="lx-bsm cm"&gt;Description text.&lt;/p&gt;
+&lt;/div&gt;
+&lt;!-- Variants: school | sc | both | gov | warn --&gt;
+&lt;!-- Tags: t-school | t-sc | t-both | t-gov | t-warn | t-ndis --&gt;</div></div>
+
+  <div class="sg-box"><div class="lx-eye mb2">Progress Bar + Donut (need JS block)</div>
+  <div class="sg-code">&lt;!-- Progress: use data-w for animated fill --&gt;
+&lt;div class="lx-pw"&gt;
+  &lt;div class="lx-ph"&gt;&lt;span class="lx-pk2"&gt;Label&lt;/span&gt;&lt;span class="lx-pv"&gt;87%&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="lx-pt"&gt;&lt;div class="lx-pf" data-w="87"&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Donut: use data-pct for animated fill --&gt;
+&lt;div class="lx-dw"&gt;
+  &lt;svg viewBox="0 0 100 100" width="96" height="96"&gt;
+    &lt;circle class="lx-dtrk" cx="50" cy="50" r="44"/&gt;
+    &lt;circle class="lx-dfl" cx="50" cy="50" r="44" stroke="var(--lx-pink)" data-pct="87"/&gt;
+  &lt;/svg&gt;
+  &lt;div class="lx-dlbl"&gt;87%&lt;div class="lx-dsl"&gt;LABEL&lt;/div&gt;&lt;/div&gt;
+&lt;/div&gt;</div></div>
+
+</div></div>
+
+<!-- FOOTER -->
+<div style="padding:20px 10px 0">
+  <div style="background:var(--lx-black);border-radius:var(--r-lg);padding:28px;position:relative;overflow:hidden;border-top:3px solid var(--lx-pink)">
+    <div style="display:grid;grid-template-columns:2fr 1fr 1fr;gap:32px;align-items:start">
+      <div>
+        <div style="font-family:'Bebas Neue',serif;font-size:36px;color:#F5F0E8;margin-bottom:4px">LIMIT<span style="color:var(--lx-pink)">LESS</span><span style="color:var(--lx-pink)">.</span></div>
+        <div class="lx-bsm" style="color:rgba(245,240,232,.45);line-height:1.8">LIMITLESS Support Co.<br>ABN: 76 985 845 524<br>PACE: 4050124034</div>
+      </div>
+      <div>
+        <div class="lx-eye mb2" style="color:rgba(245,240,232,.35)">Contact</div>
+        <div class="lx-bsm" style="color:rgba(245,240,232,.5);line-height:1.9">Ile Karamacoski<br>0421 742 108<br><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="f49d9891da9f9586b4989d999d8098918787878184849b8680979bda979b99da9581">[email&#160;protected]</a></div>
+      </div>
+      <div>
+        <div class="lx-eye mb2" style="color:rgba(245,240,232,.35)">Design Suite</div>
+        <div class="lx-bsm" style="color:rgba(245,240,232,.5);line-height:1.9">Version 3.0 &middot; 2026<br>21 Component Sections<br>All Features Verified</div>
+      </div>
+    </div>
+    <div style="margin-top:20px;padding-top:12px;border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px">
+      <div class="lx-msm" style="color:rgba(245,240,232,.25)">LIMITLESS CSS DESIGN SUITE v3.0 &middot; Prepared by LIMITLESS Support Co. &middot; Ile Karamacoski</div>
+      <div class="lx-chip sbk" style="font-size:7px">CONFIDENTIAL</div>
+    </div>
+    <div style="position:absolute;bottom:-40px;right:-15px;font-family:'Bebas Neue',serif;font-size:220px;color:rgba(255,255,255,.015);line-height:1;pointer-events:none;user-select:none">L</div>
+  </div>
+</div>
+
+</div><!-- end .sg -->
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+/* ═══ LIMITLESS DESIGN SUITE — INTERACTION JS ═══════════════
+   All interactions handled here. No inline onclick attributes.
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── 1. SPOTLIGHT TAB SYSTEM ─────────────────────────────── */
+function initSpotlight(spotBtnId, gridId, panelsId) {
+  var spotBtn = document.getElementById(spotBtnId);
+  var grid    = document.getElementById(gridId);
+  var panels  = document.getElementById(panelsId);
+  if (!spotBtn || !grid) return;
+
+  var current = spotBtn.dataset.tab;
+  var busy    = false;
+
+  // Build colour map from data attributes on each tab
+  var colourMap = {};
+  grid.querySelectorAll('.lx-tab[data-tab]').forEach(function(b) {
+    colourMap[b.dataset.tab] = [b.dataset.bg || 'var(--lx-pink)', b.dataset.fg || '#fff'];
+  });
+
+  function getBg(id) { return colourMap[id] || ['var(--lx-pink)', '#fff']; }
+
+  function syncGrid(id) {
+    grid.querySelectorAll('.lx-tab').forEach(function(b) {
+      b.classList.toggle('in-spot', b.dataset.tab === id);
+    });
+  }
+
+  function switchPanel(id) {
+    if (!panels) return;
+    panels.querySelectorAll('.lx-tpanel').forEach(function(p) {
+      p.classList.toggle('active', p.dataset.panel === id);
+    });
+  }
+
+  function waveOthers(skip) {
+    var tabs = Array.from(grid.querySelectorAll('.lx-tab:not(.in-spot)'));
+    tabs.forEach(function(t, i) {
+      if (t.dataset.tab === skip) return;
+      t.classList.remove('wave','bounce');
+      void t.offsetWidth; // force reflow
+      setTimeout(function() {
+        t.classList.add(i % 2 === 0 ? 'wave' : 'bounce');
+        t.addEventListener('animationend', function() {
+          t.classList.remove('wave','bounce');
+        }, {once: true});
+      }, i * 40);
+    });
+  }
+
+  function doSwitch(newId, clickedEl) {
+    if (busy || newId === current) return;
+    busy = true;
+
+    var colours  = getBg(newId);
+    var bg = colours[0], fg = colours[1];
+    var clickRect = clickedEl.getBoundingClientRect();
+    var spotRect  = spotBtn.getBoundingClientRect();
+
+    // ── Flyer: bounces in place at clicked tab's position ──
+    var flyer = document.createElement('div');
+    flyer.className = 'tab-flyer';
+    flyer.textContent = clickedEl.textContent.trim();
+    flyer.style.cssText =
+      'position:fixed;z-index:9999;pointer-events:none;' +
+      'left:' + clickRect.left + 'px;top:' + clickRect.top + 'px;' +
+      'width:' + clickRect.width + 'px;height:' + clickRect.height + 'px;' +
+      'font-size:13px;padding:10px 18px;' +
+      'background:' + bg + ';color:' + fg + ';' +
+      'font-family:\'Barlow Condensed\',sans-serif;font-weight:900;' +
+      'text-transform:uppercase;letter-spacing:.06em;' +
+      'border-radius:var(--r-sm);display:flex;align-items:center;' +
+      'white-space:nowrap;' +
+      'animation:flyUp .45s var(--spring) both;';
+    document.body.appendChild(flyer);
+
+    // ── Fade out current spotlight btn ──
+    spotBtn.style.transition = 'opacity .2s ease, transform .2s ease';
+    spotBtn.style.opacity    = '0';
+    spotBtn.style.transform  = 'scale(0.85) translateY(8px)';
+
+    // ── After flyer animation: swap spotlight content ──
+    setTimeout(function() {
+      flyer.remove();
+
+      // Update spotlight button
+      spotBtn.textContent    = clickedEl.textContent.trim();
+      spotBtn.dataset.tab    = newId;
+      spotBtn.style.background = bg;
+      spotBtn.style.color      = fg;
+
+      // Animate back in
+      spotBtn.style.transition = 'none';
+      spotBtn.style.transform  = 'scale(0.88) translateY(16px)';
+      void spotBtn.offsetWidth; // force reflow
+      spotBtn.style.transition = 'opacity .3s var(--spring), transform .35s var(--spring)';
+      spotBtn.style.opacity    = '1';
+      spotBtn.style.transform  = '';
+
+      // Switch panel, sync grid, wave
+      switchPanel(newId);
+      current = newId;
+      syncGrid(newId);
+      waveOthers(newId);
+
+      // Clean up inline styles after animation
+      setTimeout(function() {
+        spotBtn.style.transition = '';
+        busy = false;
+      }, 400);
+    }, 420);
+  }
+
+  // Initial sync
+  syncGrid(current);
+
+  // Bind tab clicks
+  grid.querySelectorAll('.lx-tab[data-tab]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      doSwitch(btn.dataset.tab, btn);
+    });
+  });
+}
+
+// Init demo spotlight
+initSpotlight('demoSpotBtn', 'demoGrid', 'demoPanels');
+
+/* ── 2. ARROW DROPDOWNS (.dd / .lx-dd) ─────────────────── */
+/* No inline onclick — all handled here */
+document.querySelectorAll('.dd, .lx-dd').forEach(function(dd) {
+  var head = dd.querySelector('.dd-h, .lx-dd-h');
+  if (head) {
+    head.addEventListener('click', function() {
+      dd.classList.toggle('open');
+    });
+  }
+});
+
+/* ── 3. CHECKLIST (.ck / .lx-ck) ────────────────────────── */
+/* No inline onclick — all handled here */
+document.querySelectorAll('.ck, .lx-ck').forEach(function(ck) {
+  ck.addEventListener('click', function() {
+    ck.classList.toggle('done');
+  });
+});
+
+/* ── 4. LIGHT PILL TABS (.lx-ptabs) ─────────────────────── */
+document.querySelectorAll('.lx-ptabs').forEach(function(strip) {
+  var isUl = strip.classList.contains('ul');
+
+  // Panel-switching tabs
+  strip.querySelectorAll('.lx-tab[data-ptab]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      strip.querySelectorAll('.lx-tab').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var panelContainer = strip.nextElementSibling;
+      if (!panelContainer) return;
+      panelContainer.querySelectorAll('.lx-tpanel').forEach(function(p) {
+        p.classList.toggle('active', p.dataset.ptanel === btn.dataset.ptab);
+      });
+    });
+  });
+
+  // Label-update tabs (underline style)
+  strip.querySelectorAll('.lx-tab[data-ptab2]').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      strip.querySelectorAll('.lx-tab').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var lbl = document.getElementById('ptab2lbl');
+      if (lbl) lbl.textContent = btn.dataset.ptab2;
+    });
+  });
+});
+
+/* ── 5. SIDEBAR NAV (.lx-snav) ──────────────────────────── */
+document.querySelectorAll('.lx-snav').forEach(function(nav) {
+  nav.querySelectorAll('.lx-ni').forEach(function(item) {
+    item.addEventListener('click', function() {
+      nav.querySelectorAll('.lx-ni').forEach(function(i) { i.classList.remove('active'); });
+      item.classList.add('active');
+    });
+  });
+});
+
+/* ── 6. TOP NAV (.lx-tnav) ──────────────────────────────── */
+document.querySelectorAll('.lx-tnav').forEach(function(nav) {
+  nav.querySelectorAll('.lx-tni').forEach(function(item) {
+    item.addEventListener('click', function() {
+      // Clear active + remove any inline bg/color overrides on all items
+      nav.querySelectorAll('.lx-tni').forEach(function(i) {
+        i.classList.remove('active');
+        i.style.background = '';
+        i.style.color = '';
+      });
+      item.classList.add('active');
+      // For dark topnav: re-apply muted colour to inactive items
+      if (nav.classList.contains('lx-tnav-dark')) {
+        nav.querySelectorAll('.lx-tni:not(.active)').forEach(function(i) {
+          i.style.color = 'rgba(245,240,232,.45)';
+        });
+      }
+    });
+  });
+});
+
+/* ── 7. PROGRESS BARS ────────────────────────────────────── */
+setTimeout(function() {
+  document.querySelectorAll('.lx-pf[data-w]').forEach(function(el) {
+    el.style.width = '0';
+    setTimeout(function() { el.style.width = el.dataset.w + '%'; }, 80);
+  });
+}, 50);
+
+/* ── 8. DONUT CHARTS ─────────────────────────────────────── */
+setTimeout(function() {
+  document.querySelectorAll('.lx-dfl[data-pct]').forEach(function(el) {
+    var p = parseFloat(el.dataset.pct) / 100;
+    el.style.strokeDasharray = (p * 270) + ' 270';
+  });
+}, 150);
+
+/* ── 9. SCROLL REVEAL ────────────────────────────────────── */
+/* Immediately show elements already in viewport; animate others on scroll */
+function checkReveal(el) {
+  var rect = el.getBoundingClientRect();
+  var inView = rect.top < window.innerHeight && rect.bottom > 0;
+  if (inView) el.classList.add('vis');
+}
+var revEls = Array.from(document.querySelectorAll('.lx-rev'));
+// Check all on load (with tiny delay to allow paint)
+setTimeout(function() {
+  revEls.forEach(checkReveal);
+}, 100);
+// Also check on scroll
+window.addEventListener('scroll', function() {
+  revEls.forEach(function(el) {
+    if (!el.classList.contains('vis')) checkReveal(el);
+  });
+}, {passive: true});
+
+</script>
+</body>
+</html>

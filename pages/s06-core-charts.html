@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Suite 6 · Core Charts & NDIS Operations — LIMITLESS Support Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#888;--r-sm:10px;--r-md:16px;--r-xl:32px;--r-p:999px;--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}.lx-tlogo span{color:var(--lx-pink)}.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.55}.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}.lx-tbadge.pink{background:var(--lx-pink);color:#fff}.lx-tbadge.cyan{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}.lx-chip.scy{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.fx{display:flex}.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.cm{color:var(--lx-txm)}
+/* ═══ CONTRAST FIX: all dark-surface text uses high-visibility values ═══ */
+.dk-label{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-pink)}
+.dk-sublabel{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.1em;text-transform:uppercase;color:var(--lx-txm)}
+.dk-value{font-family:'Bebas Neue',serif;color:var(--lx-tx)}
+.dk-body{font-size:10px;color:var(--lx-txm);line-height:1.4}
+.dk-dim{color:var(--lx-txl)}
+.ax-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.45)}
+.ax-line{stroke:rgba(0,0,0,.12);stroke-width:1}
+.grid-line{stroke:rgba(0,0,0,.06);stroke-width:.5}
+
+.pl-group-header{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}.pl-group-header::before{content:attr(data-mirror);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;user-select:none;pointer-events:none}.pl-group-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}.pl-group-title{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;margin-bottom:8px}.pl-group-desc{font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}
+.pl-entry{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.pl-entry:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}.pl-entry-viz{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md) var(--r-md) 0 0;padding:20px;min-height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.pl-entry-body{padding:16px}.pl-entry-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;color:var(--lx-tx)}.pl-entry-meta{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:8px}.pl-entry-desc{font-size:11px;color:var(--lx-txm);line-height:1.55;margin-bottom:8px}.pl-use-cases{display:flex;flex-wrap:wrap;gap:4px}
+.pl-viz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:0 0 10px}
+.pl-group-body{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.pl-style-card{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}.pl-style-label{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}.pl-style-text{font-size:10px;color:#F5F0E8;opacity:.75;line-height:1.5}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.lx-rev.vis{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.pl-viz-grid{grid-template-columns:1fr!important}}
+
+@media(max-width:540px){
+  [style*="grid-column"]{grid-column:1/-1!important}
+  .pl-viz-grid{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+<div class="lx-topbar"><div class="fx g3" style="align-items:center"><span class="lx-tlogo">LIMIT<span>LESS</span></span><span class="lx-tmeta">2026 Pattern Library · Supplement</span></div><div class="fx g2" style="align-items:center"><span class="lx-tbadge">Suite 6</span><span class="lx-tbadge pink">Core Charts & NDIS Ops</span></div></div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+<div style="text-align:center;padding:32px 20px 8px"><div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px">CONTRAST-CORRECTED · RENDERED LIVE EXAMPLES</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;color:var(--lx-black)">SUITE SIX</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">CORE CHARTS & NDIS OPERATIONS</div><div style="font-size:12px;color:var(--lx-txm);max-width:620px;margin:12px auto 0;line-height:1.5">Every foundational chart type rendered as a live visual with proper contrast — white text on dark, dark text on light. Plus NDIS-specific operational charts: budget expenditure with projected/actual/trajectory, participant timelines, budget forecasting, risk forecasting, and trend analysis.</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 31 — FOUNDATIONAL CHARTS (LIVE RENDERED)
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="CORE">
+<div class="pl-group-num">Group 31 · Suite 6</div>
+<div class="pl-group-title">Foundational Charts<br>Live Rendered</div>
+<div class="pl-group-desc">Line graphs, area charts, bar charts, and their stacked variants — every one rendered as a live SVG with proper contrast.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Single Line Graph -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="10" class="dk-label" style="font-size:7px">LINE GRAPH — SC HOURS PER WEEK</text>
+<line x1="30" y1="135" x2="270" y2="135" class="ax-line"/><line x1="30" y1="20" x2="30" y2="135" class="ax-line"/>
+<text x="22" y="25" class="ax-label" text-anchor="end">30</text><text x="22" y="60" class="ax-label" text-anchor="end">20</text><text x="22" y="95" class="ax-label" text-anchor="end">10</text><text x="22" y="133" class="ax-label" text-anchor="end">0</text>
+<line x1="30" y1="60" x2="270" y2="60" class="grid-line"/><line x1="30" y1="95" x2="270" y2="95" class="grid-line"/>
+<text x="50" y="146" class="ax-label">W1</text><text x="90" y="146" class="ax-label">W2</text><text x="130" y="146" class="ax-label">W3</text><text x="170" y="146" class="ax-label">W4</text><text x="210" y="146" class="ax-label">W5</text><text x="250" y="146" class="ax-label">W6</text>
+<polyline points="50,85 90,72 130,78 170,55 210,48 250,38" fill="none" stroke="var(--lx-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="50" cy="85" r="4" fill="var(--lx-pink)"/><circle cx="90" cy="72" r="4" fill="var(--lx-pink)"/><circle cx="130" cy="78" r="4" fill="var(--lx-pink)"/><circle cx="170" cy="55" r="4" fill="var(--lx-pink)"/><circle cx="210" cy="48" r="4" fill="var(--lx-pink)"/><circle cx="250" cy="38" r="4" fill="var(--lx-pink)"/>
+<text x="254" y="33" class="ax-label" style="fill:var(--lx-pink);opacity:1">24.5h</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Line Graph — Single Series</div>
+<div class="pl-entry-meta">Best for → Single metric trend · Weekly/monthly tracking · Performance trajectory</div>
+<div class="pl-entry-desc">The simplest and most readable time-series chart. 2.5px pink stroke with 4px dot markers at each data point, white axis labels at 60% opacity, gridlines at 6%. End-value annotation in accent colour.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">SC Hours Tracking</span><span class="lx-chip cy">Session Counts</span><span class="lx-chip yw">Revenue Trend</span></div>
+</div></div>
+
+<!-- Multi-Line / Stacked Line Graph -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="10" class="dk-label" style="font-size:7px">STACKED LINE — HOURS BY CATEGORY</text>
+<line x1="30" y1="135" x2="270" y2="135" class="ax-line"/><line x1="30" y1="20" x2="30" y2="135" class="ax-line"/>
+<line x1="30" y1="55" x2="270" y2="55" class="grid-line"/><line x1="30" y1="95" x2="270" y2="95" class="grid-line"/>
+<text x="50" y="146" class="ax-label">JAN</text><text x="100" y="146" class="ax-label">FEB</text><text x="150" y="146" class="ax-label">MAR</text><text x="200" y="146" class="ax-label">APR</text><text x="250" y="146" class="ax-label">MAY</text>
+<!-- Series 3 — bottom (Core) -->
+<polyline points="50,100 100,95 150,88 200,80 250,75" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-linecap="round"/>
+<!-- Series 2 — middle (CB) -->
+<polyline points="50,75 100,68 150,62 200,58 250,50" fill="none" stroke="var(--lx-cyan)" stroke-width="2" stroke-linecap="round"/>
+<!-- Series 1 — top (SC) -->
+<polyline points="50,55 100,48 150,40 200,35 250,28" fill="none" stroke="var(--lx-orange)" stroke-width="2" stroke-linecap="round"/>
+<!-- Dots at end -->
+<circle cx="250" cy="75" r="3" fill="var(--lx-pink)"/><circle cx="250" cy="50" r="3" fill="var(--lx-cyan)"/><circle cx="250" cy="28" r="3" fill="var(--lx-orange)"/>
+<!-- Legend -->
+<text x="260" y="78" class="ax-label" style="fill:var(--lx-pink);opacity:1;font-size:6px">CORE</text>
+<text x="260" y="53" class="ax-label" style="fill:var(--lx-cyan);opacity:1;font-size:6px">CB</text>
+<text x="260" y="31" class="ax-label" style="fill:var(--lx-orange);font-size:6px">SC</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Multi-Line / Stacked Line Graph</div>
+<div class="pl-entry-meta">Best for → Comparing multiple series · Category breakdown over time</div>
+<div class="pl-entry-desc">Multiple series on the same axes for direct comparison. Pink = Core, Cyan = Capacity Building, Yellow = SC hours. Each series has end-point dots and colour-coded right-side labels. In the stacked variant, values are cumulative so the top line shows the total.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Budget Categories</span><span class="lx-chip cy">Multi-Participant</span><span class="lx-chip yw">Service Mix</span></div>
+</div></div>
+
+<!-- Area Chart -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="10" class="dk-label" style="font-size:7px">AREA CHART — MONTHLY SPEND</text>
+<line x1="30" y1="135" x2="270" y2="135" class="ax-line"/><line x1="30" y1="20" x2="30" y2="135" class="ax-line"/>
+<line x1="30" y1="55" x2="270" y2="55" class="grid-line"/><line x1="30" y1="95" x2="270" y2="95" class="grid-line"/>
+<text x="50" y="146" class="ax-label">JUL</text><text x="100" y="146" class="ax-label">AUG</text><text x="150" y="146" class="ax-label">SEP</text><text x="200" y="146" class="ax-label">OCT</text><text x="250" y="146" class="ax-label">NOV</text>
+<polygon points="50,135 50,95 100,82 150,70 200,58 250,42 250,135" fill="rgba(255,45,125,.15)"/>
+<polyline points="50,95 100,82 150,70 200,58 250,42" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-linecap="round"/>
+<circle cx="250" cy="42" r="3" fill="var(--lx-pink)"/>
+<text x="254" y="38" class="ax-label" style="fill:var(--lx-pink);opacity:1">$4,200</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Area Chart — Single Series</div>
+<div class="pl-entry-meta">Best for → Volume trends · Cumulative magnitude · Spend trajectory</div>
+<div class="pl-entry-desc">Line chart with a filled area beneath at 15% opacity to emphasize volume. Pink stroke with pink translucent fill. The fill creates a stronger visual impression of magnitude than a bare line — best for financial data where the "weight" of the value matters.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Monthly Spend</span><span class="lx-chip cy">Traffic Volume</span><span class="lx-chip yw">Revenue Growth</span></div>
+</div></div>
+
+<!-- Stacked Area -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="10" class="dk-label" style="font-size:7px">STACKED AREA — BUDGET SPEND BY CATEGORY</text>
+<line x1="30" y1="135" x2="270" y2="135" class="ax-line"/><line x1="30" y1="20" x2="30" y2="135" class="ax-line"/>
+<text x="50" y="146" class="ax-label">Q1</text><text x="110" y="146" class="ax-label">Q2</text><text x="170" y="146" class="ax-label">Q3</text><text x="230" y="146" class="ax-label">Q4</text>
+<!-- Bottom layer — Core (pink) -->
+<polygon points="50,135 50,95 110,88 170,80 230,72 270,68 270,135" fill="rgba(255,45,125,.25)" stroke="var(--lx-pink)" stroke-width="1.5"/>
+<!-- Middle layer — CB (cyan) -->
+<polygon points="50,95 110,88 170,80 230,72 270,68 270,48 230,52 170,58 110,65 50,72" fill="rgba(0,212,255,.2)" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+<!-- Top layer — Capital (yellow) -->
+<polygon points="50,72 110,65 170,58 230,52 270,48 270,32 230,35 170,40 110,45 50,50" fill="rgba(255,102,0,.12)" stroke="var(--lx-orange)" stroke-width="1.5"/>
+<!-- Legend -->
+<rect x="40" y="16" width="8" height="8" rx="1" fill="var(--lx-pink)" opacity=".7"/><text x="52" y="23" class="ax-label" style="fill:rgba(0,0,0,.7)">CORE</text>
+<rect x="85" y="16" width="8" height="8" rx="1" fill="var(--lx-cyan)" opacity=".7"/><text x="97" y="23" class="ax-label" style="fill:rgba(0,0,0,.7)">CB</text>
+<rect x="120" y="16" width="8" height="8" rx="1" fill="var(--lx-yellow)" opacity=".7"/><text x="132" y="23" class="ax-label" style="fill:rgba(0,0,0,.7)">CAPITAL</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Stacked Area Chart</div>
+<div class="pl-entry-meta">Best for → Cumulative composition over time · Total + breakdown simultaneously</div>
+<div class="pl-entry-desc">Layered area fills showing how each category contributes to the total over time. Pink = Core, Cyan = CB, Yellow = Capital. Each layer at descending opacity (25%, 20%, 15%) to prevent occlusion. The top edge of the highest layer shows total spend trajectory.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">NDIS Budget Breakdown</span><span class="lx-chip cy">Revenue by Product</span><span class="lx-chip yw">Resource Allocation</span></div>
+</div></div>
+
+<!-- Bar Chart -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="10" class="dk-label" style="font-size:7px">BAR CHART — PROVIDER HOURS THIS MONTH</text>
+<line x1="30" y1="135" x2="270" y2="135" class="ax-line"/><line x1="30" y1="20" x2="30" y2="135" class="ax-line"/>
+<line x1="30" y1="55" x2="270" y2="55" class="grid-line"/><line x1="30" y1="95" x2="270" y2="95" class="grid-line"/>
+<rect x="42" y="40" width="28" height="95" fill="var(--lx-pink)" rx="3"/>
+<text x="56" y="35" text-anchor="middle" class="ax-label" style="fill:var(--lx-pink);opacity:1">42h</text>
+<rect x="82" y="55" width="28" height="80" fill="var(--lx-cyan)" rx="3"/>
+<text x="96" y="50" text-anchor="middle" class="ax-label" style="fill:var(--lx-cyan);opacity:1">35h</text>
+<rect x="122" y="68" width="28" height="67" fill="var(--lx-yellow)" rx="3"/>
+<text x="136" y="63" text-anchor="middle" class="ax-label" style="fill:var(--lx-orange)">28h</text>
+<rect x="162" y="82" width="28" height="53" fill="var(--lx-orange)" rx="3"/>
+<text x="176" y="77" text-anchor="middle" class="ax-label" style="fill:var(--lx-orange);opacity:1">22h</text>
+<rect x="202" y="100" width="28" height="35" fill="var(--lx-purple)" rx="3"/>
+<text x="216" y="95" text-anchor="middle" class="ax-label" style="fill:var(--lx-purple);opacity:1">15h</text>
+<rect x="242" y="112" width="28" height="23" fill="var(--lx-blue)" rx="3"/>
+<text x="256" y="107" text-anchor="middle" class="ax-label" style="fill:var(--lx-blue);opacity:1">8h</text>
+<text x="56" y="146" text-anchor="middle" class="ax-label">IDS</text><text x="96" y="146" text-anchor="middle" class="ax-label">MH</text><text x="136" y="146" text-anchor="middle" class="ax-label">OT</text><text x="176" y="146" text-anchor="middle" class="ax-label">PT</text><text x="216" y="146" text-anchor="middle" class="ax-label">PSY</text><text x="256" y="146" text-anchor="middle" class="ax-label">SP</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Bar Chart — Categorical Comparison</div>
+<div class="pl-entry-meta">Best for → Ranked comparison · Provider hours · Category totals</div>
+<div class="pl-entry-desc">Vertical bars with value labels above each bar in matching accent colours. Each bar uses a different neon colour from the palette for instant category identification. 3px border-radius, white axis labels at 60% opacity. Sorted descending for natural ranking.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Provider Hours</span><span class="lx-chip cy">Support Categories</span><span class="lx-chip yw">Budget by Line</span></div>
+</div></div>
+
+<!-- Stacked Bar -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="10" class="dk-label" style="font-size:7px">STACKED BAR — QUARTERLY SPEND BY CATEGORY</text>
+<line x1="30" y1="135" x2="270" y2="135" class="ax-line"/><line x1="30" y1="20" x2="30" y2="135" class="ax-line"/>
+<line x1="30" y1="55" x2="270" y2="55" class="grid-line"/><line x1="30" y1="95" x2="270" y2="95" class="grid-line"/>
+<text x="65" y="146" text-anchor="middle" class="ax-label">Q1</text><text x="120" y="146" text-anchor="middle" class="ax-label">Q2</text><text x="175" y="146" text-anchor="middle" class="ax-label">Q3</text><text x="230" y="146" text-anchor="middle" class="ax-label">Q4</text>
+<!-- Q1 -->
+<rect x="45" y="85" width="40" height="50" fill="var(--lx-pink)"/><rect x="45" y="55" width="40" height="30" fill="var(--lx-cyan)"/><rect x="45" y="40" width="40" height="15" fill="var(--lx-yellow)" rx="3" ry="3"/>
+<!-- Q2 -->
+<rect x="100" y="75" width="40" height="60" fill="var(--lx-pink)"/><rect x="100" y="45" width="40" height="30" fill="var(--lx-cyan)"/><rect x="100" y="28" width="40" height="17" fill="var(--lx-yellow)" rx="3" ry="3"/>
+<!-- Q3 -->
+<rect x="155" y="80" width="40" height="55" fill="var(--lx-pink)"/><rect x="155" y="52" width="40" height="28" fill="var(--lx-cyan)"/><rect x="155" y="35" width="40" height="17" fill="var(--lx-yellow)" rx="3" ry="3"/>
+<!-- Q4 -->
+<rect x="210" y="70" width="40" height="65" fill="var(--lx-pink)"/><rect x="210" y="38" width="40" height="32" fill="var(--lx-cyan)"/><rect x="210" y="22" width="40" height="16" fill="var(--lx-yellow)" rx="3" ry="3"/>
+<!-- Legend -->
+<rect x="40" y="16" width="8" height="8" rx="1" fill="var(--lx-pink)"/><text x="52" y="23" class="ax-label" style="fill:rgba(0,0,0,.7)">CORE</text>
+<rect x="85" y="16" width="8" height="8" rx="1" fill="var(--lx-cyan)"/><text x="97" y="23" class="ax-label" style="fill:rgba(0,0,0,.7)">CB</text>
+<rect x="120" y="16" width="8" height="8" rx="1" fill="var(--lx-orange)"/><text x="132" y="23" class="ax-label" style="fill:rgba(0,0,0,.7)">CAPITAL</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Stacked Bar Chart</div>
+<div class="pl-entry-meta">Best for → Composition + comparison across periods · Total + breakdown</div>
+<div class="pl-entry-desc">Segments stacked within each bar showing category composition per period. Only the topmost segment receives border-radius (3px) for a clean stack. Pink = Core, Cyan = CB, Yellow = Capital. White legend labels at 80% opacity.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Quarterly Budget</span><span class="lx-chip cy">Team Allocation</span><span class="lx-chip yw">Service Breakdown</span></div>
+</div></div>
+
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 32 — NDIS OPERATIONAL CHARTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="NDIS OPS">
+<div class="pl-group-num">Group 32 · Suite 6</div>
+<div class="pl-group-title">NDIS Operational<br>Charts</div>
+<div class="pl-group-desc">Budget expenditure with projected/actual/trajectory, participant timelines, budget forecasting, risk forecasting, and trend analysis — the charts you use every day.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Budget Expenditure — Projected vs Actual vs Trajectory -->
+<div class="pl-entry" style="grid-column:1/-1">
+<div class="pl-entry-viz" style="min-height:200px">
+<svg width="100%" height="190" viewBox="0 0 360 190">
+<text x="5" y="12" class="dk-label">BUDGET EXPENDITURE — PROJECTED · ACTUAL · TRAJECTORY</text>
+<line x1="40" y1="170" x2="350" y2="170" class="ax-line"/><line x1="40" y1="25" x2="40" y2="170" class="ax-line"/>
+<!-- Y-axis labels -->
+<text x="32" y="30" class="ax-label" text-anchor="end">$48K</text><text x="32" y="65" class="ax-label" text-anchor="end">$36K</text><text x="32" y="100" class="ax-label" text-anchor="end">$24K</text><text x="32" y="135" class="ax-label" text-anchor="end">$12K</text><text x="32" y="168" class="ax-label" text-anchor="end">$0</text>
+<line x1="40" y1="65" x2="350" y2="65" class="grid-line"/><line x1="40" y1="100" x2="350" y2="100" class="grid-line"/><line x1="40" y1="135" x2="350" y2="135" class="grid-line"/>
+<!-- X-axis -->
+<text x="65" y="182" class="ax-label">APR</text><text x="115" y="182" class="ax-label">JUN</text><text x="165" y="182" class="ax-label">AUG</text><text x="215" y="182" class="ax-label">OCT</text><text x="265" y="182" class="ax-label">DEC</text><text x="315" y="182" class="ax-label">FEB</text><text x="345" y="182" class="ax-label">MAR</text>
+<!-- PROJECTED spend (linear ideal) — dashed white -->
+<line x1="50" y1="168" x2="345" y2="28" stroke="var(--lx-tx)" stroke-width="1.5" stroke-dasharray="6 3" opacity=".2"/>
+<text x="348" y="25" class="ax-label" style="fill:var(--lx-tx);opacity:.5;font-size:6px">PROJECTED</text>
+<!-- ACTUAL spend (solid pink line) -->
+<polyline points="50,168 75,158 100,148 125,135 150,120 175,108 200,92 225,80" fill="none" stroke="var(--lx-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="225" cy="80" r="5" fill="var(--lx-pink)" stroke="var(--lx-cream)" stroke-width="2"/>
+<text x="232" y="76" class="ax-label" style="fill:var(--lx-pink);opacity:1;font-size:7px">ACTUAL $32.4K</text>
+<!-- TRAJECTORY projection (dashed pink, lighter) -->
+<polyline points="225,80 250,68 275,55 300,42 325,30 345,22" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-dasharray="5 3" opacity=".5"/>
+<!-- Trajectory end marker -->
+<circle cx="345" cy="22" r="3" fill="var(--lx-pink)" opacity=".5"/>
+<text x="335" y="16" class="ax-label" style="fill:var(--lx-pink);opacity:.7;font-size:6px">TRAJ $49.2K</text>
+<!-- TODAY marker -->
+<line x1="225" y1="20" x2="225" y2="170" stroke="var(--lx-cyan)" stroke-width="1.5" stroke-dasharray="3"/>
+<text x="228" y="22" class="ax-label" style="fill:var(--lx-cyan);opacity:1;font-size:6px">TODAY</text>
+<!-- Plan budget ceiling -->
+<line x1="40" y1="28" x2="350" y2="28" stroke="var(--lx-orange)" stroke-width="1" stroke-dasharray="8 4" opacity=".4"/>
+<text x="42" y="24" class="ax-label" style="fill:var(--lx-orange);font-size:6px">PLAN BUDGET $48,200</text>
+<!-- Overspend warning zone -->
+<rect x="225" y="22" width="125" height="8" fill="rgba(255,45,125,.08)" rx="2"/>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Budget Expenditure — Projected · Actual · Trajectory</div>
+<div class="pl-entry-meta">Best for → NDIS plan financial management · Spend pacing · Overrun early warning</div>
+<div class="pl-entry-desc">The definitive NDIS budget chart showing three critical lines on one view: the dashed white projected (ideal linear pace), solid pink actual spend to date, and dashed pink trajectory showing where current spend rate will land. Yellow dashed ceiling = total plan budget. Cyan vertical = today. Pink-tinted zone above budget line flags projected overrun. This is the chart every SC needs on every participant's dashboard — it answers "are we on track?" instantly.</div>
+<div class="pl-style-card"><div class="pl-style-label">Design Specifications</div><div class="pl-style-text">Projected: 1.5px dashed white at 35% · Actual: 2.5px solid pink with 5px end dot · Trajectory: 2px dashed pink at 50% · Budget ceiling: 1px dashed yellow at 40% · Today: 1.5px dashed cyan · All labels in accent colours at full opacity · White axis labels at 60% · 6% gridlines</div></div>
+<div class="pl-use-cases"><span class="lx-chip pk">Every Participant</span><span class="lx-chip cy">Plan Reviews</span><span class="lx-chip yw">NDIA Reporting</span><span class="lx-chip or">Budget Alerts</span></div>
+</div></div>
+
+<!-- Participant Timeline -->
+<div class="pl-entry" style="grid-column:1/-1">
+<div class="pl-entry-viz" style="min-height:170px">
+<svg width="100%" height="160" viewBox="0 0 360 160">
+<text x="5" y="12" class="dk-label">PARTICIPANT TIMELINE — KANE CAMERON</text>
+<!-- Horizontal spine -->
+<line x1="30" y1="80" x2="340" y2="80" stroke="var(--lx-tx)" stroke-width="1.5" opacity=".12"/>
+<!-- Time markers -->
+<text x="50" y="95" class="ax-label">JAN 25</text><text x="110" y="95" class="ax-label">APR 25</text><text x="170" y="95" class="ax-label">JUL 25</text><text x="230" y="95" class="ax-label">OCT 25</text><text x="290" y="95" class="ax-label">JAN 26</text><text x="335" y="95" class="ax-label">APR</text>
+<!-- Events above line -->
+<line x1="55" y1="80" x2="55" y2="48" stroke="var(--lx-pink)" stroke-width="1.5"/><circle cx="55" cy="80" r="5" fill="var(--lx-pink)"/>
+<text x="58" y="45" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em">PLAN START</text>
+<text x="58" y="55" class="ax-label" style="fill:var(--lx-tx);opacity:.6">NDIS Plan 2025-26</text>
+
+<line x1="130" y1="80" x2="130" y2="48" stroke="var(--lx-cyan)" stroke-width="1.5"/><circle cx="130" cy="80" r="5" fill="var(--lx-cyan)"/>
+<text x="133" y="45" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em">OT ASSESSMENT</text>
+<text x="133" y="55" class="ax-label" style="fill:var(--lx-tx);opacity:.6">Home mod report</text>
+
+<line x1="200" y1="80" x2="200" y2="48" stroke="var(--lx-orange)" stroke-width="1.5"/><circle cx="200" cy="80" r="5" fill="var(--lx-orange)"/>
+<text x="203" y="45" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em">INCIDENT</text>
+<text x="203" y="55" class="ax-label" style="fill:var(--lx-tx);opacity:.6">Falls risk identified</text>
+
+<!-- Events below line -->
+<line x1="90" y1="80" x2="90" y2="112" stroke="var(--lx-orange)" stroke-width="1.5"/><circle cx="90" cy="80" r="4" fill="var(--lx-orange)"/>
+<text x="93" y="110" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em">SA SIGNED</text>
+<text x="93" y="120" class="ax-label" style="fill:var(--lx-tx);opacity:.6">IDS — 12 months</text>
+
+<line x1="260" y1="80" x2="260" y2="112" stroke="var(--lx-purple)" stroke-width="1.5"/><circle cx="260" cy="80" r="4" fill="var(--lx-purple)"/>
+<text x="263" y="110" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em">PLAN REVIEW</text>
+<text x="263" y="120" class="ax-label" style="fill:var(--lx-tx);opacity:.6">Progress report sent</text>
+
+<!-- Today marker -->
+<line x1="320" y1="40" x2="320" y2="130" stroke="var(--lx-cyan)" stroke-width="1.5" stroke-dasharray="3"/>
+<circle cx="320" cy="80" r="6" fill="var(--lx-cyan)" stroke="var(--lx-cream)" stroke-width="2"/>
+<text x="323" y="38" class="ax-label" style="fill:var(--lx-cyan);opacity:1;font-size:7px">NOW</text>
+
+<!-- Future event (dimmer) -->
+<circle cx="340" cy="80" r="4" fill="none" stroke="var(--lx-pink)" stroke-width="1.5" stroke-dasharray="2" opacity=".5"/>
+<text x="325" y="142" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em;opacity:.5">PLAN END</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Participant Timeline</div>
+<div class="pl-entry-meta">Best for → Participant lifecycle view · Key events chronology · Plan period context</div>
+<div class="pl-entry-desc">Horizontal timeline showing all key events in a participant's journey plotted on a central spine. Events alternate above and below the line to avoid crowding. Colour-coded by event type: pink = plan milestones, cyan = assessments, yellow = agreements, orange = incidents, purple = reviews. Current position marked with a cyan dot. Future events shown as dashed outlines. This gives SCs a complete narrative of the participant's history at a glance.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Case Overview</span><span class="lx-chip cy">Plan Reviews</span><span class="lx-chip or">Incident Context</span><span class="lx-chip pu">Handover Briefing</span></div>
+</div></div>
+
+<!-- Risk Forecasting -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="160" viewBox="0 0 280 160">
+<text x="5" y="12" class="dk-label">RISK FORECAST — PARTICIPANT RISK SCORE</text>
+<line x1="30" y1="145" x2="265" y2="145" class="ax-line"/><line x1="30" y1="20" x2="30" y2="145" class="ax-line"/>
+<text x="22" y="27" class="ax-label" text-anchor="end">HIGH</text><text x="22" y="65" class="ax-label" text-anchor="end">MED</text><text x="22" y="105" class="ax-label" text-anchor="end">LOW</text>
+<!-- Risk threshold zones -->
+<rect x="30" y="20" width="235" height="30" fill="rgba(255,45,125,.06)" rx="0"/>
+<rect x="30" y="50" width="235" height="40" fill="rgba(255,102,0,.04)" rx="0"/>
+<text x="50" y="145" class="ax-label">JAN</text><text x="100" y="145" class="ax-label">APR</text><text x="150" y="145" class="ax-label">JUL</text><text x="200" y="145" class="ax-label">OCT</text><text x="245" y="145" class="ax-label">JAN</text>
+<!-- Actual risk trajectory -->
+<polyline points="50,110 75,105 100,95 120,88 140,75 155,70 170,65 185,58" fill="none" stroke="var(--lx-orange)" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="185" cy="58" r="4" fill="var(--lx-orange)" stroke="var(--lx-cream)" stroke-width="2"/>
+<!-- Forecast -->
+<polyline points="185,58 210,48 235,40 255,35" fill="none" stroke="var(--lx-pink)" stroke-width="2" stroke-dasharray="4" opacity=".6"/>
+<circle cx="255" cy="35" r="3" fill="var(--lx-pink)" opacity=".6"/>
+<!-- Today -->
+<line x1="185" y1="18" x2="185" y2="140" stroke="var(--lx-cyan)" stroke-width="1" stroke-dasharray="3"/>
+<text x="188" y="155" class="ax-label" style="fill:var(--lx-cyan);opacity:1;font-size:6px">TODAY</text>
+<!-- Threshold labels -->
+<text x="267" y="35" class="ax-label" style="fill:var(--lx-pink);opacity:.8;font-size:6px">HIGH RISK</text>
+<text x="267" y="72" class="ax-label" style="fill:var(--lx-orange);opacity:.7;font-size:6px">MEDIUM</text>
+<text x="267" y="110" class="ax-label" style="fill:var(--lx-tx);opacity:.4;font-size:6px">LOW</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Risk Forecasting / Risk Trajectory</div>
+<div class="pl-entry-meta">Best for → Escalating risk detection · Proactive intervention · Compliance forecasting</div>
+<div class="pl-entry-desc">Time-series showing a participant's composite risk score trending upward through threshold zones. Orange solid for historical trajectory, pink dashed for projected continuation, background zone tinting for risk levels (pink zone = high, orange zone = medium). When the trajectory crosses into a higher zone, it triggers visual alerts. Enables proactive SC intervention before crises.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Risk Register</span><span class="lx-chip or">Early Warning</span><span class="lx-chip cy">Compliance</span></div>
+</div></div>
+
+<!-- Trend Analysis -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="160" viewBox="0 0 280 160">
+<text x="5" y="12" class="dk-label">TREND ANALYSIS — ROLLING AVERAGE + ACTUAL</text>
+<line x1="30" y1="145" x2="265" y2="145" class="ax-line"/><line x1="30" y1="20" x2="30" y2="145" class="ax-line"/>
+<line x1="30" y1="60" x2="265" y2="60" class="grid-line"/><line x1="30" y1="100" x2="265" y2="100" class="grid-line"/>
+<text x="50" y="155" class="ax-label">W1</text><text x="80" y="155" class="ax-label">W2</text><text x="110" y="155" class="ax-label">W3</text><text x="140" y="155" class="ax-label">W4</text><text x="170" y="155" class="ax-label">W5</text><text x="200" y="155" class="ax-label">W6</text><text x="230" y="155" class="ax-label">W7</text>
+<!-- Actual values (noisy) -->
+<polyline points="50,95 80,75 110,88 140,60 170,72 200,48 230,55" fill="none" stroke="var(--lx-tx)" stroke-width="1.5" opacity=".25" stroke-linecap="round"/>
+<circle cx="50" cy="95" r="2.5" fill="var(--lx-tx)" opacity=".25"/><circle cx="80" cy="75" r="2.5" fill="var(--lx-tx)" opacity=".25"/><circle cx="110" cy="88" r="2.5" fill="var(--lx-tx)" opacity=".25"/><circle cx="140" cy="60" r="2.5" fill="var(--lx-tx)" opacity=".25"/><circle cx="170" cy="72" r="2.5" fill="var(--lx-tx)" opacity=".25"/><circle cx="200" cy="48" r="2.5" fill="var(--lx-tx)" opacity=".25"/><circle cx="230" cy="55" r="2.5" fill="var(--lx-tx)" opacity=".25"/>
+<!-- Rolling average (smooth) -->
+<polyline points="50,95 80,85 110,82 140,74 170,68 200,60 230,52" fill="none" stroke="var(--lx-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="230" cy="52" r="4" fill="var(--lx-pink)"/>
+<!-- Trend line (linear regression) -->
+<line x1="50" y1="92" x2="245" y2="48" stroke="var(--lx-orange)" stroke-width="1.5" stroke-dasharray="6 3" opacity=".5"/>
+<!-- Legend -->
+<circle cx="45" y="18" r="3" fill="var(--lx-tx)" opacity=".25"/><text x="52" y="21" class="ax-label" style="fill:var(--lx-tx);opacity:.7">ACTUAL</text>
+<line x1="95" y1="18" x2="110" y2="18" stroke="var(--lx-pink)" stroke-width="2.5"/><text x="115" y="21" class="ax-label" style="fill:var(--lx-pink);opacity:1">ROLLING AVG</text>
+<line x1="175" y1="18" x2="190" y2="18" stroke="var(--lx-orange)" stroke-width="1.5" stroke-dasharray="4"/><text x="195" y="21" class="ax-label" style="fill:var(--lx-orange)">TREND</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Trend Analysis — Rolling Average + Regression</div>
+<div class="pl-entry-meta">Best for → Smoothing noisy data · Direction detection · Performance trending</div>
+<div class="pl-entry-desc">Three layers: dim grey dots/line for raw actual values, solid pink for the rolling average (smoothed), and dashed orange for the linear regression trend line. The raw data shows noise, the rolling average shows recent direction, and the trend line shows long-term trajectory. Essential for SC caseload analysis where individual weeks vary but the trend matters.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Hours Trending</span><span class="lx-chip cy">Budget Trajectory</span><span class="lx-chip yw">Outcome Measurement</span></div>
+</div></div>
+
+</div></div>
+
+
+<!-- FOOTER -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:32px 28px;position:relative;overflow:hidden">
+<div style="font-family:'Bebas Neue',serif;font-size:100px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-20px;user-select:none;pointer-events:none">∞</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:8px">SUITE 6 COMPLETE · CONTRAST CORRECTED · ALL CORE CHARTS RENDERED</div>
+<div style="font-family:'Bebas Neue',serif;font-size:32px;color:var(--lx-offwhite);line-height:1;margin-bottom:12px">FULL LIBRARY NOW<br>6 SUITES · 32 GROUPS</div>
+<div style="font-size:11px;color:var(--lx-offwhite);opacity:.6;line-height:1.5;max-width:500px;margin-bottom:16px">LCC applied: cream backgrounds with dark text, orange replaces yellow for line overlays and labels on light surfaces. Accent neon colours preserved for data encoding. All charts rendered on the LIMITLESS cream surface with full legibility.</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap">
+<span class="lx-chip spk">Suite 1 ✓</span><span class="lx-chip spk">Suite 2 ✓</span><span class="lx-chip spk">Suite 3 ✓</span><span class="lx-chip spk">Suite 4 ✓</span><span class="lx-chip scy">Suite 5 ✓ CRM</span><span class="lx-chip syw">Suite 6 ✓ Core + Ops</span>
+</div>
+<div class="lx-stripe" style="margin:20px -28px -32px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">LIMITLESS SUPPORT CO. · SUITE 6 · CORE CHARTS & NDIS OPERATIONS · ABN 76 985 845 524</div>
+
+<script>const io=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('vis'),io.unobserve(e.target))})},{threshold:.08});document.querySelectorAll('.lx-rev').forEach(el=>io.observe(el));</script>
+</body>
+</html>

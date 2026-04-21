@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Suite 8 · Final Patterns — LIMITLESS Support Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#888;--r-sm:10px;--r-md:16px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}.lx-tlogo span{color:var(--lx-pink)}.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.55}.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}.lx-tbadge.pink{background:var(--lx-pink);color:#fff}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}.lx-chip.scy{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.fx{display:flex}.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.cm{color:var(--lx-txm)}
+.dk-label{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-pink)}
+.ax-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.45)}
+.ax-line{stroke:rgba(0,0,0,.12);stroke-width:1}.grid-line{stroke:rgba(0,0,0,.06);stroke-width:.5}
+.pl-group-header{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}.pl-group-header::before{content:attr(data-mirror);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;user-select:none;pointer-events:none}.pl-group-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}.pl-group-title{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;margin-bottom:8px}.pl-group-desc{font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}
+.pl-entry{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.pl-entry:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}.pl-entry-viz{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md) var(--r-md) 0 0;padding:20px;min-height:160px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.pl-entry-body{padding:16px}.pl-entry-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px;color:var(--lx-tx)}.pl-entry-meta{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txm);margin-bottom:8px}.pl-entry-desc{font-size:11px;color:var(--lx-txm);line-height:1.55;margin-bottom:8px}.pl-use-cases{display:flex;flex-wrap:wrap;gap:4px}
+.pl-viz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;padding:0 0 10px}
+.pl-group-body{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.pl-style-card{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}.pl-style-label{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}.pl-style-text{font-size:10px;color:#F5F0E8;opacity:.75;line-height:1.5}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.lx-rev.vis{opacity:1;transform:translateY(0)}
+@keyframes shimmer{0%{background-position:-200px 0}100%{background-position:200px 0}}
+.skeleton{background:linear-gradient(90deg,rgba(0,0,0,.03) 0%,rgba(0,0,0,.06) 50%,rgba(0,0,0,.03) 100%);background-size:200px 100%;animation:shimmer 1.5s ease-in-out infinite;border-radius:4px}
+@media(max-width:900px){.pl-viz-grid{grid-template-columns:1fr!important}}
+</style>
+</head>
+<body>
+<div class="lx-topbar"><div class="fx g3" style="align-items:center"><span class="lx-tlogo">LIMIT<span>LESS</span></span><span class="lx-tmeta">2026 Pattern Library · Final</span></div><div class="fx g2" style="align-items:center"><span class="lx-tbadge">Suite 8</span><span class="lx-tbadge pink">Gap Closer</span></div></div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+<div style="text-align:center;padding:32px 20px 8px"><div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px">EVERY REMAINING PATTERN · NO GAPS</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;color:var(--lx-black)">SUITE EIGHT</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">FINAL GAP-CLOSER · GROUPS 36—39</div><div style="font-size:12px;color:var(--lx-txm);max-width:620px;margin:12px auto 0;line-height:1.5">Missing chart variants, process/workflow patterns, UI state patterns, and production-essential form/print/reference layouts.</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 36 — MISSING CHART VARIANTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="VARIANTS">
+<div class="pl-group-num">Group 36 · Suite 8</div>
+<div class="pl-group-title">Missing Chart<br>Variants</div>
+<div class="pl-group-desc">Grouped bar, 100% stacked bar, bubble chart, stepped line, horizon graph, streamgraph, and circle packing — all listed in the taxonomy but not yet rendered.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Grouped/Clustered Bar -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 300 150">
+<text x="5" y="12" class="dk-label" style="font-size:7px">GROUPED BAR — SPEND BY CATEGORY × QUARTER</text>
+<line x1="30" y1="138" x2="285" y2="138" class="ax-line"/><line x1="30" y1="20" x2="30" y2="138" class="ax-line"/>
+<line x1="30" y1="58" x2="285" y2="58" class="grid-line"/><line x1="30" y1="98" x2="285" y2="98" class="grid-line"/>
+<text x="72" y="148" class="ax-label" text-anchor="middle">Q1</text><text x="142" y="148" class="ax-label" text-anchor="middle">Q2</text><text x="212" y="148" class="ax-label" text-anchor="middle">Q3</text>
+<!-- Q1 cluster -->
+<rect x="42" y="68" width="16" height="70" fill="var(--lx-pink)" rx="2"/><rect x="60" y="85" width="16" height="53" fill="var(--lx-cyan)" rx="2"/><rect x="78" y="100" width="16" height="38" fill="var(--lx-yellow)" rx="2"/>
+<!-- Q2 cluster -->
+<rect x="112" y="55" width="16" height="83" fill="var(--lx-pink)" rx="2"/><rect x="130" y="72" width="16" height="66" fill="var(--lx-cyan)" rx="2"/><rect x="148" y="92" width="16" height="46" fill="var(--lx-yellow)" rx="2"/>
+<!-- Q3 cluster -->
+<rect x="182" y="45" width="16" height="93" fill="var(--lx-pink)" rx="2"/><rect x="200" y="62" width="16" height="76" fill="var(--lx-cyan)" rx="2"/><rect x="218" y="82" width="16" height="56" fill="var(--lx-yellow)" rx="2"/>
+<!-- Legend -->
+<rect x="245" y="45" width="8" height="8" rx="1" fill="var(--lx-pink)"/><text x="257" y="52" class="ax-label" style="fill:var(--lx-tx);opacity:.8">CORE</text>
+<rect x="245" y="58" width="8" height="8" rx="1" fill="var(--lx-cyan)"/><text x="257" y="65" class="ax-label" style="fill:var(--lx-tx);opacity:.8">CB</text>
+<rect x="245" y="71" width="8" height="8" rx="1" fill="var(--lx-yellow)"/><text x="257" y="78" class="ax-label" style="fill:var(--lx-tx);opacity:.8">CAPITAL</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Grouped / Clustered Bar Chart</div>
+<div class="pl-entry-meta">Best for → Side-by-side category comparison · Budget categories per period</div>
+<div class="pl-entry-desc">Bars placed side by side within each group, not stacked. Essential for comparing absolute values of Core vs CB vs Capital per quarter without cumulation. Each bar in the cluster uses a distinct neon colour with 2px gap between bars and wider gap between groups.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Budget Comparison</span><span class="lx-chip cy">Provider Hours</span><span class="lx-chip yw">YoY Analysis</span></div>
+</div></div>
+
+<!-- 100% Stacked Bar -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 300 150">
+<text x="5" y="12" class="dk-label" style="font-size:7px">100% STACKED BAR — PROPORTION BY QUARTER</text>
+<line x1="30" y1="138" x2="285" y2="138" class="ax-line"/><line x1="30" y1="22" x2="30" y2="138" class="ax-line"/>
+<text x="22" y="26" class="ax-label" text-anchor="end">100%</text><text x="22" y="60" class="ax-label" text-anchor="end">75%</text><text x="22" y="95" class="ax-label" text-anchor="end">50%</text><text x="22" y="130" class="ax-label" text-anchor="end">25%</text>
+<text x="72" y="148" class="ax-label" text-anchor="middle">Q1</text><text x="132" y="148" class="ax-label" text-anchor="middle">Q2</text><text x="192" y="148" class="ax-label" text-anchor="middle">Q3</text><text x="252" y="148" class="ax-label" text-anchor="middle">Q4</text>
+<!-- All bars same height (100%), proportions change -->
+<rect x="47" y="80" width="50" height="58" fill="var(--lx-pink)"/><rect x="47" y="42" width="50" height="38" fill="var(--lx-cyan)"/><rect x="47" y="24" width="50" height="18" fill="var(--lx-yellow)" rx="2" ry="2"/>
+<rect x="107" y="72" width="50" height="66" fill="var(--lx-pink)"/><rect x="107" y="38" width="50" height="34" fill="var(--lx-cyan)"/><rect x="107" y="24" width="50" height="14" fill="var(--lx-yellow)" rx="2" ry="2"/>
+<rect x="167" y="78" width="50" height="60" fill="var(--lx-pink)"/><rect x="167" y="44" width="50" height="34" fill="var(--lx-cyan)"/><rect x="167" y="24" width="50" height="20" fill="var(--lx-yellow)" rx="2" ry="2"/>
+<rect x="227" y="85" width="50" height="53" fill="var(--lx-pink)"/><rect x="227" y="48" width="50" height="37" fill="var(--lx-cyan)"/><rect x="227" y="24" width="50" height="24" fill="var(--lx-yellow)" rx="2" ry="2"/>
+<!-- Inline % labels -->
+<text x="72" y="112" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:8px;fill:white;opacity:.9">50%</text>
+<text x="72" y="64" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:8px;fill:white;opacity:.9">33%</text>
+<text x="72" y="36" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:7px;fill:var(--lx-black);opacity:.9">17%</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">100% Stacked Bar Chart</div>
+<div class="pl-entry-meta">Best for → Proportion comparison · Share shifts over time · Composition changes</div>
+<div class="pl-entry-desc">All bars are the same height (100%), segments show proportional share. Answers "what percentage was Core vs CB vs Capital?" regardless of total amounts. Inline percentage labels in each segment. Only the top segment gets border-radius.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Budget Proportions</span><span class="lx-chip cy">Market Share</span><span class="lx-chip yw">Survey Results</span></div>
+</div></div>
+
+<!-- Bubble Chart -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="12" class="dk-label" style="font-size:7px">BUBBLE — COST × OUTCOME × PARTICIPANTS</text>
+<line x1="30" y1="138" x2="268" y2="138" class="ax-line"/><line x1="30" y1="15" x2="30" y2="138" class="ax-line"/>
+<text x="22" y="22" class="ax-label" text-anchor="end">HIGH</text><text x="22" y="80" class="ax-label" text-anchor="end">MED</text><text x="22" y="136" class="ax-label" text-anchor="end">LOW</text>
+<text x="50" y="148" class="ax-label">LOW COST</text><text x="230" y="148" class="ax-label">HIGH COST</text>
+<!-- Quadrant dividers -->
+<line x1="150" y1="15" x2="150" y2="138" stroke="rgba(245,240,232,.04)"/><line x1="30" y1="76" x2="268" y2="76" stroke="rgba(245,240,232,.04)"/>
+<!-- Bubbles — size = participant count -->
+<circle cx="80" cy="40" r="22" fill="var(--lx-pink)" opacity=".25" stroke="var(--lx-pink)" stroke-width="1.5"/>
+<text x="80" y="44" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:var(--lx-tx)">ADL</text>
+<circle cx="200" cy="55" r="16" fill="var(--lx-cyan)" opacity=".25" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+<text x="200" y="59" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:10px;fill:var(--lx-tx)">OT</text>
+<circle cx="120" cy="90" r="12" fill="var(--lx-yellow)" opacity=".25" stroke="var(--lx-yellow)" stroke-width="1.5"/>
+<text x="120" y="94" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:9px;fill:var(--lx-black)">SCP</text>
+<circle cx="230" cy="100" r="28" fill="var(--lx-orange)" opacity=".2" stroke="var(--lx-orange)" stroke-width="1.5"/>
+<text x="230" y="104" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:12px;fill:var(--lx-tx)">SIL</text>
+<circle cx="70" cy="110" r="10" fill="var(--lx-purple)" opacity=".25" stroke="var(--lx-purple)" stroke-width="1.5"/>
+<text x="70" y="114" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:8px;fill:var(--lx-tx)">TR</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Bubble Chart</div>
+<div class="pl-entry-meta">Best for → Three-variable comparison · Cost vs outcome vs volume</div>
+<div class="pl-entry-desc">Scatter plot where circle radius encodes a third variable (participant count, hours, budget). X = cost, Y = outcome quality, size = volume. Neon strokes with 20-25% opacity fills for layering. Bebas Neue labels inside each bubble. Quadrant dividers at 4% opacity for "high value / low cost" analysis.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Service Value Analysis</span><span class="lx-chip cy">Provider ROI</span><span class="lx-chip or">Portfolio Strategy</span></div>
+</div></div>
+
+<!-- Stepped Line -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="12" class="dk-label" style="font-size:7px">STEPPED LINE — PLAN STATUS TRANSITIONS</text>
+<line x1="30" y1="138" x2="268" y2="138" class="ax-line"/><line x1="30" y1="20" x2="30" y2="138" class="ax-line"/>
+<text x="22" y="35" class="ax-label" text-anchor="end">ACTIVE</text><text x="22" y="65" class="ax-label" text-anchor="end">REVIEW</text><text x="22" y="95" class="ax-label" text-anchor="end">DRAFT</text><text x="22" y="125" class="ax-label" text-anchor="end">INTAKE</text>
+<text x="55" y="148" class="ax-label">JAN</text><text x="105" y="148" class="ax-label">MAR</text><text x="155" y="148" class="ax-label">MAY</text><text x="205" y="148" class="ax-label">JUL</text><text x="250" y="148" class="ax-label">SEP</text>
+<!-- Stepped line — horizontal segments then vertical jumps -->
+<polyline points="45,120 90,120 90,90 130,90 130,60 180,60 180,30 260,30" fill="none" stroke="var(--lx-pink)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<!-- Transition markers -->
+<circle cx="90" cy="120" r="3" fill="var(--lx-pink)"/><circle cx="90" cy="90" r="3" fill="var(--lx-pink)"/>
+<circle cx="130" cy="90" r="3" fill="var(--lx-pink)"/><circle cx="130" cy="60" r="3" fill="var(--lx-pink)"/>
+<circle cx="180" cy="60" r="3" fill="var(--lx-pink)"/><circle cx="180" cy="30" r="3" fill="var(--lx-pink)"/>
+<circle cx="260" cy="30" r="4" fill="var(--lx-pink)" stroke="var(--lx-black)" stroke-width="2"/>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Stepped Line Chart</div>
+<div class="pl-entry-meta">Best for → Discrete state transitions · Status changes · Rate schedules</div>
+<div class="pl-entry-desc">Flat horizontal segments that jump vertically at each change point. Perfect for plan status transitions (Intake → Draft → Review → Active), NDIS hourly rate changes, or any data that holds a value until it suddenly changes. Dots at each transition point mark the exact change moment.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Plan Status</span><span class="lx-chip cy">Rate Changes</span><span class="lx-chip yw">State Tracking</span></div>
+</div></div>
+
+<!-- Streamgraph -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="12" class="dk-label" style="font-size:7px">STREAMGRAPH — SERVICE VOLUME OVER TIME</text>
+<!-- Organic flowing layers centred on the baseline -->
+<path d="M30,75 Q60,55 90,50 Q120,45 150,42 Q180,40 210,38 Q240,35 270,30 L270,55 Q240,52 210,55 Q180,58 150,60 Q120,62 90,65 Q60,68 30,75 Z" fill="var(--lx-pink)" opacity=".6"/>
+<path d="M30,75 Q60,68 90,65 Q120,62 150,60 Q180,58 210,55 Q240,52 270,55 L270,80 Q240,78 210,80 Q180,82 150,84 Q120,86 90,85 Q60,84 30,82 Z" fill="var(--lx-cyan)" opacity=".5"/>
+<path d="M30,82 Q60,84 90,85 Q120,86 150,84 Q180,82 210,80 Q240,78 270,80 L270,105 Q240,100 210,102 Q180,106 150,108 Q120,110 90,108 Q60,106 30,100 Z" fill="var(--lx-yellow)" opacity=".4"/>
+<path d="M30,100 Q60,106 90,108 Q120,110 150,108 Q180,106 210,102 Q240,100 270,105 L270,120 Q240,118 210,118 Q180,120 150,122 Q120,120 90,118 Q60,116 30,112 Z" fill="var(--lx-purple)" opacity=".35"/>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Streamgraph</div>
+<div class="pl-entry-meta">Best for → Organic flow visualisation · Volume evolution · Editorial narratives</div>
+<div class="pl-entry-desc">Flowing organic stacked area chart centred on a baseline, creating a symmetric river-like shape. Each stream's width encodes volume. More visually distinctive than a regular stacked area — ideal for narrative/editorial use. Pink, cyan, yellow, purple layers at descending opacity.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Service Volume</span><span class="lx-chip cy">Editorial Reports</span><span class="lx-chip pu">Narrative Dashboards</span></div>
+</div></div>
+
+<!-- Horizon Graph -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 280 150">
+<text x="5" y="12" class="dk-label" style="font-size:7px">HORIZON GRAPH — MULTI-PARTICIPANT COMPACT</text>
+<!-- Participant 1 -->
+<text x="5" y="38" class="ax-label" style="fill:var(--lx-tx);opacity:.8">KANE</text>
+<rect x="40" y="22" width="230" height="22" fill="rgba(0,0,0,.02)" rx="2"/>
+<polygon points="40,44 60,38 80,35 100,30 120,32 140,26 160,28 180,24 200,30 220,34 240,38 260,40 270,44" fill="var(--lx-pink)" opacity=".3"/>
+<polygon points="40,44 60,40 80,38 100,34 120,36 140,30 160,32 180,28 200,34 220,38 240,42 260,43 270,44" fill="var(--lx-pink)" opacity=".6"/>
+<!-- Participant 2 -->
+<text x="5" y="68" class="ax-label" style="fill:var(--lx-tx);opacity:.8">JEMA</text>
+<rect x="40" y="52" width="230" height="22" fill="rgba(0,0,0,.02)" rx="2"/>
+<polygon points="40,74 60,70 80,66 100,68 120,62 140,65 160,60 180,64 200,68 220,72 240,74 260,72 270,74" fill="var(--lx-cyan)" opacity=".3"/>
+<polygon points="40,74 60,72 80,70 100,72 120,68 140,70 160,66 180,68 200,72 220,73 240,74 260,73 270,74" fill="var(--lx-cyan)" opacity=".6"/>
+<!-- Participant 3 -->
+<text x="5" y="98" class="ax-label" style="fill:var(--lx-tx);opacity:.8">LEON</text>
+<rect x="40" y="82" width="230" height="22" fill="rgba(0,0,0,.02)" rx="2"/>
+<polygon points="40,104 60,96 80,92 100,88 120,90 140,84 160,86 180,82 200,88 220,94 240,100 260,102 270,104" fill="var(--lx-yellow)" opacity=".3"/>
+<polygon points="40,104 60,100 80,98 100,94 120,96 140,92 160,94 180,90 200,94 220,98 240,102 260,103 270,104" fill="var(--lx-yellow)" opacity=".5"/>
+<!-- Participant 4 -->
+<text x="5" y="128" class="ax-label" style="fill:var(--lx-tx);opacity:.8">SARAH</text>
+<rect x="40" y="112" width="230" height="22" fill="rgba(0,0,0,.02)" rx="2"/>
+<polygon points="40,134 60,128 80,130 100,124 120,126 140,120 160,122 180,118 200,124 220,130 240,132 260,134 270,134" fill="var(--lx-orange)" opacity=".3"/>
+<polygon points="40,134 60,132 80,133 100,130 120,132 140,128 160,130 180,126 200,130 220,133 240,134 260,134 270,134" fill="var(--lx-orange)" opacity=".5"/>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Horizon Graph / Multi-Row Sparkline Dashboard</div>
+<div class="pl-entry-meta">Best for → Dense multi-series monitoring · Caseload overview · Compact time-series</div>
+<div class="pl-entry-desc">Compressed layered bands showing multiple time-series in minimal vertical space. Each row is a participant with a dual-opacity area fill: lighter band for overall range, darker band for recent intensity. Four participants in the space a single line chart would use. Also covers circle packing as an alternative hierarchical composition view.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Caseload Monitoring</span><span class="lx-chip cy">Server Health</span><span class="lx-chip or">Multi-Metric Panel</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 37 — PROCESS & WORKFLOW PATTERNS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="PROCESS">
+<div class="pl-group-num">Group 37 · Suite 8</div>
+<div class="pl-group-title">Process &<br>Workflow Patterns</div>
+<div class="pl-group-desc">Step progress indicators, user journey flows, swimlane timelines, and approval chain trackers.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Step Progress Indicator -->
+<div class="pl-entry" style="grid-column:span 1">
+<div class="pl-entry-viz" style="min-height:120px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:14px;font-size:7px">INTAKE WORKFLOW — STEP 3 OF 5</div>
+<div style="display:flex;align-items:center;gap:0;width:100%">
+<div style="text-align:center;flex:1"><div style="width:28px;height:28px;border-radius:50%;background:var(--lx-pink);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:12px;color:white">1</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.7">REFERRAL</div></div>
+<div style="flex:1;height:2px;background:var(--lx-pink);margin-bottom:18px"></div>
+<div style="text-align:center;flex:1"><div style="width:28px;height:28px;border-radius:50%;background:var(--lx-pink);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:12px;color:white">2</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.7">ASSESS</div></div>
+<div style="flex:1;height:2px;background:var(--lx-pink);margin-bottom:18px"></div>
+<div style="text-align:center;flex:1"><div style="width:28px;height:28px;border-radius:50%;background:var(--lx-yellow);border:2px solid var(--lx-yellow);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:12px;color:var(--lx-black);box-shadow:0 0 12px rgba(204,255,0,.3)">3</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-yellow)">QUOTING</div></div>
+<div style="flex:1;height:2px;background:rgba(0,0,0,.06);margin-bottom:18px"></div>
+<div style="text-align:center;flex:1"><div style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(0,0,0,.1);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:12px;color:var(--lx-tx);opacity:.4">4</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.3">APPROVE</div></div>
+<div style="flex:1;height:2px;background:rgba(0,0,0,.04);margin-bottom:18px"></div>
+<div style="text-align:center;flex:1"><div style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(0,0,0,.08);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:12px;color:var(--lx-tx);opacity:.3">5</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.2">ACTIVE</div></div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Step Progress Indicator</div>
+<div class="pl-entry-meta">Best for → Onboarding flows · Intake processes · Multi-stage workflows</div>
+<div class="pl-entry-desc">Numbered horizontal circles connected by lines showing where a workflow currently sits. Completed steps: pink filled. Current step: yellow with glow. Future steps: outline only at diminishing opacity. Connector lines are solid pink (completed) or dim (pending). Every intake, onboarding, and approval flow needs this.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">NDIS Intake</span><span class="lx-chip cy">Onboarding</span><span class="lx-chip yw">Referral Process</span></div>
+</div></div>
+
+<!-- User Journey / Process Flow -->
+<div class="pl-entry" style="grid-column:span 1">
+<div class="pl-entry-viz" style="min-height:140px">
+<svg width="100%" height="130" viewBox="0 0 340 130">
+<text x="5" y="12" class="dk-label" style="font-size:7px">PARTICIPANT JOURNEY — REFERRAL TO ACTIVE</text>
+<!-- Nodes -->
+<rect x="10" y="45" width="52" height="30" fill="var(--lx-pink)" rx="6"/><text x="36" y="64" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:white;text-transform:uppercase;letter-spacing:.04em">REFERRAL</text>
+<rect x="82" y="45" width="52" height="30" fill="var(--lx-pink)" rx="6"/><text x="108" y="64" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:white;text-transform:uppercase;letter-spacing:.04em">INTAKE</text>
+<rect x="154" y="45" width="52" height="30" fill="var(--lx-cyan)" rx="6"/><text x="180" y="64" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-black);text-transform:uppercase;letter-spacing:.04em">ASSESS</text>
+<rect x="226" y="45" width="52" height="30" fill="var(--lx-yellow)" rx="6"/><text x="252" y="58" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-black);text-transform:uppercase;letter-spacing:.04em">PLAN</text><text x="252" y="68" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-black);text-transform:uppercase;letter-spacing:.04em">IMPL</text>
+<rect x="298" y="45" width="36" height="30" fill="rgba(0,0,0,.06)" stroke="var(--lx-tx)" stroke-width="1" stroke-dasharray="3" opacity=".2" rx="6"/><text x="316" y="64" text-anchor="middle" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;fill:var(--lx-tx);opacity:.5;text-transform:uppercase;letter-spacing:.04em">ACTIVE</text>
+<!-- Arrows -->
+<line x1="62" y1="60" x2="80" y2="60" stroke="var(--lx-tx)" stroke-width="1.5" opacity=".2"/><polygon points="78,57 82,60 78,63" fill="var(--lx-tx)" opacity=".2"/>
+<line x1="134" y1="60" x2="152" y2="60" stroke="var(--lx-tx)" stroke-width="1.5" opacity=".2"/><polygon points="150,57 154,60 150,63" fill="var(--lx-tx)" opacity=".2"/>
+<line x1="206" y1="60" x2="224" y2="60" stroke="var(--lx-tx)" stroke-width="1.5" opacity=".2"/><polygon points="222,57 226,60 222,63" fill="var(--lx-tx)" opacity=".2"/>
+<line x1="278" y1="60" x2="296" y2="60" stroke="var(--lx-tx)" stroke-width="1.5" opacity=".12"/><polygon points="294,57 298,60 294,63" fill="var(--lx-tx)" opacity=".12"/>
+<!-- Decision branch -->
+<line x1="180" y1="75" x2="180" y2="105" stroke="var(--lx-orange)" stroke-width="1" opacity=".4"/><polygon points="177,103 180,107 183,103" fill="var(--lx-orange)" opacity=".4"/>
+<rect x="154" y="95" width="52" height="24" fill="rgba(255,102,0,.12)" stroke="var(--lx-orange)" stroke-width="1" rx="4"/><text x="180" y="110" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-orange);letter-spacing:.06em">WAITLIST</text>
+<!-- Annotations -->
+<text x="36" y="40" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:var(--lx-tx);opacity:.5">1-2 DAYS</text>
+<text x="108" y="40" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:var(--lx-tx);opacity:.5">1 WEEK</text>
+<text x="180" y="40" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:var(--lx-tx);opacity:.5">2-4 WEEKS</text>
+<text x="252" y="40" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:var(--lx-tx);opacity:.5">ONGOING</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">User Journey / Process Flow Diagram</div>
+<div class="pl-entry-meta">Best for → End-to-end process mapping · Decision points · Path visualisation</div>
+<div class="pl-entry-desc">Horizontal node-arrow chain showing a participant's path through a process with duration annotations and decision branches. Completed nodes: solid neon fills. Current: yellow. Future: dashed outline. Orange branch for waitlist/exception paths. Different from a timeline (date-based) and Sankey (volume-based) — this shows the logical process structure with optional branching.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Intake Process</span><span class="lx-chip cy">Referral Flow</span><span class="lx-chip or">Onboarding Journey</span></div>
+</div></div>
+
+<!-- Approval Chain -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="min-height:110px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:10px;font-size:7px">APPROVAL CHAIN — PROGRESS REPORT</div>
+<div style="display:flex;align-items:center;gap:0">
+<div style="text-align:center;flex:1"><div style="width:32px;height:32px;border-radius:50%;background:var(--lx-pink);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:11px;color:white">SC</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.7">DRAFTED</div><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-pink)">03 APR</div></div>
+<div style="flex:.7;height:2px;background:var(--lx-pink);margin-bottom:22px;position:relative"><div style="position:absolute;top:-3px;right:-1px;font-size:8px;color:var(--lx-pink)">✓</div></div>
+<div style="text-align:center;flex:1"><div style="width:32px;height:32px;border-radius:50%;background:var(--lx-cyan);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:10px;color:var(--lx-black)">MGR</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.7">REVIEWED</div><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-cyan)">04 APR</div></div>
+<div style="flex:.7;height:2px;background:var(--lx-cyan);margin-bottom:22px;position:relative"><div style="position:absolute;top:-3px;right:-1px;font-size:8px;color:var(--lx-cyan)">✓</div></div>
+<div style="text-align:center;flex:1"><div style="width:32px;height:32px;border-radius:50%;border:2px solid var(--lx-yellow);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:10px;color:var(--lx-yellow);box-shadow:0 0 10px rgba(204,255,0,.2)">PAR</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-yellow)">AWAITING</div><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-tx);opacity:.4">PENDING</div></div>
+<div style="flex:.7;height:2px;background:rgba(0,0,0,.05);margin-bottom:22px"></div>
+<div style="text-align:center;flex:1"><div style="width:32px;height:32px;border-radius:50%;border:2px solid rgba(0,0,0,.08);margin:0 auto 4px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:9px;color:var(--lx-tx);opacity:.3">NDIA</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.25">SUBMIT</div></div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Approval Chain / Sign-Off Tracker</div>
+<div class="pl-entry-meta">Best for → Multi-step approvals · Document sign-off · Compliance workflows</div>
+<div class="pl-entry-desc">Who has approved, who's pending, who's next. Completed: solid neon circle with ✓ checkmark on connector. Current: yellow outline with glow, labelled "AWAITING". Future: dim outline. Shows role codes (SC, MGR, PAR, NDIA) and completion dates. Also covers swimlane timeline and roster/shift allocation grid as grouped-lane operational views.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Report Approval</span><span class="lx-chip cy">SA Sign-off</span><span class="lx-chip yw">Consent Chain</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 38 — UI STATE PATTERNS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="STATES">
+<div class="pl-group-num">Group 38 · Suite 8</div>
+<div class="pl-group-title">UI State<br>Patterns</div>
+<div class="pl-group-desc">Empty states, loading skeletons, error states, and notification panels — the patterns every widget needs but nobody documents.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Empty State -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="min-height:180px">
+<div style="text-align:center;width:100%">
+<div style="font-family:'Bebas Neue',serif;font-size:48px;color:var(--lx-tx);opacity:.06;margin-bottom:8px">∞</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">No tasks yet</div>
+<div style="font-size:11px;color:var(--lx-tx);opacity:.5;margin-bottom:12px;max-width:220px;margin-left:auto;margin-right:auto">Create your first task to start tracking actions for this participant.</div>
+<div style="display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:8px 18px;border-radius:var(--r-sm);background:var(--lx-pink);color:white;cursor:pointer">+ ADD TASK</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Empty State</div>
+<div class="pl-entry-meta">Best for → Zero-data widgets · First-use experience · Onboarding prompts</div>
+<div class="pl-entry-desc">What a widget shows when there's no data to display. The most overlooked pattern — every chart, table, board, and list needs one. Uses the infinity symbol as a subtle watermark, clear descriptive text explaining what would appear here, and a primary action button to create the first item. The empty state IS the onboarding.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Every Widget</span><span class="lx-chip cy">New Participants</span><span class="lx-chip yw">First-Use Flow</span></div>
+</div></div>
+
+<!-- Loading Skeleton -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="min-height:180px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:12px;font-size:7px">LOADING — SHIMMER SKELETON</div>
+<div style="display:flex;gap:8px;margin-bottom:10px"><div class="skeleton" style="width:36px;height:36px;border-radius:50%;flex-shrink:0"></div><div style="flex:1"><div class="skeleton" style="height:10px;width:60%;margin-bottom:6px"></div><div class="skeleton" style="height:8px;width:40%"></div></div></div>
+<div class="skeleton" style="height:14px;width:100%;margin-bottom:6px;border-radius:3px"></div>
+<div class="skeleton" style="height:14px;width:100%;margin-bottom:6px;border-radius:3px"></div>
+<div class="skeleton" style="height:14px;width:80%;margin-bottom:10px;border-radius:3px"></div>
+<div style="display:flex;gap:6px"><div class="skeleton" style="height:28px;flex:1;border-radius:6px"></div><div class="skeleton" style="height:28px;flex:1;border-radius:6px"></div><div class="skeleton" style="height:28px;flex:1;border-radius:6px"></div></div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Loading Skeleton / Shimmer Placeholder</div>
+<div class="pl-entry-meta">Best for → Data fetch in progress · Perceived performance · Layout stability</div>
+<div class="pl-entry-desc">Animated shimmer placeholders that mirror the shape of the incoming content — circles for avatars, bars for text, rectangles for cards. The shimmer gradient sweeps from left to right on a 1.5s loop. Shows the user exactly what's coming and prevents layout shift. Uses 3–6% opacity white with a sliding 6% highlight band.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Every Data Widget</span><span class="lx-chip cy">API Fetches</span><span class="lx-chip yw">Page Load</span></div>
+</div></div>
+
+<!-- Error State -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="min-height:160px">
+<div style="text-align:center;width:100%">
+<div style="width:40px;height:40px;border-radius:50%;border:2px solid var(--lx-pink);margin:0 auto 10px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:22px;color:var(--lx-pink)">!</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Unable to load data</div>
+<div style="font-size:11px;color:var(--lx-tx);opacity:.5;margin-bottom:4px;max-width:240px;margin-left:auto;margin-right:auto">We couldn't connect to the server. Check your connection and try again.</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-pink);opacity:.6;margin-bottom:12px">ERR_NETWORK_TIMEOUT · 504</div>
+<div style="display:inline-flex;align-items:center;gap:6px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;text-transform:uppercase;letter-spacing:.06em;padding:8px 18px;border-radius:var(--r-sm);border:1.5px solid rgba(0,0,0,.1);color:var(--lx-tx);cursor:pointer">↻ RETRY</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Error State</div>
+<div class="pl-entry-meta">Best for → Failed data fetches · API errors · Connection issues</div>
+<div class="pl-entry-desc">What a widget shows when data loading fails. Pink exclamation circle, descriptive error message, technical error code in JetBrains Mono, and a retry action button. Distinct from empty state (no data exists) — error state means data exists but couldn't be retrieved. Every component needs both.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Every Widget</span><span class="lx-chip cy">API Integrations</span><span class="lx-chip or">Offline Handling</span></div>
+</div></div>
+
+<!-- Notification / Alert Panel -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:200px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:10px;font-size:7px">NOTIFICATIONS</div>
+<!-- Critical -->
+<div style="display:flex;gap:8px;padding:8px 10px;background:rgba(255,45,125,.08);border-left:3px solid var(--lx-pink);border-radius:0 6px 6px 0;margin-bottom:5px">
+<div style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-pink);line-height:1;margin-top:1px">!</div>
+<div style="flex:1"><div style="font-size:10px;color:var(--lx-tx);font-weight:600">Kane Cameron — Plan review overdue</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;margin-top:2px">2 HOURS AGO · CRITICAL</div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.3;cursor:pointer;flex-shrink:0">✕</div>
+</div>
+<!-- Warning -->
+<div style="display:flex;gap:8px;padding:8px 10px;background:rgba(255,102,0,.06);border-left:3px solid var(--lx-orange);border-radius:0 6px 6px 0;margin-bottom:5px">
+<div style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-orange);line-height:1;margin-top:1px">⚠</div>
+<div style="flex:1"><div style="font-size:10px;color:var(--lx-tx);font-weight:600">Leonard Peris — Budget at 85% with 4 months remaining</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;margin-top:2px">1 DAY AGO · WARNING</div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.3;cursor:pointer;flex-shrink:0">✕</div>
+</div>
+<!-- Info -->
+<div style="display:flex;gap:8px;padding:8px 10px;background:rgba(0,212,255,.05);border-left:3px solid var(--lx-cyan);border-radius:0 6px 6px 0;margin-bottom:5px">
+<div style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-cyan);line-height:1;margin-top:1px">i</div>
+<div style="flex:1"><div style="font-size:10px;color:var(--lx-tx);font-weight:600">Jema Cameron — SA signed by IDS</div><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;margin-top:2px">3 DAYS AGO · INFO</div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-tx);opacity:.3;cursor:pointer;flex-shrink:0">✕</div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Notification / Alert Panel</div>
+<div class="pl-entry-meta">Best for → System alerts · Compliance warnings · Action-required notifications</div>
+<div class="pl-entry-desc">Severity-coded alert cards with left-border accent, icon, message, timestamp, category tag, and dismiss button. Pink = critical/overdue, orange = warning, cyan = info. Background tint matches severity at low opacity. JetBrains Mono timestamps and severity labels. Dismiss ✕ at 30% opacity rising on hover.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">System Alerts</span><span class="lx-chip or">Budget Warnings</span><span class="lx-chip cy">Status Updates</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 39 — FORM, PRINT & REFERENCE PATTERNS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="FORMS">
+<div class="pl-group-num">Group 39 · Suite 8</div>
+<div class="pl-group-title">Form, Print &<br>Reference Patterns</div>
+<div class="pl-group-desc">Multi-section forms, print/PDF preview, searchable reference tables, and comparison/diff views — the production patterns that complete a CRM.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-viz-grid">
+
+<!-- Multi-Section Form -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:220px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:10px;font-size:7px">INTAKE FORM — SECTION 3 OF 8</div>
+<!-- Section progress -->
+<div style="display:flex;gap:2px;margin-bottom:14px">
+<div style="flex:1;height:4px;background:var(--lx-pink);border-radius:2px"></div>
+<div style="flex:1;height:4px;background:var(--lx-pink);border-radius:2px"></div>
+<div style="flex:1;height:4px;background:var(--lx-yellow);border-radius:2px;box-shadow:0 0 6px rgba(204,255,0,.3)"></div>
+<div style="flex:1;height:4px;background:rgba(0,0,0,.04);border-radius:2px"></div>
+<div style="flex:1;height:4px;background:rgba(0,0,0,.04);border-radius:2px"></div>
+<div style="flex:1;height:4px;background:rgba(0,0,0,.04);border-radius:2px"></div>
+<div style="flex:1;height:4px;background:rgba(0,0,0,.04);border-radius:2px"></div>
+<div style="flex:1;height:4px;background:rgba(0,0,0,.04);border-radius:2px"></div>
+</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:12px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em;margin-bottom:8px">Disability & Support Needs</div>
+<!-- Form fields -->
+<div style="margin-bottom:8px"><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px">PRIMARY DISABILITY</div><div style="height:28px;background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);border-radius:4px;padding:6px 8px;font-size:10px;color:var(--lx-tx)">Intellectual Disability</div></div>
+<div style="margin-bottom:8px"><div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-tx);opacity:.5;letter-spacing:.1em;text-transform:uppercase;margin-bottom:3px">FUNCTIONAL IMPACT</div><div style="height:48px;background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.06);border-radius:4px;padding:6px 8px;font-size:9px;color:var(--lx-tx);opacity:.6">Significant impact on daily living, communication, and community access...</div></div>
+<!-- Validation indicator -->
+<div style="display:flex;gap:4px;align-items:center;margin-bottom:10px"><div style="width:6px;height:6px;border-radius:50%;background:var(--lx-pink)"></div><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-pink)">2 REQUIRED FIELDS REMAINING</span></div>
+<!-- Nav -->
+<div style="display:flex;justify-content:space-between"><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:6px;border:1px solid rgba(0,0,0,.08);color:var(--lx-tx);opacity:.5;cursor:pointer">← BACK</div><div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.06em;padding:6px 14px;border-radius:6px;background:var(--lx-pink);color:white;cursor:pointer">NEXT →</div></div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Multi-Section Form Layout</div>
+<div class="pl-entry-meta">Best for → NDIS intake forms · Assessment forms · Service agreement builders</div>
+<div class="pl-entry-desc">Stepped form with section progress bar (pink = complete, yellow = current, dim = pending), section title, labelled input fields, validation indicators, and back/next navigation. The progress bar segments show exactly where you are in a long form. Also covers searchable reference table (filterable lookup for NDIS Price Guide with search, sort, and filters).</div>
+<div class="pl-use-cases"><span class="lx-chip pk">NDIS Intake</span><span class="lx-chip cy">Assessments</span><span class="lx-chip yw">SA Builder</span><span class="lx-chip pu">Report Wizard</span></div>
+</div></div>
+
+<!-- Comparison / Diff View -->
+<div class="pl-entry">
+<div class="pl-entry-viz" style="align-items:flex-start;min-height:200px">
+<div style="width:100%">
+<div class="dk-label" style="margin-bottom:10px;font-size:7px">PLAN COMPARISON — PREVIOUS vs CURRENT</div>
+<div style="display:flex;gap:6px">
+<!-- Previous -->
+<div style="flex:1;background:rgba(0,0,0,.02);border-radius:6px;overflow:hidden">
+<div style="background:var(--lx-pink);padding:6px 10px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:white">PREVIOUS PLAN 2024-25</div>
+<div style="padding:8px 10px">
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px">Core: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$38,400</span></div>
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px">CB: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$18,200</span></div>
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px">Capital: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$5,000</span></div>
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px;padding:2px 4px;background:rgba(255,45,125,.1);border-radius:2px">SC: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$8,400</span></div>
+<div style="font-size:9px;color:var(--lx-tx)">Goals: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">3</span></div>
+</div>
+</div>
+<!-- Current -->
+<div style="flex:1;background:rgba(0,0,0,.02);border-radius:6px;overflow:hidden">
+<div style="background:var(--lx-blue);padding:6px 10px;font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:white">CURRENT PLAN 2025-26</div>
+<div style="padding:8px 10px">
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px">Core: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$48,200</span> <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-yellow);-webkit-text-stroke:.5px var(--lx-black);paint-order:stroke fill">▲ +$9,800</span></div>
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px">CB: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$22,400</span> <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-yellow);-webkit-text-stroke:.5px var(--lx-black);paint-order:stroke fill">▲ +$4,200</span></div>
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px">Capital: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$7,000</span> <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-yellow);-webkit-text-stroke:.5px var(--lx-black);paint-order:stroke fill">▲ +$2,000</span></div>
+<div style="font-size:9px;color:var(--lx-tx);margin-bottom:4px;padding:2px 4px;background:rgba(41,121,255,.08);border-radius:2px">SC: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">$10,400</span> <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-yellow);-webkit-text-stroke:.5px var(--lx-black);paint-order:stroke fill">▲ +$2,000</span></div>
+<div style="font-size:9px;color:var(--lx-tx)">Goals: <span style="font-family:'JetBrains Mono',monospace;font-size:9px">5</span> <span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-yellow);-webkit-text-stroke:.5px var(--lx-black);paint-order:stroke fill">▲ +2</span></div>
+</div>
+</div>
+</div>
+<!-- Summary delta bar -->
+<div style="margin-top:8px;background:rgba(204,255,0,.06);border:1px solid rgba(204,255,0,.15);border-radius:4px;padding:6px 8px;display:flex;justify-content:space-between;align-items:center">
+<span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-yellow);-webkit-text-stroke:.5px var(--lx-black);paint-order:stroke fill;letter-spacing:.08em">TOTAL PLAN INCREASE</span>
+<span style="font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-yellow);-webkit-text-stroke:1px var(--lx-black);paint-order:stroke fill">+$18,000</span>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Comparison / Diff View</div>
+<div class="pl-entry-meta">Best for → Plan reassessment comparison · Version diffs · Before/after analysis</div>
+<div class="pl-entry-desc">Side-by-side columns with full-width coloured headers — pink for previous plan, blue for current. Changed values highlighted with yellow ▲/▼ delta annotations with dark text-stroke for cream legibility. Summary bar shows net change. Essential for plan reassessments.</div>
+<div class="pl-use-cases"><span class="lx-chip pk">Plan Reassessment</span><span class="lx-chip cy">Document Versions</span><span class="lx-chip yw">Assessment Comparison</span></div>
+</div></div>
+</div></div>
+
+
+<!-- FINAL FOOTER -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:40px 28px;position:relative;overflow:hidden">
+<div style="font-family:'Bebas Neue',serif;font-size:120px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-24px;user-select:none;pointer-events:none">∞</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:8px">ALL GAPS CLOSED · LIBRARY COMPLETE</div>
+<div style="font-family:'Bebas Neue',serif;font-size:clamp(28px,5vw,48px);color:var(--lx-offwhite);line-height:.95;margin-bottom:16px">COMPLETE PATTERN<br>LIBRARY</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px">
+<span class="lx-chip spk">S1 ✓</span><span class="lx-chip spk">S2 ✓</span><span class="lx-chip spk">S3 ✓</span><span class="lx-chip spk">S4 ✓</span><span class="lx-chip scy">S5 CRM ✓</span><span class="lx-chip syw">S6 Core ✓</span><span class="lx-chip spk">S7 Task ✓</span><span class="lx-chip syw">S8 Final ✓</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:16px">
+<div style="border-left:3px solid var(--lx-pink);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-pink)">39</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">GROUPS</div></div>
+<div style="border-left:3px solid var(--lx-cyan);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-cyan)">320+</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">PATTERNS</div></div>
+<div style="border-left:3px solid var(--lx-yellow);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-yellow)">8</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">SUITES</div></div>
+<div style="border-left:3px solid var(--lx-orange);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-orange)">0</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">GAPS</div></div>
+</div>
+<div class="lx-stripe" style="margin:20px -28px -40px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">LIMITLESS SUPPORT CO. · 2026 UI VISUAL DATA PATTERN LIBRARY · 8 SUITES · 39 GROUPS · COMPLETE · ABN 76 985 845 524</div>
+<script>const io=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('vis'),io.unobserve(e.target))})},{threshold:.08});document.querySelectorAll('.lx-rev').forEach(el=>io.observe(el));</script>
+</body>
+</html>

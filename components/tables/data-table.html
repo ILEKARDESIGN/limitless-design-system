@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Data Tables</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+<!-- Component: Data Tables | Category: Tables -->
+
+<div class="demo-section">
+  <div class="demo-label">STANDARD DATA TABLE (.lx-tbl)</div>
+  <table class="lx-tbl" style="max-width:700px">
+    <thead>
+      <tr><th>Provider</th><th>Service Type</th><th>Frequency</th><th>Cost/Hr</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="lx-tb">Therapy Plus</td><td>Occupational Therapy</td><td>Weekly</td><td class="lx-tm">$193.99</td><td><span class="lx-chip spk">Active</span></td></tr>
+      <tr><td class="lx-tb">MindCare</td><td>Psychology</td><td>Fortnightly</td><td class="lx-tm">$222.99</td><td><span class="lx-chip scy">Review</span></td></tr>
+      <tr><td class="lx-tb">FitAbility</td><td>Exercise Physiology</td><td>Weekly</td><td class="lx-tm">$166.99</td><td><span class="lx-chip spk">Active</span></td></tr>
+      <tr><td class="lx-tb">SpeakEasy</td><td>Speech Pathology</td><td>Monthly</td><td class="lx-tm">$193.99</td><td><span class="lx-chip sbk">Pending</span></td></tr>
+      <tr class="lx-ttot"><td colspan="3">Total Monthly Cost</td><td class="lx-tm">$3,420.00</td><td></td></tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="demo-section">
+  <div class="demo-label">INFO ROWS (.lx-ir)</div>
+  <div style="max-width:400px">
+    <div class="lx-ir"><span class="lx-ik">Participant Name</span><span class="lx-iv">Iona K.</span></div>
+    <div class="lx-ir"><span class="lx-ik">NDIS Number</span><span class="lx-iv n">12345678</span></div>
+    <div class="lx-ir"><span class="lx-ik">Plan Budget</span><span class="lx-iv">$72,400</span></div>
+    <div class="lx-ir"><span class="lx-ik">Remaining</span><span class="lx-iv" style="color:var(--lx-cyan)">$24,170</span></div>
+  </div>
+</div>
+
+<div class="demo-section">
+  <div class="demo-label">KPI ROW (.lx-krow)</div>
+  <div class="lx-krow">
+    <div class="lx-k"><div class="lx-kv cpk">24</div><div class="lx-kl">Active Cases</div></div>
+    <div class="lx-k"><div class="lx-kv ccy">$12.4K</div><div class="lx-kl">Budget Used</div></div>
+    <div class="lx-k"><div class="lx-kv cor">7</div><div class="lx-kl">Pending Reviews</div></div>
+    <div class="lx-k"><div class="lx-kv cpu">89%</div><div class="lx-kl">Goal Progress</div></div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+</body>
+</html>

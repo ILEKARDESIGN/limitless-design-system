@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Spotlight Tabs</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+
+<div class="demo-section">
+  <div class="demo-label">SPOTLIGHT TAB NAVIGATION — ANIMATED FLYING TABS</div>
+  <div style="background:var(--lx-black);border-radius:var(--r-md);padding:10px;border:1px solid rgba(255,255,255,.06)">
+    <div style="padding:0 0 8px;position:relative;min-height:52px">
+      <button class="spot-btn" id="spotBtn" data-tab="overview" style="font-family:Barlow Condensed,sans-serif;font-weight:900;font-size:17px;text-transform:uppercase;letter-spacing:.06em;padding:14px 28px;border:none;border-radius:var(--r-sm);cursor:pointer;display:inline-flex;align-items:center;gap:8px;background:var(--lx-pink);color:#fff;box-shadow:0 6px 24px rgba(0,0,0,.4)">◉ OVERVIEW</button>
+    </div>
+    <div class="lx-tabs" id="mainTabs" style="background:transparent;border:none;padding:0">
+      <button class="lx-tab" data-tab="overview" data-bg="var(--lx-pink)" data-fg="#fff" style="border-color:var(--lx-pink);color:var(--lx-pink);display:none!important">◉ Overview</button>
+      <button class="lx-tab" data-tab="budget" data-bg="var(--lx-cyan)" data-fg="#0D0D0D" style="border-color:var(--lx-cyan);color:var(--lx-cyan)">Budget</button>
+      <button class="lx-tab" data-tab="goals" data-bg="var(--lx-yellow)" data-fg="#0D0D0D" style="border-color:var(--lx-yellow);color:var(--lx-yellow)">Goals</button>
+      <button class="lx-tab" data-tab="schedule" data-bg="var(--lx-purple)" data-fg="#fff" style="border-color:var(--lx-purple);color:var(--lx-purple)">Schedule</button>
+      <button class="lx-tab" data-tab="reports" data-bg="var(--lx-orange)" data-fg="#fff" style="border-color:var(--lx-orange);color:var(--lx-orange)">Reports</button>
+    </div>
+  </div>
+  <div id="mainPanels" style="margin-top:10px">
+    <div class="lx-tpanel active" data-panel="overview"><div class="lx-card tl"><div class="lx-cmd">Overview Panel</div><div class="lx-bsm cm" style="margin-top:4px">Click tabs above to see the spring-animated flying tab effect.</div></div></div>
+    <div class="lx-tpanel" data-panel="budget"><div class="lx-card" style="border-left:3px solid var(--lx-cyan)"><div class="lx-cmd ccy">Budget Panel</div></div></div>
+    <div class="lx-tpanel" data-panel="goals"><div class="lx-card yellow"><div class="lx-cmd">Goals Panel</div></div></div>
+    <div class="lx-tpanel" data-panel="schedule"><div class="lx-card" style="border-left:3px solid var(--lx-purple)"><div class="lx-cmd cpu">Schedule Panel</div></div></div>
+    <div class="lx-tpanel" data-panel="reports"><div class="lx-card" style="border-left:3px solid var(--lx-orange)"><div class="lx-cmd cor">Reports Panel</div></div></div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+<script>
+// Spotlight tabs initialization
+(function(){
+  const spotBtn=document.getElementById('spotBtn');
+  const grid=document.getElementById('mainTabs');
+  const panels=document.getElementById('mainPanels');
+  let cur='overview',anim=false;
+  const C={overview:['var(--lx-pink)','#fff'],budget:['var(--lx-cyan)','#0D0D0D'],goals:['var(--lx-yellow)','#0D0D0D'],schedule:['var(--lx-purple)','#fff'],reports:['var(--lx-orange)','#fff']};
+  function sync(id){grid.querySelectorAll('.lx-tab').forEach(b=>b.style.display=b.dataset.tab===id?'none':'inline-flex');}
+  function show(id){panels.querySelectorAll('.lx-tpanel').forEach(p=>p.classList.toggle('active',p.dataset.panel===id));}
+  function go(nid,el){
+    if(anim||nid===cur)return;anim=true;
+    spotBtn.style.transition='opacity .2s,transform .2s';spotBtn.style.opacity='0';spotBtn.style.transform='scale(.85) translateY(8px)';
+    setTimeout(()=>{
+      spotBtn.textContent='◉ '+el.textContent.trim().toUpperCase();spotBtn.dataset.tab=nid;
+      spotBtn.style.background=C[nid][0];spotBtn.style.color=C[nid][1];
+      spotBtn.style.transition='none';spotBtn.style.transform='scale(.88) translateY(16px)';
+      void spotBtn.offsetWidth;
+      spotBtn.style.transition='opacity .3s var(--spring),transform .35s var(--spring)';
+      spotBtn.style.opacity='1';spotBtn.style.transform='';
+      show(nid);cur=nid;sync(nid);
+      setTimeout(()=>{spotBtn.style.transition='';anim=false;},400);
+    },250);
+  }
+  grid.addEventListener('click',e=>{const b=e.target.closest('.lx-tab');if(b)go(b.dataset.tab,b);});
+  sync(cur);show(cur);
+})();
+</script>
+</body>
+</html>

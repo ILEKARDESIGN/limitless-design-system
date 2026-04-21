@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>LIMITLESS ∞ Kanban Board</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../css/limitless.css">
+<style>
+body { padding: 20px; }
+.demo-section { margin-bottom: 32px; }
+.demo-label { font-family: 'JetBrains Mono', monospace; font-size: 8px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--lx-txl); margin-bottom: 10px; }
+.demo-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start; margin-bottom: 16px; }
+
+</style>
+</head>
+<body>
+
+<div class="demo-section">
+  <div class="demo-label">KANBAN BOARD — 4 COLUMNS</div>
+  <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;min-height:300px">
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div class="lx-csm cpk">TO DO</div><span class="lx-chip pk" style="font-size:6px">3</span>
+      </div>
+      <div class="lx-card" style="padding:12px;margin-bottom:8px;border-left:3px solid var(--lx-pink)">
+        <div class="lx-cmd" style="font-size:12px">Submit Plan Review</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Due: 15 May 2026</div>
+        <div style="margin-top:6px"><span class="lx-chip pk" style="font-size:6px">Critical</span></div>
+      </div>
+      <div class="lx-card" style="padding:12px;margin-bottom:8px;border-left:3px solid var(--lx-orange)">
+        <div class="lx-cmd" style="font-size:12px">OT Assessment Follow-up</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Due: 22 May 2026</div>
+        <div style="margin-top:6px"><span class="lx-chip or" style="font-size:6px">High</span></div>
+      </div>
+      <div class="lx-card" style="padding:12px;border-left:3px solid var(--lx-cyan)">
+        <div class="lx-cmd" style="font-size:12px">Update Service Agreement</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Due: 30 May 2026</div>
+        <div style="margin-top:6px"><span class="lx-chip cy" style="font-size:6px">Medium</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div class="lx-csm ccy">IN PROGRESS</div><span class="lx-chip cy" style="font-size:6px">2</span>
+      </div>
+      <div class="lx-card" style="padding:12px;margin-bottom:8px;border-left:3px solid var(--lx-cyan)">
+        <div class="lx-cmd" style="font-size:12px">Budget Reconciliation</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Q1 2026 spending review</div>
+        <div style="margin-top:6px;display:flex;gap:4px"><span class="lx-chip cy" style="font-size:6px">Finance</span></div>
+      </div>
+      <div class="lx-card" style="padding:12px;border-left:3px solid var(--lx-purple)">
+        <div class="lx-cmd" style="font-size:12px">Provider Research</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Finding new speech pathologist</div>
+        <div style="margin-top:6px"><span class="lx-chip pu" style="font-size:6px">Research</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div class="lx-csm cor">REVIEW</div><span class="lx-chip or" style="font-size:6px">1</span>
+      </div>
+      <div class="lx-card" style="padding:12px;border-left:3px solid var(--lx-orange)">
+        <div class="lx-cmd" style="font-size:12px">Change of Circumstance Report</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Awaiting SC manager sign-off</div>
+        <div style="margin-top:6px"><span class="lx-chip or" style="font-size:6px">Pending Review</span></div>
+      </div>
+    </div>
+    <div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+        <div class="lx-csm" style="color:var(--lx-yellow)">DONE</div><span class="lx-chip yw" style="font-size:6px">2</span>
+      </div>
+      <div class="lx-card cream" style="padding:12px;margin-bottom:8px;opacity:.7">
+        <div class="lx-cmd" style="font-size:12px;text-decoration:line-through">Initial Plan Meeting</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Completed 10 Apr 2026</div>
+      </div>
+      <div class="lx-card cream" style="padding:12px;opacity:.7">
+        <div class="lx-cmd" style="font-size:12px;text-decoration:line-through">Service Bookings Set Up</div>
+        <div class="lx-bxs cm" style="margin-top:4px">Completed 15 Apr 2026</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="../../js/core.js"></script>
+
+</body>
+</html>

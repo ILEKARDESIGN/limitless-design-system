@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Suite 5 · CRM & Widget Patterns — Groups 25–30 — LIMITLESS Support Co.</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow:wght@400;500;600;700;900&family=Barlow+Condensed:wght@700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--lx-black:#0D0D0D;--lx-offwhite:#F5F0E8;--lx-cream:#FAF7F2;--lx-pink:#FF2D7D;--lx-yellow:#CCFF00;--lx-orange:#FF6600;--lx-cyan:#00D4FF;--lx-blue:#2979FF;--lx-purple:#B14EFF;--lx-bg:#F5F0E8;--lx-card:#FFF;--lx-bdr:rgba(13,13,13,.08);--lx-tx:#0D0D0D;--lx-txm:#555;--lx-txl:#999;--r-sm:10px;--r-md:16px;--r-xl:32px;--r-p:999px;--sh-sm:0 2px 8px rgba(0,0,0,.06);--sh-hv:0 16px 48px rgba(0,0,0,.13);--ease:cubic-bezier(.4,0,.2,1);--spring:cubic-bezier(.34,1.56,.64,1)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'Barlow',system-ui,sans-serif;background:var(--lx-bg);color:var(--lx-tx);font-size:13px;line-height:1.5;overflow-x:hidden}
+.lx-topbar{background:var(--lx-black);color:var(--lx-offwhite);padding:7px 18px;display:flex;justify-content:space-between;align-items:center;border-radius:0 0 var(--r-md) var(--r-md);margin:0 10px;position:sticky;top:0;z-index:100}.lx-tlogo{font-family:'Bebas Neue',serif;font-size:16px;letter-spacing:.1em}.lx-tlogo span{color:var(--lx-pink)}.lx-tmeta{font-family:'JetBrains Mono',monospace;font-size:7.5px;letter-spacing:.18em;text-transform:uppercase;opacity:.45}.lx-tbadge{font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;background:var(--lx-yellow);color:var(--lx-black);padding:2px 8px;border-radius:var(--r-p)}.lx-tbadge.pink{background:var(--lx-pink);color:#fff}.lx-tbadge.cyan{background:var(--lx-cyan);color:var(--lx-black)}
+.lx-stripe{height:5px;background:linear-gradient(90deg,var(--lx-pink),var(--lx-orange),var(--lx-yellow),var(--lx-cyan))}.lx-eye{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl)}.lx-bsm{font-size:11px;line-height:1.5}
+.lx-chip{display:inline-flex;align-items:center;gap:4px;font-family:'JetBrains Mono',monospace;font-size:7px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:3px 10px;border-radius:var(--r-p);border:1px solid;white-space:nowrap}.lx-chip.pk{border-color:rgba(255,45,125,.3);color:var(--lx-pink);background:rgba(255,45,125,.07)}.lx-chip.yw{border-color:rgba(204,255,0,.4);color:#7a9900;background:rgba(204,255,0,.12)}.lx-chip.cy{border-color:rgba(0,212,255,.3);color:var(--lx-cyan);background:rgba(0,212,255,.08)}.lx-chip.or{border-color:rgba(255,102,0,.3);color:var(--lx-orange);background:rgba(255,102,0,.07)}.lx-chip.pu{border-color:rgba(177,78,255,.3);color:var(--lx-purple);background:rgba(177,78,255,.07)}.lx-chip.bl{border-color:rgba(41,121,255,.3);color:var(--lx-blue);background:rgba(41,121,255,.08)}.lx-chip.spk{background:var(--lx-pink);color:#fff;border-color:transparent}.lx-chip.syw{background:var(--lx-yellow);color:var(--lx-black);border-color:transparent}.lx-chip.scy{background:var(--lx-cyan);color:var(--lx-black);border-color:transparent}
+.fx{display:flex}.g2{gap:8px}.g3{gap:12px}.g4{gap:16px}.cm{color:var(--lx-txm)}.cpk{color:var(--lx-pink)}.cyw{color:var(--lx-yellow)}.ccy{color:var(--lx-cyan)}.cor{color:var(--lx-orange)}.cpu{color:var(--lx-purple)}.cbl{color:var(--lx-blue)}
+.pl-group-header{background:var(--lx-black);padding:40px 28px 32px;margin:0 10px 0;position:relative;overflow:hidden;border-radius:var(--r-xl) var(--r-xl) 0 0}.pl-group-header::before{content:attr(data-mirror);font-family:'Bebas Neue',serif;font-size:clamp(48px,8vw,90px);line-height:.88;color:rgba(255,255,255,.03);position:absolute;bottom:-8px;left:28px;user-select:none;pointer-events:none}.pl-group-num{font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--lx-pink);margin-bottom:6px}.pl-group-title{font-family:'Bebas Neue',serif;font-size:clamp(36px,6vw,64px);line-height:.92;color:#F5F0E8;margin-bottom:8px}.pl-group-desc{font-size:12px;color:#F5F0E8;opacity:.6;max-width:600px;line-height:1.5}.pl-infinity{position:absolute;right:28px;top:50%;transform:translateY(-50%);opacity:.06}
+.pl-entry{background:var(--lx-card);border:1px solid var(--lx-bdr);border-radius:var(--r-md);overflow:hidden;transition:transform .28s var(--ease),box-shadow .28s var(--ease)}.pl-entry:hover{transform:translateY(-3px);box-shadow:var(--sh-hv)}.pl-entry-viz{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-radius:var(--r-md) var(--r-md) 0 0;padding:20px;min-height:140px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}.pl-entry-viz::after{content:'∞';font-family:'Bebas Neue',serif;font-size:60px;color:rgba(0,0,0,.04);position:absolute;right:8px;bottom:-10px}.pl-entry-body{padding:16px}.pl-entry-name{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:15px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px}.pl-entry-meta{font-family:'JetBrains Mono',monospace;font-size:8px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--lx-txl);margin-bottom:8px}.pl-entry-desc{font-size:11px;color:var(--lx-txm);line-height:1.5;margin-bottom:8px}.pl-use-cases{display:flex;flex-wrap:wrap;gap:4px}
+.pl-subcat{background:var(--lx-cream);border:1px solid var(--lx-bdr);border-left:4px solid var(--lx-pink);border-radius:var(--r-sm);padding:12px 16px;margin-bottom:10px}.pl-subcat-title{font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:14px;text-transform:uppercase;letter-spacing:.08em;color:var(--lx-pink);margin-bottom:7px;padding-bottom:7px;border-bottom:2px solid var(--lx-pink)}.pl-subcat-list{font-size:11px;color:var(--lx-txm);line-height:1.7}
+.pl-viz-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;padding:0 0 10px}
+.pl-group-body{background:var(--lx-cream);margin:0 10px;padding:16px;border:1px solid var(--lx-bdr);border-top:none;border-radius:0 0 var(--r-xl) var(--r-xl);margin-bottom:24px}
+.pl-style-card{background:var(--lx-black);border-radius:var(--r-sm);padding:12px 14px;margin-top:8px}.pl-style-label{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-yellow);margin-bottom:4px}.pl-style-text{font-size:10px;color:#F5F0E8;opacity:.75;line-height:1.5}
+.mini-label{font-family:'JetBrains Mono',monospace;font-size:7px;fill:rgba(0,0,0,.4)}.mini-axis{stroke:rgba(0,0,0,.12);stroke-width:1}
+.lx-rev{opacity:0;transform:translateY(20px);transition:opacity .55s var(--ease),transform .55s var(--ease)}.lx-rev.vis{opacity:1;transform:translateY(0)}
+@media(max-width:900px){.pl-viz-grid{grid-template-columns:1fr!important}}
+
+@media(max-width:540px){
+  [style*="grid-column"]{grid-column:1/-1!important}
+  .pl-viz-grid{grid-template-columns:1fr!important}
+}
+</style>
+</head>
+<body>
+<div class="lx-topbar"><div class="fx g3" style="align-items:center"><span class="lx-tlogo">LIMIT<span>LESS</span></span><span class="lx-tmeta">2026 UI Visual Data Pattern Library</span></div><div class="fx g2" style="align-items:center"><span class="lx-tbadge">Suite 5</span><span class="lx-tbadge pink">CRM & SC Patterns</span><span class="lx-tbadge cyan">Groups 25–30</span></div></div>
+<div class="lx-stripe" style="margin:0 10px;border-radius:0 0 4px 4px"></div>
+<div style="text-align:center;padding:32px 20px 8px"><div class="lx-eye" style="color:var(--lx-pink);margin-bottom:6px">SUPPLEMENTARY SUITE · CRM · PLAN MANAGEMENT · SUPPORT COORDINATION</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(40px,8vw,72px);line-height:.9;color:var(--lx-black)">SUITE FIVE</div><div style="font-family:'Bebas Neue',serif;font-size:clamp(16px,3vw,28px);color:var(--lx-pink);letter-spacing:.05em;margin-top:4px">CRM & WIDGET PATTERNS · GROUPS 25 — 30</div><div class="lx-bsm cm" style="max-width:620px;margin:12px auto 0">Composite UI patterns specific to CRM, NDIS plan management, support coordination, case management, compliance, and operational widgets. These are the real-world patterns that don't appear in generic chart libraries but are the most-used components in production CRM and SC systems.</div></div>
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 25 — PARTICIPANT & ENTITY MANAGEMENT
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="ENTITY">
+<svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+<div class="pl-group-num">Group 25 · Suite 5</div>
+<div class="pl-group-title">Participant & Entity<br>Management</div>
+<div class="pl-group-desc">The identity layer — how people, providers, and organizations are represented as interactive data objects in a CRM.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-subcat"><div class="pl-subcat-title">CRM Entity Patterns</div><div class="pl-subcat-list">Entity card grid · participant summary card · contact profile tile · provider card · multi-participant comparison panel · caseload distribution view · caseload heatmap · participant roster list · entity relationship mini-map · quick-action entity tile · participant lifecycle badge · complexity tier indicator</div></div>
+<div class="pl-viz-grid">
+
+<!-- Entity Card -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<div style="width:100%;display:grid;grid-template-columns:1fr 1fr;gap:8px">
+<!-- Card 1 -->
+<div style="background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.04);border-radius:10px;padding:12px;position:relative">
+<div style="position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--lx-pink);animation:pulse 1.5s ease-in-out infinite"></div>
+<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--lx-pink),var(--lx-orange));margin-bottom:8px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:14px;color:white">KC</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em">Kane Cameron</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5);letter-spacing:.1em;margin-bottom:8px">NDIS #430925333</div>
+<div class="fx" style="gap:4px;flex-wrap:wrap">
+<span style="font-family:'JetBrains Mono',monospace;font-size:6px;padding:2px 6px;border-radius:999px;background:rgba(255,45,125,.15);color:var(--lx-pink);border:1px solid rgba(255,45,125,.2)">COMPLEX</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:6px;padding:2px 6px;border-radius:999px;background:rgba(255,102,0,.12);color:var(--lx-orange);border:1px solid rgba(255,102,0,.2)">REVIEW DUE</span>
+</div>
+<div style="margin-top:8px;display:flex;gap:8px">
+<div><div style="font-family:'Bebas Neue',serif;font-size:16px;color:var(--lx-cyan);line-height:1">24.5</div><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5)">SC HOURS</div></div>
+<div><div style="font-family:'Bebas Neue',serif;font-size:16px;color:var(--lx-yellow);-webkit-text-stroke:1px var(--lx-black);paint-order:stroke fill;line-height:1">68%</div><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5)">BUDGET</div></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div style="background:rgba(0,0,0,.03);border:1px solid rgba(0,0,0,.04);border-radius:10px;padding:12px;position:relative">
+<div style="position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%;background:var(--lx-cyan)"></div>
+<div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,var(--lx-cyan),var(--lx-blue));margin-bottom:8px;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:14px;color:white">JC</div>
+<div style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:11px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.04em">Jema Cameron</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5);letter-spacing:.1em;margin-bottom:8px">NDIS #430930931</div>
+<div class="fx" style="gap:4px;flex-wrap:wrap">
+<span style="font-family:'JetBrains Mono',monospace;font-size:6px;padding:2px 6px;border-radius:999px;background:rgba(0,212,255,.12);color:var(--lx-cyan);border:1px solid rgba(0,212,255,.2)">ACTIVE</span>
+</div>
+<div style="margin-top:8px;display:flex;gap:8px">
+<div><div style="font-family:'Bebas Neue',serif;font-size:16px;color:var(--lx-cyan);line-height:1">18.0</div><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5)">SC HOURS</div></div>
+<div><div style="font-family:'Bebas Neue',serif;font-size:16px;color:var(--lx-yellow);-webkit-text-stroke:1px var(--lx-black);paint-order:stroke fill;line-height:1">45%</div><div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5)">BUDGET</div></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Entity Card Grid / Participant Summary Tile</div>
+<div class="pl-entry-meta">Best for → Caseload overview · Quick-scan participant status · CRM home screen</div>
+<div class="pl-entry-desc">The fundamental CRM unit. Each card encodes identity (avatar + name + ID), status (pulse dot + chips), embedded KPIs (hours + budget utilization), and complexity tier. Gradient avatars using initials, neon status chips, Bebas Neue stat pairs. Also covers contact profile tile, provider card, entity roster list, quick-action tile, complexity tier indicator, and participant lifecycle badge.</div>
+<div class="pl-style-card"><div class="pl-style-label">CRM-Specific Design Notes</div><div class="pl-style-text">Gradient avatar circles (pink→orange, cyan→blue by role) · Pulse dot = requires attention, solid = stable · Compact chip badges for status/tier · Embedded KPI pair (hours + budget %) · Dark card variant on dark surface · 10px border-radius · Sortable/filterable grid layout</div></div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">NDIS CRM Home</span><span class="lx-chip cy">Case Management</span><span class="lx-chip yw">Provider Directory</span></div>
+</div></div>
+
+<!-- Caseload Distribution -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<div style="width:100%">
+<div class="lx-eye" style="color:var(--lx-pink);margin-bottom:10px">CASELOAD BY COMPLEXITY</div>
+<div style="display:flex;gap:4px;align-items:flex-end;height:80px">
+<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center">
+<div style="width:100%;height:65px;background:var(--lx-pink);border-radius:4px 4px 0 0;position:relative"><div style="position:absolute;top:4px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',serif;font-size:16px;color:white">12</div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5);margin-top:4px">COMPLEX</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center">
+<div style="width:100%;height:45px;background:var(--lx-orange);border-radius:4px 4px 0 0;position:relative"><div style="position:absolute;top:4px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',serif;font-size:16px;color:white">8</div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5);margin-top:4px">MODERATE</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center">
+<div style="width:100%;height:25px;background:var(--lx-cyan);border-radius:4px 4px 0 0;position:relative"><div style="position:absolute;top:4px;left:50%;transform:translateX(-50%);font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-black)">4</div></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5);margin-top:4px">STANDARD</div>
+</div>
+</div>
+<div style="margin-top:10px;display:flex;justify-content:space-between">
+<span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5)">TOTAL: 24 PARTICIPANTS</span>
+<span style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-pink)">AVG 4.2H/WEEK</span>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Caseload Distribution / Workload Breakdown</div>
+<div class="pl-entry-meta">Best for → SC capacity planning · Team allocation · Workload balancing</div>
+<div class="pl-entry-desc">Shows how a coordinator's caseload is distributed across complexity tiers with embedded counts and average time metrics. Pink = complex/high-touch, orange = moderate, cyan = standard. Also covers caseload heatmap (coordinator × week view) and multi-participant comparison panel for side-by-side reviews.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">SC Workload</span><span class="lx-chip or">Team Management</span><span class="lx-chip cy">Capacity Planning</span></div>
+</div></div>
+
+<!-- Contact Relationship Map -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="150" viewBox="0 0 240 150">
+<circle cx="120" cy="75" r="18" fill="var(--lx-pink)"/>
+<text x="120" y="79" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:11px;fill:white">KC</text>
+<text x="120" y="100" text-anchor="middle" class="mini-label" style="fill:var(--lx-pink)">PARTICIPANT</text>
+<!-- Connections -->
+<line x1="102" y1="68" x2="50" y2="35" stroke="rgba(255,45,125,.2)" stroke-width="1.5"/>
+<line x1="138" y1="68" x2="190" y2="35" stroke="rgba(0,212,255,.2)" stroke-width="1.5"/>
+<line x1="120" y1="57" x2="120" y2="22" stroke="rgba(204,255,0,.2)" stroke-width="1.5"/>
+<line x1="102" y1="82" x2="40" y2="110" stroke="rgba(177,78,255,.2)" stroke-width="1.5"/>
+<line x1="138" y1="82" x2="200" y2="110" stroke="rgba(255,102,0,.2)" stroke-width="1.5"/>
+<line x1="120" y1="93" x2="120" y2="130" stroke="rgba(41,121,255,.2)" stroke-width="1.5"/>
+<!-- Satellite nodes -->
+<circle cx="50" cy="30" r="10" fill="rgba(255,45,125,.15)" stroke="var(--lx-pink)" stroke-width="1.5"/>
+<text x="50" y="34" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:8px;fill:var(--lx-pink)">MUM</text>
+<circle cx="190" cy="30" r="10" fill="rgba(0,212,255,.12)" stroke="var(--lx-cyan)" stroke-width="1.5"/>
+<text x="190" y="34" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:8px;fill:var(--lx-cyan)">GP</text>
+<circle cx="120" cy="16" r="10" fill="rgba(204,255,0,.12)" stroke="var(--lx-yellow)" stroke-width="1.5"/>
+<text x="120" y="20" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:7px;fill:var(--lx-txm)">LAC</text>
+<circle cx="40" cy="115" r="10" fill="rgba(177,78,255,.12)" stroke="var(--lx-purple)" stroke-width="1.5"/>
+<text x="40" y="119" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:7px;fill:var(--lx-purple)">OT</text>
+<circle cx="200" cy="115" r="10" fill="rgba(255,102,0,.12)" stroke="var(--lx-orange)" stroke-width="1.5"/>
+<text x="200" y="119" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:7px;fill:var(--lx-orange)">IDS</text>
+<circle cx="120" cy="135" r="10" fill="rgba(41,121,255,.12)" stroke="var(--lx-blue)" stroke-width="1.5"/>
+<text x="120" y="139" text-anchor="middle" style="font-family:'Bebas Neue',serif;font-size:7px;fill:var(--lx-blue)">SC</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Contact Relationship Mini-Map / Support Network</div>
+<div class="pl-entry-meta">Best for → Participant support network · Stakeholder mapping · Communication channels</div>
+<div class="pl-entry-desc">Radial relationship diagram centred on the participant showing connected family members, providers, NDIA contacts, and allied health professionals. Solid pink centre node, stroke-only satellite nodes colour-coded by role type. Different from a generic network graph because it's always participant-centred with fixed role categories.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">SC Case View</span><span class="lx-chip cy">Intake Forms</span><span class="lx-chip pu">Care Teams</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 26 — PLAN & BUDGET MANAGEMENT
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="BUDGET">
+<svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+<div class="pl-group-num">Group 26 · Suite 5</div>
+<div class="pl-group-title">Plan & Budget<br>Management</div>
+<div class="pl-group-desc">NDIS plan lifecycle, budget tracking, utilization forecasting, and financial management patterns.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-subcat"><div class="pl-subcat-title">Plan & Budget Patterns</div><div class="pl-subcat-list">Budget envelope compartmentalized view · plan period countdown banner · utilization speedometer · budget forecast projection · claim reconciliation table · spend-vs-time pacing chart · category budget donut cluster · committed/spent/available stacked bar · projected exhaustion date indicator · plan period elapsed vs budget consumed dual gauge · over/under utilization alert card · budget reallocation Sankey</div></div>
+<div class="pl-viz-grid">
+
+<!-- Budget Envelope -->
+<div class="pl-entry" style="grid-column:1/-1">
+<div class="pl-entry-viz" style="min-height:170px">
+<div style="width:100%">
+<div class="fx" style="justify-content:space-between;margin-bottom:12px"><div class="lx-eye" style="color:var(--lx-pink)">NDIS BUDGET ENVELOPE</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5)">PLAN: 01 APR 2025 → 31 MAR 2026</div></div>
+<!-- Core -->
+<div style="margin-bottom:10px">
+<div class="fx" style="justify-content:space-between;margin-bottom:3px"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.05em">Core Supports</span><span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-tx)">$48,200</span></div>
+<div style="height:14px;background:rgba(0,0,0,.03);border-radius:3px;overflow:hidden;display:flex">
+<div style="width:42%;background:var(--lx-pink);position:relative"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:6px;color:white;letter-spacing:.08em">SPENT $20,244</div></div>
+<div style="width:18%;background:var(--lx-orange);opacity:.7"></div>
+<div style="width:40%;position:relative"><div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5);letter-spacing:.08em">AVAIL $19,280</div></div>
+</div>
+<div class="fx" style="justify-content:space-between;margin-top:2px"><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-pink)">■ SPENT 42%</span><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-orange)">■ COMMITTED 18%</span><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.45)">□ AVAILABLE 40%</span></div>
+</div>
+<!-- Capacity Building -->
+<div style="margin-bottom:10px">
+<div class="fx" style="justify-content:space-between;margin-bottom:3px"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.05em">Capacity Building</span><span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-tx)">$22,400</span></div>
+<div style="height:14px;background:rgba(0,0,0,.03);border-radius:3px;overflow:hidden;display:flex">
+<div style="width:55%;background:var(--lx-cyan)"></div>
+<div style="width:12%;background:var(--lx-orange);opacity:.6"></div>
+</div>
+<div class="fx" style="justify-content:space-between;margin-top:2px"><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-cyan)">■ SPENT 55%</span><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-orange)">■ COMMITTED 12%</span><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.45)">□ AVAILABLE 33%</span></div>
+</div>
+<!-- Capital -->
+<div>
+<div class="fx" style="justify-content:space-between;margin-bottom:3px"><span style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:10px;color:var(--lx-tx);text-transform:uppercase;letter-spacing:.05em">Capital</span><span style="font-family:'Bebas Neue',serif;font-size:14px;color:var(--lx-tx)">$7,000</span></div>
+<div style="height:14px;background:rgba(0,0,0,.03);border-radius:3px;overflow:hidden;display:flex">
+<div style="width:85%;background:var(--lx-yellow)"></div>
+</div>
+<div class="fx" style="justify-content:space-between;margin-top:2px"><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-orange)">■ SPENT 85%</span><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.45)">□ AVAILABLE 15%</span></div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Budget Envelope / Compartmentalized Budget View</div>
+<div class="pl-entry-meta">Best for → NDIS plan budget management · Three-state financial tracking</div>
+<div class="pl-entry-desc">The single most important widget in an NDIS CRM. Shows committed (booked but unspent), spent (claimed), and available (remaining) simultaneously across all NDIS budget categories. Three-state stacked bars: pink/cyan/yellow = spent, orange = committed, transparent = available. Each row shows total allocation, absolute dollar amounts, and percentage breakdown. Fundamentally different from a simple progress bar because it encodes three financial states, not two. Also covers plan period countdown banner, utilization speedometer, projected exhaustion date indicator, and over/under utilization alert card.</div>
+<div class="pl-style-card"><div class="pl-style-label">Critical CRM Design Notes</div><div class="pl-style-text">Three-state bar: spent (solid neon) + committed (orange at 60–70%) + available (track) · 14px bar height for text embedding · JetBrains Mono 6px inline labels · Category-specific colours: pink = Core, cyan = CB, yellow = Capital · Total $ right-aligned in Bebas Neue · Pacing indicator compares budget % vs plan elapsed %</div></div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">NDIS Plan View</span><span class="lx-chip cy">Plan Manager Portal</span><span class="lx-chip yw">Budget Alerts</span></div>
+</div></div>
+
+<!-- Pacing / Forecast -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="130" viewBox="0 0 240 130">
+<line x1="25" y1="120" x2="230" y2="120" class="mini-axis"/>
+<line x1="25" y1="10" x2="25" y2="120" class="mini-axis"/>
+<text x="27" y="18" class="mini-label" style="fill:var(--lx-pink)">$48K</text>
+<text x="220" y="118" class="mini-label">PLAN END</text>
+<!-- Ideal pacing line -->
+<line x1="25" y1="115" x2="230" y2="15" stroke="rgba(0,0,0,.08)" stroke-width="1.5" stroke-dasharray="4"/>
+<text x="210" y="10" class="mini-label" style="fill:rgba(0,0,0,.12)">IDEAL</text>
+<!-- Actual spend curve -->
+<polyline points="25,115 55,108 85,95 115,78 145,62 160,52" fill="none" stroke="var(--lx-pink)" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="160" cy="52" r="4" fill="var(--lx-pink)"/>
+<!-- Projected trajectory -->
+<polyline points="160,52 185,38 210,22 230,10" fill="none" stroke="var(--lx-pink)" stroke-width="1.5" stroke-dasharray="4" opacity=".5"/>
+<!-- Today marker -->
+<line x1="160" y1="10" x2="160" y2="120" stroke="var(--lx-cyan)" stroke-width="1" stroke-dasharray="2"/>
+<text x="162" y="125" class="mini-label" style="fill:var(--lx-cyan)">TODAY</text>
+<!-- Overspend zone -->
+<rect x="160" y="10" width="70" height="42" fill="rgba(255,45,125,.04)" rx="2"/>
+<text x="195" y="20" text-anchor="middle" class="mini-label" style="fill:var(--lx-pink);font-size:6px">PROJECTED OVERRUN</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Spend Pacing / Budget Forecast Projection</div>
+<div class="pl-entry-meta">Best for → Budget trajectory · Early warning · Spend rate analysis</div>
+<div class="pl-entry-desc">Time-series comparing actual spend curve against ideal linear pacing with projected trajectory. Pink solid for actuals, dashed pink for projection, dashed white for ideal pace, cyan today marker. Pink-tinted zone flags projected overrun. Covers budget forecast projection, spend-vs-time pacing chart, plan period elapsed vs budget consumed dual gauge, and projected exhaustion date indicator.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">Plan Reviews</span><span class="lx-chip cy">Early Warning</span><span class="lx-chip or">Financial Reporting</span></div>
+</div></div>
+
+<!-- Claim Reconciliation -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<div style="width:100%">
+<div class="lx-eye" style="color:var(--lx-pink);margin-bottom:8px">CLAIM RECONCILIATION</div>
+<table style="width:100%;border-collapse:separate;border-spacing:0;font-size:9px;color:var(--lx-tx)">
+<tr><th style="padding:4px 6px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.12em;color:var(--lx-pink);border-bottom:1px solid rgba(0,0,0,.06);text-align:left">SERVICE</th><th style="padding:4px 6px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.12em;color:var(--lx-pink);border-bottom:1px solid rgba(0,0,0,.06);text-align:right">BOOKED</th><th style="padding:4px 6px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.12em;color:var(--lx-pink);border-bottom:1px solid rgba(0,0,0,.06);text-align:right">CLAIMED</th><th style="padding:4px 6px;font-family:'JetBrains Mono',monospace;font-size:6px;letter-spacing:.12em;color:var(--lx-pink);border-bottom:1px solid rgba(0,0,0,.06);text-align:right">Δ</th></tr>
+<tr><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04)">ADL</td><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04);text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px">$2,400</td><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04);text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px">$2,280</td><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04);text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-cyan)">-$120</td></tr>
+<tr><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04)">SC L2</td><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04);text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px">$1,200</td><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04);text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px">$1,350</td><td style="padding:4px 6px;border-bottom:1px solid rgba(0,0,0,.04);text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px;color:var(--lx-pink)">+$150</td></tr>
+<tr><td style="padding:4px 6px">OT</td><td style="padding:4px 6px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px">$800</td><td style="padding:4px 6px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px">$800</td><td style="padding:4px 6px;text-align:right;font-family:'JetBrains Mono',monospace;font-size:8px;color:rgba(13,13,13,.5)">$0</td></tr>
+</table>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Claim Reconciliation / Invoice Matching</div>
+<div class="pl-entry-meta">Best for → Financial accuracy · Provider payment tracking · Variance detection</div>
+<div class="pl-entry-desc">Table matching service bookings against actual claims with delta highlighting. Cyan for underclaim, pink for overclaim, dimmed for exact match. Also covers invoice/billing summary, category budget donut cluster, committed/spent/available stacked bar, and budget reallocation Sankey flow.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">Plan Management</span><span class="lx-chip cy">Audit Prep</span><span class="lx-chip yw">Provider Billing</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 27 — SERVICE & PROVIDER OPERATIONS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="SERVICE">
+<svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+<div class="pl-group-num">Group 27 · Suite 5</div>
+<div class="pl-group-title">Service & Provider<br>Operations</div>
+<div class="pl-group-desc">Service agreements, provider management, roster scheduling, and referral tracking patterns.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-subcat"><div class="pl-subcat-title">Service & Provider Patterns</div><div class="pl-subcat-list">Service period overlap timeline · provider availability / matching grid · roster / shift visual · service booking calendar · referral tracker pipeline · service agreement status board · provider comparison scorecard · travel / coverage radius map · support worker assignment matrix · service gap analysis chart · provider performance radar · appointment conflict detector</div></div>
+<div class="pl-viz-grid">
+
+<!-- Service Period Overlap Timeline -->
+<div class="pl-entry" style="grid-column:1/-1">
+<div class="pl-entry-viz" style="min-height:140px">
+<svg width="100%" height="130" viewBox="0 0 320 130">
+<text x="75" y="10" class="mini-label" style="fill:var(--lx-yellow)">APR</text><text x="125" y="10" class="mini-label" style="fill:var(--lx-yellow)">JUL</text><text x="175" y="10" class="mini-label" style="fill:var(--lx-yellow)">OCT</text><text x="225" y="10" class="mini-label" style="fill:var(--lx-yellow)">JAN</text><text x="275" y="10" class="mini-label" style="fill:var(--lx-yellow)">MAR</text>
+<line x1="70" y1="14" x2="70" y2="120" stroke="rgba(0,0,0,.04)"/><line x1="120" y1="14" x2="120" y2="120" stroke="rgba(0,0,0,.04)"/><line x1="170" y1="14" x2="170" y2="120" stroke="rgba(0,0,0,.04)"/><line x1="220" y1="14" x2="220" y2="120" stroke="rgba(0,0,0,.04)"/><line x1="270" y1="14" x2="270" y2="120" stroke="rgba(0,0,0,.04)"/>
+<!-- Plan period -->
+<rect x="60" y="18" width="240" height="10" fill="rgba(204,255,0,.1)" stroke="var(--lx-orange)" stroke-width="1" rx="2" stroke-dasharray="3"/>
+<text x="5" y="26" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-orange);text-transform:uppercase;letter-spacing:.06em">PLAN</text>
+<!-- Service rows -->
+<text x="5" y="46" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">IDS ADL</text>
+<rect x="60" y="36" width="200" height="14" fill="var(--lx-pink)" rx="3" opacity=".8"/>
+<!-- Overlap zone -->
+<rect x="200" y="36" width="60" height="14" fill="var(--lx-pink)" rx="0 3 3 0" opacity=".5"/>
+<text x="5" y="66" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">OT</text>
+<rect x="80" y="56" width="100" height="14" fill="var(--lx-cyan)" rx="3" opacity=".8"/>
+<text x="5" y="86" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">PSYCH</text>
+<rect x="140" y="76" width="80" height="14" fill="var(--lx-purple)" rx="3" opacity=".8"/>
+<text x="5" y="106" style="font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:7px;fill:var(--lx-tx);text-transform:uppercase;letter-spacing:.06em">SC L2</text>
+<rect x="60" y="96" width="240" height="14" fill="var(--lx-orange)" rx="3" opacity=".7"/>
+<!-- SA expiry markers -->
+<rect x="258" y="34" width="4" height="18" fill="var(--lx-yellow)" rx="1"/>
+<text x="265" y="46" class="mini-label" style="fill:var(--lx-orange);font-size:5px">SA EXPIRY</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Service Period Overlap Timeline</div>
+<div class="pl-entry-meta">Best for → Concurrent service tracking · Agreement periods · Gap detection</div>
+<div class="pl-entry-desc">Horizontal multi-row timeline showing concurrent service agreements stacked per participant with plan period overlay. Different from Gantt because it shows overlap/conflict rather than dependency. Yellow dashed outline = plan period, coloured bars = active service agreements, yellow markers = SA expiry dates. Reveals service gaps (empty zones) and overlaps (where bars extend beyond plan). Also covers service agreement status board, appointment conflict detector, and service gap analysis chart.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">SC Case View</span><span class="lx-chip cy">Plan Reviews</span><span class="lx-chip or">SA Management</span></div>
+</div></div>
+
+<!-- Referral Pipeline -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<div style="width:100%">
+<div class="lx-eye" style="color:var(--lx-pink);margin-bottom:8px">REFERRAL PIPELINE</div>
+<div style="display:flex;gap:3px">
+<div style="flex:1;text-align:center">
+<div style="height:8px;background:var(--lx-pink);border-radius:3px 0 0 3px;margin-bottom:4px"></div>
+<div style="font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-tx)">5</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5);letter-spacing:.08em">SENT</div>
+</div>
+<div style="flex:1;text-align:center">
+<div style="height:8px;background:var(--lx-orange);margin-bottom:4px"></div>
+<div style="font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-tx)">3</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5);letter-spacing:.08em">PENDING</div>
+</div>
+<div style="flex:1;text-align:center">
+<div style="height:8px;background:var(--lx-cyan);margin-bottom:4px"></div>
+<div style="font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-tx)">2</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5);letter-spacing:.08em">ACCEPTED</div>
+</div>
+<div style="flex:1;text-align:center">
+<div style="height:8px;background:var(--lx-yellow);border-radius:0 3px 3px 0;margin-bottom:4px"></div>
+<div style="font-family:'Bebas Neue',serif;font-size:18px;color:var(--lx-tx)">1</div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:5px;color:rgba(13,13,13,.5);letter-spacing:.08em">ACTIVE</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Referral Pipeline / Approval Workflow Tracker</div>
+<div class="pl-entry-meta">Best for → Referral status tracking · Provider onboarding · Workflow stages</div>
+<div class="pl-entry-desc">Horizontal staged pipeline with count at each stage, using a connected colour bar strip. Different from a funnel because items move horizontally through stages and can move backwards. Also covers document lifecycle pipeline (Draft → Review → Approved → Sent → Signed), approval workflow tracker, provider comparison scorecard, and provider performance radar.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">Provider Referrals</span><span class="lx-chip cy">Document Tracking</span><span class="lx-chip or">Onboarding</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 28 — COMPLIANCE, RISK & DOCUMENTATION
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="COMPLY">
+<svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+<div class="pl-group-num">Group 28 · Suite 5</div>
+<div class="pl-group-title">Compliance, Risk<br>& Documentation</div>
+<div class="pl-group-desc">NDIS Commission compliance, risk register tracking, incident management, and document lifecycle patterns.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-subcat"><div class="pl-subcat-title">Compliance & Risk Patterns</div><div class="pl-subcat-list">Compliance matrix with RAG status · incident/risk trend sparkline grid · risk register dashboard · document lifecycle pipeline · consent form tracker · audit readiness scorecard · NDIS Commission matter tracker · incident severity timeline · overdue action alert stack · practice standards compliance checklist · conflict of interest register · safeguarding alert panel</div></div>
+<div class="pl-viz-grid">
+
+<!-- Compliance RAG Matrix -->
+<div class="pl-entry" style="grid-column:1/-1">
+<div class="pl-entry-viz" style="min-height:150px">
+<div style="width:100%">
+<div class="lx-eye" style="color:var(--lx-pink);margin-bottom:8px">COMPLIANCE MATRIX — PARTICIPANT × ITEM</div>
+<table style="width:100%;border-collapse:separate;border-spacing:3px;font-size:8px">
+<tr><th style="padding:3px 6px;font-family:'JetBrains Mono',monospace;font-size:6px;color:rgba(13,13,13,.5);text-align:left"></th><th style="padding:3px 4px;font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-pink);letter-spacing:.08em;text-align:center">SA</th><th style="padding:3px 4px;font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-pink);letter-spacing:.08em;text-align:center">CONSENT</th><th style="padding:3px 4px;font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-pink);letter-spacing:.08em;text-align:center">REVIEW</th><th style="padding:3px 4px;font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-pink);letter-spacing:.08em;text-align:center">INCIDENT</th><th style="padding:3px 4px;font-family:'JetBrains Mono',monospace;font-size:5px;color:var(--lx-pink);letter-spacing:.08em;text-align:center">REPORT</th></tr>
+<tr><td style="padding:3px 6px;color:var(--lx-tx);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;text-transform:uppercase;letter-spacing:.04em">Kane C</td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-orange);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-pink);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-orange);margin:0 auto"></div></td></tr>
+<tr><td style="padding:3px 6px;color:var(--lx-tx);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;text-transform:uppercase;letter-spacing:.04em">Jema C</td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td></tr>
+<tr><td style="padding:3px 6px;color:var(--lx-tx);font-family:'Barlow Condensed',sans-serif;font-weight:900;font-size:8px;text-transform:uppercase;letter-spacing:.04em">Leonard P</td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-orange);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-pink);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-cyan);margin:0 auto"></div></td><td style="text-align:center"><div style="width:16px;height:16px;border-radius:4px;background:var(--lx-pink);margin:0 auto"></div></td></tr>
+</table>
+<div class="fx g3" style="margin-top:8px;justify-content:center"><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-cyan)">■ CURRENT</span><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-orange)">■ DUE SOON</span><span style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-pink)">■ OVERDUE</span></div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Compliance RAG Matrix / Audit Readiness Scorecard</div>
+<div class="pl-entry-meta">Best for → Caseload compliance overview · Audit preparation · Gap identification</div>
+<div class="pl-entry-desc">Participant × compliance item grid where each cell is a coloured square: cyan = current, orange = due soon, pink = overdue/missing. Different from a generic risk matrix because axes are entity-based (participants × compliance items), not variable-based. At a glance across your caseload, you see exactly what's overdue. Also covers consent form tracker, practice standards compliance checklist, NDIS Commission matter tracker, conflict of interest register, safeguarding alert panel, and audit readiness scorecard. The incident/risk trend sparkline grid variant embeds mini sparklines into each cell showing trend direction.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">NDIS Compliance</span><span class="lx-chip cy">Audit Prep</span><span class="lx-chip or">Risk Management</span></div>
+</div></div>
+
+<!-- Deadline Countdown -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<div style="width:100%">
+<div class="lx-eye" style="color:var(--lx-pink);margin-bottom:8px">UPCOMING DEADLINES</div>
+<div style="margin-bottom:6px;display:flex;align-items:center;gap:8px">
+<div style="width:32px;height:32px;border-radius:8px;background:var(--lx-pink);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:16px;color:white;flex-shrink:0">2</div>
+<div style="flex:1"><div style="font-size:10px;color:var(--lx-tx)">Kane — Plan Review Due</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-pink)">2 DAYS · APR 07</div></div>
+</div>
+<div style="margin-bottom:6px;display:flex;align-items:center;gap:8px">
+<div style="width:32px;height:32px;border-radius:8px;background:var(--lx-orange);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:16px;color:white;flex-shrink:0">8</div>
+<div style="flex:1"><div style="font-size:10px;color:var(--lx-tx)">Leonard — SA Renewal</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:var(--lx-orange)">8 DAYS · APR 13</div></div>
+</div>
+<div style="display:flex;align-items:center;gap:8px">
+<div style="width:32px;height:32px;border-radius:8px;background:rgba(0,0,0,.04);display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',serif;font-size:16px;color:rgba(13,13,13,.4);flex-shrink:0">21</div>
+<div style="flex:1"><div style="font-size:10px;color:rgba(13,13,13,.5)">Jema — Progress Report</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;color:rgba(13,13,13,.5)">21 DAYS · APR 26</div></div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Deadline Countdown / Urgency Stack</div>
+<div class="pl-entry-meta">Best for → Action prioritization · Time-critical task management</div>
+<div class="pl-entry-desc">Priority-sorted list with countdown day badges colour-coded by urgency zone — pink = critical (0–3 days), orange = soon (4–14 days), dim = upcoming (15+ days). Bebas Neue day count in coloured squares. Different from a calendar because it's action-oriented, not date-oriented. Also covers overdue action alert stack, risk register dashboard, and incident severity timeline.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">SC Daily View</span><span class="lx-chip or">Task Management</span><span class="lx-chip cy">Compliance Tracking</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 29 — GOALS, OUTCOMES & ASSESSMENTS
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="GOALS">
+<svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+<div class="pl-group-num">Group 29 · Suite 5</div>
+<div class="pl-group-title">Goals, Outcomes<br>& Assessments</div>
+<div class="pl-group-desc">NDIS goal tracking, clinical assessment visualization, outcome measurement, and evidence collection patterns.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-subcat"><div class="pl-subcat-title">Goals & Assessment Patterns</div><div class="pl-subcat-list">Goal progress staircase · assessment delta overlay radar · outcome evidence board · WHODAS domain comparison · I-CAN functional profile · LSP-16 score tracker · goal milestone timeline · capacity building progress matrix · before/after functional snapshot · participant outcome scorecard · evidence attachment gallery · goal-to-support linkage map</div></div>
+<div class="pl-viz-grid">
+
+<!-- Goal Staircase -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="130" viewBox="0 0 240 130">
+<!-- Staircase steps -->
+<rect x="10" y="105" width="45" height="20" fill="var(--lx-pink)" rx="3"/>
+<text x="32" y="118" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:white;letter-spacing:.06em">REFERRAL</text>
+<rect x="60" y="85" width="45" height="20" fill="var(--lx-pink)" rx="3"/>
+<text x="82" y="98" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:white;letter-spacing:.06em">ENGAGED</text>
+<rect x="110" y="65" width="45" height="20" fill="var(--lx-cyan)" rx="3"/>
+<text x="132" y="78" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-black);letter-spacing:.06em">TRIALLED</text>
+<rect x="160" y="45" width="45" height="20" fill="rgba(0,0,0,.08)" stroke="var(--lx-orange)" stroke-width="1.5" stroke-dasharray="3" rx="3"/>
+<text x="182" y="58" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:6px;fill:var(--lx-orange);letter-spacing:.06em">SUSTAINED</text>
+<rect x="210" y="25" width="25" height="20" fill="rgba(0,0,0,.04)" stroke="rgba(0,0,0,.08)" stroke-width="1" rx="3"/>
+<text x="222" y="38" text-anchor="middle" style="font-family:'JetBrains Mono',monospace;font-size:5px;fill:rgba(13,13,13,.2);letter-spacing:.06em">INDEP</text>
+<!-- Current position marker -->
+<circle cx="132" cy="60" r="5" fill="var(--lx-yellow)" stroke="var(--lx-cream)" stroke-width="2"/>
+<text x="132" y="54" text-anchor="middle" class="mini-label" style="fill:var(--lx-orange);font-size:6px">CURRENT</text>
+<!-- Connectors -->
+<line x1="55" y1="110" x2="60" y2="95" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+<line x1="105" y1="90" x2="110" y2="75" stroke="rgba(0,0,0,.1)" stroke-width="1"/>
+<line x1="155" y1="70" x2="160" y2="55" stroke="rgba(0,0,0,.06)" stroke-width="1"/>
+<line x1="205" y1="50" x2="210" y2="35" stroke="rgba(0,0,0,.04)" stroke-width="1"/>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Goal Progress Staircase / Milestone Tracker</div>
+<div class="pl-entry-meta">Best for → NDIS goal achievement · Discrete milestone tracking · Non-linear progress</div>
+<div class="pl-entry-desc">Ascending steps representing discrete milestones toward a goal. Filled steps = achieved, outlined dashed = next target, dimmed = future. Yellow marker shows current position. Different from a progress bar because goals aren't linear percentages — they're qualitative milestones with evidence. Also covers goal milestone timeline, capacity building progress matrix, and goal-to-support linkage map.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">NDIS Goals</span><span class="lx-chip cy">Therapy Outcomes</span><span class="lx-chip yw">Skill Building</span></div>
+</div></div>
+
+<!-- Assessment Delta Overlay -->
+<div class="pl-entry">
+<div class="pl-entry-viz">
+<svg width="100%" height="140" viewBox="0 0 200 140">
+<g transform="translate(100,72)">
+<!-- Grid -->
+<polygon points="0,-55 52,-17 32,45 -32,45 -52,-17" fill="none" stroke="rgba(0,0,0,.06)"/>
+<polygon points="0,-35 33,-11 20,28 -20,28 -33,-11" fill="none" stroke="rgba(0,0,0,.04)"/>
+<line x1="0" y1="0" x2="0" y2="-55" stroke="rgba(0,0,0,.04)"/>
+<line x1="0" y1="0" x2="52" y2="-17" stroke="rgba(0,0,0,.04)"/>
+<line x1="0" y1="0" x2="32" y2="45" stroke="rgba(0,0,0,.04)"/>
+<line x1="0" y1="0" x2="-32" y2="45" stroke="rgba(0,0,0,.04)"/>
+<line x1="0" y1="0" x2="-52" y2="-17" stroke="rgba(0,0,0,.04)"/>
+<!-- Labels -->
+<text x="0" y="-60" text-anchor="middle" class="mini-label" style="fill:var(--lx-tx)">COGNITION</text>
+<text x="58" y="-14" class="mini-label" style="fill:var(--lx-tx)">MOBILITY</text>
+<text x="38" y="52" class="mini-label" style="fill:var(--lx-tx)">SELF-CARE</text>
+<text x="-38" y="52" class="mini-label" style="fill:var(--lx-tx)">SOCIAL</text>
+<text x="-58" y="-14" class="mini-label" style="fill:var(--lx-tx)">LIFE ACT</text>
+<!-- Baseline (dashed, lower) -->
+<polygon points="0,-25 28,-8 17,22 -17,22 -28,-8" fill="rgba(255,45,125,.08)" stroke="var(--lx-pink)" stroke-width="1.5" stroke-dasharray="3"/>
+<!-- Current (solid, improved) -->
+<polygon points="0,-42 42,-14 26,38 -26,38 -42,-14" fill="rgba(0,212,255,.1)" stroke="var(--lx-cyan)" stroke-width="2"/>
+<!-- Improvement zone shading -->
+</g>
+<text x="5" y="136" class="mini-label" style="fill:var(--lx-pink)">--- BASELINE (APR 2025)</text>
+<text x="120" y="136" class="mini-label" style="fill:var(--lx-cyan)">— CURRENT (MAR 2026)</text>
+</svg>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Assessment Delta Overlay / Before-After Radar</div>
+<div class="pl-entry-meta">Best for → WHODAS comparison · I-CAN progress · Clinical outcome tracking</div>
+<div class="pl-entry-desc">Two radar/spider charts overlaid showing assessment scores at two time points. Pink dashed = baseline, cyan solid = current. The visible expansion between polygons shows improvement areas. Critical for demonstrating outcomes to the NDIA. Also covers WHODAS domain comparison, I-CAN functional profile, LSP-16 score tracker, before/after functional snapshot, and participant outcome scorecard.</div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">WHODAS 2.0</span><span class="lx-chip cy">I-CAN V6</span><span class="lx-chip pu">LSP-16</span><span class="lx-chip yw">Plan Reviews</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════════════════════════════════════════════════
+     GROUP 30 — COMMUNICATION & ACTIVITY
+     ═══════════════════════════════════════════════════════════ -->
+<div class="pl-group-header lx-rev" data-mirror="COMMS">
+<svg class="pl-infinity" width="120" height="60" viewBox="0 0 120 60"><path d="M30,30 C30,15 15,15 15,30 C15,45 30,45 30,30 C30,15 45,0 60,0 C75,0 90,15 90,30 C90,45 75,45 60,45 C45,45 30,45 30,30 Z" fill="none" stroke="white" stroke-width="3"/></svg>
+<div class="pl-group-num">Group 30 · Suite 5</div>
+<div class="pl-group-title">Communication<br>& Activity</div>
+<div class="pl-group-desc">Case notes, interaction logs, communication threads, and activity tracking patterns for support coordination workflows.</div>
+</div>
+<div class="pl-group-body lx-rev">
+<div class="pl-subcat"><div class="pl-subcat-title">Communication & Activity Patterns</div><div class="pl-subcat-list">Communication thread timeline · case notes interaction log · billable time tracker · participant interaction heatmap · communication type breakdown · multi-channel unified inbox · case note template selector · interaction duration bar chart · follow-up reminder stack · SC activity summary dashboard · participant engagement score · handover briefing card</div></div>
+<div class="pl-viz-grid">
+
+<!-- Communication Thread Timeline -->
+<div class="pl-entry" style="grid-column:1/-1">
+<div class="pl-entry-viz" style="min-height:160px">
+<div style="width:100%">
+<div class="lx-eye" style="color:var(--lx-pink);margin-bottom:10px">COMMUNICATION TIMELINE — KANE CAMERON</div>
+<!-- Timeline line -->
+<div style="position:relative;padding-left:24px;border-left:2px solid rgba(0,0,0,.06)">
+<!-- Entry 1 -->
+<div style="margin-bottom:12px;position:relative">
+<div style="position:absolute;left:-29px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--lx-pink);display:flex;align-items:center;justify-content:center"><svg width="6" height="6" viewBox="0 0 12 12"><path d="M2,3 L10,3 L10,9 L2,9 Z M2,3 L6,6 L10,3" fill="none" stroke="white" stroke-width="1.5"/></svg></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-pink);letter-spacing:.1em;margin-bottom:2px">EMAIL SENT · 04 APR · 14:30 · 0.5H BILLABLE</div>
+<div style="font-size:10px;color:var(--lx-tx)">Plan review follow-up to NDIA planner</div>
+</div>
+<!-- Entry 2 -->
+<div style="margin-bottom:12px;position:relative">
+<div style="position:absolute;left:-29px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--lx-cyan);display:flex;align-items:center;justify-content:center"><svg width="6" height="6" viewBox="0 0 12 12"><path d="M1,4 Q1,1 4,1 L8,1 Q11,1 11,4 L11,8 Q11,11 8,11 L4,11 Q1,11 1,8 Z" fill="none" stroke="white" stroke-width="1.5"/></svg></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-cyan);letter-spacing:.1em;margin-bottom:2px">PHONE CALL RECEIVED · 03 APR · 10:15 · 0.25H</div>
+<div style="font-size:10px;color:rgba(13,13,13,.6)">Mum called re: transport concerns</div>
+</div>
+<!-- Entry 3 -->
+<div style="margin-bottom:12px;position:relative">
+<div style="position:absolute;left:-29px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--lx-yellow);display:flex;align-items:center;justify-content:center"><svg width="6" height="6" viewBox="0 0 12 12"><rect x="2" y="2" width="8" height="8" rx="1" fill="none" stroke="#0D0D0D" stroke-width="1.5"/></svg></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-orange);letter-spacing:.1em;margin-bottom:2px">CASE NOTE · 01 APR · 16:00 · 1.0H BILLABLE</div>
+<div style="font-size:10px;color:rgba(13,13,13,.5)">SC meeting — plan implementation review</div>
+</div>
+<!-- Entry 4 -->
+<div style="position:relative">
+<div style="position:absolute;left:-29px;top:2px;width:12px;height:12px;border-radius:50%;background:var(--lx-purple);display:flex;align-items:center;justify-content:center"><svg width="6" height="6" viewBox="0 0 12 12"><circle cx="6" cy="6" r="4" fill="none" stroke="white" stroke-width="1.5"/></svg></div>
+<div style="font-family:'JetBrains Mono',monospace;font-size:6px;color:var(--lx-purple);letter-spacing:.1em;margin-bottom:2px">MEETING · 28 MAR · 11:00 · 1.5H BILLABLE</div>
+<div style="font-size:10px;color:rgba(13,13,13,.4)">Team meeting with OT and psychologist</div>
+</div>
+</div>
+</div>
+</div>
+<div class="pl-entry-body">
+<div class="pl-entry-name">Communication Thread Timeline / Case Notes Log</div>
+<div class="pl-entry-meta">Best for → Participant interaction history · Audit trail · Billable time tracking</div>
+<div class="pl-entry-desc">Unified chronological stream of all communications with type-coded icons, timestamps, billable hours, and expandable content. Pink = email, cyan = phone, yellow = case note, purple = meeting. The vertical timeline line with dot markers creates a visual thread. Different from an activity feed because it's bidirectional (sent/received), includes billable time, and is auditable. Also covers billable time tracker, multi-channel unified inbox, case note template selector, interaction duration bar chart, follow-up reminder stack, SC activity summary dashboard, participant engagement score, participant interaction heatmap, communication type breakdown, and handover briefing card.</div>
+<div class="pl-style-card"><div class="pl-style-label">CRM-Specific Design Notes</div><div class="pl-style-text">Vertical 2px timeline border-left · 12px coloured dot markers with embedded SVG type icons · JetBrains Mono 6px type/date/billable labels · Progressive opacity for older entries · Billable hours tagged inline · Expandable content on click · Filterable by type</div></div>
+<div class="pl-use-cases" style="margin-top:8px"><span class="lx-chip pk">Case Management</span><span class="lx-chip cy">Audit Trail</span><span class="lx-chip yw">Time Billing</span><span class="lx-chip pu">Team Handover</span></div>
+</div></div>
+</div></div>
+
+
+<!-- ═══════════════ FINAL FOOTER ═══════════════ -->
+<div style="background:var(--lx-black);margin:0 10px;border-radius:var(--r-xl);padding:40px 28px;position:relative;overflow:hidden">
+<div style="font-family:'Bebas Neue',serif;font-size:120px;color:rgba(255,255,255,.02);position:absolute;right:20px;bottom:-24px;user-select:none;pointer-events:none">∞</div>
+<div class="lx-eye" style="color:var(--lx-pink);margin-bottom:8px">SUPPLEMENTARY SUITE COMPLETE · 6 CRM GROUPS · 30 TOTAL GROUPS</div>
+<div style="font-family:'Bebas Neue',serif;font-size:clamp(28px,5vw,48px);color:var(--lx-offwhite);line-height:.95;margin-bottom:16px">FULL PATTERN LIBRARY<br>NOW COMPLETE</div>
+<div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px">
+<span class="lx-chip spk">Suite 1 ✓</span><span class="lx-chip spk">Suite 2 ✓</span><span class="lx-chip spk">Suite 3 ✓</span><span class="lx-chip spk">Suite 4 ✓</span><span class="lx-chip scy">Suite 5 ✓ CRM & SC</span>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px;margin-bottom:20px">
+<div style="border-left:3px solid var(--lx-pink);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-pink)">30</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">TOTAL GROUPS</div></div>
+<div style="border-left:3px solid var(--lx-cyan);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-cyan)">260+</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">TOTAL PATTERNS</div></div>
+<div style="border-left:3px solid var(--lx-yellow);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-yellow)">60+</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">CRM-SPECIFIC</div></div>
+<div style="border-left:3px solid var(--lx-orange);padding-left:10px"><div style="font-family:'Bebas Neue',serif;font-size:28px;color:var(--lx-orange)">5</div><div style="font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:rgba(245,240,232,.5)">SUITES</div></div>
+</div>
+<div style="font-size:11px;color:rgba(245,240,232,.4);line-height:1.5;max-width:540px">Suite 5 adds the CRM, plan management, and support coordination patterns that don't exist in generic chart libraries but are the most-used components in production NDIS systems. Every pattern is purpose-built for LIMITLESS Support Co. operational workflows and can be rendered as standalone widgets or integrated into the LIMITLESS CRM platform.</div>
+<div class="lx-stripe" style="margin:24px -28px -40px;border-radius:0 0 var(--r-xl) var(--r-xl)"></div>
+</div>
+<div style="text-align:center;padding:20px;font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--lx-txl)">LIMITLESS SUPPORT CO. · 2026 UI VISUAL DATA PATTERN LIBRARY · SUITE 5 OF 5 · CRM & SC SUPPLEMENT · ABN 76 985 845 524</div>
+
+<style>@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+@media(max-width:540px){
+  [style*="grid-column"]{grid-column:1/-1!important}
+  .pl-viz-grid{grid-template-columns:1fr!important}
+}
+</style>
+<script>const io=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add('vis'),io.unobserve(e.target))})},{threshold:.08});document.querySelectorAll('.lx-rev').forEach(el=>io.observe(el));</script>
+</body>
+</html>
